@@ -1,0 +1,81 @@
+using Assets.Scripts.Entity;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.EventSystems;
+
+public class PlayerController : EntityController
+{
+
+    public Camera cam;
+    public Character character;
+    public IInteractable selectedObject; 
+
+    protected override void Start()
+    {
+        base.Start();
+        character = GetComponent<Character>();
+    }
+
+    // Update is called once per frame
+    override protected void Update()
+    {
+        base.Update();
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!(EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject?.tag == "UI"))
+            {
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
+                {
+                    var targetPoint = hit.point;
+                    character.Move(targetPoint);
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            character.SkipTurn();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            icontroller.HideActionPanel();
+            selectedObject = null;
+        }
+
+
+    }
+
+    public bool PlayerCanMove
+    {
+        get 
+        { 
+            return character.isActive && character.isMyTurn && !character.isActing; 
+        }
+    }
+
+    public bool PlayerCanReach(Vector3 targetPoint)
+    {
+        NavMeshPath path = new NavMeshPath();
+        return CalculateCompletePath(targetPoint, path) && PathReachable(path);
+    }
+
+    public void SelectObject(IInteractable obj)
+    {
+        if (obj.getType() == InteractableType.Undefined)
+            return;
+        if (!character.isActing)
+        {
+            selectedObject = obj;
+            gameObject.transform.LookAt(obj.GetPosition());
+            icontroller.ShowActionPanelForObject(obj);
+        }
+
+    }
+
+}
