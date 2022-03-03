@@ -27,6 +27,7 @@ public class InterfaceController : MonoBehaviour
     void Start()
     {
         inventoryPanel.SetActive(false);
+        actionPanel.SetActive(false);
 
     }
 
