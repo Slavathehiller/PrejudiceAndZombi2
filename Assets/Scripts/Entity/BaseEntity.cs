@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Assets.Scripts.Weapon;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+
 
 namespace Assets.Scripts.Entity
 {
@@ -30,17 +32,11 @@ namespace Assets.Scripts.Entity
         [NonSerialized]
         public CapsuleCollider Collider;
 
-     //   [NonSerialized] 
         public bool isActive = true;
-   //     [NonSerialized]
         public bool isActing = false;
-        //     [NonSerialized]
         public bool isMyTurn = false;
-        //   [NonSerialized]
         public float currentActionPoint;
-        [NonSerialized]
         public float currentHitpoint;
-        [NonSerialized]
         public string Name = "";
         public Sprite portrait;
         [HideInInspector]
@@ -135,6 +131,31 @@ namespace Assets.Scripts.Entity
 
                 return result;
             }
+        }
+
+        [SerializeField]
+        private BaseWeapon rightHandWeapon;
+        public BaseWeapon RightHandWeapon
+        {
+            get { return rightHandWeapon; }
+            set
+            {
+                rightHandWeapon = value;
+                SetRightHandWeapon(value is null? null: value.gameObject);                
+            }
+        }
+
+
+        public void DropRightItem()
+        {
+            RightHandWeapon = null;
+        }
+
+        public abstract void SetRightHandWeapon(GameObject gameObject);
+
+        public void TakeToRightHand(BaseWeapon weapon)
+        {
+            RightHandWeapon = weapon;
         }
 
         public void ProceedMeleeAttack(BaseEntity enemy, MeleeAttackModifier modifier)

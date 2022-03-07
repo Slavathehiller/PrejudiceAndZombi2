@@ -20,6 +20,11 @@ public class InterfaceController : MonoBehaviour
     public GameObject[] commandButtons;
     public Text targetName;
 
+    public Image rightHandImage;
+    public Button rightHandDropButton;
+    public Button leftHandDropButton;
+
+
     public Material AccessMoveMaterial;
     public Material RestrictMoveMaterial;
 
@@ -28,7 +33,6 @@ public class InterfaceController : MonoBehaviour
     {
         inventoryPanel.SetActive(false);
         actionPanel.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -40,6 +44,9 @@ public class InterfaceController : MonoBehaviour
         Name.text = playerController.character.Name;
         Portrait.sprite = playerController.character.portrait;
         UpdateActionPanel();
+        rightHandDropButton.gameObject.SetActive(playerController.character.RightHandWeapon != null);
+        leftHandDropButton.gameObject.SetActive(false);
+
     }
 
     private void UpdateActionPanel()
@@ -50,9 +57,9 @@ public class InterfaceController : MonoBehaviour
         var commands = playerController.selectedObject.getCommands();
 
         var distanceToObject = playerController.DistanceTo(playerController.selectedObject);
-        commandButtons[(int)InteractableCommand.Punch].SetActive(commands.GetValue((int)InteractableCommand.Punch) != null && distanceToObject < 2);
-        commandButtons[(int)InteractableCommand.Kick].SetActive(commands.GetValue((int)InteractableCommand.Punch) != null && distanceToObject < 2);
-
+        commandButtons[(int)InteractableCommand.Punch].SetActive(commands.GetValue((int)InteractableCommand.Punch) != null && distanceToObject < 2 && playerController.character.RightHandWeapon == null);
+        commandButtons[(int)InteractableCommand.Kick].SetActive(commands.GetValue((int)InteractableCommand.Kick) != null && distanceToObject < 2);
+        commandButtons[(int)InteractableCommand.Stab].SetActive(commands.GetValue((int)InteractableCommand.Stab) != null && distanceToObject < 2 && playerController.character.RightHandWeapon?.type == Assets.Scripts.Weapon.WeaponType.Knife);
 
     }
 

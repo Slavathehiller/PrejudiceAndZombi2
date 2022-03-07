@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts;
 using Assets.Scripts.Entity;
+using Assets.Scripts.Weapon;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -11,12 +12,17 @@ namespace Assets.Scripts.Entity
     public class Character : BaseEntity
     {
         public PlayerController pcontroller;
+        public PrefabsController pfcontroller;
         int PunchCost = 3;
         int KickCost = 5;
         private void RefreshAll()
         {
           //  InterfaceController.SetFullInfo(this);
             
+        }
+        public override void SetRightHandWeapon(GameObject gameObject)
+        {
+            pcontroller.PlaceToRightHand(gameObject);
         }
 
         public override void StartTurn()
@@ -48,6 +54,7 @@ namespace Assets.Scripts.Entity
             Name = "Выживший";
             Type = EntityType.Human;
             Side = 0;
+            TakeToRightHand(Instantiate(pfcontroller.kitchenKnife, pcontroller.rightHandHandler.transform).GetComponent<KitchenKnife>());
             RefreshAll();
         }
 
@@ -85,6 +92,8 @@ namespace Assets.Scripts.Entity
                     yield return null;
                 }
             }
+           // pcontroller.Ancoring(true);
+          //  pcontroller.Ancoring(false);
             isActing = false;
         }
 
@@ -129,6 +138,27 @@ namespace Assets.Scripts.Entity
             isActing = false;
 
         }
+
+
+        public void Stab()
+        {
+            if (isActing || currentActionPoint < PunchCost)
+                return;
+            StartCoroutine(stab());
+        }
+
+        private IEnumerator stab()
+        {
+            isActing = true;
+            currentActionPoint -= PunchCost;
+            gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
+            pcontroller.animator.SetTrigger("Stab");
+            yield return new WaitForSeconds(0.9f);
+            ProceedMeleeAttack(pcontroller.selectedObject.GetEntity(), RightHandWeapon.MeleeAttackModifier);
+            yield return new WaitForSeconds(1.1f);
+            isActing = false;
+        }
+
 
         public void Kick()
         {

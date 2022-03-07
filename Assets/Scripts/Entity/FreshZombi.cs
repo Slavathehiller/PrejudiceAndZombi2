@@ -118,7 +118,7 @@ namespace Assets.Scripts.Entity
 
         public override InteractableCommand[] getCommands()
         {
-            return new InteractableCommand[2] { InteractableCommand.Punch, InteractableCommand.Kick };
+            return new InteractableCommand[3] { InteractableCommand.Punch, InteractableCommand.Kick, InteractableCommand.Stab };
         }
     }
 }

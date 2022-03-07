@@ -18,6 +18,11 @@ public abstract class AIEntity : BaseEntity
         Side = -1;
     }
 
+    public override void SetRightHandWeapon(GameObject gameObject)
+    {
+        econtroller.PlaceToRightHand(gameObject);
+    }
+
     // Update is called once per frame
     protected override void Update()
     {

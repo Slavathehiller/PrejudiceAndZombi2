@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EntityController : MonoBehaviour
 {
@@ -17,6 +18,30 @@ public class EntityController : MonoBehaviour
     protected LineRenderer pathDrawer;
     public ShowEntityInfo objectInfo;
     BaseEntity entity;
+    public GameObject rightHandHandler;
+
+
+
+    public void PlaceToRightHand(GameObject thing)
+    {
+        if (thing is null)
+        {
+            icontroller.rightHandImage.enabled = false;
+            var oldobject = rightHandHandler.transform.GetChild(0);
+            oldobject.SetParent(null);
+            oldobject.GetComponent<Rigidbody>().isKinematic = false;
+            animator.SetBool("HaveKnife", false);
+        }
+        else
+        {
+            animator.SetBool("HaveKnife", entity.RightHandWeapon?.type == Assets.Scripts.Weapon.WeaponType.Knife);
+            thing.transform.parent = rightHandHandler.transform;            
+            icontroller.rightHandImage.enabled = true;
+            icontroller.rightHandImage.sprite = entity.RightHandWeapon.image;
+        }
+        
+        icontroller.rightHandDropButton.gameObject.SetActive(thing != null);
+    }
 
     // Start is called before the first frame update
     protected virtual void Start()
