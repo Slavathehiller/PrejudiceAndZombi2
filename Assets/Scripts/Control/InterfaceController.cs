@@ -60,7 +60,6 @@ public class InterfaceController : MonoBehaviour
         commandButtons[(int)InteractableCommand.Punch].SetActive(commands.GetValue((int)InteractableCommand.Punch) != null && distanceToObject < 2 && playerController.character.RightHandWeapon == null);
         commandButtons[(int)InteractableCommand.Kick].SetActive(commands.GetValue((int)InteractableCommand.Kick) != null && distanceToObject < 2);
         commandButtons[(int)InteractableCommand.Stab].SetActive(commands.GetValue((int)InteractableCommand.Stab) != null && distanceToObject < 2 && playerController.character.RightHandWeapon?.type == Assets.Scripts.Weapon.WeaponType.Knife);
-
     }
 
     void OnMouseOver()
@@ -78,7 +77,6 @@ public class InterfaceController : MonoBehaviour
                 movePonter.SetPointerMaterial(AccessMoveMaterial);
             else
                 movePonter.SetPointerMaterial(RestrictMoveMaterial);
-
         }
     }
 

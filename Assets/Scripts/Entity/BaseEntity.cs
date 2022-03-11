@@ -43,7 +43,10 @@ namespace Assets.Scripts.Entity
         public EntityType Type;
         public int Side;
         public LifeController lcontroller;
-        public Vector3[] _SurroundPoints;        
+        public Vector3[] _SurroundPoints;
+
+        public abstract EntityController econtroller { get; }
+
 
         public virtual string Description
         {
@@ -141,21 +144,19 @@ namespace Assets.Scripts.Entity
             set
             {
                 rightHandWeapon = value;
-                SetRightHandWeapon(value is null? null: value.gameObject);                
+                econtroller.PlaceToRightHand(value is null? null: value.gameObject);                
             }
         }
-
-
         public void DropRightItem()
         {
             RightHandWeapon = null;
         }
 
-        public abstract void SetRightHandWeapon(GameObject gameObject);
-
-        public void TakeToRightHand(BaseWeapon weapon)
+        public void TakeToRightHand(GameObject weapon)
         {
-            RightHandWeapon = weapon;
+           var w = Instantiate(weapon, econtroller.rightHandHandler.transform);
+
+            RightHandWeapon = w.GetComponent<BaseWeapon>();
         }
 
         public void ProceedMeleeAttack(BaseEntity enemy, MeleeAttackModifier modifier)

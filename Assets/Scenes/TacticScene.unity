@@ -7777,7 +7777,7 @@ MonoBehaviour:
   lcontroller: {fileID: 1917159941}
   _SurroundPoints: []
   rightHandWeapon: {fileID: 0}
-  econtroller: {fileID: 0}
+  controller: {fileID: 0}
 --- !u!120 &1719275248
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -10186,7 +10186,7 @@ MonoBehaviour:
   lcontroller: {fileID: 1917159941}
   _SurroundPoints: []
   rightHandWeapon: {fileID: 0}
-  econtroller: {fileID: 0}
+  controller: {fileID: 0}
 --- !u!195 &1885504081
 NavMeshAgent:
   m_ObjectHideFlags: 0

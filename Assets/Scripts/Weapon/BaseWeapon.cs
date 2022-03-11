@@ -17,7 +17,9 @@ namespace Assets.Scripts.Weapon
 
         [HideInInspector]
         public MeleeAttackModifier MeleeAttackModifier = new MeleeAttackModifier();
-        public Sprite image;
+        [HideInInspector]
         public WeaponType type;
+
+        public Sprite image;
     }
 }

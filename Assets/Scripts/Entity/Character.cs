@@ -15,14 +15,10 @@ namespace Assets.Scripts.Entity
         public PrefabsController pfcontroller;
         int PunchCost = 3;
         int KickCost = 5;
-        private void RefreshAll()
+
+        public override EntityController econtroller
         {
-          //  InterfaceController.SetFullInfo(this);
-            
-        }
-        public override void SetRightHandWeapon(GameObject gameObject)
-        {
-            pcontroller.PlaceToRightHand(gameObject);
+            get { return pcontroller; }
         }
 
         public override void StartTurn()
@@ -54,8 +50,7 @@ namespace Assets.Scripts.Entity
             Name = "Выживший";
             Type = EntityType.Human;
             Side = 0;
-            TakeToRightHand(Instantiate(pfcontroller.kitchenKnife, pcontroller.rightHandHandler.transform).GetComponent<KitchenKnife>());
-            RefreshAll();
+            TakeToRightHand(pfcontroller.kitchenKnife);
         }
 
         public override void TakeAttack(AttackResult attackResult)
@@ -92,8 +87,6 @@ namespace Assets.Scripts.Entity
                     yield return null;
                 }
             }
-           // pcontroller.Ancoring(true);
-          //  pcontroller.Ancoring(false);
             isActing = false;
         }
 

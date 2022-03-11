@@ -9,18 +9,20 @@ public abstract class AIEntity : BaseEntity
 
     protected bool wantToMove = true;
 
-    public EntityController econtroller;
+    public EntityController controller;
+
+
+    public override EntityController econtroller 
+    {
+        get { return controller; } 
+    }
+
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        econtroller = GetComponent<EntityController>();
+        controller = GetComponent<EntityController>();
         Side = -1;
-    }
-
-    public override void SetRightHandWeapon(GameObject gameObject)
-    {
-        econtroller.PlaceToRightHand(gameObject);
     }
 
     // Update is called once per frame

@@ -1,2 +1,1 @@
-E:\Unity Projects\PrejudiceAndZombi2\obj\Debug\NavMeshComponentsEditor.csproj.AssemblyReference.cache
 E:\Unity Projects\PrejudiceAndZombi2\obj\Debug\NavMeshComponentsEditor.csproj.CoreCompileInputs.cache

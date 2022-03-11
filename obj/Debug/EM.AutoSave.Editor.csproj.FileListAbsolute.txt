@@ -1,11 +1,9 @@
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\EM.AutoSave.Editor.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\EM.AutoSave.Editor.pdb
-E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\log4netPlastic.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\Microsoft.CSharp.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\Microsoft.Win32.Primitives.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\mscorlib.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\netstandard.dll
-E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\Newtonsoft.Json.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\nunit.framework.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\SyntaxTree.VisualStudio.Unity.Bridge.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\System.AppContext.dll
@@ -120,8 +118,7 @@ E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\System.Xml.XmlDocument.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\System.Xml.XmlSerializer.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\System.Xml.XPath.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\System.Xml.XPath.XDocument.dll
-E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\Unity.Plastic.Antlr3.Runtime.dll
-E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\Unity.Plastic.Newtonsoft.Json.dll
+E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\Unity.Burst.Unsafe.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.CoreModule.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.Graphs.dll
@@ -134,7 +131,6 @@ E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.UIElementsModule
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.UIElementsSamplesModule.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.UIServiceModule.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.UnityConnectModule.dll
-E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.WebGL.Extensions.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.WindowsStandalone.Extensions.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEngine.AccessibilityModule.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEngine.AIModule.dll
@@ -203,7 +199,6 @@ E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEngine.VirtualTexturing
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEngine.VRModule.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEngine.WindModule.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEngine.XRModule.dll
-E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\unityplastic.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\Unity.Cecil.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\SyntaxTree.VisualStudio.Unity.Messaging.dll
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEngine.xml
@@ -280,8 +275,8 @@ E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.UIElementsModule
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.UIElementsSamplesModule.xml
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.UIServiceModule.xml
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.UnityConnectModule.xml
-E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.WebGL.Extensions.pdb
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.WindowsStandalone.Extensions.pdb
+E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\Unity.Burst.Unsafe.xml
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEditor.UI.pdb
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEngine.UI.pdb
 E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\UnityEngine.TestRunner.pdb
@@ -290,5 +285,3 @@ E:\Unity Projects\PrejudiceAndZombi2\obj\Debug\EM.AutoSave.Editor.csproj.CoreCom
 E:\Unity Projects\PrejudiceAndZombi2\obj\Debug\EM.AutoSave.Editor.csproj.CopyComplete
 E:\Unity Projects\PrejudiceAndZombi2\obj\Debug\EM.AutoSave.Editor.dll
 E:\Unity Projects\PrejudiceAndZombi2\obj\Debug\EM.AutoSave.Editor.pdb
-E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\Unity.Burst.Unsafe.dll
-E:\Unity Projects\PrejudiceAndZombi2\Temp\Bin\Debug\Unity.Burst.Unsafe.xml
