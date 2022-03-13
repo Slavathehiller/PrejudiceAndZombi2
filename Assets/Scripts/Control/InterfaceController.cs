@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class InterfaceController : MonoBehaviour
 {
 
-    public PointerController movePonter;
+    public PointerController movePointer;
     public PlayerController playerController;
     public GameObject inventoryPanel;
     public GameObject logPanel;
@@ -69,20 +69,20 @@ public class InterfaceController : MonoBehaviour
         Physics.Raycast(ray, out hit);
         var pointerPosition = hit.point;
         var movePosition = playerController.allignetPointMid(pointerPosition);
-        movePonter.SetActive(playerController.PlayerCanMove);
-        if (movePonter.activeSelf && movePonter.position != movePosition)
+        movePointer.SetActive(playerController.PlayerCanMove);
+        if (movePointer.activeSelf && movePointer.position != movePosition)
         {
-            movePonter.position = movePosition;
-            if (playerController.PlayerCanReach(movePonter.transform.position))
-                movePonter.SetPointerMaterial(AccessMoveMaterial);
+            movePointer.position = movePosition;
+            if (playerController.PlayerCanReach(movePointer.transform.position))
+                movePointer.SetPointerMaterial(AccessMoveMaterial);
             else
-                movePonter.SetPointerMaterial(RestrictMoveMaterial);
+                movePointer.SetPointerMaterial(RestrictMoveMaterial);
         }
     }
 
     void OnMouseExit()
     {
-        movePonter.SetActive(false);
+        movePointer.SetActive(false);
     }
 
     public void InventoryButtonClick()

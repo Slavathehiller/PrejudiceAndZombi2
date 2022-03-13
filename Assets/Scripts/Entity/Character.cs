@@ -50,7 +50,7 @@ namespace Assets.Scripts.Entity
             Name = "Выживший";
             Type = EntityType.Human;
             Side = 0;
-            TakeToRightHand(pfcontroller.kitchenKnife);
+           // TakeToRightHandNew(pfcontroller.kitchenKnife);
         }
 
         public override void TakeAttack(AttackResult attackResult)
@@ -146,9 +146,9 @@ namespace Assets.Scripts.Entity
             currentActionPoint -= PunchCost;
             gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
             pcontroller.animator.SetTrigger("Stab");
-            yield return new WaitForSeconds(0.9f);
+            yield return new WaitForSeconds(0.2f);
             ProceedMeleeAttack(pcontroller.selectedObject.GetEntity(), RightHandWeapon.MeleeAttackModifier);
-            yield return new WaitForSeconds(1.1f);
+            yield return new WaitForSeconds(1.84f);
             isActing = false;
         }
 

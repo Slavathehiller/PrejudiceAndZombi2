@@ -10,12 +10,14 @@ public class PlayerController : EntityController
 
     public Camera cam;
     public Character character;
-    public IInteractable selectedObject; 
+    public IInteractable selectedObject;
+    public NearObjects nearObjects;
 
     protected override void Start()
     {
         base.Start();
         character = GetComponent<Character>();
+        nearObjects = GetComponent<NearObjects>();
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class PlayerController : EntityController
         base.Update();
         if (Input.GetMouseButtonDown(0))
         {
-            if (!(EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject?.tag == "UI"))
+            if (!(EventSystem.current?.IsPointerOverGameObject() == true && EventSystem.current.currentSelectedGameObject?.tag == "UI"))
             {
                 Ray ray = cam.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
@@ -75,7 +77,11 @@ public class PlayerController : EntityController
             gameObject.transform.LookAt(obj.GetPosition());
             icontroller.ShowActionPanelForObject(obj);
         }
-
+    }
+    public void PickUpItem(ThingReference thing)
+    {
+        character.TakeToRightHand(thing.thing);
+        nearObjects.DeleteThing(thing);
     }
 
 }

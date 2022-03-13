@@ -154,8 +154,12 @@ namespace Assets.Scripts.Entity
 
         public void TakeToRightHand(GameObject weapon)
         {
-           var w = Instantiate(weapon, econtroller.rightHandHandler.transform);
+            RightHandWeapon = weapon.GetComponent<BaseWeapon>();
+        }
 
+        public void TakeToRightHandNew(GameObject weapon)
+        {
+            var w = Instantiate(weapon, econtroller.rightHandHandler.transform);
             RightHandWeapon = w.GetComponent<BaseWeapon>();
         }
 

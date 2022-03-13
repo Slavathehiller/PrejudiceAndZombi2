@@ -30,12 +30,17 @@ public class EntityController : MonoBehaviour
             var oldobject = rightHandHandler.transform.GetChild(0);
             oldobject.SetParent(null);
             oldobject.GetComponent<Rigidbody>().isKinematic = false;
+            oldobject.GetComponent<BoxCollider>().enabled = true;
             animator.SetBool("HaveKnife", false);
         }
         else
         {
             animator.SetBool("HaveKnife", entity.RightHandWeapon?.type == Assets.Scripts.Weapon.WeaponType.Knife);
-            thing.transform.parent = rightHandHandler.transform;            
+            thing.GetComponent<Rigidbody>().isKinematic = true;
+            thing.GetComponent<BoxCollider>().enabled = false;           
+            thing.transform.SetParent(rightHandHandler.transform);
+            thing.transform.localPosition = Vector3.zero;
+            thing.transform.localRotation = new Quaternion(0, 0, 0, 0);
             icontroller.rightHandImage.enabled = true;
             icontroller.rightHandImage.sprite = entity.RightHandWeapon.image;
         }
@@ -209,15 +214,19 @@ public class EntityController : MonoBehaviour
 
     void OnMouseEnter()
     {        
+        if (entity is Character)
+        {
+            return;
+        }
         if (!(entity is  null))
             objectInfo.ShowInfo(entity);
        if (entity is IInteractable)
         {
-            icontroller.movePonter.SetActive(true);
-            icontroller.movePonter.position = entity.transform.position;
+            icontroller.movePointer.SetActive(true);
+            icontroller.movePointer.position = entity.transform.position;
             if (((IInteractable)entity).getType() == InteractableType.Enemy)
             {
-                icontroller.movePonter.SetPointerType(PointerType.Target);
+                icontroller.movePointer.SetPointerType(PointerType.Target);
             }           
         }
     }
@@ -230,7 +239,7 @@ public class EntityController : MonoBehaviour
     private void OnMouseExit()
     {
         objectInfo.HideInfo();
-        icontroller.movePonter.SetPointerType(PointerType.Nav);
+        icontroller.movePointer.SetPointerType(PointerType.Nav);
     }
 
     private void OnMouseDown()
