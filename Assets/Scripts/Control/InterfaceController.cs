@@ -1,3 +1,4 @@
+using Assets.Scripts.Weapon;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -59,7 +60,7 @@ public class InterfaceController : MonoBehaviour
         var distanceToObject = playerController.DistanceTo(playerController.selectedObject);
         commandButtons[(int)InteractableCommand.Punch].SetActive(commands.GetValue((int)InteractableCommand.Punch) != null && distanceToObject < 2 && playerController.character.RightHandWeapon == null);
         commandButtons[(int)InteractableCommand.Kick].SetActive(commands.GetValue((int)InteractableCommand.Kick) != null && distanceToObject < 2);
-        commandButtons[(int)InteractableCommand.Stab].SetActive(commands.GetValue((int)InteractableCommand.Stab) != null && distanceToObject < 2 && playerController.character.RightHandWeapon?.type == Assets.Scripts.Weapon.WeaponType.Knife);
+        commandButtons[(int)InteractableCommand.Stab].SetActive(commands.GetValue((int)InteractableCommand.Stab) != null && distanceToObject < 2 && playerController.character.RightHandWeapon is BaseWeapon && ((BaseWeapon)playerController.character.RightHandWeapon)?.type == WeaponType.Knife);
     }
 
     void OnMouseOver()

@@ -43,14 +43,11 @@ public class PlayerController : EntityController
             character.SkipTurn();
         }
 
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             icontroller.HideActionPanel();
             selectedObject = null;
         }
-
-
     }
 
     public bool PlayerCanMove

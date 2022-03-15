@@ -137,8 +137,8 @@ namespace Assets.Scripts.Entity
         }
 
         [SerializeField]
-        private BaseWeapon rightHandWeapon;
-        public BaseWeapon RightHandWeapon
+        private TacticalItem rightHandWeapon;
+        public TacticalItem RightHandWeapon
         {
             get { return rightHandWeapon; }
             set
@@ -154,13 +154,13 @@ namespace Assets.Scripts.Entity
 
         public void TakeToRightHand(GameObject weapon)
         {
-            RightHandWeapon = weapon.GetComponent<BaseWeapon>();
+            RightHandWeapon = weapon.GetComponent<TacticalItem>();
         }
 
         public void TakeToRightHandNew(GameObject weapon)
         {
             var w = Instantiate(weapon, econtroller.rightHandHandler.transform);
-            RightHandWeapon = w.GetComponent<BaseWeapon>();
+            RightHandWeapon = w.GetComponent<TacticalItem>();
         }
 
         public void ProceedMeleeAttack(BaseEntity enemy, MeleeAttackModifier modifier)

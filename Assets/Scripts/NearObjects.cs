@@ -20,7 +20,7 @@ public class NearObjects : MonoBehaviour
     {
         
     }
-    public void AddThing(BaseWeapon thing, Character character)
+    public void AddThing(TacticalItem thing, Character character)
     {
         var pref = Instantiate(pfController.thingRef, groundPanel.transform);
         var refThing = pref.GetComponent<ThingReference>();
@@ -33,7 +33,7 @@ public class NearObjects : MonoBehaviour
 
     public void DeleteThing(ThingReference thing)
     {
-        thing.thing.GetComponent<BaseWeapon>().thingRef = null;
+        thing.thing.GetComponent<TacticalItem>().thingRef = null;
         list.Remove(thing);
         Destroy(thing.gameObject);
     }

@@ -1,4 +1,5 @@
 using Assets.Scripts.Entity;
+using Assets.Scripts.Weapon;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,19 +29,22 @@ public class EntityController : MonoBehaviour
         {
             icontroller.rightHandImage.enabled = false;
             var oldobject = rightHandHandler.transform.GetChild(0);
-            oldobject.SetParent(null);
-            oldobject.GetComponent<Rigidbody>().isKinematic = false;
-            oldobject.GetComponent<BoxCollider>().enabled = true;
+            if (oldobject != null)
+            {
+                oldobject.SetParent(null);
+                oldobject.GetComponent<Rigidbody>().isKinematic = false;
+                oldobject.GetComponent<BoxCollider>().enabled = true;
+            }
             animator.SetBool("HaveKnife", false);
         }
         else
         {
-            animator.SetBool("HaveKnife", entity.RightHandWeapon?.type == Assets.Scripts.Weapon.WeaponType.Knife);
+            animator.SetBool("HaveKnife", entity.RightHandWeapon is BaseWeapon && ((BaseWeapon)entity.RightHandWeapon)?.type == WeaponType.Knife);
             thing.GetComponent<Rigidbody>().isKinematic = true;
             thing.GetComponent<BoxCollider>().enabled = false;           
             thing.transform.SetParent(rightHandHandler.transform);
             thing.transform.localPosition = Vector3.zero;
-            thing.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            thing.transform.localRotation = Quaternion.Euler(Vector3.zero);
             icontroller.rightHandImage.enabled = true;
             icontroller.rightHandImage.sprite = entity.RightHandWeapon.image;
         }
