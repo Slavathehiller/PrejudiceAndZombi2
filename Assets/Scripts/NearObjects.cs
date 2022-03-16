@@ -28,6 +28,7 @@ public class NearObjects : MonoBehaviour
         refThing.thing = thing.gameObject;
         thing.thingRef = refThing;
         refThing.character = character;
+
         list.Add(refThing);
     }
 

@@ -218,7 +218,7 @@ public class EntityController : MonoBehaviour
 
     void OnMouseEnter()
     {        
-        if (entity is Character)
+        if (icontroller.UIInact || icontroller.playerController.character.isActing)
         {
             return;
         }
@@ -248,6 +248,8 @@ public class EntityController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (icontroller.UIInact)
+            return;
         icontroller.playerController.SelectObject(entity);
     }
 

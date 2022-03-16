@@ -30,7 +30,7 @@ public class PlayerController : EntityController
             {
                 Ray ray = cam.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit) && !icontroller.UIInact)
                 {
                     var targetPoint = hit.point;
                     character.Move(targetPoint);

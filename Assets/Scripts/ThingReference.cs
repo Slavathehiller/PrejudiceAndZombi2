@@ -3,16 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ThingReference : MonoBehaviour
 {
     public GameObject thing;
     public Image image;
     public Character character;
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -23,5 +20,4 @@ public class ThingReference : MonoBehaviour
     {
         character.pcontroller.PickUpItem(this);
     }
-    
 }

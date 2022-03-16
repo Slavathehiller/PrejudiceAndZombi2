@@ -147,10 +147,10 @@ namespace Assets.Scripts.Entity
             gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
             pcontroller.animator.SetTrigger("Stab");
             yield return new WaitForSeconds(0.2f);
-            var modifier = new MeleeAttackModifier();
             if (RightHandWeapon is BaseWeapon)
-                modifier = ((BaseWeapon)RightHandWeapon).MeleeAttackModifier;
-            ProceedMeleeAttack(pcontroller.selectedObject.GetEntity(), modifier);           
+                ProceedMeleeAttack(pcontroller.selectedObject.GetEntity(), ((BaseWeapon)RightHandWeapon).MeleeAttackModifier);
+            else
+                ProceedMeleeAttack(pcontroller.selectedObject.GetEntity());
             yield return new WaitForSeconds(1.84f);
             isActing = false;
         }

@@ -29,6 +29,9 @@ public class InterfaceController : MonoBehaviour
     public Material AccessMoveMaterial;
     public Material RestrictMoveMaterial;
 
+    [HideInInspector]
+    public bool UIInact = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +73,7 @@ public class InterfaceController : MonoBehaviour
         Physics.Raycast(ray, out hit);
         var pointerPosition = hit.point;
         var movePosition = playerController.allignetPointMid(pointerPosition);
-        movePointer.SetActive(playerController.PlayerCanMove);
+        movePointer.SetActive(playerController.PlayerCanMove && !UIInact);
         if (movePointer.activeSelf && movePointer.position != movePosition)
         {
             movePointer.position = movePosition;
