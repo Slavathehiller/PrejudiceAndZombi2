@@ -149,7 +149,8 @@ namespace Assets.Scripts.Entity
         }
         public void DropRightItem()
         {
-            RightHandWeapon = null;
+            if(!isActing)
+                RightHandWeapon = null;
         }
 
         public void TakeToRightHand(GameObject weapon)

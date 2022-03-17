@@ -21,10 +21,10 @@ public class InterfaceController : MonoBehaviour
     public GameObject[] commandButtons;
     public Text targetName;
 
-    public Image rightHandImage;
     public Button rightHandDropButton;
     public Button leftHandDropButton;
 
+    public GameObject rightHandPanel;
 
     public Material AccessMoveMaterial;
     public Material RestrictMoveMaterial;

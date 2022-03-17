@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class NearObjects : MonoBehaviour
 {
-    public List<ThingReference> list = new List<ThingReference>();
+    public List<ItemReference> list = new List<ItemReference>();
     public PrefabsController pfController;
     public GameObject groundPanel;
     void Start()
@@ -23,7 +23,7 @@ public class NearObjects : MonoBehaviour
     public void AddThing(TacticalItem thing, Character character)
     {
         var pref = Instantiate(pfController.thingRef, groundPanel.transform);
-        var refThing = pref.GetComponent<ThingReference>();
+        var refThing = pref.GetComponent<ItemReference>();
         refThing.image.sprite = thing.image;
         refThing.thing = thing.gameObject;
         thing.thingRef = refThing;
@@ -32,10 +32,13 @@ public class NearObjects : MonoBehaviour
         list.Add(refThing);
     }
 
-    public void DeleteThing(ThingReference thing)
+    public void DeleteThing(ItemReference thing, bool deleteGameObject = false)
     {
         thing.thing.GetComponent<TacticalItem>().thingRef = null;
         list.Remove(thing);
-        Destroy(thing.gameObject);
+        if (deleteGameObject)
+        {
+            Destroy(thing.gameObject);
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class TacticalItem : MonoBehaviour
 {
 
-    public ThingReference thingRef;
+    public ItemReference thingRef;
 
     public Sprite image;
 
@@ -35,7 +35,8 @@ public class TacticalItem : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             var nearObjects = other.gameObject.GetComponent<Character>().pcontroller.nearObjects;
-            nearObjects.DeleteThing(thingRef);
+            nearObjects.DeleteThing(thingRef, true);
+            
         }
     }
 

@@ -27,13 +27,14 @@ public class EntityController : MonoBehaviour
     {
         if (thing is null)
         {
-            icontroller.rightHandImage.enabled = false;
             var oldobject = rightHandHandler.transform.GetChild(0);
             if (oldobject != null)
             {
                 oldobject.SetParent(null);
                 oldobject.GetComponent<Rigidbody>().isKinematic = false;
                 oldobject.GetComponent<BoxCollider>().enabled = true;
+                var refItem = icontroller.rightHandPanel.transform.GetChild(1);
+                Destroy(refItem.gameObject);
             }
             animator.SetBool("HaveKnife", false);
         }
@@ -45,8 +46,6 @@ public class EntityController : MonoBehaviour
             thing.transform.SetParent(rightHandHandler.transform);
             thing.transform.localPosition = Vector3.zero;
             thing.transform.localRotation = Quaternion.Euler(Vector3.zero);
-            icontroller.rightHandImage.enabled = true;
-            icontroller.rightHandImage.sprite = entity.RightHandWeapon.image;
         }
         
         icontroller.rightHandDropButton.gameObject.SetActive(thing != null);

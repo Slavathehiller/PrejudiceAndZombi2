@@ -75,10 +75,10 @@ public class PlayerController : EntityController
             icontroller.ShowActionPanelForObject(obj);
         }
     }
-    public void PickUpItem(ThingReference thing)
+    public void PickUpItem(ItemReference item)
     {
-        character.TakeToRightHand(thing.thing);
-        nearObjects.DeleteThing(thing);
+        character.TakeToRightHand(item.thing);
+        nearObjects.DeleteThing(item);
     }
 
 }
