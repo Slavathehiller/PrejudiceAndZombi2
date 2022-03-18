@@ -50,6 +50,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if(gameObject.transform.parent == panel.transform)
         {
             gameObject.transform.SetParent(oldParent.transform);
+            gameObject.transform.localPosition = Vector3.zero;
         }
     }
 }

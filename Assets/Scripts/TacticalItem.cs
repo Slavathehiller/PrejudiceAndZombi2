@@ -1,7 +1,7 @@
 using Assets.Scripts.Entity;
 using UnityEngine;
 
-public class TacticalItem : MonoBehaviour
+public abstract class TacticalItem : MonoBehaviour
 {
 
     public ItemReference thingRef;
@@ -27,6 +27,7 @@ public class TacticalItem : MonoBehaviour
             var character = other.gameObject.GetComponent<Character>();
             var nearObjects = character.pcontroller.nearObjects;
             nearObjects.AddThing(this, character);
+            GetComponent<Light>().enabled = true;
 
         }
     }
@@ -36,7 +37,7 @@ public class TacticalItem : MonoBehaviour
         {
             var nearObjects = other.gameObject.GetComponent<Character>().pcontroller.nearObjects;
             nearObjects.DeleteThing(thingRef, true);
-            
+            GetComponent<Light>().enabled = false;
         }
     }
 

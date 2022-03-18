@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2224645568968024998}
   - component: {fileID: -514879792281098992}
   - component: {fileID: 2355668802421966431}
+  - component: {fileID: 6281833441025153249}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -129,9 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975fd9ee42b28ae41bf6b4cd9ad04a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
   thingRef: {fileID: 0}
   image: {fileID: 21300000, guid: 5e548beab7ae47745b0162d3e482fc2e, type: 3}
+  type: 1
 --- !u!54 &2224645568968024998
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -177,6 +178,68 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 1
   m_AffectedAgents: ffffffff
+--- !u!108 &6281833441025153249
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684517173361243158}
+  m_Enabled: 0
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0, g: 0.9528302, b: 0.005356953, a: 1}
+  m_Intensity: 0.7
+  m_Range: 0.3
+  m_SpotAngle: 41.3
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 1
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &8007589160409337692
 GameObject:
   m_ObjectHideFlags: 0
