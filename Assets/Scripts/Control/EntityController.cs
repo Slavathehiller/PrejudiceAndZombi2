@@ -25,10 +25,29 @@ public class EntityController : MonoBehaviour
 
     public void PlaceToRightHand(GameObject thing)
     {
-        if (thing is null)
+        if(thing is null)
         {
-            var oldobject = rightHandHandler.transform.GetChild(0);
-            if (oldobject != null)
+            Debug.LogError("Предмет неопределен");
+        }
+        animator.SetBool("HaveKnife", entity.RightHandWeapon is BaseWeapon && ((BaseWeapon)entity.RightHandWeapon)?.type == WeaponType.Knife);
+        thing.GetComponent<Rigidbody>().isKinematic = true;
+        thing.GetComponent<BoxCollider>().enabled = false;           
+        thing.transform.SetParent(rightHandHandler.transform);
+        thing.transform.localPosition = Vector3.zero;
+        thing.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        icontroller.rightHandDropButton.gameObject.SetActive(true);
+        thing.SetActive(true);
+            
+    }
+
+    public bool RemoveFromRightHand(bool drop)
+    {
+        animator.SetBool("HaveKnife", false);
+        icontroller.rightHandDropButton.gameObject.SetActive(false);
+        var oldobject = rightHandHandler.transform.GetChild(0);
+        if (oldobject != null)
+        {
+            if (drop)
             {
                 oldobject.SetParent(null);
                 oldobject.GetComponent<Rigidbody>().isKinematic = false;
@@ -36,19 +55,16 @@ public class EntityController : MonoBehaviour
                 var refItem = icontroller.rightHandPanel.transform.GetChild(1);
                 Destroy(refItem.gameObject);
             }
-            animator.SetBool("HaveKnife", false);
+            else
+            {
+                oldobject.gameObject.SetActive(false);
+            }
+            return true;
         }
         else
         {
-            animator.SetBool("HaveKnife", entity.RightHandWeapon is BaseWeapon && ((BaseWeapon)entity.RightHandWeapon)?.type == WeaponType.Knife);
-            thing.GetComponent<Rigidbody>().isKinematic = true;
-            thing.GetComponent<BoxCollider>().enabled = false;           
-            thing.transform.SetParent(rightHandHandler.transform);
-            thing.transform.localPosition = Vector3.zero;
-            thing.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            return false;
         }
-        
-        icontroller.rightHandDropButton.gameObject.SetActive(thing != null);
     }
 
     // Start is called before the first frame update

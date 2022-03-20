@@ -15,6 +15,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public GameObject panel;
     public CanvasGroup canvasGroup;
     public GameObject oldParent;
+    
 
     private void Start()
     {
@@ -29,6 +30,11 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public void PickUp()
     {
         character.pcontroller.PickUpItem(this);
+    }
+
+    public void RemoveFromRightHand()
+    {
+        character.pcontroller.RemoveFromRightHand();
     }
 
     public void OnDrag(PointerEventData eventData)

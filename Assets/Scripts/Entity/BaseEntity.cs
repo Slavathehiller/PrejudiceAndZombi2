@@ -144,18 +144,25 @@ namespace Assets.Scripts.Entity
             set
             {
                 rightHandWeapon = value;
-                econtroller.PlaceToRightHand(value is null? null: value.gameObject);                
             }
         }
         public void DropRightItem()
         {
             if(!isActing)
                 RightHandWeapon = null;
+            RemoveFromRightHand(true);
         }
 
         public void TakeToRightHand(GameObject weapon)
         {
             RightHandWeapon = weapon.GetComponent<TacticalItem>();
+            econtroller.PlaceToRightHand(weapon);
+        }
+
+        public void RemoveFromRightHand(bool drop)
+        {
+            econtroller.RemoveFromRightHand(drop);
+            RightHandWeapon = null;
         }
 
         public void TakeToRightHandNew(GameObject weapon)

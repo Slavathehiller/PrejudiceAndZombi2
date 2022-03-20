@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thingRef: {fileID: 0}
   image: {fileID: 21300000, guid: 5e548beab7ae47745b0162d3e482fc2e, type: 3}
+  size: 1
   type: 1
 --- !u!54 &2224645568968024998
 Rigidbody:
