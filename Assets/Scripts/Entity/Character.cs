@@ -12,7 +12,7 @@ namespace Assets.Scripts.Entity
     public class Character : BaseEntity
     {
         public PlayerController pcontroller;
-        public PrefabsController pfcontroller;
+      //  public PrefabsController pfcontroller;
         int PunchCost = 3;
         int KickCost = 5;
 
