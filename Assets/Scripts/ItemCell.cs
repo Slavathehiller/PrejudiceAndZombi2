@@ -17,10 +17,11 @@ public class ItemCell : MonoBehaviour, IDropHandler
     public virtual void OnDrop(PointerEventData eventData)
     {
         var item = eventData.pointerDrag.GetComponent<ItemReference>();
-        if (item != null && item.thing.GetComponent<TacticalItem>().size <= size)
+        var thing = item.thing.GetComponent<TacticalItem>();
+        if (item != null && thing.size <= size)
         {           
             item.GetComponent<Image>().enabled = false;
-            item.image.GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
+            
             item.transform.SetParent(gameObject.transform);
             item.transform.localPosition = Vector3.zero;
             item.thing.GetComponent<Light>().enabled = false;
@@ -28,10 +29,13 @@ public class ItemCell : MonoBehaviour, IDropHandler
             {
                 item.RemoveFromRightHand();
             }
-            if(!(this is RightHandCell))
+            if (!(this is RightHandCell))
             {
                 item.thing.SetActive(false);
+                item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInInventory;
             }
+            else
+                item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInHand;
         }
         
     }

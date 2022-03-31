@@ -9,6 +9,9 @@ public abstract class TacticalItem : MonoBehaviour
     public Sprite image;
 
     public CellSize size;
+
+    public Vector2 sizeInHand;
+    public Vector2 sizeInInventory;
     // Start is called before the first frame update
     void Start()
     {
