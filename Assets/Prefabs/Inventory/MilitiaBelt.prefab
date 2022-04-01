@@ -109,6 +109,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2491416208218982797}
     m_Modifications:
+    - target: {fileID: 7464740625708419220, guid: 148c5695c13d18e478f3e8d68c1eb320, type: 3}
+      propertyPath: size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7464740625708419224, guid: 148c5695c13d18e478f3e8d68c1eb320, type: 3}
       propertyPath: m_Name
       value: ItemCell

@@ -81,9 +81,4 @@ public class PlayerController : EntityController
         nearObjects.DeleteThing(item);
     }
 
-    public void RemoveFromRightHand()
-    {
-        character.RemoveFromRightHand(false);
-    }
-
 }

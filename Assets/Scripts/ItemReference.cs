@@ -35,7 +35,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     public void RemoveFromRightHand()
     {
-        character.pcontroller.RemoveFromRightHand();
+        character.RemoveFromRightHand(false);
     }
 
     public void OnDrag(PointerEventData eventData)
