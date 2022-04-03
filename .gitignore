@@ -1,7 +1,4 @@
 Assets/AutoSave/**
-Library/Artifacts/**
-Library/PackageCache/**
 Logs/*
-Library/ShaderCache/**
 Temp/**
 obj/Debug/**

@@ -1,6 +1,13 @@
 using Assets.Scripts.Entity;
 using UnityEngine;
 
+
+public enum SpecType
+{
+    Universal = 0,
+    InBelt = 1,
+    Shoulder = 2
+}
 public abstract class TacticalItem : MonoBehaviour
 {
 
@@ -9,6 +16,8 @@ public abstract class TacticalItem : MonoBehaviour
     public Sprite image;
 
     public CellSize size;
+
+    public SpecType spec = SpecType.Universal;
 
     public Vector2 sizeInHand;
     public Vector2 sizeInInventory;
