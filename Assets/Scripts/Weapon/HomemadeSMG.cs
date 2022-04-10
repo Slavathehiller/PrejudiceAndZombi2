@@ -3,7 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomemadeSMG : BaseWeapon
+namespace Assets.Scripts.Weapon
 {
-
+    public class HomemadeSMG : BaseWeapon
+    {
+        public HomemadeSMG()
+        {
+            type = WeaponType.SMG;
+        }
+    }
 }

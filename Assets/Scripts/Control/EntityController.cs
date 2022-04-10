@@ -35,14 +35,27 @@ public class EntityController : MonoBehaviour
         thing.transform.SetParent(rightHandHandler.transform);
         thing.transform.localPosition = Vector3.zero;
         thing.transform.localRotation = Quaternion.Euler(Vector3.zero);
+
+        if(entity.RightHandWeapon is BaseWeapon && ((BaseWeapon)entity.RightHandWeapon)?.type == WeaponType.SMG)
+        {
+            SetAsSMG(thing);
+            animator.SetBool("HaveGun", true);
+        }
+
         icontroller.rightHandDropButton.gameObject.SetActive(true);
         thing.SetActive(true);
             
     }
 
+    private void SetAsSMG(GameObject gameObject)
+    {
+        gameObject.transform.localRotation = Quaternion.Euler(new Vector3(-33, 11, 93));
+    }
+
     public bool RemoveFromRightHand(bool drop)
     {
         animator.SetBool("HaveKnife", false);
+        animator.SetBool("HaveGun", false);
         icontroller.rightHandDropButton.gameObject.SetActive(false);
         var oldobject = rightHandHandler.transform.GetChild(0);
         if (oldobject != null)
@@ -57,6 +70,7 @@ public class EntityController : MonoBehaviour
             }
             else
             {
+                oldobject.SetParent(null);
                 oldobject.gameObject.SetActive(false);
             }
             return true;

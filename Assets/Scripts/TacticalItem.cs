@@ -11,7 +11,7 @@ public enum SpecType
 public abstract class TacticalItem : MonoBehaviour
 {
 
-    public ItemReference thingRef;
+    public ItemReference itemRef;
 
     public Sprite image;
 
@@ -39,7 +39,7 @@ public abstract class TacticalItem : MonoBehaviour
         {
             var character = other.gameObject.GetComponent<Character>();
             var nearObjects = character.pcontroller.nearObjects;
-            nearObjects.AddThing(this, character);
+            nearObjects.AddItem(this, character);
             GetComponent<Light>().enabled = true;
 
         }
@@ -49,7 +49,7 @@ public abstract class TacticalItem : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             var nearObjects = other.gameObject.GetComponent<Character>().pcontroller.nearObjects;
-            nearObjects.DeleteThing(thingRef, true);
+            nearObjects.DeleteThing(itemRef, true);
             GetComponent<Light>().enabled = false;
         }
     }

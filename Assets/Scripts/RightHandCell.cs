@@ -8,11 +8,14 @@ public class RightHandCell : ItemCell
 {
     public override void OnDrop(PointerEventData eventData)
     {
-        base.OnDrop(eventData);
-        var item = eventData.pointerDrag.GetComponent<ItemReference>();
-        if (item != null && item.thing.GetComponent<TacticalItem>().size <= size)
+        //base.OnDrop(eventData);
+        if (TryToDrop(eventData))
         {
-            item.character.pcontroller.PickUpItem(item);
+            var item = eventData.pointerDrag.GetComponent<ItemReference>();
+            if (item != null)
+            {
+                item.character.pcontroller.PickUpItem(item);
+            }
         }
     }
 }

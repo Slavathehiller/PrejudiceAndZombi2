@@ -116,6 +116,7 @@
     <Compile Include="Assets\Scripts\ShowEntityInfo.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\GetHit.cs" />
     <Compile Include="Assets\Scripts\Control\IInteractable.cs" />
+    <Compile Include="Assets\Scripts\Weapon\HomemadeSMG.cs" />
     <Compile Include="Assets\Scripts\Entity\Character.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterWeaponController.cs" />
     <Compile Include="Assets\Scripts\Weapon\BaseWeapon.cs" />
@@ -126,7 +127,7 @@
     <Compile Include="Assets\Scripts\Control\InterfaceController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\ActionHandler.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterController.cs" />
-    <Compile Include="Assets\Scripts\Weapon\HomemadeSMG.cs" />
+    <Compile Include="Assets\Scripts\Inventory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

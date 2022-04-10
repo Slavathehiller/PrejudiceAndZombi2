@@ -44,6 +44,7 @@ namespace Assets.Scripts.Entity
         public int Side;
         public LifeController lcontroller;
         public Vector3[] _SurroundPoints;
+        public Inventory inventory;
 
         public abstract EntityController econtroller { get; }
 
@@ -148,9 +149,13 @@ namespace Assets.Scripts.Entity
         }
         public void DropRightItem()
         {
-            if(!isActing)
+            if (!isActing) 
+            {
+                inventory.RemoveItem(RightHandWeapon);
                 RightHandWeapon = null;
+            }
             RemoveFromRightHand(true);
+            
         }
 
         public void TakeToRightHand(GameObject weapon)

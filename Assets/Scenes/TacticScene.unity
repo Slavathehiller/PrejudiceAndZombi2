@@ -7507,7 +7507,7 @@ GameObject:
   - component: {fileID: 1478626594}
   - component: {fileID: 1478626593}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8434,6 +8434,7 @@ MonoBehaviour:
   Side: 0
   lcontroller: {fileID: 1917159941}
   _SurroundPoints: []
+  inventory: {fileID: 0}
   rightHandWeapon: {fileID: 0}
   controller: {fileID: 0}
 --- !u!120 &1719275248
@@ -10221,6 +10222,7 @@ GameObject:
   - component: {fileID: 1799481568}
   - component: {fileID: 1799481569}
   - component: {fileID: 1799481572}
+  - component: {fileID: 1799481578}
   - component: {fileID: 1799481577}
   - component: {fileID: 1799481573}
   - component: {fileID: 1799481574}
@@ -10339,6 +10341,7 @@ MonoBehaviour:
   Side: 0
   lcontroller: {fileID: 1917159941}
   _SurroundPoints: []
+  inventory: {fileID: 1799481578}
   rightHandWeapon: {fileID: 0}
   pcontroller: {fileID: 0}
 --- !u!54 &1799481573
@@ -10497,6 +10500,19 @@ MonoBehaviour:
   list: []
   pfController: {fileID: 1874979038}
   groundPanel: {fileID: 390965813}
+--- !u!114 &1799481578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799481567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7952476635074b4ebb8fcdf1a5d5db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list: []
 --- !u!1 &1822471473
 GameObject:
   m_ObjectHideFlags: 0
@@ -10687,7 +10703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5653809785058661711, guid: d4dc6599b098ff5419e6d035764edc64, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 5653809785058661711, guid: d4dc6599b098ff5419e6d035764edc64, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11004,6 +11020,7 @@ MonoBehaviour:
   Side: 0
   lcontroller: {fileID: 1917159941}
   _SurroundPoints: []
+  inventory: {fileID: 0}
   rightHandWeapon: {fileID: 0}
   controller: {fileID: 0}
 --- !u!195 &1885504081

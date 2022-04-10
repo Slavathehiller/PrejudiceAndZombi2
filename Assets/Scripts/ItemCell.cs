@@ -19,17 +19,22 @@ public class ItemCell : MonoBehaviour, IDropHandler
     public GameObject background;
     public virtual void OnDrop(PointerEventData eventData)
     {
+        TryToDrop(eventData);
+    }
+
+    protected bool TryToDrop(PointerEventData eventData)
+    {
         var item = eventData.pointerDrag.GetComponent<ItemReference>();
         var thing = item.thing.GetComponent<TacticalItem>();
-        if (item != null && thing.size <= size && (spec == SpecType.Universal || spec == thing.spec))
-        {           
+        if (item != null && thing.size <= size && (spec == SpecType.Universal || spec == thing.spec) && item.character.inventory.IsCellEmpty(this))
+        {
+            item.character.inventory.AddItem(thing);
             item.GetComponent<Image>().enabled = false;
-            
             item.transform.SetParent(gameObject.transform);
             item.transform.localPosition = Vector3.zero;
             item.thing.GetComponent<Light>().enabled = false;
-            var oldParent = item.oldParent.GetComponent<ItemCell>();
-            if (oldParent is RightHandCell)
+            var oldParentCell = item.oldParent.GetComponent<ItemCell>();
+            if (oldParentCell is RightHandCell)
             {
                 item.RemoveFromRightHand();
             }
@@ -40,11 +45,15 @@ public class ItemCell : MonoBehaviour, IDropHandler
             }
             else
                 item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInHand;
-            if(oldParent != null)
-                oldParent.ShowBackground(true);
+            if (oldParentCell != null)
+                oldParentCell.ShowBackground(true);
             ShowBackground(false);
+            return true;
         }
-        
+        else
+        {
+            return false;
+        }
     }
 
     public void ShowBackground(bool on)
