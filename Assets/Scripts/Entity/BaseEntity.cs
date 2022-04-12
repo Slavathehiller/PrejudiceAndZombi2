@@ -138,42 +138,40 @@ namespace Assets.Scripts.Entity
         }
 
         [SerializeField]
-        private TacticalItem rightHandWeapon;
-        public TacticalItem RightHandWeapon
+        private TacticalItem rightHandItem;
+        public TacticalItem RightHandItem
         {
-            get { return rightHandWeapon; }
+            get { return rightHandItem; }
             set
             {
-                rightHandWeapon = value;
+                rightHandItem = value;
             }
         }
         public void DropRightItem()
         {
-            if (!isActing) 
+            if (!isActing)
             {
-                inventory.RemoveItem(RightHandWeapon);
-                RightHandWeapon = null;
-            }
-            RemoveFromRightHand(true);
-            
+                inventory.RemoveItem(RightHandItem);
+                RemoveFromRightHand(true);                
+            }                        
         }
 
-        public void TakeToRightHand(GameObject weapon)
+        public void TakeToRightHand(GameObject item)
         {
-            RightHandWeapon = weapon.GetComponent<TacticalItem>();
-            econtroller.PlaceToRightHand(weapon);
+            RightHandItem = item.GetComponent<TacticalItem>();
+            econtroller.PlaceToRightHand(item);
         }
 
         public void RemoveFromRightHand(bool drop)
         {
             econtroller.RemoveFromRightHand(drop);
-            RightHandWeapon = null;
+            RightHandItem = null;
         }
 
         public void TakeToRightHandNew(GameObject weapon)
         {
             var w = Instantiate(weapon, econtroller.rightHandHandler.transform);
-            RightHandWeapon = w.GetComponent<TacticalItem>();
+            RightHandItem = w.GetComponent<TacticalItem>();
         }
 
         public void ProceedMeleeAttack(BaseEntity enemy, MeleeAttackModifier modifier)

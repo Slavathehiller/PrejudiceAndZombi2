@@ -48,9 +48,8 @@ public class InterfaceController : MonoBehaviour
         Name.text = playerController.character.Name;
         Portrait.sprite = playerController.character.portrait;
         UpdateActionPanel();
-        rightHandDropButton.gameObject.SetActive(playerController.character.RightHandWeapon != null);
+        rightHandDropButton.gameObject.SetActive(playerController.character.RightHandItem != null);
         leftHandDropButton.gameObject.SetActive(false);
-
     }
 
     private void UpdateActionPanel()
@@ -61,9 +60,9 @@ public class InterfaceController : MonoBehaviour
         var commands = playerController.selectedObject.getCommands();
 
         var distanceToObject = playerController.DistanceTo(playerController.selectedObject);
-        commandButtons[(int)InteractableCommand.Punch].SetActive(commands.GetValue((int)InteractableCommand.Punch) != null && distanceToObject < 2 && playerController.character.RightHandWeapon == null);
+        commandButtons[(int)InteractableCommand.Punch].SetActive(commands.GetValue((int)InteractableCommand.Punch) != null && distanceToObject < 2 && playerController.character.RightHandItem == null);
         commandButtons[(int)InteractableCommand.Kick].SetActive(commands.GetValue((int)InteractableCommand.Kick) != null && distanceToObject < 2);
-        commandButtons[(int)InteractableCommand.Stab].SetActive(commands.GetValue((int)InteractableCommand.Stab) != null && distanceToObject < 2 && playerController.character.RightHandWeapon is BaseWeapon && ((BaseWeapon)playerController.character.RightHandWeapon)?.type == WeaponType.Knife);
+        commandButtons[(int)InteractableCommand.Stab].SetActive(commands.GetValue((int)InteractableCommand.Stab) != null && distanceToObject < 2 && playerController.character.RightHandItem is BaseWeapon && ((BaseWeapon)playerController.character.RightHandItem)?.type == WeaponType.Knife);
     }
 
     void OnMouseOver()

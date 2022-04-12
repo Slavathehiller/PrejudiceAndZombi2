@@ -21,10 +21,12 @@ public abstract class TacticalItem : MonoBehaviour
 
     public Vector2 sizeInHand;
     public Vector2 sizeInInventory;
+
+    private Light _light;
     // Start is called before the first frame update
     void Start()
     {
-
+        _light = GetComponent<Light>();
     }
 
     // Update is called once per frame
@@ -40,8 +42,7 @@ public abstract class TacticalItem : MonoBehaviour
             var character = other.gameObject.GetComponent<Character>();
             var nearObjects = character.pcontroller.nearObjects;
             nearObjects.AddItem(this, character);
-            GetComponent<Light>().enabled = true;
-
+            _light.enabled = true;
         }
     }
     public void OnTriggerExit(Collider other)
@@ -50,7 +51,7 @@ public abstract class TacticalItem : MonoBehaviour
         {
             var nearObjects = other.gameObject.GetComponent<Character>().pcontroller.nearObjects;
             nearObjects.DeleteThing(itemRef, true);
-            GetComponent<Light>().enabled = false;
+            _light.enabled = false;
         }
     }
 

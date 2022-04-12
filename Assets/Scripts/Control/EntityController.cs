@@ -18,10 +18,8 @@ public class EntityController : MonoBehaviour
     public float pathLength;
     protected LineRenderer pathDrawer;
     public ShowEntityInfo objectInfo;
-    BaseEntity entity;
+    private BaseEntity entity;
     public GameObject rightHandHandler;
-
-
 
     public void PlaceToRightHand(GameObject thing)
     {
@@ -29,14 +27,14 @@ public class EntityController : MonoBehaviour
         {
             Debug.LogError("Предмет неопределен");
         }
-        animator.SetBool("HaveKnife", entity.RightHandWeapon is BaseWeapon && ((BaseWeapon)entity.RightHandWeapon)?.type == WeaponType.Knife);
+        animator.SetBool("HaveKnife", entity.RightHandItem is BaseWeapon && ((BaseWeapon)entity.RightHandItem)?.type == WeaponType.Knife);
         thing.GetComponent<Rigidbody>().isKinematic = true;
         thing.GetComponent<BoxCollider>().enabled = false;           
         thing.transform.SetParent(rightHandHandler.transform);
         thing.transform.localPosition = Vector3.zero;
         thing.transform.localRotation = Quaternion.Euler(Vector3.zero);
 
-        if(entity.RightHandWeapon is BaseWeapon && ((BaseWeapon)entity.RightHandWeapon)?.type == WeaponType.SMG)
+        if(entity.RightHandItem is BaseWeapon && ((BaseWeapon)entity.RightHandItem)?.type == WeaponType.SMG)
         {
             SetAsSMG(thing);
             animator.SetBool("HaveGun", true);
@@ -47,9 +45,9 @@ public class EntityController : MonoBehaviour
             
     }
 
-    private void SetAsSMG(GameObject gameObject)
+    private void SetAsSMG(GameObject item)
     {
-        gameObject.transform.localRotation = Quaternion.Euler(new Vector3(-33, 11, 93));
+        item.transform.localRotation = Quaternion.Euler(new Vector3(-33, 11, 93));
     }
 
     public bool RemoveFromRightHand(bool drop)
@@ -57,21 +55,20 @@ public class EntityController : MonoBehaviour
         animator.SetBool("HaveKnife", false);
         animator.SetBool("HaveGun", false);
         icontroller.rightHandDropButton.gameObject.SetActive(false);
-        var oldobject = rightHandHandler.transform.GetChild(0);
+        var oldobject = entity.RightHandItem?.gameObject;
         if (oldobject != null)
         {
+            oldobject.transform.SetParent(null);
             if (drop)
             {
-                oldobject.SetParent(null);
                 oldobject.GetComponent<Rigidbody>().isKinematic = false;
                 oldobject.GetComponent<BoxCollider>().enabled = true;
-                var refItem = icontroller.rightHandPanel.transform.GetChild(1);
-                Destroy(refItem.gameObject);
+                var itemRef = oldobject.GetComponent<TacticalItem>().itemRef;
+                Destroy(itemRef.gameObject);
             }
             else
             {
-                oldobject.SetParent(null);
-                oldobject.gameObject.SetActive(false);
+                oldobject.SetActive(false);
             }
             return true;
         }
@@ -87,8 +84,8 @@ public class EntityController : MonoBehaviour
         entity = gameObject.GetComponent<BaseEntity>();
         pathDrawer = GetComponent<LineRenderer>();
 
-       pathDrawer.startWidth = 0.1f;
-       pathDrawer.endWidth = 0.02f;
+        pathDrawer.startWidth = 0.1f;
+        pathDrawer.endWidth = 0.02f;
     }
 
     // Update is called once per frame
@@ -99,7 +96,6 @@ public class EntityController : MonoBehaviour
         pathDrawer.enabled = agent.hasPath;
         if (entity.currentHitpoint <= 0)
             animator.SetTrigger("Die");
-
     }
 
     private void DrawPath(NavMeshPath path)
