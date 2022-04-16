@@ -8,7 +8,9 @@ public enum InteractableCommand { Punch = 0, Kick = 1, Stab = 2}
 public interface IInteractable
 {
     InteractableType getType();
+
+    string GetName();
     InteractableCommand[] getCommands();
     Vector3 GetPosition();
-    BaseEntity GetEntity();
+
 }

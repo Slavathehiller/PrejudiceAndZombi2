@@ -125,8 +125,8 @@ namespace Assets.Scripts.Entity
             currentActionPoint -= PunchCost;
             gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
             pcontroller.animator.SetTrigger("Punch");
-            yield return new WaitForSeconds(0.9f);
-            ProceedMeleeAttack(pcontroller.selectedObject.GetEntity());
+            yield return new WaitForSeconds(0.9f);            
+            ProceedMeleeAttack(pcontroller.SelectedEnemy);
             yield return new WaitForSeconds(1.1f);
             isActing = false;
 
@@ -148,9 +148,9 @@ namespace Assets.Scripts.Entity
             pcontroller.animator.SetTrigger("Stab");
             yield return new WaitForSeconds(0.2f);
             if (RightHandItem is BaseWeapon)
-                ProceedMeleeAttack(pcontroller.selectedObject.GetEntity(), ((BaseWeapon)RightHandItem).MeleeAttackModifier);
+                ProceedMeleeAttack(pcontroller.SelectedEnemy, ((BaseWeapon)RightHandItem).MeleeAttackModifier);
             else
-                ProceedMeleeAttack(pcontroller.selectedObject.GetEntity());
+                ProceedMeleeAttack(pcontroller.SelectedEnemy);
             yield return new WaitForSeconds(1.84f);
             isActing = false;
         }
@@ -172,7 +172,7 @@ namespace Assets.Scripts.Entity
             yield return new WaitForSeconds(0.3f);
             var modifier = new MeleeAttackModifier();
             modifier.damage = PureMeleeDamage / 2;
-            ProceedMeleeAttack(pcontroller.selectedObject.GetEntity(), modifier);
+            ProceedMeleeAttack(pcontroller.SelectedEnemy, modifier);
             yield return new WaitForSeconds(1.183f);
             isActing = false;
         }

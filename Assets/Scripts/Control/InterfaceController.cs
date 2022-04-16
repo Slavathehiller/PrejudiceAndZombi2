@@ -104,7 +104,7 @@ public class InterfaceController : MonoBehaviour
     public void ShowActionPanelForObject(IInteractable obj)
     {
         actionPanel.SetActive(true);
-        targetName.text = obj.GetEntity().Name;
+        targetName.text = obj.GetName();
 
         //for(var i = 0; i < commandButtons.Length; i++)
         //{

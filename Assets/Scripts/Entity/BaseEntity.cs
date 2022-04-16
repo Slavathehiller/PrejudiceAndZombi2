@@ -14,7 +14,7 @@ namespace Assets.Scripts.Entity
         NecroMorph = 2
     }
 
-    public abstract class BaseEntity : MonoBehaviour, IInteractable
+    public abstract class BaseEntity : MonoBehaviour, IInteractableEntity
     {
         [SerializeField]
         private float inStrength = 0;
@@ -360,6 +360,11 @@ namespace Assets.Scripts.Entity
         public BaseEntity GetEntity()
         {
             return this;
+        }
+
+        public string GetName()
+        {
+            return Name;
         }
     }
 }

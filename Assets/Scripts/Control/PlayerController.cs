@@ -81,4 +81,16 @@ public class PlayerController : EntityController
         nearObjects.DeleteThing(item);
     }
 
+    public BaseEntity SelectedEnemy
+    {
+        get
+        {
+            var selectedEntity = (selectedObject as IInteractableEntity);
+            if (selectedEntity != null && selectedEntity.getType() == InteractableType.Enemy)
+                return selectedEntity.GetEntity();
+            else
+                return null;
+        }
+    }
+
 }
