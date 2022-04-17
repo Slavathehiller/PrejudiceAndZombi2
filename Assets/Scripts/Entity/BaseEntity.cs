@@ -28,6 +28,8 @@ namespace Assets.Scripts.Entity
         private float inIntellect = 0;
         [SerializeField]
         private float inConcentration = 0;
+        [SerializeField]
+        private float inPerception = 0;
 
         [NonSerialized]
         public CapsuleCollider Collider;
@@ -45,6 +47,7 @@ namespace Assets.Scripts.Entity
         public LifeController lcontroller;
         public Vector3[] _SurroundPoints;
         public Inventory inventory;
+        public GameObject centerOfMass;
 
         public abstract EntityController econtroller { get; }
 
@@ -117,6 +120,21 @@ namespace Assets.Scripts.Entity
                 return result;
             }
         }
+
+        public float Perceprion
+        {
+            get
+            {
+                var result = inPerception;
+
+                return result;
+            }
+        }
+
+
+
+
+
         public float MaxHealth
         {
             get
@@ -137,6 +155,78 @@ namespace Assets.Scripts.Entity
             }
         }
 
+        public float MeleeCritChance
+        {
+            get
+            {
+                var result = Dexterity + Intellect / 2;
+
+                return result;
+            }
+        }
+
+
+        public float RangedAbility
+        {
+            get
+            {
+                var result = Perceprion * 2 + Dexterity + Concentration + 40;
+
+                return result;
+            }
+        }
+
+        public float RangedCritChance
+        {
+            get
+            {
+                var result = Perceprion + Intellect / 2 + Concentration / 2;
+
+                return result;
+            }
+        }
+
+        public float PureMeleeDamage
+        {
+            get
+            {
+                double result = Strength / 2;
+                result = Math.Round(result * Random.Range(0.75f, 1.26f) * 100) / 100;
+                return (float)result;
+            }
+        }
+
+
+        public float Initiative
+        {
+            get
+            {
+                var result = Agility;
+
+                return result;
+            }
+        }
+
+        public float MaxActionPoint
+        {
+            get
+            {
+                var result = Concentration + Agility / 2;
+
+                return result;
+            }
+        }
+
+        public float IncomeActionPoint
+        {
+            get
+            {
+                var result = Agility / 3 + Dexterity / 3;
+
+                return result;
+            }
+        }
+
         [SerializeField]
         private TacticalItem rightHandItem;
         public TacticalItem RightHandItem
@@ -152,8 +242,8 @@ namespace Assets.Scripts.Entity
             if (!isActing)
             {
                 inventory.RemoveItem(RightHandItem);
-                RemoveFromRightHand(true);                
-            }                        
+                RemoveFromRightHand(true);
+            }
         }
 
         public void TakeToRightHand(GameObject item)
@@ -177,18 +267,18 @@ namespace Assets.Scripts.Entity
         public void ProceedMeleeAttack(BaseEntity enemy, MeleeAttackModifier modifier)
         {
             Debug.Log(Name + " бъет " + enemy.Name);
-            var attackResult = new AttackResult(gameObject.transform.position);
+            var attackResult = new MeleeAttackResult(gameObject.transform.position);
             float hitChance = 50 + MeleeAbility * 5 - enemy.MeleeAbility * 5;
             bool isHit = Random.Range(1, 101) <= hitChance;
             attackResult.Success = isHit;
             if (isHit)
             {
-                float damageAmount =  PureMeleeDamage + modifier.damage;
-                bool crit = Random.Range(1, 101) <=  MeleeCritChance;
+                float damageAmount = PureMeleeDamage + modifier.damage;
+                bool crit = Random.Range(1, 101) <= MeleeCritChance;
                 if (crit)
                 {
                     damageAmount = damageAmount * 2;
-                    Debug.Log( Name + " наносит критический удар!");
+                    Debug.Log(Name + " наносит критический удар!");
                 }
                 attackResult.DamageAmount = damageAmount;
                 //enemy.TakeDamage(damageAmount);
@@ -196,44 +286,52 @@ namespace Assets.Scripts.Entity
             }
             else
             {
-                Debug.Log( Name + " промахивается.");
+                Debug.Log(Name + " промахивается.");
             }
             enemy.TakeAttack(attackResult);
         }
 
-        public void ProceedMeleeAttack(BaseEntity enemy)
+        public void ProceedRangedAttack(BaseEntity enemy, RangedAttackModifier modifier)
+        {
+            Debug.Log(Name + " стреляет в " + enemy.Name);
+            var attackResult = new RangedAttackResult();
+            attackResult.criticalChance = RangedCritChance + modifier.CritModifier;
+            var targetPoint = enemy.centerOfMass.transform.position;
+            //Debug.Log(targetPoint + "Before Modified");
+            var deviation_x = Random.Range(0, 100) - (RangedAbility + modifier.ToHitModifier);
+            var deviation_y = Random.Range(0, 100) - (RangedAbility + modifier.ToHitModifier);
+            if (deviation_x > 0)
+            {
+                var direction = Random.Range(0, 2);
+                if(direction > 0)
+                {
+                    targetPoint.x += deviation_x / 100;
+                }
+                else
+                {
+                    targetPoint.x -= deviation_x / 100;
+                }
+            }
+            if (deviation_y > 0)
+            {
+                var direction = Random.Range(0, 2);
+                if (direction > 0)
+                {
+                    targetPoint.y += deviation_y / 100;
+                }
+                else
+                {
+                    targetPoint.y -= deviation_y / 100;
+                }
+            }
+            //Debug.Log(targetPoint + "Modified");
+            econtroller.ShootAtPoint(((RangedWeapon)RightHandItem).bulletSpawner.transform, targetPoint, attackResult);
+        }
+
+
+            public void ProceedMeleeAttack(BaseEntity enemy)
         {
             ProceedMeleeAttack(enemy, new MeleeAttackModifier());
-        }
-
-        public float PureMeleeDamage
-        {
-            get
-            {
-                double result = Strength / 2;
-                result = Math.Round(result * Random.Range(0.75f, 1.26f) * 100) / 100;
-                return (float)result;
-            }
-        }
-
-        public float MeleeCritChance
-        {
-            get
-            {
-                var result = (Dexterity / 5) + (Intellect / 10);
-
-                return result;
-            }
-        }
-
-        public float Initiative
-        {
-            get
-            {
-                var result = Agility;
-
-                return result;
-            }
         }
 
         public Vector3 AlignedPosition
@@ -244,25 +342,6 @@ namespace Assets.Scripts.Entity
                 result.x = Mathf.RoundToInt(result.x);
                 result.z = Mathf.RoundToInt(result.z);
                 result.y = 0;
-                return result;
-            }
-        }
-        public float MaxActionPoint
-        {
-            get
-            {
-                var result = Concentration + Agility / 2;
-
-                return result;
-            }
-        }
-
-        public float IncomeActionPoint
-        {
-            get
-            {
-                var result = Agility / 3 + Dexterity / 3;
-
                 return result;
             }
         }
@@ -302,7 +381,7 @@ namespace Assets.Scripts.Entity
         }
 
 
-        public virtual void TakeAttack(AttackResult attackResult)
+        public virtual void TakeAttack(MeleeAttackResult attackResult)
         {
             if (attackResult.Success)
             {

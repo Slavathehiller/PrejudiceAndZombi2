@@ -85,7 +85,7 @@ namespace Assets.Scripts.Entity
             isActing = false;
         }
 
-        public override void TakeAttack(AttackResult attackResult)
+        public override void TakeAttack(MeleeAttackResult attackResult)
         {
             base.TakeAttack(attackResult);
             if (currentHitpoint <= 0)
@@ -93,7 +93,7 @@ namespace Assets.Scripts.Entity
             gameObject.transform.LookAt(attackResult.AttackPoint);
             if (attackResult.Success)
             {
-                econtroller.animator.SetTrigger("MeleeHit");
+                econtroller.animator.SetTrigger("Hit");
             }
         }
 

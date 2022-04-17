@@ -12,6 +12,7 @@ public class PlayerController : EntityController
     public Character character;
     public IInteractable selectedObject;
     public NearObjects nearObjects;
+    
 
     protected override void Start()
     {
@@ -85,12 +86,14 @@ public class PlayerController : EntityController
     {
         get
         {
-            var selectedEntity = (selectedObject as IInteractableEntity);
+            var selectedEntity = selectedObject as IInteractableEntity;
             if (selectedEntity != null && selectedEntity.getType() == InteractableType.Enemy)
                 return selectedEntity.GetEntity();
             else
                 return null;
         }
     }
+
+    
 
 }

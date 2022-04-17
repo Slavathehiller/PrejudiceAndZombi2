@@ -20,6 +20,7 @@ public class EntityController : MonoBehaviour
     public ShowEntityInfo objectInfo;
     private BaseEntity entity;
     public GameObject rightHandHandler;
+    public PrefabsController prefabsController;
 
     public void PlaceToRightHand(GameObject thing)
     {
@@ -48,6 +49,14 @@ public class EntityController : MonoBehaviour
     private void SetAsSMG(GameObject item)
     {
         item.transform.localRotation = Quaternion.Euler(new Vector3(-33, 11, 93));
+    }
+
+    public void ShootAtPoint(Transform spawnPoint, Vector3 point, RangedAttackResult attackResult)
+    {
+        GameObject bullet = Instantiate(prefabsController.simpleBullet, null);
+        bullet.transform.position = spawnPoint.position;
+        bullet.transform.LookAt(point);
+        bullet.GetComponent<Bullet>().attackResult = attackResult;
     }
 
     public bool RemoveFromRightHand(bool drop)

@@ -9,6 +9,7 @@ public class PrefabsController : MonoBehaviour
 
     public GameObject kitchenKnife;
     public GameObject medicalBandage;
+    public GameObject simpleBullet;
     public Image thingRef;
 
     // Start is called before the first frame update

@@ -63,6 +63,13 @@ public class InterfaceController : MonoBehaviour
         commandButtons[(int)InteractableCommand.Punch].SetActive(commands.GetValue((int)InteractableCommand.Punch) != null && distanceToObject < 2 && playerController.character.RightHandItem == null);
         commandButtons[(int)InteractableCommand.Kick].SetActive(commands.GetValue((int)InteractableCommand.Kick) != null && distanceToObject < 2);
         commandButtons[(int)InteractableCommand.Stab].SetActive(commands.GetValue((int)InteractableCommand.Stab) != null && distanceToObject < 2 && playerController.character.RightHandItem is BaseWeapon && ((BaseWeapon)playerController.character.RightHandItem)?.type == WeaponType.Knife);
+        commandButtons[(int)InteractableCommand.Shot].SetActive(commands.GetValue((int)InteractableCommand.Stab) != null && playerController.character.RightHandItem is BaseWeapon && CanShoot(((BaseWeapon)playerController.character.RightHandItem)?.type));
+    }
+
+    private bool CanShoot(WeaponType? type)
+    {
+        var allowedWeapon = new List<WeaponType?> { WeaponType.SMG, WeaponType.Pistol };
+        return allowedWeapon.Contains(type);    
     }
 
     void OnMouseOver()

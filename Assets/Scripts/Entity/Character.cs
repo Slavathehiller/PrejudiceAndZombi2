@@ -14,7 +14,7 @@ namespace Assets.Scripts.Entity
         public PlayerController pcontroller;
       //  public PrefabsController pfcontroller;
         int PunchCost = 3;
-        int KickCost = 5;
+        int KickCost = 5;        
 
         public override EntityController econtroller
         {
@@ -53,7 +53,7 @@ namespace Assets.Scripts.Entity
            // TakeToRightHandNew(pfcontroller.kitchenKnife);
         }
 
-        public override void TakeAttack(AttackResult attackResult)
+        public override void TakeAttack(MeleeAttackResult attackResult)
         {
             base.TakeAttack(attackResult);
             if (currentHitpoint <= 0)
@@ -177,6 +177,24 @@ namespace Assets.Scripts.Entity
             isActing = false;
         }
 
+        public void Shoot()
+        {
+            if (isActing || currentActionPoint < ((RangedWeapon)RightHandItem).ShootCost)
+                return;
+            StartCoroutine(shoot());
+        }
+
+        private IEnumerator shoot()
+        {
+            isActing = true;
+            currentActionPoint -= ((RangedWeapon)RightHandItem).ShootCost;
+            gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
+            pcontroller.animator.SetTrigger("Shot");
+            yield return new WaitForSeconds(0.05f);
+            ProceedRangedAttack(pcontroller.SelectedEnemy, ((RangedWeapon)RightHandItem).rangedAttackModifier);
+            yield return new WaitForSeconds(0.28f);
+            isActing = false;
+        }
 
         public override InteractableCommand[] getCommands()
         {

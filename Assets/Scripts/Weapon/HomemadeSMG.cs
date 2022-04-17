@@ -5,11 +5,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.Weapon
 {
-    public class HomemadeSMG : BaseWeapon
+    public class HomemadeSMG : RangedWeapon
     {
         public HomemadeSMG()
         {
             type = WeaponType.SMG;
+            ShootCost = 0;
         }
     }
 }
