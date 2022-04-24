@@ -293,6 +293,7 @@ namespace Assets.Scripts.Entity
 
         public void ProceedRangedAttack(BaseEntity enemy, RangedAttackModifier modifier)
         {
+            (RightHandItem as RangedWeapon).ConsumeAmmo();
             Debug.Log(Name + " стреляет в " + enemy.Name);
             var attackResult = new RangedAttackResult();
             attackResult.criticalChance = RangedCritChance + modifier.CritModifier;

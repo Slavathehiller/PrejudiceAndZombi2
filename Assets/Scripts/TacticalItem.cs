@@ -10,8 +10,20 @@ public enum SpecType
 }
 public abstract class TacticalItem : MonoBehaviour
 {
-
-    public ItemReference itemRef;
+    ItemReference _itemRef;
+    public ItemReference itemRef 
+    {
+        get
+        {
+            return _itemRef;
+        }
+        set
+        {
+            _itemRef = value;
+            if (_itemRef != null)
+                _itemRef.count.enabled = this is SMO || this is RangedWeapon;
+        }
+    }
 
     public Sprite image;
 
@@ -27,12 +39,6 @@ public abstract class TacticalItem : MonoBehaviour
     void Start()
     {
         _light = GetComponent<Light>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void OnTriggerEnter(Collider other)

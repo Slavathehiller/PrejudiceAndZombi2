@@ -15,7 +15,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public GameObject panel;
     public CanvasGroup canvasGroup;
     public GameObject oldParent;
-    
+    public Text count;
 
 
     private void Start()
@@ -60,4 +60,6 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
             gameObject.transform.localPosition = Vector3.zero;
         }
     }
+
+
 }

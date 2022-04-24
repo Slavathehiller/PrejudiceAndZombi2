@@ -41,14 +41,24 @@ public class EntityController : MonoBehaviour
             animator.SetBool("HaveGun", true);
         }
 
+        if (entity.RightHandItem is BaseWeapon && ((BaseWeapon)entity.RightHandItem)?.type == WeaponType.Pistol)
+        {
+            SetAsPistol(thing);
+            animator.SetBool("HavePistol", true);
+        }
+
         icontroller.rightHandDropButton.gameObject.SetActive(true);
-        thing.SetActive(true);
-            
+        thing.SetActive(true);            
     }
 
     private void SetAsSMG(GameObject item)
     {
         item.transform.localRotation = Quaternion.Euler(new Vector3(-33, 11, 93));
+    }
+
+    private void SetAsPistol(GameObject item)
+    {
+        item.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 90));
     }
 
     public void ShootAtPoint(Transform spawnPoint, Vector3 point, RangedAttackResult attackResult)
@@ -63,6 +73,7 @@ public class EntityController : MonoBehaviour
     {
         animator.SetBool("HaveKnife", false);
         animator.SetBool("HaveGun", false);
+        animator.SetBool("HavePistol", false);
         icontroller.rightHandDropButton.gameObject.SetActive(false);
         var oldobject = entity.RightHandItem?.gameObject;
         if (oldobject != null)

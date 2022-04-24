@@ -53,10 +53,12 @@
     <UnityVersion>2020.3.33f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="D:\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Weapon\WeaponCartridge.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\Gravity.cs" />
+    <Compile Include="Assets\Scripts\Weapon\HMPistolCartridge.cs" />
     <Compile Include="Assets\ExplosiveLLC\Demo Elements\Code\GUIControls.cs" />
     <Compile Include="Assets\Scripts\Control\PointerController.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerMachineDebug.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\Attack.cs" />
     <Compile Include="Assets\Scripts\ItemReference.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Null.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Ammo.cs" />
     <Compile Include="Assets\Scripts\Supply\BaseSupply.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperStateMachine.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterMovementController.cs" />
@@ -98,6 +101,7 @@
     <Compile Include="Assets\Scripts\TacticalItem.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
+    <Compile Include="Assets\Scripts\RangedAttackResult.cs" />
     <Compile Include="Assets\Scripts\TextFittter.cs" />
     <Compile Include="Assets\Scripts\Entity\FreshZombi.cs" />
     <Compile Include="Assets\Scripts\MeleeAttackModifier.cs" />
@@ -117,6 +121,8 @@
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Navigation.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BruteForceMesh.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\CoroutineQueue.cs" />
+    <Compile Include="Assets\Scripts\SMO\Ammo\Bullet_9x18.cs" />
+    <Compile Include="Assets\Scripts\Weapon\HomemadePistol.cs" />
     <Compile Include="Assets\Scripts\ShowEntityInfo.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\GetHit.cs" />
     <Compile Include="Assets\Scripts\Control\IInteractable.cs" />
@@ -132,9 +138,9 @@
     <Compile Include="Assets\Scripts\Control\InterfaceController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\ActionHandler.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterController.cs" />
+    <Compile Include="Assets\Scripts\SMO\SMO.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\RangedAttackResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />
