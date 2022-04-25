@@ -8,8 +8,7 @@ namespace Assets.Scripts.Weapon {
         public HomemadePistol()
         {
             type = WeaponType.Pistol;
-            ShootCost = 0;
-            //cartridge = new HMPistolCartridge();
+            ShootCost = 4;
         }
     }
 }

@@ -187,15 +187,15 @@ namespace Assets.Scripts.Entity
         private IEnumerator shoot()
         {
             isActing = true;
-            if ((RightHandItem as RangedWeapon).CanFire())
+            var weapon = (RightHandItem as RangedWeapon);
+            if (weapon.CanFire())
             {
-                currentActionPoint -= ((RangedWeapon)RightHandItem).ShootCost;
+                currentActionPoint -= weapon.ShootCost;
                 gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
                 pcontroller.animator.SetTrigger("Shot");
                 yield return new WaitForSeconds(0.05f);
-                ProceedRangedAttack(pcontroller.SelectedEnemy, ((RangedWeapon)RightHandItem).rangedAttackModifier);
+                ProceedRangedAttack(pcontroller.SelectedEnemy, weapon.rangedAttackModifier, weapon.cartridge.CurrentAmmoData);
                 yield return new WaitForSeconds(0.28f);
-
             }
             else
             {

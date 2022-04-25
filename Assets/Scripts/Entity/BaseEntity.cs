@@ -291,16 +291,14 @@ namespace Assets.Scripts.Entity
             enemy.TakeAttack(attackResult);
         }
 
-        public void ProceedRangedAttack(BaseEntity enemy, RangedAttackModifier modifier)
+        public void ProceedRangedAttack(BaseEntity enemy, RangedAttackModifier weaponModifier, AmmoData ammo)
         {
             (RightHandItem as RangedWeapon).ConsumeAmmo();
             Debug.Log(Name + " стреляет в " + enemy.Name);
-            var attackResult = new RangedAttackResult();
-            attackResult.criticalChance = RangedCritChance + modifier.CritModifier;
             var targetPoint = enemy.centerOfMass.transform.position;
             //Debug.Log(targetPoint + "Before Modified");
-            var deviation_x = Random.Range(0, 100) - (RangedAbility + modifier.ToHitModifier);
-            var deviation_y = Random.Range(0, 100) - (RangedAbility + modifier.ToHitModifier);
+            var deviation_x = Random.Range(0, 100) - (RangedAbility + weaponModifier.ToHitModifier + ammo.attackModifier.ToHitModifier);
+            var deviation_y = Random.Range(0, 100) - (RangedAbility + weaponModifier.ToHitModifier + ammo.attackModifier.ToHitModifier);
             if (deviation_x > 0)
             {
                 var direction = Random.Range(0, 2);
@@ -326,7 +324,7 @@ namespace Assets.Scripts.Entity
                 }
             }
             //Debug.Log(targetPoint + "Modified");
-            econtroller.ShootAtPoint(((RangedWeapon)RightHandItem).bulletSpawner.transform, targetPoint, attackResult);
+            econtroller.ShootAtPoint(((RangedWeapon)RightHandItem).bulletSpawner.transform, targetPoint,weaponModifier, ammo, enemy);
         }
 
 

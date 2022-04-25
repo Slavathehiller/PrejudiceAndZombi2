@@ -6,7 +6,7 @@ public abstract class SMO : TacticalItem
 {
     [SerializeField]
     protected int _count;
-    
+
     public int Count
     {
         get
@@ -26,8 +26,6 @@ public abstract class SMO : TacticalItem
             Destroy(gameObject);
         }
     }
-
-    //public abstract T Extract<T>(int num);
 
     public void Update()
     {

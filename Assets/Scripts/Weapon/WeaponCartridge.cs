@@ -9,7 +9,7 @@ public enum WeaponCartridgeType
 
 public class WeaponCartridge : MonoBehaviour
 {
-    public AmmoType CurrentAmmoType;
+    public AmmoData CurrentAmmoData;
     public int CurrentAmmoCount;
     public List<AmmoType> ammoTypeList;
     public bool extractable;
@@ -19,5 +19,12 @@ public class WeaponCartridge : MonoBehaviour
     public bool AcceptableType(AmmoType type)
     {
         return ammoTypeList.Contains(type);
+    }
+
+    public void ConsumeAmmo(int num = 1)
+    {
+        CurrentAmmoCount -= num;
+        if (CurrentAmmoCount < 1)
+            CurrentAmmoData.type = AmmoType.None;
     }
 }

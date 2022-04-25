@@ -61,12 +61,11 @@ public class EntityController : MonoBehaviour
         item.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 90));
     }
 
-    public void ShootAtPoint(Transform spawnPoint, Vector3 point, RangedAttackResult attackResult)
+    public void ShootAtPoint(Transform spawnPoint, Vector3 point, RangedAttackModifier  weaponModifier, AmmoData ammo, BaseEntity target)
     {
         GameObject bullet = Instantiate(prefabsController.simpleBullet, null);
         bullet.transform.position = spawnPoint.position;
-        bullet.transform.LookAt(point);
-        bullet.GetComponent<Bullet>().attackResult = attackResult;
+        bullet.GetComponent<Bullet>().Shoot(point, weaponModifier, ammo, target);
     }
 
     public bool RemoveFromRightHand(bool drop)

@@ -7,7 +7,15 @@ public enum AmmoType
     None = 0,
     FMG_9x18 = 1
 }
-public class Ammo : SMO
+
+public struct AmmoData
 {
     public AmmoType type;
+    public RangedAttackModifier attackModifier;
+    public float BaseDamage;
+}
+
+public class Ammo : SMO
+{
+    public AmmoData data = new AmmoData();
 }

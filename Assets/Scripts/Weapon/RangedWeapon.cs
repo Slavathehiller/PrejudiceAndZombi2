@@ -15,26 +15,24 @@ public class RangedWeapon : BaseWeapon
     {
         var freeSlots = cartridge.capacity - cartridge.CurrentAmmoCount;
         var loadCount = Mathf.Min(freeSlots, ammo.Count);
-        cartridge.CurrentAmmoType = ammo.type;
+        cartridge.CurrentAmmoData = ammo.data;
         cartridge.CurrentAmmoCount += (loadCount);
         ammo.Add(-loadCount);
     }
 
     public void ConsumeAmmo(int num = 1)
     {
-        cartridge.CurrentAmmoCount -= num;
-        if (cartridge.CurrentAmmoCount < 1)
-            cartridge.CurrentAmmoType = AmmoType.None;
+        cartridge.ConsumeAmmo(num);
     }
 
     public bool CanFire()
     {
-        return cartridge.CurrentAmmoCount > 0;
+        return cartridge?.CurrentAmmoCount > 0;
     }
 
     public bool CanLoad(Ammo ammo)
     {
-        return !cartridge.extractable && cartridge.AcceptableType(ammo.type);
+        return !cartridge.extractable && cartridge.AcceptableType(ammo.data.type);
     }
 
     void RefreshAmmo()
