@@ -15,7 +15,7 @@ public struct AmmoData
     public float BaseDamage;
 }
 
-public class Ammo : SMO
+public abstract class Ammo : SMO
 {
     public AmmoData data = new AmmoData();
 }

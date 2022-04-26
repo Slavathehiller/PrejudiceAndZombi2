@@ -17,11 +17,15 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public GameObject oldParent;
     public Text count;
 
+    private bool backgroundState;
+    private Image background;
+
 
     private void Start()
     {
         panel = GameObject.Find("InventoryPanel");
         canvasGroup = GetComponent<CanvasGroup>();
+        background = GetComponent<Image>();
     }
     // Update is called once per frame
     void Update()
@@ -49,6 +53,8 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         oldParent = gameObject.transform.parent.gameObject;
         gameObject.transform.SetParent(panel.transform);
         canvasGroup.blocksRaycasts = false;
+        backgroundState = background.enabled;
+        background.enabled = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -58,6 +64,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         {
             gameObject.transform.SetParent(oldParent.transform);
             gameObject.transform.localPosition = Vector3.zero;
+            background.enabled = backgroundState;
         }
     }
 

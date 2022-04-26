@@ -12,7 +12,8 @@ public class RightHandCell : ItemCell
         if (item != null)
         {
             var thing = item.thing.GetComponent<TacticalItem>();
-            var weapon = item.character.RightHandItem as RangedWeapon;
+            var rightHandItem = item.character.RightHandItem;
+            var weapon = rightHandItem as RangedWeapon;
             if (thing is Ammo && weapon != null && weapon.CanLoad(thing as Ammo))
             {
                 weapon.Reload(thing as Ammo);

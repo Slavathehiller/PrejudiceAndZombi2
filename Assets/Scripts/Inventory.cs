@@ -32,14 +32,19 @@ public class Inventory : MonoBehaviour
 
     public bool IsCellEmpty(ItemCell cell)
     {
-        var result = true;
-        foreach(var item in list)
+        return ItemInCell(cell) == null;
+    }
+
+    public TacticalItem ItemInCell(ItemCell cell)
+    {
+        foreach (var item in list)
         {
-            if(item.itemRef.gameObject.transform.parent == cell.gameObject.transform)
+            if (item.itemRef.gameObject.transform.parent == cell.gameObject.transform)
             {
-                return false;
+                return item;
             }
         }
-        return result;
+        return null;
     }
+
 }

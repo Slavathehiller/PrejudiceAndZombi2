@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 
 public enum CellSize{
-    Small = 0,
-    Medium = 1,
-    Large = 2
+    Small = 1,
+    Medium = 2,
+    Large = 4
 }
 public class ItemCell : MonoBehaviour, IDropHandler
 {
@@ -26,10 +26,20 @@ public class ItemCell : MonoBehaviour, IDropHandler
     {
         var item = eventData.pointerDrag.GetComponent<ItemReference>();
         var thing = item.thing.GetComponent<TacticalItem>();
+
+        var thingInCell = item.character.inventory.ItemInCell(this) as SMO;
+        if (thing is SMO && thingInCell != null && thing.GetType() == thingInCell.GetType()
+            && thingInCell.MaxAmount > thingInCell.Count)
+        {
+            var _thing = thing as SMO;
+            var addingCount = Mathf.Min(_thing.Count, thingInCell.MaxAmount - thingInCell.Count);
+            thingInCell.Add(addingCount);
+            _thing.Add(-addingCount);
+        }
+
         if (item != null && thing.size <= size && (spec == SpecType.Universal || spec == thing.spec) && item.character.inventory.IsCellEmpty(this))
         {
             item.character.inventory.AddItem(thing);
-            item.GetComponent<Image>().enabled = false;
             item.transform.SetParent(gameObject.transform);
             item.transform.localPosition = Vector3.zero;
             item.thing.GetComponent<Light>().enabled = false;

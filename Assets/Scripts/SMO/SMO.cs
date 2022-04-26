@@ -14,6 +14,18 @@ public abstract class SMO : TacticalItem
             return _count;
         }
     }
+
+    protected int _maxAmount;
+
+    public int MaxAmount
+    {
+        get
+        {
+            return _maxAmount;
+        }
+    }
+
+
     public void Add(int number = 1)
     {
         _count += number;

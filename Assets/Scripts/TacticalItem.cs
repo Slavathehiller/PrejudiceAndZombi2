@@ -35,7 +35,7 @@ public abstract class TacticalItem : MonoBehaviour
     public Vector2 sizeInInventory;
 
     private Light _light;
-    // Start is called before the first frame update
+
     void Start()
     {
         _light = GetComponent<Light>();
