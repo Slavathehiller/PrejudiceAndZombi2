@@ -13,11 +13,7 @@ public class RangedWeapon : BaseWeapon
 
     public void Reload(Ammo ammo)
     {
-        var freeSlots = cartridge.capacity - cartridge.CurrentAmmoCount;
-        var loadCount = Mathf.Min(freeSlots, ammo.Count);
-        cartridge.CurrentAmmoData = ammo.data;
-        cartridge.CurrentAmmoCount += (loadCount);
-        ammo.Add(-loadCount);
+        cartridge.Reload(ammo);
     }
 
     public void ConsumeAmmo(int num = 1)

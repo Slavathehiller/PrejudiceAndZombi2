@@ -7,7 +7,7 @@ public enum WeaponCartridgeType
     HandmadePistolCartridge = 0
 }
 
-public class WeaponCartridge : MonoBehaviour
+public class WeaponCartridge : TacticalItem
 {
     public AmmoData CurrentAmmoData;
     public int CurrentAmmoCount;
@@ -26,5 +26,20 @@ public class WeaponCartridge : MonoBehaviour
         CurrentAmmoCount -= num;
         if (CurrentAmmoCount < 1)
             CurrentAmmoData.type = AmmoType.None;
+    }
+
+    public void Reload(Ammo ammo)
+    {
+        var freeSlots = capacity - CurrentAmmoCount;
+        var loadCount = Mathf.Min(freeSlots, ammo.Count);
+        CurrentAmmoData = ammo.data;
+        CurrentAmmoCount += loadCount;
+        ammo.Add(-loadCount);
+    }
+
+    void RefreshAmmo()
+    {
+        if (itemRef != null)
+            itemRef.count.text = CurrentAmmoCount.ToString();
     }
 }

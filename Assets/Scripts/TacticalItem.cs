@@ -21,7 +21,7 @@ public abstract class TacticalItem : MonoBehaviour
         {
             _itemRef = value;
             if (_itemRef != null)
-                _itemRef.count.enabled = this is SMO || this is RangedWeapon;
+                _itemRef.count.enabled = this is SMO || this is RangedWeapon || this is WeaponCartridge;
         }
     }
 

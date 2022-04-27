@@ -51,7 +51,6 @@ namespace Assets.Scripts.Entity
 
         public abstract EntityController econtroller { get; }
 
-
         public virtual string Description
         {
             get
@@ -59,7 +58,6 @@ namespace Assets.Scripts.Entity
                 return "Нет описания.";
             }
         }
-
 
         public float Strength
         {
@@ -90,7 +88,6 @@ namespace Assets.Scripts.Entity
                 return result;
             }
         }
-
 
         public float Constitution
         {
@@ -130,10 +127,6 @@ namespace Assets.Scripts.Entity
                 return result;
             }
         }
-
-
-
-
 
         public float MaxHealth
         {
