@@ -4,7 +4,9 @@ using UnityEngine;
 
 public enum WeaponCartridgeType
 {
-    HandmadePistolCartridge = 0
+    HandmadePistolCartridge = 0,
+    HandmadeSMGCartridge = 1
+
 }
 
 public class WeaponCartridge : TacticalItem
@@ -41,5 +43,10 @@ public class WeaponCartridge : TacticalItem
     {
         if (itemRef != null)
             itemRef.count.text = CurrentAmmoCount.ToString();
+    }
+
+    private void Update()
+    {
+        RefreshAmmo();
     }
 }

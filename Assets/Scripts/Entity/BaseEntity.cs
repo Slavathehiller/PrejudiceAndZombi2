@@ -317,6 +317,7 @@ namespace Assets.Scripts.Entity
                 }
             }
             //Debug.Log(targetPoint + "Modified");
+            weaponModifier.CritModifier += RangedCritChance;
             econtroller.ShootAtPoint(((RangedWeapon)RightHandItem).bulletSpawner.transform, targetPoint,weaponModifier, ammo, enemy);
         }
 

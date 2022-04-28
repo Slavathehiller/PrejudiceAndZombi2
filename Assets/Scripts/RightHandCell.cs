@@ -18,6 +18,11 @@ public class RightHandCell : ItemCell
             {
                 weapon.Reload(thing as Ammo);
             }
+            var cartridge = rightHandItem as WeaponCartridge;
+            if (thing is Ammo && cartridge != null && cartridge.AcceptableType((thing as Ammo).data.type))
+            {
+                cartridge.Reload(thing as Ammo);
+            }
         }        
 
         if (TryToDrop(eventData))
