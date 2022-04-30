@@ -13,15 +13,20 @@ public class RightHandCell : ItemCell
         {
             var thing = item.thing.GetComponent<TacticalItem>();
             var rightHandItem = item.character.RightHandItem;
+
             var weapon = rightHandItem as RangedWeapon;
             if (thing is Ammo && weapon != null && weapon.CanLoad(thing as Ammo))
             {
                 weapon.Reload(thing as Ammo);
             }
-            var cartridge = rightHandItem as WeaponCartridge;
-            if (thing is Ammo && cartridge != null && cartridge.AcceptableType((thing as Ammo).data.type))
+            if (thing is WeaponMagazine && weapon != null && weapon.CanLoad(thing as WeaponMagazine))
             {
-                cartridge.Reload(thing as Ammo);
+                weapon.Reload(thing as WeaponMagazine);
+            }
+            var magazine = rightHandItem as WeaponMagazine;
+            if (thing is Ammo && magazine != null && magazine.AcceptableType((thing as Ammo).data.type))
+            {
+                magazine.Reload(thing as Ammo);
             }
         }        
 

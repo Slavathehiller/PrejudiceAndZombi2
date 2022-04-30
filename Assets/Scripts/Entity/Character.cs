@@ -194,7 +194,7 @@ namespace Assets.Scripts.Entity
                 gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
                 pcontroller.animator.SetTrigger("Shot");
                 yield return new WaitForSeconds(0.05f);
-                ProceedRangedAttack(pcontroller.SelectedEnemy, weapon.rangedAttackModifier, weapon.cartridge.CurrentAmmoData);
+                ProceedRangedAttack(pcontroller.SelectedEnemy, weapon.rangedAttackModifier, weapon.magazine.CurrentAmmoData);
                 yield return new WaitForSeconds(0.28f);
             }
             else

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3668,14 +3668,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 180343327987630921, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 792621576135446561, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
       propertyPath: m_Name
       value: HomemadeSMG
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018317749893556462, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018317749893556462, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2319079096689241390, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 3631823020159197714, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1786974607}
+    - target: {fileID: 3631823020159197714, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
+      propertyPath: boxCollider
+      value: 
+      objectReference: {fileID: 1786974606}
+    - target: {fileID: 6176404626027940608, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
+      propertyPath: m_Name
+      value: HM_smg_magazine_inside
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176404626027940608, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
 --- !u!1 &429413023
@@ -5130,9 +5158,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2730921104746330765, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 2090997663}
+    - target: {fileID: 2730921104746330765, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}
+      propertyPath: boxCollider
+      value: 
+      objectReference: {fileID: 2090997662}
     - target: {fileID: 4771003902370829215, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}
       propertyPath: m_Name
-      value: HM_smg_cartridge
+      value: HM_smg_magazine
       objectReference: {fileID: 0}
     - target: {fileID: 5295620089236719909, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}
       propertyPath: m_RootOrder
@@ -8616,7 +8652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10b2a541bb57574c92545a4830eb176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 2
+  size: 4
   spec: 0
   background: {fileID: 0}
 --- !u!1 &1719275243
@@ -10499,6 +10535,16 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 904a6517336f24e47b49494a62425739, type: 3}
   m_PrefabInstance: {fileID: 1784241401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1786974606 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 180343327987630921, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
+  m_PrefabInstance: {fileID: 428845207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1786974607 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2018317749893556462, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
+  m_PrefabInstance: {fileID: 428845207}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1797615182 stripped
 Transform:
@@ -12394,6 +12440,16 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 6408ee6d69c8f2044b1742d90e0549d1, type: 3}
   m_PrefabInstance: {fileID: 2082604539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2090997662 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 1513289468025101270, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}
+  m_PrefabInstance: {fileID: 810390958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &2090997663 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 829362450631241841, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}
+  m_PrefabInstance: {fileID: 810390958}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2100513488
 GameObject:

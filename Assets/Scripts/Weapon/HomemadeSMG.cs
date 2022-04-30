@@ -10,7 +10,7 @@ namespace Assets.Scripts.Weapon
         public HomemadeSMG()
         {
             type = WeaponType.SMG;
-            ShootCost = 0;
+            ShootCost = 4;
         }
     }
 }

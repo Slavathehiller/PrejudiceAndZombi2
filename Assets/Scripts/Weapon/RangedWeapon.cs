@@ -8,33 +8,50 @@ public class RangedWeapon : BaseWeapon
     public RangedAttackModifier rangedAttackModifier = new RangedAttackModifier();
     public float ShootCost;
     public GameObject bulletSpawner;
-    public WeaponCartridge cartridge;
-    public List<WeaponCartridgeType> compatibleCartridgeTypes = new List<WeaponCartridgeType>();
+    public WeaponMagazine magazine;
+    public Transform magazinePoint;
+    public List<WeaponMagazineType> compatibleCartridgeTypes = new List<WeaponMagazineType>();
+
+    public bool CanLoad(Ammo ammo)
+    {
+        return !magazine.extractable && magazine.AcceptableType(ammo.data.type);
+    }
 
     public void Reload(Ammo ammo)
     {
-        cartridge.Reload(ammo);
+        magazine.Reload(ammo);
+    }
+
+    public bool CanLoad(WeaponMagazine weaponMagazine)
+    {
+        return magazine.extractable && compatibleCartridgeTypes.Contains(weaponMagazine.type);
+    }
+
+    public void Reload(WeaponMagazine weaponMagazine)
+    {
+        magazine.Drop();
+        magazine = weaponMagazine;
+        magazine.itemRef.gameObject.SetActive(false);
+        magazine.gameObject.SetActive(false);
+        magazine.transform.SetParent(magazinePoint);
+        magazine.transform.localPosition = Vector3.zero;
+       // Destroy(magazine.itemRef.gameObject);
     }
 
     public void ConsumeAmmo(int num = 1)
     {
-        cartridge.ConsumeAmmo(num);
+        magazine.ConsumeAmmo(num);
     }
 
     public bool CanFire()
     {
-        return cartridge?.CurrentAmmoCount > 0;
-    }
-
-    public bool CanLoad(Ammo ammo)
-    {
-        return !cartridge.extractable && cartridge.AcceptableType(ammo.data.type);
+        return magazine?.CurrentAmmoCount > 0;
     }
 
     void RefreshAmmo()
     {
-        if (itemRef != null && cartridge != null)
-            itemRef.count.text = cartridge.CurrentAmmoCount.ToString();
+        if (itemRef != null && magazine != null)
+            itemRef.count.text = magazine.CurrentAmmoCount.ToString();
     }
 
     private void Update()

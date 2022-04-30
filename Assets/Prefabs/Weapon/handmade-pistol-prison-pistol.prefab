@@ -73,7 +73,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3332b8bbd8f85494aa45b7aac762ca0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: {fileID: 0}
+  image: {fileID: 0}
+  size: 0
+  spec: 0
+  sizeInHand: {x: 0, y: 0}
+  sizeInInventory: {x: 0, y: 0}
+  CurrentAmmoCount: 0
   ammoTypeList: 00000000
   extractable: 0
   capacity: 1
@@ -239,9 +244,10 @@ MonoBehaviour:
   sizeInHand: {x: 75, y: 60}
   sizeInInventory: {x: 45, y: 35}
   type: 2
-  ShootCost: 0
+  ShootCost: 4
   bulletSpawner: {fileID: 561939792616835827}
-  cartridge: {fileID: 6377346349894037731}
+  magazine: {fileID: 0}
+  magazinePoint: {fileID: 0}
   compatibleCartridgeTypes: 
 --- !u!1001 &2543848749036540785
 PrefabInstance:

@@ -76,17 +76,18 @@ public class EntityController : MonoBehaviour
         icontroller.rightHandDropButton.gameObject.SetActive(false);
         var oldobject = entity.RightHandItem?.gameObject;
         if (oldobject != null)
-        {
-            oldobject.transform.SetParent(null);
+        {            
             if (drop)
             {
-                oldobject.GetComponent<Rigidbody>().isKinematic = false;
-                oldobject.GetComponent<BoxCollider>().enabled = true;
-                var itemRef = oldobject.GetComponent<TacticalItem>().itemRef;
-                Destroy(itemRef.gameObject);
+                oldobject.GetComponent<TacticalItem>().Drop();
+                //oldobject.GetComponent<Rigidbody>().isKinematic = false;
+                //oldobject.GetComponent<BoxCollider>().enabled = true;
+                //var itemRef = oldobject.GetComponent<TacticalItem>().itemRef;
+                //Destroy(itemRef.gameObject);
             }
             else
-            {
+            {               
+                oldobject.transform.SetParent(null);
                 oldobject.SetActive(false);
             }
             return true;
@@ -96,6 +97,8 @@ public class EntityController : MonoBehaviour
             return false;
         }
     }
+
+
 
     // Start is called before the first frame update
     protected virtual void Start()

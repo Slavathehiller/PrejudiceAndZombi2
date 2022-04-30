@@ -21,7 +21,7 @@ public abstract class TacticalItem : MonoBehaviour
         {
             _itemRef = value;
             if (_itemRef != null)
-                _itemRef.count.enabled = this is SMO || this is RangedWeapon || this is WeaponCartridge;
+                _itemRef.count.enabled = this is SMO || this is RangedWeapon || this is WeaponMagazine;
         }
     }
 
@@ -36,9 +36,32 @@ public abstract class TacticalItem : MonoBehaviour
 
     private Light _light;
 
+    public Rigidbody rb;
+    public BoxCollider boxCollider;
+
     void Start()
     {
         _light = GetComponent<Light>();
+        rb = GetComponent<Rigidbody>();
+        boxCollider = GetComponent<BoxCollider>();
+    }
+
+    public void Drop()
+    {
+        gameObject.SetActive(true);
+        transform.SetParent(null);
+        rb.isKinematic = false;
+       // rb.useGravity = true;
+        boxCollider.enabled = true;
+
+        if (itemRef != null)
+        {
+            itemRef.character.gameObject.GetComponent<NearObjects>().DeleteThing(itemRef, true);
+            //Destroy(itemRef.gameObject);
+        }
+
+
+
     }
 
     public void OnTriggerEnter(Collider other)

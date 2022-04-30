@@ -29,7 +29,8 @@ public class NearObjects : MonoBehaviour
         item.itemRef = refItem;
         refItem.character = character;
 
-        list.Add(refItem);
+        if(!list.Contains(refItem))
+            list.Add(refItem);
     }
 
     public void DeleteThing(ItemReference item, bool deleteGameObject = false)
@@ -38,7 +39,8 @@ public class NearObjects : MonoBehaviour
         list.Remove(item);
         if (deleteGameObject)
         {
-            Destroy(item.gameObject);
+            if(item != null)
+                Destroy(item.gameObject);
         }
     }
 }
