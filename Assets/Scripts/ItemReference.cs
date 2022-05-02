@@ -15,6 +15,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public GameObject panel;
     public CanvasGroup canvasGroup;
     public GameObject oldParent;
+    public Button unloadButton;
     public Text count;
 
     private bool backgroundState;
@@ -25,7 +26,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     {
         panel = GameObject.Find("InventoryPanel");
         canvasGroup = GetComponent<CanvasGroup>();
-        background = GetComponent<Image>();
+        background = GetComponent<Image>();        
     }
     // Update is called once per frame
     void Update()
@@ -40,6 +41,29 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public void RemoveFromRightHand()
     {
         character.RemoveFromRightHand(false);
+        ShowReloadButton(false);
+    }
+
+    public void Unload()
+    {
+        var weapon = thing.GetComponent<TacticalItem>() as RangedWeapon;
+        if(weapon != null && weapon.magazine != null && weapon.magazine.extractable)
+        {
+            weapon.UnloadMagazine();
+        }
+    }
+
+    public void ShowReloadButton(bool on)
+    {
+        if (on)
+        {
+            var weapon = thing.GetComponent<TacticalItem>() as RangedWeapon;
+            unloadButton.gameObject.SetActive(weapon != null && weapon.magazine != null && weapon.magazine.extractable);
+        }
+        else
+        {
+            unloadButton.gameObject.SetActive(false);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)

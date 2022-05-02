@@ -160,8 +160,8 @@ MonoBehaviour:
   spec: 0
   sizeInHand: {x: 50, y: 65}
   sizeInInventory: {x: 30, y: 45}
-  rb: {fileID: 0}
-  boxCollider: {fileID: 0}
+  rb: {fileID: 829362450631241841}
+  boxCollider: {fileID: 1513289468025101270}
   CurrentAmmoCount: 0
   ammoTypeList: 01000000
   extractable: 1

@@ -179,8 +179,13 @@ namespace Assets.Scripts.Entity
 
         public void Shoot()
         {
-            if (isActing || currentActionPoint < ((RangedWeapon)RightHandItem).ShootCost)
+            if (isActing)
                 return;
+            if (currentActionPoint < ((RangedWeapon)RightHandItem).ShootCost)
+            {
+                Debug.Log("Не хватает очков декйствия");
+                return;
+            }
             StartCoroutine(shoot());
         }
 

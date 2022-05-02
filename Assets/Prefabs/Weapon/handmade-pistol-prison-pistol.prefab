@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 2248183720302374718}
   - component: {fileID: 6377346349894037731}
   m_Layer: 0
-  m_Name: Cartridge
+  m_Name: Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,6 +78,8 @@ MonoBehaviour:
   spec: 0
   sizeInHand: {x: 0, y: 0}
   sizeInInventory: {x: 0, y: 0}
+  rb: {fileID: 0}
+  boxCollider: {fileID: 0}
   CurrentAmmoCount: 0
   ammoTypeList: 00000000
   extractable: 0
@@ -243,11 +245,16 @@ MonoBehaviour:
   spec: 1
   sizeInHand: {x: 75, y: 60}
   sizeInInventory: {x: 45, y: 35}
+  rb: {fileID: 0}
+  boxCollider: {fileID: 0}
   type: 2
   ShootCost: 4
   bulletSpawner: {fileID: 561939792616835827}
-  magazine: {fileID: 0}
+  magazine: {fileID: 6377346349894037731}
   magazinePoint: {fileID: 0}
+  imageWithoutMagazine: {fileID: 21300000, guid: d85cacbf16bfb2e4a9586f26cb680227, type: 3}
+  imageWithMagazine: {fileID: 21300000, guid: d85cacbf16bfb2e4a9586f26cb680227, type: 3}
+  magazineModel: {fileID: 2828908669587399418}
   compatibleCartridgeTypes: 
 --- !u!1001 &2543848749036540785
 PrefabInstance:

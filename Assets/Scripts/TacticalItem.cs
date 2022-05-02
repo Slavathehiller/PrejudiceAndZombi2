@@ -26,7 +26,7 @@ public abstract class TacticalItem : MonoBehaviour
     }
 
     public Sprite image;
-
+    
     public CellSize size;
 
     public SpecType spec = SpecType.Universal;
@@ -56,8 +56,8 @@ public abstract class TacticalItem : MonoBehaviour
 
         if (itemRef != null)
         {
+            itemRef.character.inventory.RemoveItem(itemRef.thing.GetComponent<TacticalItem>());
             itemRef.character.gameObject.GetComponent<NearObjects>().DeleteThing(itemRef, true);
-            //Destroy(itemRef.gameObject);
         }
 
 

@@ -28,6 +28,8 @@ public class RightHandCell : ItemCell
             {
                 magazine.Reload(thing as Ammo);
             }
+
+
         }        
 
         if (TryToDrop(eventData))
@@ -36,6 +38,11 @@ public class RightHandCell : ItemCell
             if (item != null)
             {
                 item.character.pcontroller.PickUpItem(item);
+                var _thing = item.thing.GetComponent<RangedWeapon>();
+                if (_thing != null)
+                {
+                    _thing.itemRef.ShowReloadButton(true);
+                }
             }
         }
     }

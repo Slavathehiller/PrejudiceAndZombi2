@@ -37,6 +37,7 @@ public class ItemCell : MonoBehaviour, IDropHandler
         if (item != null && thing.size <= size && (spec == SpecType.Universal || spec == thing.spec) && item.character.inventory.IsCellEmpty(this))
         {
             item.character.inventory.AddItem(thing);
+            item.character.GetComponent<NearObjects>().DeleteThing(item, false);
             item.transform.SetParent(gameObject.transform);
             item.transform.localPosition = Vector3.zero;
             item.thing.GetComponent<Light>().enabled = false;

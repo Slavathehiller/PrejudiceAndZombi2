@@ -10,7 +10,11 @@ public class RangedWeapon : BaseWeapon
     public GameObject bulletSpawner;
     public WeaponMagazine magazine;
     public Transform magazinePoint;
+    public Sprite imageWithoutMagazine;
+    public Sprite imageWithMagazine;
+    public GameObject magazineModel;
     public List<WeaponMagazineType> compatibleCartridgeTypes = new List<WeaponMagazineType>();
+
 
     public bool CanLoad(Ammo ammo)
     {
@@ -24,17 +28,19 @@ public class RangedWeapon : BaseWeapon
 
     public bool CanLoad(WeaponMagazine weaponMagazine)
     {
-        return magazine.extractable && compatibleCartridgeTypes.Contains(weaponMagazine.type);
+        return (magazine == null || magazine.extractable) && compatibleCartridgeTypes.Contains(weaponMagazine.type);
     }
 
     public void Reload(WeaponMagazine weaponMagazine)
     {
-        magazine.Drop();
+        UnloadMagazine();
         magazine = weaponMagazine;
         magazine.itemRef.gameObject.SetActive(false);
         magazine.gameObject.SetActive(false);
         magazine.transform.SetParent(magazinePoint);
         magazine.transform.localPosition = Vector3.zero;
+        itemRef.character.inventory.RemoveItem(magazine.itemRef.thing.GetComponent<TacticalItem>());
+        itemRef.ShowReloadButton(true);
        // Destroy(magazine.itemRef.gameObject);
     }
 
@@ -50,8 +56,31 @@ public class RangedWeapon : BaseWeapon
 
     void RefreshAmmo()
     {
+        if (magazine == null)
+        {
+            itemRef.count.text = "-";
+        }
+
         if (itemRef != null && magazine != null)
             itemRef.count.text = magazine.CurrentAmmoCount.ToString();
+        magazineModel.SetActive(magazine != null);
+        if (itemRef != null)
+        {
+            if (magazine is null)
+                itemRef.image.sprite = imageWithoutMagazine;
+            else
+                itemRef.image.sprite = imageWithMagazine;
+        }
+    }
+
+    public void UnloadMagazine()
+    {
+        if(magazine != null)
+        {
+            magazine.Drop();
+            magazine = null;
+            itemRef.ShowReloadButton(false);
+        }
     }
 
     private void Update()
