@@ -44,7 +44,7 @@ public class InterfaceController : MonoBehaviour
     {
         APText.text = System.Math.Round(playerController.character.currentActionPoint, 1).ToString();
         APSurplusText.text = System.Math.Round(playerController.character.IncomeActionPoint, 1).ToString();
-        HealthBarImage.fillAmount = playerController.character.currentHitpoint / playerController.character.MaxHealth;
+        HealthBarImage.fillAmount = playerController.character.CurrentHealth / playerController.character.MaxHealth;
         Name.text = playerController.character.Name;
         Portrait.sprite = playerController.character.portrait;
         UpdateActionPanel();

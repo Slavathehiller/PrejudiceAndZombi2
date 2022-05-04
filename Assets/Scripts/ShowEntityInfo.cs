@@ -32,7 +32,7 @@ public class ShowEntityInfo : MonoBehaviour
         gameObject.SetActive(true);
         Name.text = entity.Name;
         Portrait.sprite = entity.portrait;
-        Health.text = System.Math.Round(entity.currentHitpoint, 1).ToString() + '/' + System.Math.Round(entity.MaxHealth, 1).ToString();
+        Health.text = System.Math.Round(entity.CurrentHealth, 1).ToString() + '/' + System.Math.Round(entity.MaxHealth, 1).ToString();
         AP.text = System.Math.Round(entity.currentActionPoint, 1).ToString() + '/' + System.Math.Round(entity.MaxActionPoint, 1).ToString();
         APSurplus.text = System.Math.Round(entity.IncomeActionPoint, 1).ToString() + " за ход";
         Description.text = entity.Description;

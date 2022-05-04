@@ -26,25 +26,18 @@ namespace Assets.Scripts.Entity
             base.StartTurn();
             pcontroller.Ancoring(false);
         }
-        private void RefreshStates()
-        {
-          //  InterfaceController.SetStats(this);
-          //  InterfaceController.SetSkills(this);
-        }
-
-        private void RefreshAP()
-        {
-          //  InterfaceController.SetAP(this);
-        }
-
-        private void RefreshSkills()
-        {
-           // InterfaceController.SetSkills(this);
-        }
 
         // Start is called before the first frame update
         protected override void Start()
         {
+            States = new EntityStates() { 
+                inStrength = 4, 
+                inDexterity = 6, 
+                inAgility = 8, 
+                inConstitution = 5, 
+                inIntellect = 8, 
+                inConcentration = 7, 
+                inPerception = 6 };
             base.Start();
             pcontroller = GetComponent<PlayerController>();
             Name = "Выживший";
@@ -56,7 +49,7 @@ namespace Assets.Scripts.Entity
         public override void TakeAttack(MeleeAttackResult attackResult)
         {
             base.TakeAttack(attackResult);
-            if (currentHitpoint <= 0)
+            if (CurrentHealth <= 0)
                 return;
             gameObject.transform.LookAt(attackResult.AttackPoint);
             if (attackResult.Success)
@@ -95,10 +88,6 @@ namespace Assets.Scripts.Entity
         {
             if (!isActing)
                 return;
-
-            RefreshStates();
-            RefreshAP();
-
         }
 
         public void SkipTurn()

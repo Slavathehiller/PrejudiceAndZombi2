@@ -24,6 +24,7 @@ public class RangedWeapon : BaseWeapon
     public void Reload(Ammo ammo)
     {
         magazine.Reload(ammo);
+        itemRef.ShowUnloadButton(true);
     }
 
     public bool CanLoad(WeaponMagazine weaponMagazine)
@@ -40,7 +41,7 @@ public class RangedWeapon : BaseWeapon
         magazine.transform.SetParent(magazinePoint);
         magazine.transform.localPosition = Vector3.zero;
         itemRef.character.inventory.RemoveItem(magazine.itemRef.thing.GetComponent<TacticalItem>());
-        itemRef.ShowReloadButton(true);
+        itemRef.ShowUnloadButton(true);
        // Destroy(magazine.itemRef.gameObject);
     }
 
@@ -79,7 +80,7 @@ public class RangedWeapon : BaseWeapon
         {
             magazine.Drop();
             magazine = null;
-            itemRef.ShowReloadButton(false);
+            itemRef.ShowUnloadButton(false);
         }
     }
 

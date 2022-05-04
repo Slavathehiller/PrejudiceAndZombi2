@@ -41,24 +41,41 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public void RemoveFromRightHand()
     {
         character.RemoveFromRightHand(false);
-        ShowReloadButton(false);
+        ShowUnloadButton(false);
     }
 
     public void Unload()
     {
         var weapon = thing.GetComponent<TacticalItem>() as RangedWeapon;
-        if(weapon != null && weapon.magazine != null && weapon.magazine.extractable)
+        if(weapon != null && weapon.magazine != null)
         {
-            weapon.UnloadMagazine();
+            if (weapon.magazine.extractable)
+                weapon.UnloadMagazine();
+            else
+            {
+                var ammoObject = Ammo.MakeObject(weapon.magazine.CurrentAmmoData);
+                var ammo = ammoObject.GetComponent<TacticalItem>() as Ammo;
+                if (ammo != null)
+                {
+                    ammoObject.transform.SetParent(thing.transform);
+                    ammoObject.transform.localPosition = Vector3.zero;
+                    ammo.SetCount(weapon.magazine.CurrentAmmoCount);
+                    ammo.prefabController = character.pcontroller.prefabsController;
+                    ammo.Drop();
+                    weapon.magazine.CurrentAmmoCount = 0;
+                    weapon.itemRef.ShowUnloadButton(false);
+                }
+
+            }
         }
     }
 
-    public void ShowReloadButton(bool on)
+    public void ShowUnloadButton(bool on)
     {
         if (on)
         {
             var weapon = thing.GetComponent<TacticalItem>() as RangedWeapon;
-            unloadButton.gameObject.SetActive(weapon != null && weapon.magazine != null && weapon.magazine.extractable);
+            unloadButton.gameObject.SetActive(weapon != null && weapon.magazine != null && (weapon.magazine.extractable || weapon.magazine.CurrentAmmoCount > 0));
         }
         else
         {

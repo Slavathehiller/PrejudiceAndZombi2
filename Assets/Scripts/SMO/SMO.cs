@@ -25,10 +25,19 @@ public abstract class SMO : TacticalItem
         }
     }
 
-
+    public void SetCount(int number)
+    {
+        _count = number;
+        CheckNum();
+    }
     public void Add(int number = 1)
     {
         _count += number;
+        CheckNum();
+    }
+
+    private void CheckNum()
+    {
         if (itemRef != null)
             itemRef.count.text = _count.ToString();
         if (_count < 1)

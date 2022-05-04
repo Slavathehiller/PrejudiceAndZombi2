@@ -41,7 +41,7 @@ public class RightHandCell : ItemCell
                 var _thing = item.thing.GetComponent<RangedWeapon>();
                 if (_thing != null)
                 {
-                    _thing.itemRef.ShowReloadButton(true);
+                    _thing.itemRef.ShowUnloadButton(true);
                 }
             }
         }

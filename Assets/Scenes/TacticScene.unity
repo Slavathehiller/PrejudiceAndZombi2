@@ -8698,7 +8698,7 @@ MonoBehaviour:
   pathLength: 0
   objectInfo: {fileID: 2108227963}
   rightHandHandler: {fileID: 0}
-  prefabsController: {fileID: 0}
+  prefabsController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
 --- !u!114 &1719275247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8711,18 +8711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513e077d357c08941a2fd4708f37efde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inStrength: 7
-  inDexterity: 5
-  inAgility: 5
-  inConstitution: 5
-  inIntellect: 2
-  inConcentration: 4
-  inPerception: 0
   isActive: 1
   isActing: 0
   isMyTurn: 0
   currentActionPoint: 0
-  currentHitpoint: 0
   Name: 
   portrait: {fileID: 21300000, guid: 8a34b215c3a06ca46ae5595b9722d316, type: 3}
   Type: 1
@@ -10576,7 +10568,7 @@ MonoBehaviour:
   pathLength: 0
   objectInfo: {fileID: 2108227963}
   rightHandHandler: {fileID: 16079406}
-  prefabsController: {fileID: 1874979038}
+  prefabsController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
   cam: {fileID: 239155633}
   character: {fileID: 0}
   nearObjects: {fileID: 0}
@@ -10621,18 +10613,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56971de4e705e8b4f827c9ee763283dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inStrength: 8
-  inDexterity: 4
-  inAgility: 6
-  inConstitution: 4
-  inIntellect: 2
-  inConcentration: 3
-  inPerception: 7
   isActive: 1
   isActing: 0
   isMyTurn: 0
   currentActionPoint: 0
-  currentHitpoint: 0
   Name: 
   portrait: {fileID: 21300000, guid: 910910e805d2952469f36b2e72877c2f, type: 3}
   Type: 0
@@ -10797,7 +10781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list: []
-  pfController: {fileID: 1874979038}
+  pfController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
   groundPanel: {fileID: 390965813}
 --- !u!114 &1799481578
 MonoBehaviour:
@@ -11074,53 +11058,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.3, y: -26.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1874979037
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1874979039}
-  - component: {fileID: 1874979038}
-  m_Layer: 0
-  m_Name: PrefabsController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1874979038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874979037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8c8b236d9b957b4aab83692a57a4794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kitchenKnife: {fileID: 5684517173361243158, guid: 0be098424ce737a4a96ea15389f6f0c9, type: 3}
-  medicalBandage: {fileID: 4989300813340659701, guid: d4dc6599b098ff5419e6d035764edc64, type: 3}
-  simpleBullet: {fileID: 1580074302825496377, guid: b197a25668cd68543aff5f37880d4999, type: 3}
-  thingRef: {fileID: 3554941172269810315, guid: 2bc4eb1536d36a84da979ab5ab7cc8db, type: 3}
---- !u!4 &1874979039
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874979037}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885504075
 GameObject:
   m_ObjectHideFlags: 0
@@ -11291,7 +11228,7 @@ MonoBehaviour:
   pathLength: 0
   objectInfo: {fileID: 2108227963}
   rightHandHandler: {fileID: 0}
-  prefabsController: {fileID: 0}
+  prefabsController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
 --- !u!114 &1885504080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11304,18 +11241,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513e077d357c08941a2fd4708f37efde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inStrength: 7
-  inDexterity: 6
-  inAgility: 6
-  inConstitution: 5
-  inIntellect: 2
-  inConcentration: 4
-  inPerception: 0
   isActive: 1
   isActing: 0
   isMyTurn: 0
   currentActionPoint: 0
-  currentHitpoint: 0
   Name: 
   portrait: {fileID: 21300000, guid: 8a34b215c3a06ca46ae5595b9722d316, type: 3}
   Type: 1

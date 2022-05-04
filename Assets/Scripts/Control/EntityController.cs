@@ -116,7 +116,7 @@ public class EntityController : MonoBehaviour
         //if (Vector3.Distance(agent.transform.position, agent.pathEndPosition) == 0 )
         animator.SetBool("IsWalking", agent.hasPath);
         pathDrawer.enabled = agent.hasPath;
-        if (entity.currentHitpoint <= 0)
+        if (entity.CurrentHealth <= 0)
             animator.SetTrigger("Die");
     }
 

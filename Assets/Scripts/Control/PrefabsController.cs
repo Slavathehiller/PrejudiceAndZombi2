@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class PrefabsController : MonoBehaviour
 {
-
-
     public GameObject kitchenKnife;
     public GameObject medicalBandage;
     public GameObject simpleBullet;
     public Image thingRef;
+    public GameObject Bullet_9x18;
+    public GameObject homemade_pistol;
 
     // Start is called before the first frame update
     void Start()

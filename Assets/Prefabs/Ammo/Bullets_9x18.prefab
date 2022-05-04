@@ -160,8 +160,10 @@ MonoBehaviour:
   spec: 0
   sizeInHand: {x: 35, y: 35}
   sizeInInventory: {x: 25, y: 25}
+  rb: {fileID: 0}
+  boxCollider: {fileID: 0}
   _count: 9
-  type: 1
+  prefabController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
 --- !u!1001 &5705413384671525671
 PrefabInstance:
   m_ObjectHideFlags: 0

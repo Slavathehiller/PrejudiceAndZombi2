@@ -16,20 +16,7 @@ namespace Assets.Scripts.Entity
 
     public abstract class BaseEntity : MonoBehaviour, IInteractableEntity
     {
-        [SerializeField]
-        private float inStrength = 0;
-        [SerializeField]
-        private float inDexterity = 0;
-        [SerializeField]
-        private float inAgility = 0;
-        [SerializeField]
-        private float inConstitution = 0;
-        [SerializeField]
-        private float inIntellect = 0;
-        [SerializeField]
-        private float inConcentration = 0;
-        [SerializeField]
-        private float inPerception = 0;
+        public EntityStates States;
 
         [NonSerialized]
         public CapsuleCollider Collider;
@@ -38,7 +25,6 @@ namespace Assets.Scripts.Entity
         public bool isActing = false;
         public bool isMyTurn = false;
         public float currentActionPoint;
-        public float currentHitpoint;
         public string Name = "";
         public Sprite portrait;
         [HideInInspector]
@@ -59,90 +45,25 @@ namespace Assets.Scripts.Entity
             }
         }
 
-        public float Strength
-        {
-            get
-            {
-                var result = inStrength;
-
-                return result;
-            }
-        }
-
-        public float Dexterity
-        {
-            get
-            {
-                var result = inDexterity;
-
-                return result;
-            }
-        }
-
-        public float Agility
-        {
-            get
-            {
-                var result = inAgility;
-
-                return result;
-            }
-        }
-
-        public float Constitution
-        {
-            get
-            {
-                var result = inConstitution;
-
-                return result;
-            }
-        }
-
-        public float Intellect
-        {
-            get
-            {
-                var result = inIntellect;
-
-                return result;
-            }
-        }
-        public float Concentration
-        {
-            get
-            {
-                var result = inConcentration;
-
-                return result;
-            }
-        }
-
-        public float Perceprion
-        {
-            get
-            {
-                var result = inPerception;
-
-                return result;
-            }
-        }
-
         public float MaxHealth
         {
             get
             {
-                var result = Constitution * 10;
-
-                return result;
+                return States.MaxHealth;
             }
+        }
+
+        public float CurrentHealth
+        {
+            get { return States.CurrentHealth; }
+            set { States.CurrentHealth = value; }
         }
 
         public float MeleeAbility
         {
             get
             {
-                var result = Dexterity / 2 + Agility / 2;
+                var result = States.Dexterity / 2 + States.Agility / 2;
 
                 return result;
             }
@@ -152,18 +73,17 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = Dexterity + Intellect / 2;
+                var result = States.Dexterity + States.Intellect / 2;
 
                 return result;
             }
         }
 
-
         public float RangedAbility
         {
             get
             {
-                var result = Perceprion * 2 + Dexterity + Concentration + 40;
+                var result = States.Perceprion * 2 + States.Dexterity + States.Concentration + 40;
 
                 return result;
             }
@@ -173,7 +93,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = Perceprion + Intellect / 2 + Concentration / 2;
+                var result = States.Perceprion + States.Intellect / 2 + States.Concentration / 2;
 
                 return result;
             }
@@ -183,7 +103,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                double result = Strength / 2;
+                double result = States.Strength / 2;
                 result = Math.Round(result * Random.Range(0.75f, 1.26f) * 100) / 100;
                 return (float)result;
             }
@@ -194,7 +114,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = Agility;
+                var result = States.Agility;
 
                 return result;
             }
@@ -204,7 +124,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = Concentration + Agility / 2;
+                var result = States.Concentration + States.Agility / 2;
 
                 return result;
             }
@@ -214,7 +134,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = Agility / 3 + Dexterity / 3;
+                var result = States.Agility / 3 + States.Dexterity / 3;
 
                 return result;
             }
@@ -366,7 +286,7 @@ namespace Assets.Scripts.Entity
 
         public void ResetState()
         {
-            if (currentHitpoint <= 0)
+            if (CurrentHealth <= 0)
                 return;
             if (currentActionPoint < MaxActionPoint)
                 currentActionPoint = Math.Min(currentActionPoint + IncomeActionPoint, MaxActionPoint);
@@ -384,8 +304,8 @@ namespace Assets.Scripts.Entity
 
         public void TakeDamage(float damageAmount)
         {
-            currentHitpoint -= damageAmount;
-            if (currentHitpoint <= 0)
+            CurrentHealth -= damageAmount;
+            if (CurrentHealth <= 0)
             {
                 isActive = false;
             }
@@ -396,7 +316,7 @@ namespace Assets.Scripts.Entity
         {
             currentActionPoint = MaxActionPoint;
             ResetState();
-            currentHitpoint = MaxHealth;
+            CurrentHealth = MaxHealth;
             Collider = GetComponent<CapsuleCollider>();
         }
         private void LateUpdate()
@@ -413,7 +333,7 @@ namespace Assets.Scripts.Entity
         // Update is called once per frame
         protected virtual void Update()
         {
-            if (currentHitpoint <= 0)
+            if (CurrentHealth <= 0)
             {
                 isActive = false;
             }

@@ -70,7 +70,6 @@ namespace Assets.Scripts.Entity
                 return true;
             }
             return baseResult;
-
         }
 
         public IEnumerator Punch(BaseEntity entity)
@@ -88,7 +87,7 @@ namespace Assets.Scripts.Entity
         public override void TakeAttack(MeleeAttackResult attackResult)
         {
             base.TakeAttack(attackResult);
-            if (currentHitpoint <= 0)
+            if (CurrentHealth <= 0)
                 return;
             gameObject.transform.LookAt(attackResult.AttackPoint);
             if (attackResult.Success)
@@ -100,6 +99,16 @@ namespace Assets.Scripts.Entity
         // Start is called before the first frame update
         protected override void Start()
         {
+            States = new EntityStates()
+            {
+                inStrength = 4,
+                inDexterity = 4,
+                inAgility = 4,
+                inConstitution = 5,
+                inIntellect = 3,
+                inConcentration = 7,
+                inPerception = 4
+            };
             base.Start();
             Name = "Свежий зомби";
             Type = EntityType.Zombie;

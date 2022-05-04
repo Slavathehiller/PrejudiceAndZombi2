@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &196478850168635763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 196478850168635761}
+  - component: {fileID: 196478850168635760}
+  m_Layer: 0
+  m_Name: PrefabsController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &196478850168635761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196478850168635763}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &196478850168635760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196478850168635763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8c8b236d9b957b4aab83692a57a4794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kitchenKnife: {fileID: 5684517173361243158, guid: 0be098424ce737a4a96ea15389f6f0c9, type: 3}
+  medicalBandage: {fileID: 4989300813340659701, guid: d4dc6599b098ff5419e6d035764edc64, type: 3}
+  simpleBullet: {fileID: 1580074302825496377, guid: b197a25668cd68543aff5f37880d4999, type: 3}
+  thingRef: {fileID: 3554941172269810315, guid: 2bc4eb1536d36a84da979ab5ab7cc8db, type: 3}
+  Bullet_9x18: {fileID: 3915313919349057074, guid: d96f87d4da83385418f04cd992b22dd0, type: 3}
+  homemade_pistol: {fileID: 6370759519570145756, guid: 32eea54338ce60940a0cbea16cd81e26, type: 3}

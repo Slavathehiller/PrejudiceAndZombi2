@@ -39,7 +39,7 @@ public abstract class TacticalItem : MonoBehaviour
     public Rigidbody rb;
     public BoxCollider boxCollider;
 
-    void Start()
+    protected virtual void Awake()
     {
         _light = GetComponent<Light>();
         rb = GetComponent<Rigidbody>();
