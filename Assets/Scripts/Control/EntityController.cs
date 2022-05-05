@@ -66,6 +66,7 @@ public class EntityController : MonoBehaviour
         GameObject bullet = Instantiate(prefabsController.simpleBullet, null);
         bullet.transform.position = spawnPoint.position;
         bullet.GetComponent<Bullet>().Shoot(point, weaponModifier, ammo, target);
+        entity.audioSource.PlayOneShot(ammo.shotSound);
     }
 
     public bool RemoveFromRightHand(bool drop)

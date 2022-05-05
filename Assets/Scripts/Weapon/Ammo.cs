@@ -14,12 +14,19 @@ public struct AmmoData
     public RangedAttackModifier attackModifier;
     public float BaseDamage;
     public GameObject prefab;
+    public AudioClip shotSound;
 }
 
 public abstract class Ammo : SMO
 {
     public PrefabsController prefabController;
+    public AudioClip shotSound;
     public AmmoData data = new AmmoData();
+    protected override void Awake()
+    {
+        base.Awake();
+        data.shotSound = shotSound;
+    }
 
     public static GameObject MakeObject(AmmoData _data)
     {

@@ -164,6 +164,7 @@ MonoBehaviour:
   boxCollider: {fileID: 0}
   _count: 9
   prefabController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
+  shotSound: {fileID: 8300000, guid: c770016b83072784bb7e30fed79e944f, type: 3}
 --- !u!1001 &5705413384671525671
 PrefabInstance:
   m_ObjectHideFlags: 0

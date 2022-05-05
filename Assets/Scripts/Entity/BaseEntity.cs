@@ -34,6 +34,10 @@ namespace Assets.Scripts.Entity
         public Vector3[] _SurroundPoints;
         public Inventory inventory;
         public GameObject centerOfMass;
+        public AudioSource audioSource;
+        public AudioClip painScream;
+        public AudioClip punchSound;
+        public AudioClip missedPunchSound;
 
         public abstract EntityController econtroller { get; }
 
@@ -196,10 +200,12 @@ namespace Assets.Scripts.Entity
                 attackResult.DamageAmount = damageAmount;
                 //enemy.TakeDamage(damageAmount);
                 Debug.Log(enemy.Name + " получает " + damageAmount + " урона.");
+                audioSource.PlayOneShot(punchSound);
             }
             else
             {
                 Debug.Log(Name + " промахивается.");
+                audioSource.PlayOneShot(missedPunchSound);
             }
             enemy.TakeAttack(attackResult);
         }
@@ -305,6 +311,7 @@ namespace Assets.Scripts.Entity
         public void TakeDamage(float damageAmount)
         {
             CurrentHealth -= damageAmount;
+            audioSource.PlayOneShot(painScream);
             if (CurrentHealth <= 0)
             {
                 isActive = false;
@@ -318,6 +325,7 @@ namespace Assets.Scripts.Entity
             ResetState();
             CurrentHealth = MaxHealth;
             Collider = GetComponent<CapsuleCollider>();
+            audioSource = GetComponent<AudioSource>();
         }
         private void LateUpdate()
         {

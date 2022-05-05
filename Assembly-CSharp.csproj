@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.33f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="D:\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Weapon\WeaponMagazine.cs" />
@@ -116,6 +116,7 @@
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\MovementActionHandler.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Move.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerCamera.cs" />
+    <Compile Include="Assets\Scripts\Entity\EntityStates.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\SlowTime.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Navigation.cs" />
@@ -141,7 +142,6 @@
     <Compile Include="Assets\Scripts\SMO\SMO.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Entity\EntityStates.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />
