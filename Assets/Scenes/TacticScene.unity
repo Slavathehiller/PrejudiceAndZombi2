@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1513,6 +1513,65 @@ Transform:
   m_Father: {fileID: 1519979226}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 48.691, y: -95.825, z: -2.465}
+--- !u!1 &269879078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 269879081}
+  - component: {fileID: 269879080}
+  - component: {fileID: 269879079}
+  m_Layer: 0
+  m_Name: HitBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &269879079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269879078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd0ed7a55e86aa4abb1af40e0ad437d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 1885504080}
+--- !u!136 &269879080
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269879078}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25394452
+  m_Height: 1.6307256
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.1634506, z: 0}
+--- !u!4 &269879081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269879078}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.449, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1799481570}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &280268761
 GameObject:
   m_ObjectHideFlags: 0
@@ -5340,8 +5399,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 865891832}
-  - component: {fileID: 865891833}
   - component: {fileID: 865891834}
+  - component: {fileID: 865891833}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -5373,10 +5432,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.24558249
-  m_Height: 1.3839201
+  m_Radius: 0.27252325
+  m_Height: 1.7574949
   m_Direction: 1
-  m_Center: {x: -0.004823923, y: 0.62820464, z: 0.093192965}
+  m_Center: {x: 0.03, y: 0.37874746, z: 0}
 --- !u!114 &865891834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8761,6 +8820,7 @@ MonoBehaviour:
   objectInfo: {fileID: 2108227963}
   rightHandHandler: {fileID: 0}
   prefabsController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
+  Hitbox: {fileID: 865891831}
 --- !u!114 &1719275247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8908,7 +8968,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719275243}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
   m_Name: 
@@ -8937,7 +8997,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.82592154
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -10732,6 +10792,7 @@ MonoBehaviour:
   objectInfo: {fileID: 2108227963}
   rightHandHandler: {fileID: 16079406}
   prefabsController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
+  Hitbox: {fileID: 269879078}
   cam: {fileID: 239155633}
   character: {fileID: 0}
   nearObjects: {fileID: 0}
@@ -10747,6 +10808,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1051157571}
+  - {fileID: 269879081}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11369,7 +11431,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1885504075}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.35
   m_Height: 1
   m_Direction: 1
@@ -11493,6 +11555,7 @@ MonoBehaviour:
   objectInfo: {fileID: 2108227963}
   rightHandHandler: {fileID: 0}
   prefabsController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
+  Hitbox: {fileID: 170531068}
 --- !u!114 &1885504080
 MonoBehaviour:
   m_ObjectHideFlags: 0

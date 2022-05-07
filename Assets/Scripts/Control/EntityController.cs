@@ -21,6 +21,7 @@ public class EntityController : MonoBehaviour
     private BaseEntity entity;
     public GameObject rightHandHandler;
     public PrefabsController prefabsController;
+    public GameObject Hitbox;
 
     public void PlaceToRightHand(GameObject thing)
     {
@@ -172,15 +173,18 @@ public class EntityController : MonoBehaviour
     {
         agent.enabled = false;
         meshModifier.enabled = false;
+        Hitbox.SetActive(false);
         if (f)
         {
             meshModifier.enabled = true;
             meshSurface.BuildNavMesh();
+            Hitbox.SetActive(true);
         }
         else
         {            
             meshSurface.BuildNavMesh();
             agent.enabled = true;
+            Hitbox.SetActive(true);
         }                
     }
 
