@@ -142,9 +142,12 @@
     <Compile Include="Assets\Scripts\SMO\SMO.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
+    <Compile Include="Assets\Scripts\Srategic\Sector.cs" />
+    <Compile Include="Assets\Scripts\Srategic\GameController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />
+    <None Include="Assets\POLYGON city pack\Read_me.txt" />
     <None Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\README.txt" />
   </ItemGroup>
   <ItemGroup>
