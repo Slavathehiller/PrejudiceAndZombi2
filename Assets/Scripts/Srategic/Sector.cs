@@ -33,10 +33,9 @@ public class Sector : MonoBehaviour
 
     IEnumerator MoveCamera(Vector3 point)
     {
-
-        while(Vector3.Distance(cameraContainer.transform.position, point) > 0.01f)
+        gameController.cameraMoving = true;
+        while (Vector3.Distance(cameraContainer.transform.position, point) > 0.01f)
         {
-            gameController.cameraMoving = true;
             var movePoint = Vector3.MoveTowards(cameraContainer.transform.position, point, 0.01f);
             cameraContainer.transform.position = movePoint;
             yield return new WaitForSeconds(0.01f);

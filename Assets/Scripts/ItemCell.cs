@@ -24,20 +24,20 @@ public class ItemCell : MonoBehaviour, IDropHandler
         var item = eventData.pointerDrag.GetComponent<ItemReference>();
         var thing = item.thing.GetComponent<TacticalItem>();
 
-        var thingInCell = item.character.inventory.ItemInCell(this) as SMO;
-        if (thing is SMO && thingInCell != null && thing.GetType() == thingInCell.GetType()
+        var thingInCell = item.character.inventory.ItemInCell(this);
+        if (thing.isSMO && thingInCell != null && thing.GetType() == thingInCell.GetType()
             && thingInCell.MaxAmount > thingInCell.Count)
         {
-            var _thing = thing as SMO;
-            var addingCount = Mathf.Min(_thing.Count, thingInCell.MaxAmount - thingInCell.Count);
+            var addingCount = Mathf.Min(thing.Count, thingInCell.MaxAmount - thingInCell.Count);
             thingInCell.Add(addingCount);
-            _thing.Add(-addingCount);
+            thing.Add(-addingCount);
+            item.character.RemoveFromNearObjects(item, false);
         }
 
         if (item != null && thing.size <= size && (spec == SpecType.Universal || spec == thing.spec) && item.character.inventory.IsCellEmpty(this))
         {
             item.character.inventory.AddItem(thing);
-            item.character.GetComponent<NearObjects>().DeleteThing(item, false);
+            item.character.RemoveFromNearObjects(item, false);
             item.transform.SetParent(gameObject.transform);
             item.transform.localPosition = Vector3.zero;
             item.thing.GetComponent<Light>().enabled = false;

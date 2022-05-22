@@ -18,26 +18,27 @@ public class RightHandCell : ItemCell
             if (thing is Ammo && weapon != null && weapon.CanLoad(thing as Ammo))
             {
                 weapon.Reload(thing as Ammo);
+                item.character.RemoveFromNearObjects(item, false);
             }
             if (thing is WeaponMagazine && weapon != null && weapon.CanLoad(thing as WeaponMagazine))
             {
                 weapon.Reload(thing as WeaponMagazine);
+                item.character.RemoveFromNearObjects(item, false);
             }
             var magazine = rightHandItem as WeaponMagazine;
             if (thing is Ammo && magazine != null && magazine.AcceptableType((thing as Ammo).data.type))
             {
                 magazine.Reload(thing as Ammo);
+                item.character.RemoveFromNearObjects(item, false);
             }
-
-
         }        
 
         if (TryToDrop(eventData))
         {
-            item = eventData.pointerDrag.GetComponent<ItemReference>();
+          //  item = eventData.pointerDrag.GetComponent<ItemReference>();
             if (item != null)
             {
-                item.character.pcontroller.PickUpItem(item);
+                item.character.PickUpItem(item);
                 var _thing = item.thing.GetComponent<RangedWeapon>();
                 if (_thing != null)
                 {

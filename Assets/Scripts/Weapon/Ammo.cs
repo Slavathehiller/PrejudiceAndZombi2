@@ -17,7 +17,7 @@ public struct AmmoData
     public AudioClip shotSound;
 }
 
-public abstract class Ammo : SMO
+public abstract class Ammo : TacticalItem
 {
     public PrefabsController prefabController;
     public AudioClip shotSound;

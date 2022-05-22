@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/StrategicScene.unity
+- path: Assets/Scenes/TacticScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

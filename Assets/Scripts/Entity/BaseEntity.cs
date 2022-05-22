@@ -158,7 +158,7 @@ namespace Assets.Scripts.Entity
         {
             if (!isActing)
             {
-                inventory.RemoveItem(RightHandItem);
+                inventory.TryRemoveItem(RightHandItem);
                 RemoveFromRightHand(true);
             }
         }
@@ -244,7 +244,7 @@ namespace Assets.Scripts.Entity
             }
             //Debug.Log(targetPoint + "Modified");
             weaponModifier.CritModifier += RangedCritChance;
-            econtroller.ShootAtPoint(((RangedWeapon)RightHandItem).bulletSpawner.transform, targetPoint,weaponModifier, ammo, enemy);
+            econtroller.ShootAtPoint(((RangedWeapon)RightHandItem).bulletSpawner.transform, targetPoint, weaponModifier, ammo, enemy);
         }
 
 

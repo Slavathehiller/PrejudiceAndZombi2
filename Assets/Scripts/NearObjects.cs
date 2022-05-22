@@ -20,27 +20,28 @@ public class NearObjects : MonoBehaviour
     {
         
     }
-    public void AddItem(TacticalItem item, Character character)
+    public void AddItem(TacticalItem item, ICaracter character)
     {
-        var pref = Instantiate(pfController.thingRef, groundPanel.transform);
-        var refItem = pref.GetComponent<ItemReference>();
-        refItem.image.sprite = item.image;
-        refItem.thing = item.gameObject;
-        item.itemRef = refItem;
+        var refItem = item.itemRef;
         refItem.character = character;
-
-        if(!list.Contains(refItem))
+        refItem.gameObject.SetActive(true);
+        refItem.transform.SetParent(groundPanel.transform);
+        refItem.background.enabled = true;
+        refItem.image.GetComponent<RectTransform>().sizeDelta = item.sizeInInventory * 0.7f;
+        refItem.canvasGroup.blocksRaycasts = true;
+        refItem.ShowUnloadButton(false);
+        if (!list.Contains(refItem))
             list.Add(refItem);
     }
 
-    public void DeleteThing(ItemReference item, bool deleteGameObject = false)
+    public void DeleteThing(ItemReference item, bool hideGameObject = false)
     {
-        //item.thing.GetComponent<TacticalItem>().itemRef = null;
         list.Remove(item);
-        if (deleteGameObject)
+        if (hideGameObject)
         {
-            if(item != null)
-                Destroy(item.gameObject);
+            item.gameObject.SetActive(false);
+            //if(item != null)
+            //    Destroy(item.gameObject);
         }
     }
 }

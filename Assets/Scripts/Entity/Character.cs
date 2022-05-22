@@ -9,7 +9,7 @@ using UnityEngine.UI;
 namespace Assets.Scripts.Entity
 {
 
-    public class Character : BaseEntity
+    public class Character : BaseEntity, ICaracter
     {
         public PlayerController pcontroller;
       //  public PrefabsController pfcontroller;
@@ -19,6 +19,22 @@ namespace Assets.Scripts.Entity
         public override EntityController econtroller
         {
             get { return pcontroller; }
+        }
+
+        Inventory ICaracter.inventory
+        {
+            get
+            {
+                return inventory;
+            }
+        }
+
+        public PrefabsController prefabsController 
+        {
+            get
+            {
+                return pcontroller.prefabsController;
+            }
         }
 
         public override void StartTurn()
@@ -201,6 +217,16 @@ namespace Assets.Scripts.Entity
         public override InteractableCommand[] getCommands()
         {
             return new InteractableCommand[0];
+        }
+
+        public void RemoveFromNearObjects(ItemReference item, bool hideGameObject = false)
+        {
+            GetComponent<NearObjects>().DeleteThing(item, hideGameObject);
+        }
+
+        public void PickUpItem(ItemReference item)
+        {
+            pcontroller.PickUpItem(item);
         }
     }
 }

@@ -25,9 +25,10 @@ public class Inventory : MonoBehaviour
             list.Add(item);
     }
 
-    public void RemoveItem(TacticalItem item)
+    public void TryRemoveItem(Item item)
     {
-        list.Remove(item);
+        if (item is TacticalItem)
+            list.Remove(item as TacticalItem);
     }
 
     public bool IsCellEmpty(ItemCell cell)

@@ -8,31 +8,12 @@ public enum SpecType
     InBelt = 1,
     Shoulder = 2
 }
-public abstract class TacticalItem : MonoBehaviour
-{
-    ItemReference _itemRef;
-    public ItemReference itemRef 
-    {
-        get
-        {
-            return _itemRef;
-        }
-        set
-        {
-            _itemRef = value;
-            if (_itemRef != null)
-                _itemRef.count.enabled = this is SMO || this is RangedWeapon || this is WeaponMagazine;
-        }
-    }
-
-    public Sprite image;
-    
+public abstract class TacticalItem : Item
+{   
     public CellSize size;
-
     public SpecType spec = SpecType.Universal;
 
     public Vector2 sizeInHand;
-    public Vector2 sizeInInventory;
 
     private Light _light;
 
@@ -51,17 +32,13 @@ public abstract class TacticalItem : MonoBehaviour
         gameObject.SetActive(true);
         transform.SetParent(null);
         rb.isKinematic = false;
-       // rb.useGravity = true;
         boxCollider.enabled = true;
 
         if (itemRef != null)
         {
-            itemRef.character.inventory.RemoveItem(itemRef.thing.GetComponent<TacticalItem>());
-            itemRef.character.gameObject.GetComponent<NearObjects>().DeleteThing(itemRef, true);
+            itemRef.character.inventory.TryRemoveItem(itemRef.thing.GetComponent<TacticalItem>());
+            itemRef.character.RemoveFromNearObjects(itemRef, true);
         }
-
-
-
     }
 
     public void OnTriggerEnter(Collider other)
@@ -83,5 +60,4 @@ public abstract class TacticalItem : MonoBehaviour
             _light.enabled = false;
         }
     }
-
 }

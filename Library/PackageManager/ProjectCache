@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637857192535005140
-    m_Hash: 2172671082
+      ticks: 637887500271956183
+    m_Hash: 2211840808
   m_LockFileStatus:
     m_FilePath: E:/Unity Projects/PrejudiceAndZombi2/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637857192961811766
-    m_Hash: 4164853751
+      ticks: 637887500643750261
+    m_Hash: 4092062431
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -275,12 +275,12 @@ m_PackageAssets:
         url: https://github.com/Unity-Technologies/com.unity.cinemachine.git
         revision: 0eef4802dbe9ea60fc58767471ce4c5ea86632de
         path: 
-    - packageId: com.unity.collab-proxy@1.15.15
+    - packageId: com.unity.collab-proxy@1.15.16
       testable: 0
       isDirectDependency: 1
-      version: 1.15.15
+      version: 1.15.16
       source: 1
-      resolvedPath: E:\Unity Projects\PrejudiceAndZombi2\Library\PackageCache\com.unity.collab-proxy@1.15.15
+      resolvedPath: E:\Unity Projects\PrejudiceAndZombi2\Library\PackageCache\com.unity.collab-proxy@1.15.16
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Version Control
@@ -354,7 +354,6 @@ m_PackageAssets:
         - 2.1.0-preview.5
         - 2.1.0-preview.6
         compatible:
-        - 1.15.15
         - 1.15.16
         - 1.15.17
         - 2.0.0-preview.6
@@ -402,13 +401,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637828649420000000
+      datePublishedTicks: 637847776260000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.cloud.collaborate.git
-        revision: abf10445fb869983dbe4f8f87ec63c58f4cd36e0
+        revision: 714a2838c2d55add3d0accf539488f96caa757b2
         path: 
     - packageId: com.unity.ide.rider@2.0.7
       testable: 0
@@ -3041,7 +3040,7 @@ m_PackageAssets:
         - 1.3.1
         - 1.3.2
         - 1.4.0
-        verified: 1.0.1
+        verified: 1.3.2
       dependencies:
       - name: com.unity.modules.unitywebrequest
         version: 1.0.0
@@ -3200,6 +3199,7 @@ m_PackageAssets:
         - 1.7.0-pre.1
         - 1.7.0
         - 1.7.1
+        - 1.8.0-pre.1
         compatible:
         - 1.1.1
         - 1.1.2
@@ -3282,6 +3282,7 @@ m_PackageAssets:
         - 1.7.0-pre.1
         - 1.7.0
         - 1.7.1
+        - 1.8.0-pre.1
         verified: 1.6.5
       dependencies:
       - name: com.unity.mathematics
@@ -3394,4 +3395,4 @@ m_PackageAssets:
   m_LocalPackages:
     m_LocalFileStatus: []
 m_ProjectPath: E:/Unity Projects/PrejudiceAndZombi2/Packages
-m_EditorVersion: 2020.3.33f1 (915a7af8b0d5)
+m_EditorVersion: 2020.3.34f1 (9a4c9c70452b)

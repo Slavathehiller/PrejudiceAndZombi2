@@ -10,21 +10,21 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public GameObject thing;
     public Image image;
     [HideInInspector]
-    public Character character;
+    public ICaracter character;
     [HideInInspector]
-    public GameObject panel;
+    public GameObject inventoryPanel;
     public CanvasGroup canvasGroup;
     public GameObject oldParent;
     public Button unloadButton;
     public Text count;
 
     private bool backgroundState;
-    private Image background;
+    public Image background;
 
 
-    private void Start()
+    private void Awake()
     {
-        panel = GameObject.Find("InventoryPanel");
+        inventoryPanel = GameObject.Find("InventoryPanel");
         canvasGroup = GetComponent<CanvasGroup>();
         background = GetComponent<Image>();        
     }
@@ -35,7 +35,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     }
     public void PickUp()
     {
-        character.pcontroller.PickUpItem(this);
+        character.PickUpItem(this);
     }
 
     public void RemoveFromRightHand()
@@ -60,7 +60,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
                     ammoObject.transform.SetParent(thing.transform);
                     ammoObject.transform.localPosition = Vector3.zero;
                     ammo.SetCount(weapon.magazine.CurrentAmmoCount);
-                    ammo.prefabController = character.pcontroller.prefabsController;
+                   // ammo.prefabController = character.prefabsController;
                     ammo.Drop();
                     weapon.magazine.CurrentAmmoCount = 0;
                     weapon.itemRef.ShowUnloadButton(false);
@@ -92,7 +92,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public void OnBeginDrag(PointerEventData eventData)
     {
         oldParent = gameObject.transform.parent.gameObject;
-        gameObject.transform.SetParent(panel.transform);
+        gameObject.transform.SetParent(inventoryPanel.transform);
         canvasGroup.blocksRaycasts = false;
         backgroundState = background.enabled;
         background.enabled = false;
@@ -101,13 +101,11 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
-        if(gameObject.transform.parent == panel.transform)
+        if(gameObject.transform.parent == inventoryPanel.transform)
         {
             gameObject.transform.SetParent(oldParent.transform);
             gameObject.transform.localPosition = Vector3.zero;
             background.enabled = backgroundState;
         }
     }
-
-
 }
