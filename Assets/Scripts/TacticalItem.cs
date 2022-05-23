@@ -20,8 +20,9 @@ public abstract class TacticalItem : Item
     public Rigidbody rb;
     public BoxCollider boxCollider;
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _light = GetComponent<Light>();
         rb = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();

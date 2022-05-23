@@ -9,11 +9,11 @@ public abstract class Item : MonoBehaviour
     public Vector2 sizeInInventory;
     private PrefabsController prefabsController;
 
-    void Start()
+    protected virtual void Awake()
     {
         prefabsController = GameObject.Find("PrefabsController").GetComponent<PrefabsController>();
-        var groundPanel = GameObject.Find("GroundPanel");
-        var pref = Instantiate(prefabsController.thingRef, groundPanel.transform);
+//        var groundPanel = GameObject.Find("GroundPanel");
+        var pref = Instantiate(prefabsController.thingRef, null);//groundPanel.transform);
         var refItem = pref.GetComponent<ItemReference>();
         refItem.image.sprite = image;
         refItem.thing = gameObject;
@@ -23,6 +23,12 @@ public abstract class Item : MonoBehaviour
         itemRef.gameObject.SetActive(false);
     }
 
+    void Start()
+    {
+
+    }
+
+    [SerializeField]
     ItemReference _itemRef;
     public ItemReference itemRef
     {

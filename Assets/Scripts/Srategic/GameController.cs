@@ -8,10 +8,31 @@ public class GameController : MonoBehaviour
 
     public GameObject selector;
     public GameObject cameraContainer;
+    public Text sectorFindChance;
     [HideInInspector]
     public bool cameraMoving = false;
     public GameObject[] Panels;
-    
+    public GameObject GroundPanel;
+
+
+    private Sector _currentSector;
+    public Sector currentSector
+    {
+        get
+        {
+            return _currentSector;
+        }
+        set
+        {
+            _currentSector = value;
+            RefreshSectorData();
+        }
+    }
+
+    public void RefreshSectorData()
+    {
+        sectorFindChance.text = _currentSector.sectorObject.findChance.ToString();
+    }
 
     // Start is called before the first frame update
     void Start()

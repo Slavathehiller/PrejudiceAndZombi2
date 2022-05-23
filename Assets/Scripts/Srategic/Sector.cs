@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Sector : MonoBehaviour
 {
-
     public GameController gameController;
+    public SectorObject sectorObject;
+
     private GameObject selector;
     private GameObject cameraContainer;
 
@@ -29,6 +30,7 @@ public class Sector : MonoBehaviour
         selector.transform.SetParent(gameObject.transform);
         selector.transform.localPosition = Vector3.zero;
         StartCoroutine(MoveCamera(gameObject.transform.position));
+        gameController.currentSector = this;
     }
 
     IEnumerator MoveCamera(Vector3 point)
