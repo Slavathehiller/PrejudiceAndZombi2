@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityStates
+public class EntityStats
 {
     public float inStrength = 0;
     public float inDexterity = 0;

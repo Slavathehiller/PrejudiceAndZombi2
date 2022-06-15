@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +14,14 @@ public class GameController : MonoBehaviour
     public bool cameraMoving = false;
     public GameObject[] Panels;
     public GameObject GroundPanel;
+    public Slider findSlider;
+    public List<ItemReference> allItems = new List<ItemReference>();
+
+    public bool findResult = false;
+    bool isFinding = false;
 
 
-    private Sector _currentSector;
+    public Sector _currentSector;
     public Sector currentSector
     {
         get
@@ -32,18 +38,41 @@ public class GameController : MonoBehaviour
     public void RefreshSectorData()
     {
         sectorFindChance.text = _currentSector.sectorObject.findChance.ToString();
+        findSlider.value = 0;
+        foreach(var itemRef in allItems)
+        {
+            itemRef.gameObject.SetActive(_currentSector.sectorObject.sack.Contains(itemRef));
+        }
     }
+
+    public void FindProcess(CharacterS character)
+    {
+        RefreshSectorData();
+        findResult = false;
+        isFinding = true;
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        RefreshSectorData();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isFinding)
+        {
+            findSlider.value += Time.deltaTime;
+            if (findSlider.value >= 1)
+            {
+                isFinding = false;
+                findResult = true;
+                RefreshSectorData();
+            }
+        }
     }
 
     public void PanelsButtonClick(int index)
@@ -52,5 +81,10 @@ public class GameController : MonoBehaviour
         {
             Panels[i].SetActive(i == index);
         }
+    }
+
+    public bool isLocked() 
+    {
+        return isFinding || cameraMoving;
     }
 }

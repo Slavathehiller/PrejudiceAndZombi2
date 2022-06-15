@@ -25,7 +25,7 @@ public class Sector : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameController.cameraMoving)
+        if (gameController.isLocked())
             return;
         selector.transform.SetParent(gameObject.transform);
         selector.transform.localPosition = Vector3.zero;
@@ -35,7 +35,7 @@ public class Sector : MonoBehaviour
 
     IEnumerator MoveCamera(Vector3 point)
     {
-        gameController.cameraMoving = true;
+        gameController.cameraMoving = true;        
         while (Vector3.Distance(cameraContainer.transform.position, point) > 0.01f)
         {
             var movePoint = Vector3.MoveTowards(cameraContainer.transform.position, point, 0.01f);

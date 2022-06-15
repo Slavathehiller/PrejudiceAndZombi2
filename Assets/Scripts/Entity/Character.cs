@@ -46,7 +46,7 @@ namespace Assets.Scripts.Entity
         // Start is called before the first frame update
         protected override void Start()
         {
-            States = new EntityStates() { 
+            States = new EntityStats() { 
                 inStrength = 4, 
                 inDexterity = 6, 
                 inAgility = 8, 

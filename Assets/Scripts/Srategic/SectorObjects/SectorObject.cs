@@ -11,13 +11,17 @@ public struct Loot
 public abstract class SectorObject : MonoBehaviour
 {
     public Loot[] loot;
-    public List<Item> sack = new List<Item>();
-    public GameController gameController;
+    public List<ItemReference> sack = new List<ItemReference>();
+   // public GameController gameController;
 
     public float findChance = 100f;
 
     public PrefabsController prefabsController;
 
+    public void AddItem(ItemReference itemRef)
+    {
+        sack.Add(itemRef);
+    }
     // Start is called before the first frame update
     void Start()
     {

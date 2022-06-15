@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class CharacterS : MonoBehaviour
+public class CharacterS : BaseEntityS
 {
-    private EntityStates Stats;
+    
     public Inventory inventory;
     public Sack sack;
     public GameController gameController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +19,20 @@ public class CharacterS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameController.findResult)
+        {
+            findProcess();
+            gameController.findResult = false;
+        }
     }
 
     public void DoSearch()
+    {
+        if(!gameController.isLocked())
+            gameController.FindProcess(this);         
+    }
+
+    private void findProcess()
     {
         var loot = Find();
         if (loot != null)
@@ -31,6 +42,8 @@ public class CharacterS : MonoBehaviour
             itemRef.transform.SetParent(gameController.GroundPanel.transform);
             itemRef.transform.localPosition = Vector3.zero;
             itemRef.gameObject.SetActive(true);
+            gameController._currentSector.sectorObject.AddItem(itemRef);
+            gameController.allItems.Add(itemRef);
         }
     }
     public GameObject Find()

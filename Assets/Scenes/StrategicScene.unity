@@ -4691,6 +4691,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4146121518490698, guid: a48e7d2fc673f7e4ea6df4cffad97a56, type: 3}
   m_PrefabInstance: {fileID: 1225873741}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &945049332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5056800140518977103, guid: dceb9ecd2e1bf8c4abbb2fa4358e822f, type: 3}
+  m_PrefabInstance: {fileID: 5056800141234790623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d103fb8d2e7ed24c94e4559822a9991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &951294850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5042,7 +5053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.514151, g: 1, b: 0.51729447, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5762,6 +5773,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f78f527e43206b408b73d96ccdbea2a, type: 3}
+--- !u!114 &1034033385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1498640163564749300, guid: 469d60c8c9d8c9e4c9ed05a9f1be3b7c, type: 3}
+  m_PrefabInstance: {fileID: 1829920629}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851391e53004aa44690cd532f811b8cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1035374223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5056800140518977104, guid: dceb9ecd2e1bf8c4abbb2fa4358e822f, type: 3}
@@ -6130,6 +6152,10 @@ MonoBehaviour:
   - {fileID: 1707501931}
   - {fileID: 988630999}
   GroundPanel: {fileID: 1327529827}
+  findSlider: {fileID: 269265379}
+  allItems: []
+  findResult: 0
+  _currentSector: {fileID: 945049332}
 --- !u!4 &1180437615 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4333627001259202, guid: 4752f864e3118e64482c22f7a8d21b01, type: 3}
@@ -10865,7 +10891,7 @@ PrefabInstance:
     - target: {fileID: 5056800140518977103, guid: dceb9ecd2e1bf8c4abbb2fa4358e822f, type: 3}
       propertyPath: sectorObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1034033385}
     - target: {fileID: 5056800140518977103, guid: dceb9ecd2e1bf8c4abbb2fa4358e822f, type: 3}
       propertyPath: gameController
       value: 

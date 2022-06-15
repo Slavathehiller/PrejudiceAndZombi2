@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Weapon\WeaponMagazine.cs" />
+    <Compile Include="Assets\Scripts\Srategic\CharacterS.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\Gravity.cs" />
     <Compile Include="Assets\Scripts\Weapon\HMPistolMagazine.cs" />
     <Compile Include="Assets\ExplosiveLLC\Demo Elements\Code\GUIControls.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Null.cs" />
     <Compile Include="Assets\Scripts\Srategic\GameController.cs" />
     <Compile Include="Assets\Scripts\Weapon\Ammo.cs" />
+    <Compile Include="Assets\Scripts\Srategic\SectorObjects\SectorObject.cs" />
     <Compile Include="Assets\Scripts\Supply\BaseSupply.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperStateMachine.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterMovementController.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Assets\Scripts\SMO\Ammo\HM_smg_magazine.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\AnimationData.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterNavigationController.cs" />
+    <Compile Include="Assets\Scripts\Srategic\SectorObjects\Bank.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Jump.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Weapon\SwitchWeapon.cs" />
     <Compile Include="Assets\Scripts\TacticalItem.cs" />
@@ -109,6 +112,7 @@
     <Compile Include="Assets\Scripts\MeleeAttackModifier.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Fall.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\DiveRoll.cs" />
+    <Compile Include="Assets\Scripts\Srategic\Sack.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Control\EntityController.cs" />
@@ -128,12 +132,14 @@
     <Compile Include="Assets\Scripts\SMO\Ammo\Bullet_9x18.cs" />
     <Compile Include="Assets\Scripts\Weapon\HomemadePistol.cs" />
     <Compile Include="Assets\Scripts\ShowEntityInfo.cs" />
+    <Compile Include="Assets\Scripts\Srategic\SectorObjects\HighOfficeBuilding.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\GetHit.cs" />
     <Compile Include="Assets\Scripts\Control\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Weapon\HomemadeSMG.cs" />
     <Compile Include="Assets\Scripts\Entity\Character.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterWeaponController.cs" />
     <Compile Include="Assets\Scripts\Weapon\BaseWeapon.cs" />
+    <Compile Include="Assets\Scripts\Srategic\BaseEntityS.cs" />
     <Compile Include="Assets\Scripts\RightHandCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\SimpleActionHandler.cs" />
     <Compile Include="Assets\Scripts\EntityHitBox.cs" />
@@ -145,11 +151,6 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Srategic\CharacterS.cs" />
-    <Compile Include="Assets\Scripts\Srategic\Sack.cs" />
-    <Compile Include="Assets\Scripts\Srategic\SectorObjects\SectorObject.cs" />
-    <Compile Include="Assets\Scripts\Srategic\SectorObjects\Bank.cs" />
-    <Compile Include="Assets\Scripts\Srategic\SectorObjects\HighOfficeBuilding.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

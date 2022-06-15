@@ -16,7 +16,7 @@ namespace Assets.Scripts.Entity
 
     public abstract class BaseEntity : MonoBehaviour, IInteractableEntity
     {
-        public EntityStates States;
+        public EntityStats States;
 
         [NonSerialized]
         public CapsuleCollider Collider;
