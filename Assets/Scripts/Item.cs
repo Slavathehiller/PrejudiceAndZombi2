@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-
+    public virtual string Name {get;set;}
+    public string Description;
     public Sprite image;
     public Vector2 sizeInInventory;
     private PrefabsController prefabsController;

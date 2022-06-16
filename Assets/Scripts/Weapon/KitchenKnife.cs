@@ -11,6 +11,7 @@ namespace Assets.Scripts.Weapon
 
         public KitchenKnife()
         {
+            Name = "Кухонный нож";
             MeleeAttackModifier.damage = 10;
             type = WeaponType.Knife;
         }

@@ -16,9 +16,11 @@ public class GameController : MonoBehaviour
     public GameObject GroundPanel;
     public Slider findSlider;
     public List<ItemReference> allItems = new List<ItemReference>();
+    public MessageWindowS messageWindowS;
 
     public bool findResult = false;
     bool isFinding = false;
+    public bool isMessaging = false;
 
 
     public Sector _currentSector;
@@ -85,6 +87,11 @@ public class GameController : MonoBehaviour
 
     public bool isLocked() 
     {
-        return isFinding || cameraMoving;
+        return isFinding || cameraMoving || isMessaging;
+    }
+
+    public void ShowMessage(string text, Image image = null)
+    {
+        messageWindowS.ShowMessage(text, image);
     }
 }

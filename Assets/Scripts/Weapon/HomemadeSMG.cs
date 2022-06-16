@@ -9,6 +9,7 @@ namespace Assets.Scripts.Weapon
     {
         public HomemadeSMG()
         {
+            Name = "Самодельный пистолет-пулемёт";
             type = WeaponType.SMG;
             ShootCost = 4;
         }

@@ -44,6 +44,7 @@ public class CharacterS : BaseEntityS
             itemRef.gameObject.SetActive(true);
             gameController._currentSector.sectorObject.AddItem(itemRef);
             gameController.allItems.Add(itemRef);
+            gameController.ShowMessage("Вы нашли: " + obj.GetComponent<Item>().Name, itemRef.image);
         }
     }
     public GameObject Find()
@@ -64,5 +65,6 @@ public class CharacterS : BaseEntityS
         }
         return null;
     }
+
 
 }
