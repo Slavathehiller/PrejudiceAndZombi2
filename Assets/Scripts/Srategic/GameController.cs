@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
 
     public void RefreshSectorData()
     {
-        sectorFindChance.text = _currentSector.sectorObject.findChance.ToString();
+        sectorFindChance.text = _currentSector.sectorObject.findChance.ToString() + " %";
         findSlider.value = 0;
         foreach(var itemRef in allItems)
         {

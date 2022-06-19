@@ -49,3 +49,4 @@ MonoBehaviour:
   thingRef: {fileID: 3554941172269810315, guid: 2bc4eb1536d36a84da979ab5ab7cc8db, type: 3}
   Bullet_9x18: {fileID: 3915313919349057074, guid: d96f87d4da83385418f04cd992b22dd0, type: 3}
   homemade_pistol: {fileID: 6370759519570145756, guid: 32eea54338ce60940a0cbea16cd81e26, type: 3}
+  metalScrap: {fileID: 7874359993123634725, guid: e54fedd71198def409966c2390e7693f, type: 3}

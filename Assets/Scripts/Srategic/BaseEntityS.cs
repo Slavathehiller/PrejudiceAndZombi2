@@ -6,6 +6,8 @@ public class BaseEntityS : MonoBehaviour
 {
     protected EntityStats Stats;
 
+
+
     public float Stealth
     {
         get
@@ -25,7 +27,7 @@ public class BaseEntityS : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

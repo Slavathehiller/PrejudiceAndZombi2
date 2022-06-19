@@ -111,6 +111,7 @@
     <Compile Include="Assets\Scripts\Entity\FreshZombi.cs" />
     <Compile Include="Assets\Scripts\MeleeAttackModifier.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Fall.cs" />
+    <Compile Include="Assets\Scripts\Srategic\MessageWindowS.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\DiveRoll.cs" />
     <Compile Include="Assets\Scripts\Srategic\Sack.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
@@ -151,7 +152,7 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Srategic\MessageWindowS.cs" />
+    <Compile Include="Assets\Scripts\SMO\MetalScrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

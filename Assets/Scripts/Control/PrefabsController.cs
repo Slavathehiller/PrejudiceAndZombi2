@@ -11,7 +11,7 @@ public class PrefabsController : MonoBehaviour
     public Image thingRef;
     public GameObject Bullet_9x18;
     public GameObject homemade_pistol;
-
+    public GameObject metalScrap;
     // Start is called before the first frame update
     void Start()
     {

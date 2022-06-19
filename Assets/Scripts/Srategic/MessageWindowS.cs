@@ -24,8 +24,16 @@ public class MessageWindowS : MonoBehaviour
     public void ShowMessage(string text, Image image = null)
     {
         MessageText.text = text;
-        MessageImage.sprite = image.sprite;
-        MessageImage.GetComponent<RectTransform>().sizeDelta = image.GetComponent<RectTransform>().sizeDelta * 3;
+        if (image != null) 
+        { 
+            MessageImage.sprite = image.sprite;
+            MessageImage.GetComponent<RectTransform>().sizeDelta = image.GetComponent<RectTransform>().sizeDelta * 3;
+            MessageImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            MessageImage.gameObject.SetActive(false);
+        }
         gameObject.SetActive(true);
         gameController.isMessaging = true;
     }
