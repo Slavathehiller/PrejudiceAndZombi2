@@ -4,7 +4,23 @@ using UnityEngine;
 
 public class Sack : MonoBehaviour
 {
-    public List<Item> items  = new List<Item>();
+    public List<ItemReference> items = new List<ItemReference>();
+
+    public void AddItem(ItemReference item)
+    {
+        items.Add(item);
+    }
+
+    public void RemoveItem(ItemReference item)
+    {
+        items.Remove(item);
+    }
+
+    public bool Contains(ItemReference item)
+    {
+        return items.Contains(item);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

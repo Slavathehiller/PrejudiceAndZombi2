@@ -118,7 +118,7 @@
     <Compile Include="Assets\Scripts\Control\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Control\EntityController.cs" />
     <Compile Include="Assets\Scripts\Entity\AIEntity.cs" />
-    <Compile Include="Assets\Scripts\Entity\ICaracter.cs" />
+    <Compile Include="Assets\Scripts\Entity\ICharacter.cs" />
     <Compile Include="Assets\Scripts\RangedAttackModifier.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerInputController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\MovementActionHandler.cs" />
@@ -148,11 +148,13 @@
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCharacterController.cs" />
     <Compile Include="Assets\Scripts\Control\InterfaceController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\ActionHandler.cs" />
+    <Compile Include="Assets\Scripts\SMO\MetalScrap.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterController.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\SMO\MetalScrap.cs" />
+    <Compile Include="Assets\Scripts\SackCell.cs" />
+    <Compile Include="Assets\Scripts\SectorSackCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class CharacterS : BaseEntityS
+public class CharacterS : BaseEntityS, ICharacter
 {
     
     public Inventory inventory;
     public Sack sack;
     public GameController gameController;
+    public PrefabsController _prefabsController;
+    public TacticalItem rightHandItem;
+
+    Inventory ICharacter.inventory => inventory;
+
+    public TacticalItem RightHandItem => rightHandItem;
+
+    public PrefabsController prefabsController => _prefabsController;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +51,7 @@ public class CharacterS : BaseEntityS
             return;
         }
         if (!gameController.isLocked())        
-            gameController.FindProcess(this);       
+            gameController.FindProcess();       
     }
 
     private void findProcess()
@@ -51,8 +59,9 @@ public class CharacterS : BaseEntityS
         var loot = Find();
         if (loot != null)
         {
-            var obj = Instantiate(loot, null);
+            var obj = Instantiate(loot, null);           
             var itemRef = obj.GetComponent<Item>().itemRef;
+            itemRef.character = this;
             itemRef.transform.SetParent(gameController.GroundPanel.transform);
             itemRef.transform.localPosition = Vector3.zero;
             itemRef.gameObject.SetActive(true);
@@ -87,5 +96,15 @@ public class CharacterS : BaseEntityS
         return null;
     }
 
+    public void RemoveFromNearObjects(ItemReference item, bool hideGameObject = false){}
 
+    public void PickUpItem(ItemReference item)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void RemoveFromRightHand(bool drop)
+    {
+        rightHandItem = null;
+    }
 }

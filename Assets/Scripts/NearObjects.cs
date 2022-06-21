@@ -20,7 +20,7 @@ public class NearObjects : MonoBehaviour
     {
         
     }
-    public void AddItem(TacticalItem item, ICaracter character)
+    public void AddItem(TacticalItem item, ICharacter character)
     {
         var refItem = item.itemRef;
         refItem.character = character;

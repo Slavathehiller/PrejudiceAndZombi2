@@ -22,6 +22,11 @@ public abstract class SectorObject : MonoBehaviour
     {
         sack.Add(itemRef);
     }
+
+    public void RemoveItem(ItemReference itemRef)
+    {
+        sack.Remove(itemRef);
+    }
     // Start is called before the first frame update
     void Start()
     {

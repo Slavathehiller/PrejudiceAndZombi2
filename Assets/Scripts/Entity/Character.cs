@@ -9,7 +9,7 @@ using UnityEngine.UI;
 namespace Assets.Scripts.Entity
 {
 
-    public class Character : BaseEntity, ICaracter
+    public class Character : BaseEntity, ICharacter
     {
         public PlayerController pcontroller;
       //  public PrefabsController pfcontroller;
@@ -21,7 +21,7 @@ namespace Assets.Scripts.Entity
             get { return pcontroller; }
         }
 
-        Inventory ICaracter.inventory
+        Inventory ICharacter.inventory
         {
             get
             {

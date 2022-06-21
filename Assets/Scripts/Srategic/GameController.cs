@@ -43,11 +43,11 @@ public class GameController : MonoBehaviour
         findSlider.value = 0;
         foreach(var itemRef in allItems)
         {
-            itemRef.gameObject.SetActive(_currentSector.sectorObject.sack.Contains(itemRef));
+            itemRef.gameObject.SetActive(_currentSector.sectorObject.sack.Contains(itemRef) || ((CharacterS)itemRef.character).sack.Contains(itemRef));
         }
     }
 
-    public void FindProcess(CharacterS character)
+    public void FindProcess()
     {
         RefreshSectorData();
         findResult = false;

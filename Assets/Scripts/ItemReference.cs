@@ -10,9 +10,9 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public GameObject thing;
     public Image image;
     [HideInInspector]
-    public ICaracter character;
+    public ICharacter character;
     [HideInInspector]
-    public GameObject inventoryPanel;
+    public GameObject rootPanel;
     public CanvasGroup canvasGroup;
     public GameObject oldParent;
     public Button unloadButton;
@@ -24,7 +24,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     private void Awake()
     {
-        inventoryPanel = GameObject.Find("InventoryPanel");
+        rootPanel = GameObject.Find("InventoryPanel");
         canvasGroup = GetComponent<CanvasGroup>();
         background = GetComponent<Image>();        
     }
@@ -92,7 +92,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public void OnBeginDrag(PointerEventData eventData)
     {
         oldParent = gameObject.transform.parent.gameObject;
-        gameObject.transform.SetParent(inventoryPanel.transform);
+        gameObject.transform.SetParent(rootPanel.transform);
         canvasGroup.blocksRaycasts = false;
         backgroundState = background.enabled;
         background.enabled = false;
@@ -101,7 +101,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
-        if(gameObject.transform.parent == inventoryPanel.transform)
+        if(gameObject.transform.parent == rootPanel.transform)
         {
             gameObject.transform.SetParent(oldParent.transform);
             gameObject.transform.localPosition = Vector3.zero;
