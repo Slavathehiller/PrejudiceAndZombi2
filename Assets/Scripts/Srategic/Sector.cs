@@ -25,7 +25,7 @@ public class Sector : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameController.isLocked())
+        if (gameController.UIInact)
             return;
         selector.transform.SetParent(gameObject.transform);
         selector.transform.localPosition = Vector3.zero;

@@ -12,11 +12,17 @@ public class CharacterS : BaseEntityS, ICharacter
     public PrefabsController _prefabsController;
     public TacticalItem rightHandItem;
 
-    Inventory ICharacter.inventory => inventory;
-
     public TacticalItem RightHandItem => rightHandItem;
 
     public PrefabsController prefabsController => _prefabsController;
+
+    Inventory ICharacter.inventory
+    {
+        get
+        {
+            return inventory;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -60,14 +66,16 @@ public class CharacterS : BaseEntityS, ICharacter
         if (loot != null)
         {
             var obj = Instantiate(loot, null);           
-            var itemRef = obj.GetComponent<Item>().itemRef;
+            var itemRef = obj.GetComponent<Item>().itemRef;            
             itemRef.character = this;
             itemRef.transform.SetParent(gameController.GroundPanel.transform);
             itemRef.transform.localPosition = Vector3.zero;
+            itemRef.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
             itemRef.gameObject.SetActive(true);
             gameController._currentSector.sectorObject.AddItem(itemRef);
             gameController.allItems.Add(itemRef);
             gameController.ShowMessage("Вы нашли: " + obj.GetComponent<Item>().Name, itemRef.image);
+            obj.SetActive(false);
         }
         else
         {
@@ -100,7 +108,7 @@ public class CharacterS : BaseEntityS, ICharacter
 
     public void PickUpItem(ItemReference item)
     {
-        throw new System.NotImplementedException();
+        rightHandItem = item.thing.GetComponent<TacticalItem>();
     }
 
     public void RemoveFromRightHand(bool drop)

@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Control\PointerController.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerMachineDebug.cs" />
     <Compile Include="Assets\Scripts\ItemCell.cs" />
+    <Compile Include="Assets\Scripts\SectorSackCell.cs" />
     <Compile Include="Assets\Scripts\Entity\BaseEntity.cs" />
     <Compile Include="Assets\Scripts\Control\PrefabsController.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\SimpleActionHandler.cs" />
     <Compile Include="Assets\Scripts\EntityHitBox.cs" />
     <Compile Include="Assets\ExplosiveLLC\Demo Elements\Code\NoJumpSlime.cs" />
+    <Compile Include="Assets\Scripts\SackCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCharacterController.cs" />
     <Compile Include="Assets\Scripts\Control\InterfaceController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\ActionHandler.cs" />
@@ -153,8 +155,10 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\SackCell.cs" />
-    <Compile Include="Assets\Scripts\SectorSackCell.cs" />
+    <Compile Include="Assets\Scripts\SMO\Wood.cs" />
+    <Compile Include="Assets\Scripts\SMO\DuctTape.cs" />
+    <Compile Include="Assets\Scripts\SMO\ShortTube.cs" />
+    <Compile Include="Assets\Scripts\SMO\LongTube.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

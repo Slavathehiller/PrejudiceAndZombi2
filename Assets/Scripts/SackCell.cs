@@ -9,12 +9,12 @@ public class SackCell : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         var item = eventData.pointerDrag.GetComponent<ItemReference>();
-        var thing = item.thing.GetComponent<Item>();
         item.transform.SetParent(gameObject.transform);
         item.transform.localPosition = Vector3.zero;
-        //item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInInventory;
+        item.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
         gameController._currentSector.sectorObject.RemoveItem(item);
         ((CharacterS)item.character).sack.AddItem(item);
+        item.character.inventory.TryRemoveItem(item.thing.GetComponent<Item>());
     }
 
     // Start is called before the first frame update

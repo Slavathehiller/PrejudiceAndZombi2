@@ -50,3 +50,7 @@ MonoBehaviour:
   Bullet_9x18: {fileID: 3915313919349057074, guid: d96f87d4da83385418f04cd992b22dd0, type: 3}
   homemade_pistol: {fileID: 6370759519570145756, guid: 32eea54338ce60940a0cbea16cd81e26, type: 3}
   metalScrap: {fileID: 7874359993123634725, guid: e54fedd71198def409966c2390e7693f, type: 3}
+  wood: {fileID: 7874359993123634725, guid: 4e23f5989e8270541b425b1508b88e36, type: 3}
+  ductTape: {fileID: 7874359993123634725, guid: 7e0b5cd1c438cbf46bb8cebc7de0dc8c, type: 3}
+  shortTube: {fileID: 7874359993123634725, guid: cb2bdc5377698a2408929474d3e8857d, type: 3}
+  longTube: {fileID: 7874359993123634725, guid: 24698c63a30af064aaebb7120ba7732e, type: 3}

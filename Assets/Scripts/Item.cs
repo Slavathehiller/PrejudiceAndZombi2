@@ -8,19 +8,23 @@ public abstract class Item : MonoBehaviour
     public string Description;
     public Sprite image;
     public Vector2 sizeInInventory;
+    public readonly static Vector2 defaultSize;
     private PrefabsController prefabsController;
+
+    static Item()
+    {
+        defaultSize = new Vector2(55, 40);
+    }
 
     protected virtual void Awake()
     {
         prefabsController = GameObject.Find("PrefabsController").GetComponent<PrefabsController>();
-//        var groundPanel = GameObject.Find("GroundPanel");
-        var pref = Instantiate(prefabsController.thingRef, null);//groundPanel.transform);
+        var pref = Instantiate(prefabsController.thingRef, null);
         var refItem = pref.GetComponent<ItemReference>();
         refItem.image.sprite = image;
         refItem.thing = gameObject;
         itemRef = refItem;
         itemRef.canvasGroup.blocksRaycasts = true;
-
         itemRef.gameObject.SetActive(false);
     }
 

@@ -12,9 +12,10 @@ public class SectorSackCell : MonoBehaviour, IDropHandler
         var thing = item.thing.GetComponent<Item>();
         item.transform.SetParent(gameObject.transform);
         item.transform.localPosition = Vector3.zero;
-        //item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInInventory;
+        item.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
         ((CharacterS)item.character).sack.RemoveItem(item);
-        gameController._currentSector.sectorObject.AddItem(item);        
+        gameController._currentSector.sectorObject.AddItem(item);
+        item.character.inventory.TryRemoveItem(item.thing.GetComponent<Item>());
     }
 
     // Start is called before the first frame update

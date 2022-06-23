@@ -131,12 +131,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d10cc743de89947b8881aaf23b6c69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thingRef: {fileID: 0}
+  Description: 
   image: {fileID: 21300000, guid: 48bf5302e38c2a047af391575fa316b9, type: 3}
+  sizeInInventory: {x: 30, y: 25}
+  _itemRef: {fileID: 0}
+  _count: 0
   size: 0
   spec: 0
-  sizeInHand: {x: 65, y: 50}
-  sizeInInventory: {x: 30, y: 25}
+  sizeInHand: {x: 70, y: 50}
+  rb: {fileID: 0}
+  boxCollider: {fileID: 0}
 --- !u!54 &903517785374600219
 Rigidbody:
   m_ObjectHideFlags: 0

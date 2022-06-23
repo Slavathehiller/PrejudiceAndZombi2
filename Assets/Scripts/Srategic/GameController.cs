@@ -17,11 +17,19 @@ public class GameController : MonoBehaviour
     public Slider findSlider;
     public List<ItemReference> allItems = new List<ItemReference>();
     public MessageWindowS messageWindowS;
+    public GameObject playerSack;
+    public GameObject sectorSack;
+    public GameObject inventoryPanel;
+    public GameObject sectorPanel;
+    public GameObject inventoryContainer;
+    public GameObject sectorContainer;
 
     public bool findResult = false;
     bool isFinding = false;
     public bool isMessaging = false;
 
+    [HideInInspector]
+    public bool UIInact = false;
 
     public Sector _currentSector;
     public Sector currentSector
@@ -81,8 +89,20 @@ public class GameController : MonoBehaviour
     {        
         for(var i = 0; i < Panels.Length; i++)
         {
-            Panels[i].SetActive(i == index);
+            Panels[i].SetActive(i == index);            
         }
+        UIInact = index > -1;
+        if (inventoryPanel.activeSelf)
+        {
+            playerSack.transform.SetParent(inventoryContainer.transform);
+            sectorSack.transform.SetParent(inventoryContainer.transform);
+        }
+        if (sectorPanel.activeSelf)
+        {
+            playerSack.transform.SetParent(sectorContainer.transform);
+            sectorSack.transform.SetParent(sectorContainer.transform);
+        }
+
     }
 
     public bool isLocked() 
