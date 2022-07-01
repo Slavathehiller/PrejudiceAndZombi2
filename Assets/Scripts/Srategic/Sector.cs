@@ -43,6 +43,7 @@ public class Sector : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         gameController.cameraMoving = false;
+        gameController.RefreshSectorData();
     }
 
 }

@@ -16,6 +16,9 @@ public class PrefabsController : MonoBehaviour
     public GameObject ductTape;
     public GameObject shortTube;
     public GameObject longTube;
+    public GameObject simpleShirt;
+    public GameObject simpleJeans;
+    public GameObject simpleBelt;
     // Start is called before the first frame update
     void Start()
     {

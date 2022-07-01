@@ -2,12 +2,7 @@ using Assets.Scripts.Entity;
 using UnityEngine;
 
 
-public enum SpecType
-{
-    Universal = 0,
-    InBelt = 1,
-    Shoulder = 2
-}
+
 public abstract class TacticalItem : Item
 {   
     public CellSize size;

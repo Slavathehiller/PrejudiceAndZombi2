@@ -73,7 +73,7 @@ public class CharacterS : BaseEntityS, ICharacter
             itemRef.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
             itemRef.gameObject.SetActive(true);
             gameController._currentSector.sectorObject.AddItem(itemRef);
-            gameController.allItems.Add(itemRef);
+            gameController.UnequipedItems.Add(itemRef);
             gameController.ShowMessage("Вы нашли: " + obj.GetComponent<Item>().Name, itemRef.image);
             obj.SetActive(false);
         }

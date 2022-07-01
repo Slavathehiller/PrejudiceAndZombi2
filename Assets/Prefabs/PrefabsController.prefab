@@ -54,3 +54,6 @@ MonoBehaviour:
   ductTape: {fileID: 7874359993123634725, guid: 7e0b5cd1c438cbf46bb8cebc7de0dc8c, type: 3}
   shortTube: {fileID: 7874359993123634725, guid: cb2bdc5377698a2408929474d3e8857d, type: 3}
   longTube: {fileID: 7874359993123634725, guid: 24698c63a30af064aaebb7120ba7732e, type: 3}
+  simpleShirt: {fileID: 374621034142412917, guid: e85ab4d6659be814782c052489d600b4, type: 3}
+  simpleJeans: {fileID: 8737013846949276669, guid: def568780a5b1974cb268bb0f2a4b0f7, type: 3}
+  simpleBelt: {fileID: 1343066075473035627, guid: d3f71f4cede218840aa6e31c56b0bece, type: 3}

@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     public GameObject[] Panels;
     public GameObject GroundPanel;
     public Slider findSlider;
-    public List<ItemReference> allItems = new List<ItemReference>();
+    public List<ItemReference> UnequipedItems = new List<ItemReference>();
     public MessageWindowS messageWindowS;
     public GameObject playerSack;
     public GameObject sectorSack;
@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
     {
         sectorFindChance.text = _currentSector.sectorObject.findChance.ToString() + " %";
         findSlider.value = 0;
-        foreach(var itemRef in allItems)
+        foreach(var itemRef in UnequipedItems)
         {
             itemRef.gameObject.SetActive(_currentSector.sectorObject.sack.Contains(itemRef) || ((CharacterS)itemRef.character).sack.Contains(itemRef));
         }
@@ -86,7 +86,9 @@ public class GameController : MonoBehaviour
     }
 
     public void PanelsButtonClick(int index)
-    {        
+    {
+        if (isLocked())
+            return;
         for(var i = 0; i < Panels.Length; i++)
         {
             Panels[i].SetActive(i == index);            

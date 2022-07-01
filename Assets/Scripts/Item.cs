@@ -2,6 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SpecType
+{
+    Universal = 0,
+    InBelt = 1,
+    Shoulder = 2,
+    EqShirt = 3,
+    EqBelt = 4,
+    EqPants = 5
+}
+
 public abstract class Item : MonoBehaviour
 {
     public virtual string Name {get;set;}
