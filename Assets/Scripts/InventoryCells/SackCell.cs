@@ -16,7 +16,7 @@ public class SackCell : MonoBehaviour, IDropHandler
         ((CharacterS)item.character).sack.AddItem(item);
         item.character.inventory.TryRemoveItem(item.thing.GetComponent<Item>());
         var oldParentCell = item.oldParent.GetComponent<ItemCell>();
-        var thing = item.thing.GetComponent<EquipmentItem>();
+        var thing = item.thing.GetComponent<InventoryEquipmentItem>();
         if (!(thing is null))
         {
             thing.TakeBackScheme();

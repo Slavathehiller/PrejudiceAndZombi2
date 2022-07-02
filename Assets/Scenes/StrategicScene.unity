@@ -474,14 +474,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 58442726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80222b5b9d640744f987ca7b411aa797, type: 3}
+  m_Script: {fileID: 11500000, guid: a8a223c269f0bcc41ba31079089940d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
   spec: 3
   background: {fileID: 1124940249}
-  container: {fileID: 358732286}
   gameController: {fileID: 0}
+  container: {fileID: 358732286}
 --- !u!1001 &62419477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5596,14 +5596,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 863054952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80222b5b9d640744f987ca7b411aa797, type: 3}
+  m_Script: {fileID: 11500000, guid: a8a223c269f0bcc41ba31079089940d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
   spec: 4
   background: {fileID: 1074160699}
-  container: {fileID: 1595345675}
   gameController: {fileID: 0}
+  container: {fileID: 1595345675}
 --- !u!1 &865650462
 GameObject:
   m_ObjectHideFlags: 0
@@ -7434,6 +7434,10 @@ MonoBehaviour:
   shirt: {fileID: 0}
   pants: {fileID: 0}
   belt: {fileID: 0}
+  helmet: {fileID: 0}
+  chestArmor: {fileID: 0}
+  gloves: {fileID: 0}
+  boots: {fileID: 0}
 --- !u!1 &1004683086
 GameObject:
   m_ObjectHideFlags: 0
@@ -9088,14 +9092,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1306143503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80222b5b9d640744f987ca7b411aa797, type: 3}
+  m_Script: {fileID: 11500000, guid: a8a223c269f0bcc41ba31079089940d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
   spec: 5
   background: {fileID: 657658358}
-  container: {fileID: 1992617994}
   gameController: {fileID: 0}
+  container: {fileID: 1992617994}
 --- !u!1001 &1312584549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11360,6 +11364,7 @@ GameObject:
   - component: {fileID: 1716648246}
   - component: {fileID: 1716648248}
   - component: {fileID: 1716648247}
+  - component: {fileID: 1716648249}
   m_Layer: 5
   m_Name: HelmetPanel
   m_TagString: Untagged
@@ -11382,11 +11387,11 @@ RectTransform:
   m_Father: {fileID: 949526677}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -122.534454, y: -38.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -263.53445, y: 222.5}
   m_SizeDelta: {x: 90, y: 90}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1716648247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11425,6 +11430,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716648245}
   m_CullTransparentMesh: 1
+--- !u!114 &1716648249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716648245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4402f461f7330944d817a84067bf9504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 0
+  spec: 6
+  background: {fileID: 1035513465}
+  gameController: {fileID: 0}
 --- !u!4 &1721014749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4146121518490698, guid: a48e7d2fc673f7e4ea6df4cffad97a56, type: 3}

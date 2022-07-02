@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class EquipmentCell : ItemCell
+public abstract class EquipmentCell : ItemCell
 {
-    public GameObject container;
+
     public GameController gameController;
 
     public override void OnDrop(PointerEventData eventData)
@@ -20,17 +20,12 @@ public class EquipmentCell : ItemCell
             var oldItem = item.character.inventory.getEquipmentItem(spec)?.itemRef;
             if (oldItem != null)
             {
-                oldItem.gameObject.transform.SetParent(item.oldParent.transform);
-                oldItem.thing.GetComponent<EquipmentItem>().TakeBackScheme();
-                oldItem.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
-                oldItem.background.enabled = true;
+                PlaceItemToSack(oldItem, item.oldParent);
             }
             item.gameObject.transform.SetParent(transform);
             item.gameObject.transform.localPosition = Vector3.zero;
             item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInInventory;
-            thing.cellScheme.transform.SetParent(container.transform);
-            thing.cellScheme.transform.localPosition = Vector3.zero;
-            thing.cellScheme.SetActive(true);
+            PlaceItemToCell(thing);
             ShowBackground(false);
             item.character.inventory.EquipItem(thing);
             ((CharacterS)item.character).sack.RemoveItem(item);
@@ -38,6 +33,15 @@ public class EquipmentCell : ItemCell
             gameController.UnequipedItems.Remove(item);
         }
     }
+
+    public virtual void PlaceItemToSack(ItemReference item, GameObject sack)
+    {
+        item.background.enabled = true;
+        item.gameObject.transform.SetParent(sack.transform);
+        item.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
+    }
+    public abstract void PlaceItemToCell(EquipmentItem thing);
+
     void Start()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();

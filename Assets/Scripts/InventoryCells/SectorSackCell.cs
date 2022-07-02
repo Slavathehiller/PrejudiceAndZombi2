@@ -16,7 +16,7 @@ public class SectorSackCell : MonoBehaviour, IDropHandler
         gameController._currentSector.sectorObject.AddItem(item);
         item.character.inventory.TryRemoveItem(item.thing.GetComponent<Item>());
         var oldParentCell = item.oldParent.GetComponent<ItemCell>();
-        var thing = item.thing.GetComponent<EquipmentItem>();
+        var thing = item.thing.GetComponent<InventoryEquipmentItem>();
         if (!(thing is null))
         {
             thing.TakeBackScheme();

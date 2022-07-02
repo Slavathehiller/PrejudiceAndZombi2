@@ -9,7 +9,11 @@ public enum SpecType
     Shoulder = 2,
     EqShirt = 3,
     EqBelt = 4,
-    EqPants = 5
+    EqPants = 5,
+    Helmet = 6,
+    ChestArmor = 7,
+    Boots = 8,
+    Gloves = 9
 }
 
 public abstract class Item : MonoBehaviour

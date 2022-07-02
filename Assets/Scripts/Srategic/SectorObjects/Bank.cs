@@ -7,7 +7,7 @@ public class Bank : SectorObject
     // Start is called before the first frame update
     void Start()
     {
-        loot = new Loot[9]
+        loot = new Loot[10]
         {
             new Loot()
             {
@@ -32,11 +32,15 @@ public class Bank : SectorObject
             },
             new Loot(){
                 prefab = prefabsController.simpleBelt,
-                chance = 20000f
+                chance = 2f
             },
             new Loot(){
                 prefab = prefabsController.simpleShirt,
-                chance = 30f
+                chance = 3f
+            },
+            new Loot(){
+                prefab = prefabsController.constructionHelmet,
+                chance = 30000f
             },
             new Loot(){
                 prefab = prefabsController.metalScrap,

@@ -17,7 +17,7 @@ public class HighOfficeBuilding : SectorObject
             new Loot()
             {
                 prefab = prefabsController.homemade_pistol,
-                chance = 1000f
+                chance = 1f
             },
                 new Loot(){
                 prefab = prefabsController.ductTape,
@@ -33,7 +33,7 @@ public class HighOfficeBuilding : SectorObject
             },
             new Loot(){
                 prefab = prefabsController.simpleJeans,
-                chance = 30f
+                chance = 30000f
             },
                 new Loot(){
                 prefab = prefabsController.metalScrap,

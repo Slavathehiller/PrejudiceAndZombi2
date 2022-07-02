@@ -10,6 +10,10 @@ public class Inventory : MonoBehaviour
     public EquipmentItem shirt;
     public EquipmentItem pants;
     public EquipmentItem belt;
+    public EquipmentItem helmet;
+    public EquipmentItem chestArmor;
+    public EquipmentItem gloves;
+    public EquipmentItem boots;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +72,18 @@ public class Inventory : MonoBehaviour
             case SpecType.EqPants:
                 pants = EqItem;
                 break;
+            case SpecType.Helmet:
+                helmet = EqItem;
+                break;
+            case SpecType.ChestArmor:
+                chestArmor = EqItem;
+                break;
+            case SpecType.Boots:
+                boots = EqItem;
+                break;
+            case SpecType.Gloves:
+                gloves = EqItem;
+                break;
             default:
                 throw new Exception("Неверный тип");
         }
@@ -86,6 +102,18 @@ public class Inventory : MonoBehaviour
             case SpecType.EqPants:
                 pants = null;
                 break;
+            case SpecType.Helmet:
+                helmet = null;
+                break;
+            case SpecType.ChestArmor:
+                chestArmor = null;
+                break;
+            case SpecType.Boots:
+                boots = null;
+                break;
+            case SpecType.Gloves:
+                gloves = null;
+                break;
             default:
                 throw new Exception("Неверный тип");
         }
@@ -101,6 +129,14 @@ public class Inventory : MonoBehaviour
                 return belt;
             case SpecType.EqPants:
                 return pants;
+            case SpecType.Helmet:
+                return helmet;
+            case SpecType.ChestArmor:
+                return chestArmor;
+            case SpecType.Boots:
+                return boots;
+            case SpecType.Gloves:
+                return gloves;
             default:
                 throw new Exception("Неверный тип");
         }

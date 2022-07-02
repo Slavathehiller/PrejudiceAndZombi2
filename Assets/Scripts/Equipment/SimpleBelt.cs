@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleBelt : EquipmentItem
+public class SimpleBelt : InventoryEquipmentItem
 {
     protected override void Awake()
     {

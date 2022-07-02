@@ -65,6 +65,7 @@
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerMachineDebug.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\ItemCell.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\SectorSackCell.cs" />
+    <Compile Include="Assets\Scripts\Equipment\SimpleBelt.cs" />
     <Compile Include="Assets\Scripts\Entity\BaseEntity.cs" />
     <Compile Include="Assets\Scripts\Control\PrefabsController.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
@@ -163,7 +164,11 @@
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Equipment\SimpleBelt.cs" />
+    <Compile Include="Assets\Scripts\InventoryCells\InventoryItemCell.cs" />
+    <Compile Include="Assets\Scripts\InventoryEquipmentItem.cs" />
+    <Compile Include="Assets\Scripts\InventoryCells\ArmorCell.cs" />
+    <Compile Include="Assets\Scripts\Equipment\ConstructionHelmet.cs" />
+    <Compile Include="Assets\Scripts\Equipment\ArmorItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />
