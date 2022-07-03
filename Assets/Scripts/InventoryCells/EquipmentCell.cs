@@ -20,27 +20,25 @@ public abstract class EquipmentCell : ItemCell
             var oldItem = item.character.inventory.getEquipmentItem(spec)?.itemRef;
             if (oldItem != null)
             {
-                PlaceItemToSack(oldItem, item.oldParent);
+                oldItem.thing.GetComponent<EquipmentItem>().PlaceItemToSack(item.oldParent);
             }
             item.gameObject.transform.SetParent(transform);
             item.gameObject.transform.localPosition = Vector3.zero;
             item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInInventory;
-            PlaceItemToCell(thing);
+
             ShowBackground(false);
             item.character.inventory.EquipItem(thing);
+            PlaceItemToCell(thing);
             ((CharacterS)item.character).sack.RemoveItem(item);
             gameController._currentSector.sectorObject.RemoveItem(item);
-            gameController.UnequipedItems.Remove(item);
+            gameController.SectorItems.Remove(item);
         }
     }
 
-    public virtual void PlaceItemToSack(ItemReference item, GameObject sack)
+    public virtual void PlaceItemToCell(EquipmentItem thing)
     {
-        item.background.enabled = true;
-        item.gameObject.transform.SetParent(sack.transform);
-        item.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
+        thing.itemRef.background.enabled = false;
     }
-    public abstract void PlaceItemToCell(EquipmentItem thing);
 
     void Start()
     {

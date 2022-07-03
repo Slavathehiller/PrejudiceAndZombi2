@@ -58,3 +58,6 @@ MonoBehaviour:
   simpleJeans: {fileID: 8737013846949276669, guid: def568780a5b1974cb268bb0f2a4b0f7, type: 3}
   simpleBelt: {fileID: 1343066075473035627, guid: d3f71f4cede218840aa6e31c56b0bece, type: 3}
   constructionHelmet: {fileID: 374621034142412917, guid: 562388acff2dc4b428490a1351688a74, type: 3}
+  leatherJacket: {fileID: 374621034142412917, guid: 3ea678666ca3ee84b9889a126847fce9, type: 3}
+  armWindings: {fileID: 374621034142412917, guid: 53efdf42b67862545805734525b87d64, type: 3}
+  sneakers: {fileID: 374621034142412917, guid: 9a02f52828e02f141925e64ceb40c620, type: 3}

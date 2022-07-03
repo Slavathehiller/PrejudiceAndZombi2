@@ -16,7 +16,7 @@ namespace Assets.Scripts.Entity
 
     public abstract class BaseEntity : MonoBehaviour, IInteractableEntity
     {
-        public EntityStats States;
+        public EntityStats Stats;
 
         [NonSerialized]
         public CapsuleCollider Collider;
@@ -39,6 +39,7 @@ namespace Assets.Scripts.Entity
         public AudioClip punchSound;
         public AudioClip missedPunchSound;
 
+
         public abstract EntityController econtroller { get; }
 
         public virtual string Description
@@ -53,21 +54,21 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                return States.MaxHealth;
+                return Stats.MaxHealth;
             }
         }
 
         public float CurrentHealth
         {
-            get { return States.CurrentHealth; }
-            set { States.CurrentHealth = value; }
+            get { return Stats.CurrentHealth; }
+            set { Stats.CurrentHealth = value; }
         }
 
         public float MeleeAbility
         {
             get
             {
-                var result = States.Dexterity / 2 + States.Agility / 2;
+                var result = Stats.Dexterity / 2 + Stats.Agility / 2;
 
                 return result;
             }
@@ -77,7 +78,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = States.Dexterity + States.Intellect / 2;
+                var result = Stats.Dexterity + Stats.Intellect / 2;
 
                 return result;
             }
@@ -87,7 +88,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = States.Perceprion * 2 + States.Dexterity + States.Concentration + 40;
+                var result = Stats.Perceprion * 2 + Stats.Dexterity + Stats.Concentration + 40;
 
                 return result;
             }
@@ -97,7 +98,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = States.Perceprion + States.Intellect / 2 + States.Concentration / 2;
+                var result = Stats.Perceprion + Stats.Intellect / 2 + Stats.Concentration / 2;
 
                 return result;
             }
@@ -107,7 +108,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                double result = States.Strength / 2;
+                double result = Stats.Strength / 2;
                 result = Math.Round(result * Random.Range(0.75f, 1.26f) * 100) / 100;
                 return (float)result;
             }
@@ -118,7 +119,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = States.Agility;
+                var result = Stats.Agility;
 
                 return result;
             }
@@ -128,7 +129,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = States.Concentration + States.Agility / 2;
+                var result = Stats.Concentration + Stats.Agility / 2;
 
                 return result;
             }
@@ -138,7 +139,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                var result = States.Agility / 3 + States.Dexterity / 3;
+                var result = Stats.Agility / 3 + Stats.Dexterity / 3;
 
                 return result;
             }

@@ -7,7 +7,7 @@ public class HighOfficeBuilding : SectorObject
     // Start is called before the first frame update
     void Start()
     {
-        loot = new Loot[8]
+        loot = new Loot[10]
         {   
             new Loot()
             {
@@ -33,7 +33,15 @@ public class HighOfficeBuilding : SectorObject
             },
             new Loot(){
                 prefab = prefabsController.simpleJeans,
-                chance = 30000f
+                chance = 3f
+            },
+            new Loot(){
+                prefab = prefabsController.constructionHelmet,
+                chance = 3000f
+            },
+            new Loot(){
+                prefab = prefabsController.armWindings,
+                chance = 3000f
             },
                 new Loot(){
                 prefab = prefabsController.metalScrap,

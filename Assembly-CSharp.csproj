@@ -68,14 +68,17 @@
     <Compile Include="Assets\Scripts\Equipment\SimpleBelt.cs" />
     <Compile Include="Assets\Scripts\Entity\BaseEntity.cs" />
     <Compile Include="Assets\Scripts\Control\PrefabsController.cs" />
+    <Compile Include="Assets\Scripts\Equipment\ArmorItem.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
     <Compile Include="Assets\Scripts\Control\IInteractableEntity.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\InstantActionHandler.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterAnimatorEvents.cs" />
     <Compile Include="Assets\ExplosiveLLC\Demo Elements\Code\CameraController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterInputController.cs" />
+    <Compile Include="Assets\Scripts\InventoryEquipmentItem.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\Attack.cs" />
     <Compile Include="Assets\Scripts\ItemReference.cs" />
+    <Compile Include="Assets\Scripts\Equipment\ConstructionHelmet.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Null.cs" />
     <Compile Include="Assets\Scripts\Srategic\GameController.cs" />
     <Compile Include="Assets\Scripts\Weapon\Ammo.cs" />
@@ -131,6 +134,7 @@
     <Compile Include="Assets\Scripts\Entity\EntityStates.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\SlowTime.cs" />
+    <Compile Include="Assets\Scripts\InventoryCells\ArmorCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Navigation.cs" />
     <Compile Include="Assets\Scripts\EquipmentItem.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BruteForceMesh.cs" />
@@ -147,6 +151,7 @@
     <Compile Include="Assets\Scripts\SMO\DuctTape.cs" />
     <Compile Include="Assets\Scripts\Entity\Character.cs" />
     <Compile Include="Assets\Scripts\SMO\ShortTube.cs" />
+    <Compile Include="Assets\Scripts\InventoryCells\InventoryItemCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterWeaponController.cs" />
     <Compile Include="Assets\Scripts\Weapon\BaseWeapon.cs" />
     <Compile Include="Assets\Scripts\Srategic\BaseEntityS.cs" />
@@ -164,11 +169,9 @@
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\InventoryCells\InventoryItemCell.cs" />
-    <Compile Include="Assets\Scripts\InventoryEquipmentItem.cs" />
-    <Compile Include="Assets\Scripts\InventoryCells\ArmorCell.cs" />
-    <Compile Include="Assets\Scripts\Equipment\ConstructionHelmet.cs" />
-    <Compile Include="Assets\Scripts\Equipment\ArmorItem.cs" />
+    <Compile Include="Assets\Scripts\Equipment\LeatherJacket.cs" />
+    <Compile Include="Assets\Scripts\Equipment\ArmWindings.cs" />
+    <Compile Include="Assets\Scripts\Equipment\Sneakers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

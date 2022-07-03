@@ -15,6 +15,48 @@ public class Inventory : MonoBehaviour
     public EquipmentItem gloves;
     public EquipmentItem boots;
 
+    public float HelmetArmor 
+    {
+        get
+        {
+            if (helmet != null)
+                return ((ArmorItem)helmet).armor;
+            else
+                return 0;
+        }
+    }
+    public float ChestArmor
+    {
+        get
+        {
+            if (chestArmor != null)
+                return ((ArmorItem)chestArmor).armor;
+            else
+                return 0;
+        }
+    }
+    public float GlovesArmor
+    {
+        get
+        {
+            if (gloves != null)
+                return ((ArmorItem)gloves).armor;
+            else
+                return 0;
+        }
+    }
+    public float BootsArmor
+    {
+        get
+        {
+            if (boots != null)
+                return ((ArmorItem)boots).armor;
+            else
+                return 0;
+        }
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {

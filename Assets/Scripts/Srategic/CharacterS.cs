@@ -39,6 +39,13 @@ public class CharacterS : BaseEntityS, ICharacter
         };
     }
 
+    public float armor
+    {
+        get
+        {
+            return (inventory.HelmetArmor + inventory.ChestArmor + inventory.BootsArmor + inventory.GlovesArmor) / 4f;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -73,7 +80,7 @@ public class CharacterS : BaseEntityS, ICharacter
             itemRef.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
             itemRef.gameObject.SetActive(true);
             gameController._currentSector.sectorObject.AddItem(itemRef);
-            gameController.UnequipedItems.Add(itemRef);
+            gameController.SectorItems.Add(itemRef);
             gameController.ShowMessage("Вы нашли: " + obj.GetComponent<Item>().Name, itemRef.image);
             obj.SetActive(false);
         }

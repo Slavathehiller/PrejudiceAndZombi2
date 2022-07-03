@@ -11,4 +11,11 @@ public class InventoryEquipmentItem : EquipmentItem
         cellScheme.transform.SetParent(gameObject.transform);
         cellScheme.SetActive(false);
     }
+
+    public override void PlaceItemToSack(GameObject sack)
+    {
+        base.PlaceItemToSack(sack);
+        ((InventoryEquipmentItem)GetComponent<EquipmentItem>()).TakeBackScheme();
+
+    }
 }

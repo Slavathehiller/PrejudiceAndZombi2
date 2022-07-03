@@ -37,6 +37,14 @@ namespace Assets.Scripts.Entity
             }
         }
 
+        public float armor
+        {
+            get
+            {
+                return (((ArmorItem)inventory.helmet).armor + ((ArmorItem)inventory.chestArmor).armor + ((ArmorItem)inventory.boots).armor + ((ArmorItem)inventory.gloves).armor) / 4;
+            }
+        }
+
         public override void StartTurn()
         {
             base.StartTurn();
@@ -46,7 +54,7 @@ namespace Assets.Scripts.Entity
         // Start is called before the first frame update
         protected override void Start()
         {
-            States = new EntityStats() { 
+            Stats = new EntityStats() { 
                 inStrength = 4, 
                 inDexterity = 6, 
                 inAgility = 8, 

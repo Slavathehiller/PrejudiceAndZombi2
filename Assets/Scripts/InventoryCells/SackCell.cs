@@ -16,14 +16,16 @@ public class SackCell : MonoBehaviour, IDropHandler
         ((CharacterS)item.character).sack.AddItem(item);
         item.character.inventory.TryRemoveItem(item.thing.GetComponent<Item>());
         var oldParentCell = item.oldParent.GetComponent<ItemCell>();
-        var thing = item.thing.GetComponent<InventoryEquipmentItem>();
+        var thing = item.thing.GetComponent<EquipmentItem>();
         if (!(thing is null))
         {
-            thing.TakeBackScheme();
-            gameController.UnequipedItems.Add(item);
+            thing.PlaceItemToSack(gameObject);
+            gameController.RefreshArmorText();
         }
         if (oldParentCell != null)
             oldParentCell.ShowBackground(true);
+        gameController.SectorItems.Remove(item);
+        
     }
 
     // Start is called before the first frame update

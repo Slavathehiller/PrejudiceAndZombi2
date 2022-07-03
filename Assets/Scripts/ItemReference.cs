@@ -110,4 +110,6 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if (gameObject.transform.parent.GetComponent<SackCell>() != null || gameObject.transform.parent.GetComponent<SectorSackCell>() != null)
             background.enabled = true;
     }
+
+
 }

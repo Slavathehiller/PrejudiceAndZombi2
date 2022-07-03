@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-
+    public CharacterS character;
     public GameObject selector;
     public GameObject cameraContainer;
     public Text sectorFindChance;
@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     public GameObject[] Panels;
     public GameObject GroundPanel;
     public Slider findSlider;
-    public List<ItemReference> UnequipedItems = new List<ItemReference>();
+    public List<ItemReference> SectorItems = new List<ItemReference>();
     public MessageWindowS messageWindowS;
     public GameObject playerSack;
     public GameObject sectorSack;
@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
     public GameObject sectorPanel;
     public GameObject inventoryContainer;
     public GameObject sectorContainer;
+
+    public Text armorText;
 
     public bool findResult = false;
     bool isFinding = false;
@@ -45,13 +47,18 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void RefreshArmorText()
+    {
+        armorText.text = "Броня: " + character.armor.ToString() + "%";
+    }
+
     public void RefreshSectorData()
     {
         sectorFindChance.text = _currentSector.sectorObject.findChance.ToString() + " %";
         findSlider.value = 0;
-        foreach(var itemRef in UnequipedItems)
+        foreach(var itemRef in SectorItems)
         {
-            itemRef.gameObject.SetActive(_currentSector.sectorObject.sack.Contains(itemRef) || ((CharacterS)itemRef.character).sack.Contains(itemRef));
+            itemRef.gameObject.SetActive(_currentSector.sectorObject.sack.Contains(itemRef));
         }
     }
 

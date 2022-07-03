@@ -6,8 +6,10 @@ public class InventoryItemCell : EquipmentCell
 {
 
     public GameObject container;
+    
     public override void PlaceItemToCell(EquipmentItem thing)
     {
+        base.PlaceItemToCell(thing);
         var _thing = (InventoryEquipmentItem)thing;
         if (_thing != null)
         {
@@ -17,12 +19,7 @@ public class InventoryItemCell : EquipmentCell
         }
     }
 
-    public override void PlaceItemToSack(ItemReference item, GameObject sack)
-    {
-        base.PlaceItemToSack(item, sack);
-        ((InventoryEquipmentItem)item.thing.GetComponent<EquipmentItem>()).TakeBackScheme();
 
-    }
 
     // Update is called once per frame
     void Update()

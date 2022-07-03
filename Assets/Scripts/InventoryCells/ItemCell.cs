@@ -57,12 +57,16 @@ public class ItemCell : MonoBehaviour, IDropHandler
             if (oldParentCell != null)
                 oldParentCell.ShowBackground(true);
             ShowBackground(false);
+            var _oldParent = item.oldParent.GetComponent<SectorSackCell>();
+            if (_oldParent != null)
+                _oldParent.RemoveFromSector(item);
             return true;
         }
         else
         {
             return false;
         }
+       
     }
 
     public void ShowBackground(bool on)
