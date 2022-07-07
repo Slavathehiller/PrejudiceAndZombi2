@@ -18,4 +18,6 @@ public class InventoryEquipmentItem : EquipmentItem
         ((InventoryEquipmentItem)GetComponent<EquipmentItem>()).TakeBackScheme();
 
     }
+
+
 }

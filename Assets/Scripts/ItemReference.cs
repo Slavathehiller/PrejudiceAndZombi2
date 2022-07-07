@@ -9,7 +9,6 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 {
     public GameObject thing;
     public Image image;
-    [HideInInspector]
     public ICharacter character;
     [HideInInspector]
     public GameObject rootPanel;

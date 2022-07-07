@@ -385,11 +385,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description: 
   image: {fileID: 21300000, guid: beb03d744922dd149896c7be72541eee, type: 3}
-  sizeInInventory: {x: 100, y: 100}
+  sizeInInventory: {x: 70, y: 70}
   _itemRef: {fileID: 0}
   _count: 0
-  cellScheme: {fileID: 8727802856951967391}
   specType: 5
+  cellScheme: {fileID: 8727802856951967391}
 --- !u!1 &8815335424890076305
 GameObject:
   m_ObjectHideFlags: 0

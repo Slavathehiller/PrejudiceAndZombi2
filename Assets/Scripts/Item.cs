@@ -27,7 +27,7 @@ public abstract class Item : MonoBehaviour
 
     static Item()
     {
-        defaultSize = new Vector2(55, 40);
+        defaultSize = new Vector2(30, 30);
     }
 
     protected virtual void Awake()
@@ -35,16 +35,12 @@ public abstract class Item : MonoBehaviour
         prefabsController = GameObject.Find("PrefabsController").GetComponent<PrefabsController>();
         var pref = Instantiate(prefabsController.thingRef, null);
         var refItem = pref.GetComponent<ItemReference>();
+        refItem.transform.localScale = new Vector3(1, 1, 1);
         refItem.image.sprite = image;
         refItem.thing = gameObject;
         itemRef = refItem;
         itemRef.canvasGroup.blocksRaycasts = true;
         itemRef.gameObject.SetActive(false);
-    }
-
-    void Start()
-    {
-
     }
 
     [SerializeField]

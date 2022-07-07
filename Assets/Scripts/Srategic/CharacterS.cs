@@ -77,6 +77,7 @@ public class CharacterS : BaseEntityS, ICharacter
             itemRef.character = this;
             itemRef.transform.SetParent(gameController.GroundPanel.transform);
             itemRef.transform.localPosition = Vector3.zero;
+            itemRef.transform.localScale = new Vector3(1, 1, 1);
             itemRef.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
             itemRef.gameObject.SetActive(true);
             gameController._currentSector.sectorObject.AddItem(itemRef);

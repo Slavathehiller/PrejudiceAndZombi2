@@ -77,6 +77,7 @@
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterInputController.cs" />
     <Compile Include="Assets\Scripts\InventoryEquipmentItem.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\Attack.cs" />
+    <Compile Include="Assets\Scripts\Equipment\Sneakers.cs" />
     <Compile Include="Assets\Scripts\ItemReference.cs" />
     <Compile Include="Assets\Scripts\Equipment\ConstructionHelmet.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Null.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Assets\Scripts\Equipment\SimpleJeans.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Control\EntityController.cs" />
+    <Compile Include="Assets\Scripts\Equipment\LeatherJacket.cs" />
     <Compile Include="Assets\Scripts\Entity\AIEntity.cs" />
     <Compile Include="Assets\Scripts\Entity\ICharacter.cs" />
     <Compile Include="Assets\Scripts\RangedAttackModifier.cs" />
@@ -158,6 +160,7 @@
     <Compile Include="Assets\Scripts\InventoryCells\RightHandCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\SimpleActionHandler.cs" />
     <Compile Include="Assets\Scripts\EntityHitBox.cs" />
+    <Compile Include="Assets\Scripts\Equipment\ArmWindings.cs" />
     <Compile Include="Assets\ExplosiveLLC\Demo Elements\Code\NoJumpSlime.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\SackCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCharacterController.cs" />
@@ -169,9 +172,6 @@
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Equipment\LeatherJacket.cs" />
-    <Compile Include="Assets\Scripts\Equipment\ArmWindings.cs" />
-    <Compile Include="Assets\Scripts\Equipment\Sneakers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

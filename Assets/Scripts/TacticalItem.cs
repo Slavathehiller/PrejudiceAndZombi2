@@ -30,7 +30,7 @@ public abstract class TacticalItem : Item
         rb.isKinematic = false;
         boxCollider.enabled = true;
 
-        if (itemRef != null)
+        if (itemRef != null && itemRef.character != null)
         {
             itemRef.character.inventory.TryRemoveItem(itemRef.thing.GetComponent<TacticalItem>());
             itemRef.character.RemoveFromNearObjects(itemRef, true);

@@ -12,4 +12,6 @@ public class EquipmentItem : Item
         itemRef.gameObject.transform.SetParent(sack.transform);
         itemRef.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
     }
+
+
 }

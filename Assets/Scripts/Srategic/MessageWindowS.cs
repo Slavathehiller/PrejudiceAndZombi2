@@ -27,7 +27,7 @@ public class MessageWindowS : MonoBehaviour
         if (image != null) 
         { 
             MessageImage.sprite = image.sprite;
-            MessageImage.GetComponent<RectTransform>().sizeDelta = image.GetComponent<RectTransform>().sizeDelta * 3;
+            MessageImage.GetComponent<RectTransform>().sizeDelta = image.GetComponent<RectTransform>().sizeDelta * 2f;
             MessageImage.gameObject.SetActive(true);
         }
         else

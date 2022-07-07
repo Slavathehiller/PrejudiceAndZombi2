@@ -6,12 +6,12 @@ public class Bullet_9x18 : Ammo
 {
     protected override void Awake()
     {
-        base.Awake();
-        Name = "Патроны 9x18 мм";
         _maxAmount = 50;
+        Name = "Патроны 9x18 мм";
         data.type = AmmoType.FMG_9x18;
         data.BaseDamage = 10f;
         data.attackModifier = new RangedAttackModifier();
         data.prefab = prefabController.Bullet_9x18;
+        base.Awake();
     }
 }
