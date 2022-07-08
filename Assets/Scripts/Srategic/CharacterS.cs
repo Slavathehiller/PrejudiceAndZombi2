@@ -72,8 +72,11 @@ public class CharacterS : BaseEntityS, ICharacter
         var loot = Find();
         if (loot != null)
         {
-            var obj = Instantiate(loot, null);           
-            var itemRef = obj.GetComponent<Item>().itemRef;            
+            var obj = Instantiate(loot, null);
+            var item = obj.GetComponent<Item>();
+            if (item.isSMO)
+                item.SetCount(Random.Range(1, item.MaxAmount));
+            var itemRef = item.itemRef;            
             itemRef.character = this;
             itemRef.transform.SetParent(gameController.GroundPanel.transform);
             itemRef.transform.localPosition = Vector3.zero;
@@ -82,7 +85,7 @@ public class CharacterS : BaseEntityS, ICharacter
             itemRef.gameObject.SetActive(true);
             gameController._currentSector.sectorObject.AddItem(itemRef);
             gameController.SectorItems.Add(itemRef);
-            gameController.ShowMessage("Вы нашли: " + obj.GetComponent<Item>().Name, itemRef.image);
+            gameController.ShowMessage("Вы нашли: " + item.Name, itemRef.image);
             obj.SetActive(false);
         }
         else

@@ -157,12 +157,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description: 
   image: {fileID: 21300000, guid: 4f82ed502b268bf4191aa3a71565aa14, type: 3}
-  sizeInInventory: {x: 15, y: 15}
+  sizeInInventory: {x: 20, y: 20}
   _itemRef: {fileID: 0}
   _count: 9
   size: 0
   spec: 0
-  sizeInHand: {x: 25, y: 25}
+  sizeInHand: {x: 30, y: 30}
   rb: {fileID: 0}
   boxCollider: {fileID: 0}
   prefabController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}

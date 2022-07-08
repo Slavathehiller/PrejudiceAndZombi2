@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description: 
   image: {fileID: 21300000, guid: 594498cefe4cf544cac481af1d5c8fe9, type: 3}
-  sizeInInventory: {x: 75, y: 75}
+  sizeInInventory: {x: 60, y: 60}
   _itemRef: {fileID: 0}
   _count: 0
   specType: 3

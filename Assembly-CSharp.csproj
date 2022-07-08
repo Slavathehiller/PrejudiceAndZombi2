@@ -162,7 +162,7 @@
     <Compile Include="Assets\Scripts\EntityHitBox.cs" />
     <Compile Include="Assets\Scripts\Equipment\ArmWindings.cs" />
     <Compile Include="Assets\ExplosiveLLC\Demo Elements\Code\NoJumpSlime.cs" />
-    <Compile Include="Assets\Scripts\InventoryCells\SackCell.cs" />
+    <Compile Include="Assets\Scripts\InventoryCells\PlayerSackCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCharacterController.cs" />
     <Compile Include="Assets\Scripts\Control\InterfaceController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\ActionHandler.cs" />
@@ -172,6 +172,7 @@
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
+    <Compile Include="Assets\Scripts\InventoryCells\SackCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

@@ -12,15 +12,15 @@ public class Bank : SectorObject
             new Loot()
             {
                 prefab = prefabsController.Bullet_9x18,
-                chance = 10f
+                chance = 10000f
             },
             new Loot(){
                 prefab = prefabsController.sneakers,
-                chance = 90000f
+                chance = 7000f
             },
             new Loot(){
                 prefab = prefabsController.leatherJacket,
-                chance = 90000f
+                chance = 7000f
             },
             new Loot(){
                 prefab = prefabsController.ductTape,
@@ -40,7 +40,7 @@ public class Bank : SectorObject
             },
             new Loot(){
                 prefab = prefabsController.simpleShirt,
-                chance = 3f
+                chance = 9000f
             },
             new Loot(){
                 prefab = prefabsController.constructionHelmet,
