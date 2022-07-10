@@ -190,12 +190,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description: 
   image: {fileID: 21300000, guid: 1825019ac3a03a641a9089aeb06730a3, type: 3}
-  sizeInInventory: {x: 40, y: 30}
+  sizeInInventory: {x: 35, y: 30}
   _itemRef: {fileID: 0}
   _count: 0
   size: 4
   spec: 2
-  sizeInHand: {x: 60, y: 40}
+  sizeInHand: {x: 55, y: 40}
   rb: {fileID: 0}
   boxCollider: {fileID: 0}
   type: 3

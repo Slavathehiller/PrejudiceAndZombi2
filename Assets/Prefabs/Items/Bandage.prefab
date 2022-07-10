@@ -133,12 +133,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description: 
   image: {fileID: 21300000, guid: 48bf5302e38c2a047af391575fa316b9, type: 3}
-  sizeInInventory: {x: 30, y: 25}
+  sizeInInventory: {x: 17, y: 17}
   _itemRef: {fileID: 0}
   _count: 0
   size: 0
   spec: 0
-  sizeInHand: {x: 70, y: 50}
+  sizeInHand: {x: 40, y: 40}
   rb: {fileID: 0}
   boxCollider: {fileID: 0}
 --- !u!54 &903517785374600219
