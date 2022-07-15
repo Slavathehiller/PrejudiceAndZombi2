@@ -7,7 +7,12 @@ public class Bank : SectorObject
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< Updated upstream
         loot = new Loot[12]
+=======
+        Name = "Банк";
+        loot = new Loot[11]
+>>>>>>> Stashed changes
         {
             new Loot()
             {

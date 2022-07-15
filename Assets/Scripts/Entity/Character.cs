@@ -14,7 +14,9 @@ namespace Assets.Scripts.Entity
         public PlayerController pcontroller;
       //  public PrefabsController pfcontroller;
         int PunchCost = 3;
-        int KickCost = 5;        
+        int KickCost = 5;
+
+
 
         public override EntityController econtroller
         {
@@ -67,7 +69,16 @@ namespace Assets.Scripts.Entity
             Name = "Выживший";
             Type = EntityType.Human;
             Side = 0;
-           // TakeToRightHandNew(pfcontroller.kitchenKnife);
+
+
+
+            if (Global.needToLoad)
+            {
+                Stats = Global.stats;
+                inventory = Global.inventory;
+                Global.needToLoad = false;
+                currentActionPoint = MaxActionPoint;
+            }
         }
 
         public override void TakeAttack(MeleeAttackResult attackResult)
@@ -145,7 +156,6 @@ namespace Assets.Scripts.Entity
 
         }
 
-
         public void Stab()
         {
             if (isActing || currentActionPoint < PunchCost)
@@ -167,7 +177,6 @@ namespace Assets.Scripts.Entity
             yield return new WaitForSeconds(1.84f);
             isActing = false;
         }
-
 
         public void Kick()
         {

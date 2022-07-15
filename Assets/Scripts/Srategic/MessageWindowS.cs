@@ -7,7 +7,7 @@ public class MessageWindowS : MonoBehaviour
 {
     public Image MessageImage;
     public Text MessageText;
-    public GameController gameController;
+    public GameControllerS gameController;
 
     // Start is called before the first frame update
     void Start()

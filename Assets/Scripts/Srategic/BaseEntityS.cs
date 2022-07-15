@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class BaseEntityS : MonoBehaviour
 {
-    protected EntityStats Stats;
+    public EntityStats Stats;
 
+    public float MaxHealth
+    {
+        get
+        {
+            return Stats.MaxHealth;
+        }
+    }
 
+    public float CurrentHealth
+    {
+        get { return Stats.CurrentHealth; }
+        set { Stats.CurrentHealth = value; }
+    }
 
     public float Stealth
     {
@@ -24,10 +36,11 @@ public class BaseEntityS : MonoBehaviour
             return Stats.Perceprion + Stats.Intellect / 3;
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    // Start is called before the first frame update
+    protected virtual void Start()
+    {
+        CurrentHealth = MaxHealth;
     }
 
     // Update is called once per frame

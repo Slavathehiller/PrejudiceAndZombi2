@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-
-    public List<TacticalItem> tacticalItems;
+    private List<TacticalItem> tacticalItems;
     public EquipmentItem shirt;
     public EquipmentItem pants;
     public EquipmentItem belt;
@@ -56,7 +55,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -83,23 +81,22 @@ public class Inventory : MonoBehaviour
             UnEquipItem(((EquipmentItem)item).specType);
     }
 
-    public bool IsCellEmpty(ItemCell cell)
-    {
-        return ItemInCell(cell) == null;
-    }
+    //public bool IsCellEmpty(ItemCell cell)
+    //{
+    //    return ItemInCell(cell) == null;
+    //}
 
-
-    public TacticalItem ItemInCell(ItemCell cell)
-    {
-        foreach (var item in tacticalItems)
-        {
-            if (item.itemRef.gameObject.transform.parent == cell.gameObject.transform)
-            {
-                return item;
-            }
-        }
-        return null;
-    }
+    //public TacticalItem ItemInCell(ItemCell cell)
+    //{
+    //    foreach (var item in tacticalItems)
+    //    {
+    //        if (item.itemRef.gameObject.transform.parent == cell.gameObject.transform)
+    //        {
+    //            return item;
+    //        }
+    //    }
+    //    return null;
+    //}
 
     public void EquipItem(EquipmentItem EqItem)
     {

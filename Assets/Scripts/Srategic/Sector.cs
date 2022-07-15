@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sector : MonoBehaviour
 {
-    public GameController gameController;
+    public GameControllerS gameController;
     public SectorObject sectorObject;
 
     private GameObject selector;

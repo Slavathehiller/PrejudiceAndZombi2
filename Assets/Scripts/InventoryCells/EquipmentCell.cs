@@ -5,9 +5,7 @@ using UnityEngine.EventSystems;
 
 public abstract class EquipmentCell : ItemCell
 {
-
-    public GameController gameController;
-
+    public GameControllerS gameController;
     public override void OnDrop(PointerEventData eventData)
     {
         var item = eventData.pointerDrag.GetComponent<ItemReference>();
@@ -23,7 +21,7 @@ public abstract class EquipmentCell : ItemCell
                 oldItem.thing.GetComponent<EquipmentItem>().PlaceItemToSack(item.oldParent);
             }
             item.gameObject.transform.SetParent(transform);
-            item.gameObject.transform.localPosition = Vector3.zero;
+            item.gameObject.transform.localPosition = Vector3.zero;            
             item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInInventory;
 
             ShowBackground(false);
@@ -42,6 +40,6 @@ public abstract class EquipmentCell : ItemCell
 
     void Start()
     {
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        gameController = GameObject.Find("GameController").GetComponent<GameControllerS>();
     }
 }
