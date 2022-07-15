@@ -82,6 +82,10 @@ public class EntityController : MonoBehaviour
             if (drop)
             {
                 oldobject.GetComponent<TacticalItem>().Drop();
+                //oldobject.GetComponent<Rigidbody>().isKinematic = false;
+                //oldobject.GetComponent<BoxCollider>().enabled = true;
+                //var itemRef = oldobject.GetComponent<TacticalItem>().itemRef;
+                //Destroy(itemRef.gameObject);
             }
             else
             {               

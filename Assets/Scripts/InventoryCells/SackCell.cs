@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class SackCell : MonoBehaviour, IDropHandler
 {
-    public GameControllerS gameController;
+    public GameController gameController;
 
     public virtual void OnDrop(PointerEventData eventData)
     {
@@ -31,7 +31,7 @@ public class SackCell : MonoBehaviour, IDropHandler
     // Start is called before the first frame update
     void Start()
     {
-        gameController = GameObject.Find("GameController").GetComponent<GameControllerS>();
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame

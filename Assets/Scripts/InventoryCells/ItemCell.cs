@@ -14,8 +14,6 @@ public class ItemCell : MonoBehaviour, IDropHandler
     public SpecType spec = SpecType.Universal;
 
     public GameObject background;
-
-    public TacticalItem itemIn;
     public virtual void OnDrop(PointerEventData eventData)
     {
         TryToDrop(eventData);
@@ -27,19 +25,19 @@ public class ItemCell : MonoBehaviour, IDropHandler
         var thing = item.thing.GetComponent<TacticalItem>();
         if (thing is null)
             return false;
-        if (thing.isSMO && itemIn != null && thing.GetType() == itemIn.GetType()
-            && itemIn.MaxAmount > itemIn.Count)
+        var thingInCell = item.character.inventory.ItemInCell(this);
+        if (thing.isSMO && thingInCell != null && thing.GetType() == thingInCell.GetType()
+            && thingInCell.MaxAmount > thingInCell.Count)
         {
-            var addingCount = Mathf.Min(thing.Count, itemIn.MaxAmount - itemIn.Count);
-            itemIn.Add(addingCount);
+            var addingCount = Mathf.Min(thing.Count, thingInCell.MaxAmount - thingInCell.Count);
+            thingInCell.Add(addingCount);
             thing.Add(-addingCount);
             item.character.RemoveFromNearObjects(item, false);
         }
 
-        if (item != null && thing.size <= size && (spec == SpecType.Universal || spec == thing.spec) && itemIn is null)
+        if (item != null && thing.size <= size && (spec == SpecType.Universal || spec == thing.spec) && item.character.inventory.IsCellEmpty(this))
         {
-            itemIn = thing;
-            //item.character.inventory.AddItem(thing);
+            item.character.inventory.AddItem(thing);
             item.character.RemoveFromNearObjects(item, false);
             item.transform.SetParent(gameObject.transform);
             item.transform.localPosition = Vector3.zero;
@@ -49,21 +47,15 @@ public class ItemCell : MonoBehaviour, IDropHandler
             {
                 item.RemoveFromRightHand();
             }
-            if (this is RightHandCell)
-            {
-                item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInHand;
-            }
-            else
+            if (!(this is RightHandCell))
             {
                 item.thing.SetActive(false);
                 item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInInventory;
             }
-
+            else
+                item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInHand;
             if (oldParentCell != null)
-            {
-                oldParentCell.itemIn = null;
                 oldParentCell.ShowBackground(true);
-            }
             ShowBackground(false);
             var _oldParent = item.oldParent.GetComponent<SectorSackCell>();
             if (_oldParent != null)

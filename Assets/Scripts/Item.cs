@@ -24,7 +24,6 @@ public abstract class Item : MonoBehaviour
     public Vector2 sizeInInventory;
     public readonly static Vector2 defaultSize;
     private PrefabsController prefabsController;
-    public GameObject prefab;
 
     static Item()
     {

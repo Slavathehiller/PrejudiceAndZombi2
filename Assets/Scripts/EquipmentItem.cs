@@ -10,7 +10,7 @@ public class EquipmentItem : Item
     {
         itemRef.background.enabled = true;
         itemRef.gameObject.transform.SetParent(sack.transform);
-        itemRef.image.GetComponent<RectTransform>().sizeDelta = defaultSize;
+        itemRef.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
     }
 
 

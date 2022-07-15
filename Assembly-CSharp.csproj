@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.34f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="D:\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Weapon\WeaponMagazine.cs" />
@@ -67,7 +67,6 @@
     <Compile Include="Assets\Scripts\InventoryCells\SectorSackCell.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleBelt.cs" />
     <Compile Include="Assets\Scripts\Entity\BaseEntity.cs" />
-    <Compile Include="Assets\Scripts\Interchange\Global.cs" />
     <Compile Include="Assets\Scripts\Control\PrefabsController.cs" />
     <Compile Include="Assets\Scripts\Equipment\ArmorItem.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
@@ -82,7 +81,7 @@
     <Compile Include="Assets\Scripts\ItemReference.cs" />
     <Compile Include="Assets\Scripts\Equipment\ConstructionHelmet.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Null.cs" />
-    <Compile Include="Assets\Scripts\Srategic\GameControllerS.cs" />
+    <Compile Include="Assets\Scripts\Srategic\GameController.cs" />
     <Compile Include="Assets\Scripts\Weapon\Ammo.cs" />
     <Compile Include="Assets\Scripts\Srategic\SectorObjects\SectorObject.cs" />
     <Compile Include="Assets\Scripts\Supply\BaseSupply.cs" />
@@ -146,7 +145,6 @@
     <Compile Include="Assets\Scripts\Weapon\HomemadePistol.cs" />
     <Compile Include="Assets\Scripts\ShowEntityInfo.cs" />
     <Compile Include="Assets\Scripts\SMO\Wood.cs" />
-    <Compile Include="Assets\Scripts\Tactical\GameControllerT.cs" />
     <Compile Include="Assets\Scripts\Srategic\SectorObjects\HighOfficeBuilding.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\SackCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\GetHit.cs" />

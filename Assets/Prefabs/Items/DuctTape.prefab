@@ -46,6 +46,5 @@ MonoBehaviour:
   Description: 
   image: {fileID: 21300000, guid: 26267fd778322934e83948c2e91b5f9f, type: 3}
   sizeInInventory: {x: 0, y: 0}
-  prefab: {fileID: 7874359993123634725}
   _itemRef: {fileID: 0}
   _count: 0

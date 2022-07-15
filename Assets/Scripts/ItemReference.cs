@@ -1,3 +1,6 @@
+using Assets.Scripts.Entity;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -7,21 +10,8 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public GameObject thing;
     public Image image;
     public ICharacter character;
-
-    private GameObject _rootPanel;
-
-    public GameObject rootPanel
-    {
-        get
-        {
-            if (_rootPanel is null)
-            {
-                _rootPanel = GameObject.Find("InventoryPanel");
-            }
-            return _rootPanel;
-        }
-    }
-
+    [HideInInspector]
+    public GameObject rootPanel;
     public CanvasGroup canvasGroup;
     public GameObject oldParent;
     public Button unloadButton;
@@ -33,6 +23,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     private void Awake()
     {
+        rootPanel = GameObject.Find("InventoryPanel");
         canvasGroup = GetComponent<CanvasGroup>();
         background = GetComponent<Image>();        
     }
@@ -68,6 +59,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
                     ammoObject.transform.SetParent(thing.transform);
                     ammoObject.transform.localPosition = Vector3.zero;
                     ammo.SetCount(weapon.magazine.CurrentAmmoCount);
+                   // ammo.prefabController = character.prefabsController;
                     ammo.Drop();
                     weapon.magazine.CurrentAmmoCount = 0;
                     weapon.itemRef.ShowUnloadButton(false);

@@ -8,7 +8,7 @@ public class CharacterS : BaseEntityS, ICharacter
     
     public Inventory inventory;
     public Sack sack;
-    public GameControllerS gameController;
+    public GameController gameController;
     public PrefabsController _prefabsController;
     public TacticalItem rightHandItem;
 
@@ -25,19 +25,18 @@ public class CharacterS : BaseEntityS, ICharacter
     }
 
     // Start is called before the first frame update
-    protected override void Start()
+    void Start()
     {
         Stats = new EntityStats()
         {
-            inStrength = 5,
-            inDexterity = 8,
-            inAgility = 7,
-            inConstitution = 6,
-            inIntellect = 6,
-            inConcentration = 10,
-            inPerception = 7
+            inStrength = 4,
+            inDexterity = 6,
+            inAgility = 8,
+            inConstitution = 5,
+            inIntellect = 8,
+            inConcentration = 7,
+            inPerception = 6
         };
-        base.Start();
     }
 
     public float armor
