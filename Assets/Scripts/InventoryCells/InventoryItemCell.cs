@@ -15,6 +15,7 @@ public class InventoryItemCell : EquipmentCell
         {
             _thing.cellScheme.transform.SetParent(container.transform);
             _thing.cellScheme.transform.localPosition = Vector3.zero;
+            _thing.cellScheme.transform.localScale = new Vector3(1, 1, 1);
             _thing.cellScheme.SetActive(true);
         }
     }

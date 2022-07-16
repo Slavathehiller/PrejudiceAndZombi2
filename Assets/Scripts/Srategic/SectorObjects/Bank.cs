@@ -36,7 +36,7 @@ public class Bank : SectorObject
             },
             new Loot(){
                 prefab = prefabsController.simpleBelt,
-                chance = 3000f
+                chance = 4000f
             },
             new Loot(){
                 prefab = prefabsController.simpleShirt,

@@ -14,9 +14,22 @@ namespace Assets.Scripts.Entity
         NecroMorph = 2
     }
 
+
     public abstract class BaseEntity : MonoBehaviour, IInteractableEntity
     {
         public EntityStats Stats;
+
+        public RightHandCell rightHandCell
+        {
+            get
+            {
+                if (_rightHandCell is null)
+                    _rightHandCell = GameObject.FindGameObjectWithTag("RightHandCell").GetComponent<RightHandCell>();
+                return _rightHandCell;
+            }
+        }
+
+        public RightHandCell _rightHandCell;
 
         [NonSerialized]
         public CapsuleCollider Collider;
@@ -172,6 +185,7 @@ namespace Assets.Scripts.Entity
 
         public void RemoveFromRightHand(bool drop)
         {
+            rightHandCell.itemIn = null;
             econtroller.RemoveFromRightHand(drop);
             RightHandItem = null;
         }

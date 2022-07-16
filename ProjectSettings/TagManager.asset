@@ -8,6 +8,7 @@ TagManager:
   - DamagingThing
   - UI
   - Missle
+  - RightHandCell
   layers:
   - Default
   - TransparentFX

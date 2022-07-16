@@ -27,8 +27,8 @@ public class NearObjects : MonoBehaviour
         refItem.gameObject.SetActive(true);
         refItem.transform.SetParent(groundPanel.transform);
         refItem.transform.localScale = new Vector3(1, 1, 1);
-        refItem.background.enabled = true;
-        refItem.image.GetComponent<RectTransform>().sizeDelta = item.sizeInInventory * 0.7f;
+        refItem.background.enabled = true;       
+        refItem.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize * 0.7f;
         refItem.canvasGroup.blocksRaycasts = true;
         refItem.ShowUnloadButton(false);
         if (!list.Contains(refItem))

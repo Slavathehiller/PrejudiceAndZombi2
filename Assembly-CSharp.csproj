@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\InventoryCells\SectorSackCell.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleBelt.cs" />
     <Compile Include="Assets\Scripts\Entity\BaseEntity.cs" />
+    <Compile Include="Assets\Scripts\Interchange\Global.cs" />
     <Compile Include="Assets\Scripts\Control\PrefabsController.cs" />
     <Compile Include="Assets\Scripts\Equipment\ArmorItem.cs" />
     <Compile Include="Assets\Scripts\Weapon\Bullet.cs" />
