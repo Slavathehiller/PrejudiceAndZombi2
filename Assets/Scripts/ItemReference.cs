@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public GameObject thing;
+    public Item item;
     public Image image;
     public ICharacter character;
     [HideInInspector]
@@ -21,16 +22,26 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public Image background;
 
 
+
     private void Awake()
     {
         rootPanel = GameObject.Find("InventoryPanel");
         canvasGroup = GetComponent<CanvasGroup>();
-        background = GetComponent<Image>();        
+        background = GetComponent<Image>();
     }
     // Update is called once per frame
     void Update()
-    {
-        
+    {        
+        if (thing != null && item is null)
+            item = thing.GetComponent<Item>();
+        if (item is RangedWeapon)
+        {
+            var magazine = (item as RangedWeapon).magazine;
+            if (magazine != null)
+                count.text = magazine.CurrentAmmoCount.ToString();
+            else
+                count.text = "-";
+        }
     }
     public void PickUp()
     {
@@ -59,7 +70,6 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
                     ammoObject.transform.SetParent(thing.transform);
                     ammoObject.transform.localPosition = Vector3.zero;
                     ammo.SetCount(weapon.magazine.CurrentAmmoCount);
-                   // ammo.prefabController = character.prefabsController;
                     ammo.Drop();
                     weapon.magazine.CurrentAmmoCount = 0;
                     weapon.itemRef.ShowUnloadButton(false);

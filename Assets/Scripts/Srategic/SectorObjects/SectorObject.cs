@@ -11,6 +11,7 @@ public struct Loot
 public abstract class SectorObject : MonoBehaviour
 {
     public Loot[] loot;
+    public GameObject[] mandatoryLoot;
     public List<ItemReference> sack = new List<ItemReference>();
     public string Name;
 

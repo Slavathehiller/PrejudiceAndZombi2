@@ -9,6 +9,15 @@ public class InventoryEquipmentItem : EquipmentItem
     public GameObject cellScheme;
     public List<ItemCell> cellList;
 
+    public void TryRemoveItem(Item item)
+    {
+        foreach(var cell in cellList)
+        {
+            if (cell.itemIn == item)
+                cell.itemIn = null;
+        }
+    }
+
     public new EquipmentItemTransferData TransferData
     {
         get

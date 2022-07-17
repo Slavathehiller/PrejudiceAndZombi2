@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,11 @@ public class Sector : MonoBehaviour
     {
         selector = gameController.selector;
         cameraContainer = gameController.cameraContainer;
+        if (sectorObject != null && sectorObject.mandatoryLoot != null)
+            foreach (var prefab in sectorObject.mandatoryLoot)
+            {
+                gameController.AddItemToSector(this, prefab);
+            }
     }
 
     // Update is called once per frame

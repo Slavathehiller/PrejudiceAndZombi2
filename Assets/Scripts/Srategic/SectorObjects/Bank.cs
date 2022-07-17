@@ -1,5 +1,16 @@
+using UnityEngine;
+
 public class Bank : SectorObject
 {
+    private void Awake()
+    {
+        mandatoryLoot = new GameObject[3]
+        {
+            prefabsController.Bullet_9x18,
+            prefabsController.simpleBelt,
+            prefabsController.homemade_pistol
+        };
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -7,12 +18,12 @@ public class Bank : SectorObject
         {
             new Loot()
             {
-                prefab = prefabsController.Bullet_9x18,
+                prefab = prefabsController.homemade_pistol,
                 chance = 30000f
             },
             new Loot(){
-                prefab = prefabsController.sneakers,
-                chance = 7f
+                prefab = prefabsController.Bullet_9x18,
+                chance = 30000f
             },
             new Loot(){
                 prefab = prefabsController.leatherJacket,
@@ -31,11 +42,11 @@ public class Bank : SectorObject
                 chance = 20f
             },
             new Loot(){
-                prefab = prefabsController.simpleBelt,
+                prefab = prefabsController.simpleJeans,
                 chance = 400f
             },
             new Loot(){
-                prefab = prefabsController.simpleShirt,
+                prefab = prefabsController.simpleBelt,
                 chance = 40000f
             },
             new Loot(){

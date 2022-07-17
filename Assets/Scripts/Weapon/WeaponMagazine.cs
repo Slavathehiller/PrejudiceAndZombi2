@@ -1,3 +1,4 @@
+using Assets.Scripts.Interchange;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,18 @@ public class WeaponMagazine : TacticalItem
     public int capacity;
     public WeaponMagazineType type;
 
+    public new WeaponMagazineTransferData TransferData
+    {
+        get
+        {
+            return new WeaponMagazineTransferData
+            {
+                Prefab = this.prefab,
+                CurrentAmmoCount = this.CurrentAmmoCount,
+                CurrentAmmoData = this.CurrentAmmoData
+            };
+        }
+    }
     public bool AcceptableType(AmmoType type)
     {
         return ammoTypeList.Contains(type);

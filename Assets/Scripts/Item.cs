@@ -1,6 +1,4 @@
 using Assets.Scripts.Interchange;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum SpecType
@@ -114,9 +112,9 @@ public abstract class Item : MonoBehaviour
     {
         if (itemRef != null)
             itemRef.count.text = _count.ToString();
-        if (_count < 1)
+        if (_count < 1 && isSMO)
         {
-            //itemRef.character.inventory.TryRemoveItem(this);
+            itemRef.character.inventory.TryRemoveItem(this);
             Destroy(itemRef.gameObject);
             Destroy(gameObject);
         }

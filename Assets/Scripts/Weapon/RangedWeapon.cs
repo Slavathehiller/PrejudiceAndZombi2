@@ -1,3 +1,4 @@
+using Assets.Scripts.Interchange;
 using Assets.Scripts.Weapon;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +16,17 @@ public class RangedWeapon : BaseWeapon
     public GameObject magazineModel;
     public List<WeaponMagazineType> compatibleCartridgeTypes = new List<WeaponMagazineType>();
 
+    public override ItemTransferData TransferData
+    {
+        get
+        {
+            return new RangedWeaponTransferData
+            {
+                Prefab = this.prefab,
+                Magazine = this.magazine is null ? null : this.magazine.TransferData
+            };
+        }
+    }
 
     public bool CanLoad(Ammo ammo)
     {
@@ -57,7 +69,7 @@ public class RangedWeapon : BaseWeapon
 
     void RefreshAmmo()
     {
-        if (magazine == null)
+        if (magazine is null)
         {
             itemRef.count.text = "-";
         }

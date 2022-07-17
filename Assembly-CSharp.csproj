@@ -75,6 +75,7 @@
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\InstantActionHandler.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterAnimatorEvents.cs" />
     <Compile Include="Assets\ExplosiveLLC\Demo Elements\Code\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Interchange\RangedWeaponTransferData.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterInputController.cs" />
     <Compile Include="Assets\Scripts\Equipment\InventoryEquipmentItem.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\Attack.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="Assets\Scripts\Entity\AIEntity.cs" />
     <Compile Include="Assets\Scripts\Entity\ICharacter.cs" />
     <Compile Include="Assets\Scripts\RangedAttackModifier.cs" />
+    <Compile Include="Assets\Scripts\Interchange\WeaponMagazineTransferData.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerInputController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\MovementActionHandler.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Move.cs" />
@@ -179,6 +181,7 @@
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
+    <Compile Include="Assets\Scripts\ItemFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

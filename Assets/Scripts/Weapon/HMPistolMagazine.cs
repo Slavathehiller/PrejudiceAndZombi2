@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class HMPistolMagazine : WeaponMagazine
 {
-    public HMPistolMagazine() 
-    {        
+    protected override void Awake()
+    {
+        base.Awake();
         capacity = 1;
         ammoTypeList = new List<AmmoType>() {AmmoType.FMG_9x18 };
         extractable = false;
         type = WeaponMagazineType.HomemadePistolMagazine;
+        prefab = prefabsController.homemade_SMG_magazine;
     }
 }

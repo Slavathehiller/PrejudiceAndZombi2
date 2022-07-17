@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -60,14 +61,25 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void AddItemToSector(Sector sector, ItemReference item)
+    {
+        sector.sectorObject.AddItem(item);
+        SectorItems.Add(item);
+    }
+
+    public void AddItemToSector(Sector sector, GameObject prefab)
+    {
+        var obj = ItemFactory.CreateItem(prefab, GroundPanel, character);
+        var item = obj.GetComponent<Item>();
+        AddItemToSector(sector, item.itemRef);        
+    }
+
     public void FindProcess()
     {
         RefreshSectorData();
         findResult = false;
         isFinding = true;
     }
-
-
 
     // Start is called before the first frame update
     void Start()

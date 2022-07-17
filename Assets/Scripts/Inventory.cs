@@ -74,7 +74,7 @@ public class Inventory : MonoBehaviour
         {
             return new InventoryTransferData
             {
-                shirt = this.shirt is null ? null:(this.shirt as InventoryEquipmentItem).TransferData,
+                shirt = this.shirt is null ? null : (this.shirt as InventoryEquipmentItem).TransferData,
                 belt = this.belt is null ? null : (this.belt as InventoryEquipmentItem).TransferData,
                 pants = this.pants is null ? null : (this.pants as InventoryEquipmentItem).TransferData,
                 helmet = this.helmet is null ? null : (this.helmet as ArmorItem).TransferData,
@@ -97,13 +97,15 @@ public class Inventory : MonoBehaviour
         
     }
 
-    //public void TryRemoveItem(Item item)
-    //{
-    //    if (item is TacticalItem)
-    //        tacticalItems.Remove(item as TacticalItem);
-    //    if (item is EquipmentItem && getEquipmentItem(((EquipmentItem)item).specType) == item)
-    //        UnEquipItem(((EquipmentItem)item).specType);
-    //}
+    public void TryRemoveItem(Item item)
+    {
+        if (item is TacticalItem)
+        {
+            (shirt as InventoryEquipmentItem).TryRemoveItem(item);
+            (pants as InventoryEquipmentItem).TryRemoveItem(item);
+            (belt as InventoryEquipmentItem).TryRemoveItem(item);
+        }
+    }
 
     //public bool IsCellEmpty(ItemCell cell)
     //{

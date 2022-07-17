@@ -48,7 +48,8 @@ MonoBehaviour:
   simpleBullet: {fileID: 1580074302825496377, guid: b197a25668cd68543aff5f37880d4999, type: 3}
   thingRef: {fileID: 3554941172269810315, guid: 2bc4eb1536d36a84da979ab5ab7cc8db, type: 3}
   Bullet_9x18: {fileID: 3915313919349057074, guid: d96f87d4da83385418f04cd992b22dd0, type: 3}
-  homemade_HM_magazine: {fileID: 4771003902370829215, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}
+  homemade_SMG: {fileID: 792621576135446561, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
+  homemade_SMG_magazine: {fileID: 4771003902370829215, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}
   homemade_pistol: {fileID: 6370759519570145756, guid: 32eea54338ce60940a0cbea16cd81e26, type: 3}
   metalScrap: {fileID: 7874359993123634725, guid: e54fedd71198def409966c2390e7693f, type: 3}
   wood: {fileID: 7874359993123634725, guid: 4e23f5989e8270541b425b1508b88e36, type: 3}

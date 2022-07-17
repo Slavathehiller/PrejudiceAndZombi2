@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using Assets.Scripts.Interchange;
 using System.Collections;
 using System.Collections.Generic;
@@ -87,21 +88,13 @@ public class CharacterS : BaseEntityS, ICharacter
         var loot = Find();
         if (loot != null)
         {
-            var obj = Instantiate(loot, null);
+            var obj = ItemFactory.CreateItem(loot, gameController.GroundPanel, this);
             var item = obj.GetComponent<Item>();
-            if (item.isSMO)
-                item.SetCount(Random.Range(1, item.MaxAmount));
-            var itemRef = item.itemRef;            
-            itemRef.character = this;
-            itemRef.transform.SetParent(gameController.GroundPanel.transform);
-            itemRef.transform.localPosition = Vector3.zero;
-            itemRef.transform.localScale = new Vector3(1, 1, 1);
-            itemRef.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
-            itemRef.gameObject.SetActive(true);
-            gameController._currentSector.sectorObject.AddItem(itemRef);
-            gameController.SectorItems.Add(itemRef);
+            var itemRef = item.itemRef;
+
+            gameController.AddItemToSector(gameController._currentSector, itemRef);
+
             gameController.ShowMessage("Вы нашли: " + item.Name, itemRef.image);
-            obj.SetActive(false);
         }
         else
         {

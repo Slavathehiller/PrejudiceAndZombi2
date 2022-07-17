@@ -65,7 +65,10 @@ namespace Assets.Scripts.Entity
             Side = 0;
 
             if (Global.needToLoad)
+            {
                 LoadFromGlobal();
+                Global.needToLoad = true;
+            }
         }
 
         private void LoadFromGlobal()
@@ -88,6 +91,16 @@ namespace Assets.Scripts.Entity
                             {
                                 invItem.cellList[i].itemIn = Instantiate(itemdata.Prefab).GetComponent<TacticalItem>();
                                 invItem.cellList[i].itemIn.SetCount(itemdata.Count);
+
+                                if (itemdata is RangedWeaponTransferData)
+                                {
+                                    var magazine = Instantiate((itemdata as RangedWeaponTransferData).Magazine.Prefab).GetComponent<WeaponMagazine>();
+                                    magazine.CurrentAmmoCount = (itemdata as RangedWeaponTransferData).Magazine.CurrentAmmoCount;
+                                    magazine.CurrentAmmoData = (itemdata as RangedWeaponTransferData).Magazine.CurrentAmmoData;
+                                    (invItem.cellList[i].itemIn as RangedWeapon).magazine = magazine;
+                                    magazine.gameObject.SetActive(false);
+                                }
+
                                 invItem.cellList[i].PlaceItemToCell(invItem.cellList[i].itemIn.itemRef);
                                 invItem.cellList[i].itemIn.itemRef.character = this;
                                 invItem.cellList[i].itemIn.itemRef.gameObject.SetActive(true);
