@@ -28,9 +28,9 @@ public class ItemCell : MonoBehaviour, IDropHandler
         if (thing is null)
             return false;
         if (thing.isSMO && itemIn != null && thing.GetType() == itemIn.GetType()
-            && itemIn.MaxAmount > itemIn.Count)
+            && itemIn.MaxAmount > itemIn.GetCount())
         {
-            var addingCount = Mathf.Min(thing.Count, itemIn.MaxAmount - itemIn.Count);
+            var addingCount = Mathf.Min(thing.GetCount(), itemIn.MaxAmount - itemIn.GetCount());
             itemIn.Add(addingCount);
             thing.Add(-addingCount);
             item.character.RemoveFromNearObjects(item, false);
@@ -39,10 +39,9 @@ public class ItemCell : MonoBehaviour, IDropHandler
         if (item != null && thing.size <= size && (spec == SpecType.Universal || spec == thing.spec) && itemIn is null)
         {
             itemIn = thing;
-            //item.character.inventory.AddItem(thing);
             item.character.RemoveFromNearObjects(item, false);
-            item.transform.SetParent(gameObject.transform);
-            item.transform.localPosition = Vector3.zero;
+
+            PlaceItemToCell(item);
             item.thing.GetComponent<Light>().enabled = false;
             var oldParentCell = item.oldParent.GetComponent<ItemCell>();
             if (oldParentCell is RightHandCell)
@@ -75,6 +74,15 @@ public class ItemCell : MonoBehaviour, IDropHandler
             return false;
         }
        
+    }
+
+    public virtual void PlaceItemToCell(ItemReference item)
+    {
+        item.transform.SetParent(gameObject.transform);        
+        item.image.GetComponent<RectTransform>().sizeDelta = item.thing.GetComponent<Item>().sizeInInventory;
+        item.transform.localPosition = Vector3.zero;
+        item.transform.localScale = new Vector3(1, 1, 1);
+        item.background.enabled = false;
     }
 
     public void ShowBackground(bool on)

@@ -8,5 +8,6 @@ public class MetalScrap : Item
     {
         base.Awake();
         Name = "Металлолом";
+        prefab = prefabsController.ductTape;
     }
 }

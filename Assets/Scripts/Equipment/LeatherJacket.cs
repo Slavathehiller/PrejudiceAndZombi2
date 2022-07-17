@@ -8,5 +8,6 @@ public class LeatherJacket : ArmorItem
     {
         base.Awake();
         Name = "Кожаная куртка";
+        prefab = prefabsController.leatherJacket;
     }
 }

@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class ArmorCell : EquipmentCell
 {
     public Text armorText;
-    public override void PlaceItemToCell(EquipmentItem thing)
+    public override void PlaceItemToCell(ItemReference item)
     {
-        base.PlaceItemToCell(thing);
-        armorText.text = ((ArmorItem)thing).armor.ToString() + "%";
-        gameController.RefreshArmorText();
+        base.PlaceItemToCell(item);
+        armorText.text = item.thing.GetComponent<ArmorItem>().armor.ToString() + "%";
+        //gameController.RefreshArmorText();
     }
-
-
 }

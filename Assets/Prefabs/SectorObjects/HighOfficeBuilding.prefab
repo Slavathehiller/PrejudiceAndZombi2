@@ -154,5 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sack: []
-  gameController: {fileID: 0}
+  Name: "\u041E\u0444\u0444\u0438\u0441"
+  findChance: 100
   prefabsController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}

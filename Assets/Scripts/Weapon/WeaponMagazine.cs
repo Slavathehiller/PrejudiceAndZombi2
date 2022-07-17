@@ -33,7 +33,7 @@ public class WeaponMagazine : TacticalItem
     public void Reload(Ammo ammo)
     {
         var freeSlots = capacity - CurrentAmmoCount;
-        var loadCount = Mathf.Min(freeSlots, ammo.Count);
+        var loadCount = Mathf.Min(freeSlots, ammo.GetCount());
         CurrentAmmoData = ammo.data;
         CurrentAmmoCount += loadCount;
         ammo.Add(-loadCount);

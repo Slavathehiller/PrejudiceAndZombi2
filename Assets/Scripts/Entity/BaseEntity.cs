@@ -172,7 +172,7 @@ namespace Assets.Scripts.Entity
         {
             if (!isActing)
             {
-                inventory.TryRemoveItem(RightHandItem);
+               // inventory.TryRemoveItem(RightHandItem);
                 RemoveFromRightHand(true);
             }
         }

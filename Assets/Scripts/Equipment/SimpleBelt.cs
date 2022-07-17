@@ -8,5 +8,6 @@ public class SimpleBelt : InventoryEquipmentItem
     {
         base.Awake();
         Name = "Простой ремень";
+        prefab = prefabsController.simpleBelt;
     }
 }

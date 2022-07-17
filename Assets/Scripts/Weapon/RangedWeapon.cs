@@ -40,9 +40,8 @@ public class RangedWeapon : BaseWeapon
         magazine.gameObject.SetActive(false);
         magazine.transform.SetParent(magazinePoint);
         magazine.transform.localPosition = Vector3.zero;
-        itemRef.character.inventory.TryRemoveItem(magazine.itemRef.thing.GetComponent<TacticalItem>());
+        //itemRef.character.inventory.TryRemoveItem(magazine.itemRef.thing.GetComponent<TacticalItem>());
         itemRef.ShowUnloadButton(true);
-       // Destroy(magazine.itemRef.gameObject);
     }
 
     public void ConsumeAmmo(int num = 1)

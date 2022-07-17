@@ -13,12 +13,12 @@ public class SackCell : MonoBehaviour, IDropHandler
         item.transform.SetParent(gameObject.transform);
         item.transform.localPosition = Vector3.zero;
         item.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
-        item.character.inventory.TryRemoveItem(item.thing.GetComponent<Item>());
+        //item.character.inventory.TryRemoveItem(item.thing.GetComponent<Item>());
         var thing = item.thing.GetComponent<EquipmentItem>();
         if (!(thing is null))
         {
             thing.PlaceItemToSack(gameObject);
-            gameController.RefreshArmorText();
+            //gameController.RefreshArmorText();
         }
         var oldParentCell = item.oldParent.GetComponent<ItemCell>();
         if (oldParentCell != null)

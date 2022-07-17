@@ -8,5 +8,6 @@ public class ArmWindings : ArmorItem
     {
         base.Awake();
         Name = "Обмотки рук";
+        prefab = prefabsController.armWindings;
     }
 }

@@ -32,7 +32,7 @@ public abstract class TacticalItem : Item
 
         if (itemRef != null && itemRef.character != null)
         {
-            itemRef.character.inventory.TryRemoveItem(itemRef.thing.GetComponent<TacticalItem>());
+            //itemRef.character.inventory.TryRemoveItem(itemRef.thing.GetComponent<TacticalItem>());
             itemRef.character.RemoveFromNearObjects(itemRef, true);
         }
     }

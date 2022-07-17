@@ -1,3 +1,4 @@
+using Assets.Scripts.Interchange;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,12 +24,24 @@ public abstract class Item : MonoBehaviour
     public Sprite image;
     public Vector2 sizeInInventory;
     public readonly static Vector2 defaultSize;
-    private PrefabsController prefabsController;
+    public PrefabsController prefabsController;
     public GameObject prefab;
 
     static Item()
     {
         defaultSize = new Vector2(30, 30);
+    }
+
+    public virtual ItemTransferData TransferData
+    {
+        get
+        {
+            return new ItemTransferData
+            {
+                Prefab = prefab,
+                Count = _count
+            };
+        }
     }
 
     protected virtual void Awake()
@@ -63,12 +76,9 @@ public abstract class Item : MonoBehaviour
     [SerializeField]
     protected int _count;
 
-    public int Count
+    public int GetCount()
     {
-        get
-        {
-            return _count;
-        }
+        return _count;
     }
 
     protected int _maxAmount;
@@ -106,7 +116,7 @@ public abstract class Item : MonoBehaviour
             itemRef.count.text = _count.ToString();
         if (_count < 1)
         {
-            itemRef.character.inventory.TryRemoveItem(this);
+            //itemRef.character.inventory.TryRemoveItem(this);
             Destroy(itemRef.gameObject);
             Destroy(gameObject);
         }

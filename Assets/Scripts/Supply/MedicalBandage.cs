@@ -8,5 +8,6 @@ public class MedicalBandage : BaseSupply
     {
         base.Awake();
         Name = "Медицинский бинт";
+        prefab = prefabsController.medicalBandage;
     }
 }

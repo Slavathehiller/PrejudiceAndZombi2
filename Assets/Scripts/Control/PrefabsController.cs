@@ -10,6 +10,7 @@ public class PrefabsController : MonoBehaviour
     public GameObject simpleBullet;
     public Image thingRef;
     public GameObject Bullet_9x18;
+    public GameObject homemade_HM_magazine;
     public GameObject homemade_pistol;
     public GameObject metalScrap;
     public GameObject wood;

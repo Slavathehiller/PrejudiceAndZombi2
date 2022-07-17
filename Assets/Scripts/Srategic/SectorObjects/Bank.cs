@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Bank : SectorObject
 {
     // Start is called before the first frame update
@@ -12,7 +8,7 @@ public class Bank : SectorObject
             new Loot()
             {
                 prefab = prefabsController.Bullet_9x18,
-                chance = 3000f
+                chance = 30000f
             },
             new Loot(){
                 prefab = prefabsController.sneakers,
@@ -36,19 +32,19 @@ public class Bank : SectorObject
             },
             new Loot(){
                 prefab = prefabsController.simpleBelt,
-                chance = 4000f
+                chance = 400f
             },
             new Loot(){
                 prefab = prefabsController.simpleShirt,
-                chance = 9f
+                chance = 40000f
             },
             new Loot(){
                 prefab = prefabsController.constructionHelmet,
                 chance = 3f
             },
             new Loot(){
-                prefab = prefabsController.medicalBandage,
-                chance = 3000f
+                prefab = prefabsController.simpleJeans,
+                chance = 400f
             },
             new Loot(){
                 prefab = prefabsController.metalScrap,

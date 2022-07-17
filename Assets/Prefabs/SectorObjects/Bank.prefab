@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sack: []
-  gameController: {fileID: 0}
+  Name: "\u0411\u0430\u043D\u043A"
+  findChance: 100
   prefabsController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
 --- !u!1 &2318651991378704221
 GameObject:

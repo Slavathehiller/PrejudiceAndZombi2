@@ -8,5 +8,6 @@ public class SimpleJeans : InventoryEquipmentItem
     {
         base.Awake();
         Name = "Простые джинсы";
+        prefab = prefabsController.simpleJeans;
     }
 }

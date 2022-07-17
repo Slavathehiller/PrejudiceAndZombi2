@@ -1,9 +1,10 @@
+using Assets.Scripts.Interchange;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class CharacterS : BaseEntityS, ICharacter
+public class CharacterS : BaseEntityS, ICharacter 
 {
     
     public Inventory inventory;
@@ -30,13 +31,14 @@ public class CharacterS : BaseEntityS, ICharacter
         Stats = new EntityStats()
         {
             inStrength = 4,
-            inDexterity = 6,
-            inAgility = 8,
+            inDexterity = 5,
+            inAgility = 5,
             inConstitution = 5,
             inIntellect = 8,
-            inConcentration = 7,
+            inConcentration = 11,
             inPerception = 6
         };
+        Stats.CurrentHealth = Stats.MaxHealth;
     }
 
     public float armor
@@ -46,6 +48,19 @@ public class CharacterS : BaseEntityS, ICharacter
             return (inventory.HelmetArmor + inventory.ChestArmor + inventory.BootsArmor + inventory.GlovesArmor) / 4f;
         }
     }
+
+    public CharacterTransferData TransferData
+    {
+        get
+        {
+            return new CharacterTransferData
+            {
+                Stats = this.Stats,
+                Inventory = this.inventory.TransferData
+            };
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

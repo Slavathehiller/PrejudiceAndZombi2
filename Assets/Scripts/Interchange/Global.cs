@@ -1,3 +1,4 @@
+using Assets.Scripts.Interchange;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,5 @@ using UnityEngine;
 public static class Global
 {
     public static bool needToLoad = false;
-    public static EntityStats stats;
-    public static Inventory inventory;
-    public static GameObject character;
+    public static CharacterTransferData character;
 }

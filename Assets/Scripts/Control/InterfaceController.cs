@@ -14,6 +14,7 @@ public class InterfaceController : MonoBehaviour
     public GameObject logPanel;
     public Text APText;
     public Text APSurplusText;
+    public Text ArmorText;
     public Text Name;
     public Image Portrait;
     public Image HealthBarImage;
@@ -35,7 +36,7 @@ public class InterfaceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventoryPanel.SetActive(false);
+      //  inventoryPanel.SetActive(false);
         actionPanel.SetActive(false);
     }
 
@@ -46,6 +47,7 @@ public class InterfaceController : MonoBehaviour
         APSurplusText.text = System.Math.Round(playerController.character.IncomeActionPoint, 1).ToString();
         HealthBarImage.fillAmount = playerController.character.CurrentHealth / playerController.character.MaxHealth;
         Name.text = playerController.character.Name;
+        //ArmorText.text = "Броня " + playerController.character.armor.ToString() + " %";
         Portrait.sprite = playerController.character.portrait;
         UpdateActionPanel();
         rightHandDropButton.gameObject.SetActive(playerController.character.RightHandItem != null);

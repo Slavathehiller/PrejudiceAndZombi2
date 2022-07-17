@@ -12,8 +12,6 @@ public class EntityStats
     public float inConcentration = 0;
     public float inPerception = 0;
 
-
-
     public float MaxHealth
     {
         get

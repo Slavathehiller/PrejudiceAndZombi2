@@ -19,7 +19,6 @@ public struct AmmoData
 
 public abstract class Ammo : TacticalItem
 {
-    public PrefabsController prefabController;
     public AudioClip shotSound;
     public AmmoData data = new AmmoData();
     protected override void Awake()

@@ -8,5 +8,6 @@ public class Sneakers : ArmorItem
     {
         base.Awake();
         Name = "Кеды";
+        prefab = prefabsController.sneakers;
     }
 }

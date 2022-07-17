@@ -22,22 +22,14 @@ public abstract class EquipmentCell : ItemCell
             {
                 oldItem.thing.GetComponent<EquipmentItem>().PlaceItemToSack(item.oldParent);
             }
-            item.gameObject.transform.SetParent(transform);
-            item.gameObject.transform.localPosition = Vector3.zero;
-            item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInInventory;
 
             ShowBackground(false);
             item.character.inventory.EquipItem(thing);
-            PlaceItemToCell(thing);
+            PlaceItemToCell(item);
             ((CharacterS)item.character).sack.RemoveItem(item);
             gameController._currentSector.sectorObject.RemoveItem(item);
             gameController.SectorItems.Remove(item);
         }
-    }
-
-    public virtual void PlaceItemToCell(EquipmentItem thing)
-    {
-        thing.itemRef.background.enabled = false;
     }
 
     void Start()

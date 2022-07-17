@@ -8,6 +8,7 @@ public class ShortTube : Item
     {
         base.Awake();
         Name = "Короткая труба";
+        prefab = prefabsController.shortTube;
     }
 }
 

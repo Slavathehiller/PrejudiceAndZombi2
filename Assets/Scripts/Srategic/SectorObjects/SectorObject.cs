@@ -12,6 +12,7 @@ public abstract class SectorObject : MonoBehaviour
 {
     public Loot[] loot;
     public List<ItemReference> sack = new List<ItemReference>();
+    public string Name;
 
     public float findChance = 100f;
 

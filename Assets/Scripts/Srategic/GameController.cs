@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -25,6 +26,7 @@ public class GameController : MonoBehaviour
     public GameObject sectorContainer;
 
     public Text armorText;
+    public Text SectorObjectName;
 
     public bool findResult = false;
     bool isFinding = false;
@@ -47,14 +49,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void RefreshArmorText()
-    {
-        armorText.text = "Броня: " + character.armor.ToString() + "%";
-    }
-
     public void RefreshSectorData()
     {
         sectorFindChance.text = _currentSector.sectorObject.findChance.ToString() + " %";
+        SectorObjectName.text = _currentSector.sectorObject.Name;
         findSlider.value = 0;
         foreach(var itemRef in SectorItems)
         {
@@ -123,4 +121,12 @@ public class GameController : MonoBehaviour
     {
         messageWindowS.ShowMessage(text, image);
     }
+
+    public void Engage()
+    {
+        Global.character = character.TransferData;
+        Global.needToLoad = true;
+        SceneManager.LoadScene("TacticScene");
+    }
+
 }

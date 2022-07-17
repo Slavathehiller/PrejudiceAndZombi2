@@ -1,14 +1,10 @@
-﻿using Assets.Scripts;
-using Assets.Scripts.Entity;
+﻿using Assets.Scripts.Interchange;
 using Assets.Scripts.Weapon;
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Entity
 {
-
     public class Character : BaseEntity, ICharacter
     {
         public PlayerController pcontroller;
@@ -41,7 +37,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                return (((ArmorItem)inventory.helmet).armor + ((ArmorItem)inventory.chestArmor).armor + ((ArmorItem)inventory.boots).armor + ((ArmorItem)inventory.gloves).armor) / 4;
+                return inventory.Armor;
             }
         }
 
@@ -60,14 +56,73 @@ namespace Assets.Scripts.Entity
                 inAgility = 8, 
                 inConstitution = 5, 
                 inIntellect = 8, 
-                inConcentration = 7, 
+                inConcentration = 3, 
                 inPerception = 6 };
             base.Start();
             pcontroller = GetComponent<PlayerController>();
             Name = "Выживший";
             Type = EntityType.Human;
             Side = 0;
-           // TakeToRightHandNew(pfcontroller.kitchenKnife);
+
+            if (Global.needToLoad)
+                LoadFromGlobal();
+        }
+
+        private void LoadFromGlobal()
+        {
+            EquipmentItem CheckAndInstEq(EquipmentItemTransferData data)
+            {
+                if (data is null)
+                    return null;
+                else
+                {
+                    var item = Instantiate(data.Prefab).GetComponent<EquipmentItem>();
+                    item.itemRef.character = this;
+                    var invItem = item as InventoryEquipmentItem;
+                    if (invItem != null)
+                    {
+                        var i = 0;
+                        foreach (var itemdata in data.ItemList)
+                        {
+                            if (itemdata != null)
+                            {
+                                invItem.cellList[i].itemIn = Instantiate(itemdata.Prefab).GetComponent<TacticalItem>();
+                                invItem.cellList[i].itemIn.SetCount(itemdata.Count);
+                                invItem.cellList[i].PlaceItemToCell(invItem.cellList[i].itemIn.itemRef);
+                                invItem.cellList[i].itemIn.itemRef.character = this;
+                                invItem.cellList[i].itemIn.itemRef.gameObject.SetActive(true);
+                                invItem.cellList[i].itemIn.gameObject.SetActive(false);
+                            }
+                            i++;
+                        }
+                        return invItem;
+                    }
+                    
+
+                    return item;
+                }                    
+            }
+
+            EquipmentItem CheckAndInstAr(ItemTransferData data)
+            {
+                if (data is null)
+                    return null;
+                else
+                {
+                    var item = Instantiate(data.Prefab).GetComponent<EquipmentItem>();
+                    item.itemRef.character = this;
+                    return item;
+                }
+            }
+
+            Stats = Global.character.Stats;
+            inventory.EquipItem(CheckAndInstEq(Global.character.Inventory.shirt), SpecType.EqShirt);
+            inventory.EquipItem(CheckAndInstEq(Global.character.Inventory.belt), SpecType.EqBelt);
+            inventory.EquipItem(CheckAndInstEq(Global.character.Inventory.pants), SpecType.EqPants);
+            inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.helmet), SpecType.Helmet);
+            inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.chestArmor), SpecType.ChestArmor);
+            inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.gloves), SpecType.Gloves);
+            inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.boots), SpecType.Boots);
         }
 
         public override void TakeAttack(MeleeAttackResult attackResult)

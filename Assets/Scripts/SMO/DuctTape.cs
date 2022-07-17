@@ -8,5 +8,6 @@ public class DuctTape : Item
     {
         base.Awake();
         Name = "Изолента";
+        prefab = prefabsController.ductTape;
     }
 }

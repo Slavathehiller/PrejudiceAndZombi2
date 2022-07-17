@@ -8,6 +8,7 @@ public class Wood : Item
     {
         base.Awake();
         Name = "Древесина";
+        prefab = prefabsController.wood;
     }
 }
 

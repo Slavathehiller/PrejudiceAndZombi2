@@ -8,5 +8,6 @@ public class ConstructionHelmet : ArmorItem
     {
         base.Awake();
         Name = "Строительная каска";
+        prefab = prefabsController.constructionHelmet;
     }
 }
