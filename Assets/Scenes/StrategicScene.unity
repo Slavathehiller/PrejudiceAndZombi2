@@ -7999,6 +7999,7 @@ MonoBehaviour:
   shirtContainer: {fileID: 358732286}
   pantsContainer: {fileID: 1992617994}
   beltContainer: {fileID: 1595345675}
+  rightHandCell: {fileID: 1482863587}
   ArmorText: {fileID: 1056628371}
 --- !u!1 &1004683086
 GameObject:

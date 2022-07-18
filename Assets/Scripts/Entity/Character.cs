@@ -73,6 +73,15 @@ namespace Assets.Scripts.Entity
 
         private void LoadFromGlobal()
         {
+            void EquipMagazine(RangedWeapon weapon, RangedWeaponTransferData data)
+            {
+                var magazine = Instantiate(data.Magazine.Prefab).GetComponent<WeaponMagazine>();
+                magazine.CurrentAmmoCount = data.Magazine.CurrentAmmoCount;
+                magazine.CurrentAmmoData = data.Magazine.CurrentAmmoData;
+                weapon.magazine = magazine;
+                magazine.gameObject.SetActive(false);
+            }
+
             EquipmentItem CheckAndInstEq(EquipmentItemTransferData data)
             {
                 if (data is null)
@@ -94,11 +103,7 @@ namespace Assets.Scripts.Entity
 
                                 if (itemdata is RangedWeaponTransferData)
                                 {
-                                    var magazine = Instantiate((itemdata as RangedWeaponTransferData).Magazine.Prefab).GetComponent<WeaponMagazine>();
-                                    magazine.CurrentAmmoCount = (itemdata as RangedWeaponTransferData).Magazine.CurrentAmmoCount;
-                                    magazine.CurrentAmmoData = (itemdata as RangedWeaponTransferData).Magazine.CurrentAmmoData;
-                                    (invItem.cellList[i].itemIn as RangedWeapon).magazine = magazine;
-                                    magazine.gameObject.SetActive(false);
+                                    EquipMagazine(invItem.cellList[i].itemIn as RangedWeapon, itemdata as RangedWeaponTransferData);
                                 }
 
                                 invItem.cellList[i].PlaceItemToCell(invItem.cellList[i].itemIn.itemRef);
@@ -136,6 +141,21 @@ namespace Assets.Scripts.Entity
             inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.chestArmor), SpecType.ChestArmor);
             inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.gloves), SpecType.Gloves);
             inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.boots), SpecType.Boots);
+            var RHItem = Global.character.RightHand;
+            if (RHItem != null)
+            {
+                var item = Instantiate(RHItem.Prefab).GetComponent<TacticalItem>();
+                item.SetCount(RHItem.Count);        
+                item.itemRef.character = this;
+                item.itemRef.gameObject.SetActive(true);
+                item.gameObject.SetActive(true);
+                inventory.TakeItem(item.itemRef);
+                if (RHItem is RangedWeaponTransferData)
+                {
+                    EquipMagazine(item as RangedWeapon, RHItem as RangedWeaponTransferData);
+                }
+
+            }
         }
 
         public override void TakeAttack(MeleeAttackResult attackResult)

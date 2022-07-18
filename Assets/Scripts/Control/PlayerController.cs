@@ -7,12 +7,10 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : EntityController
 {
-
     public Camera cam;
     public Character character;
     public IInteractable selectedObject;
-    public NearObjects nearObjects;
-    
+    public NearObjects nearObjects; 
 
     protected override void Start()
     {

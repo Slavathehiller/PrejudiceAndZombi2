@@ -57,7 +57,8 @@ public class CharacterS : BaseEntityS, ICharacter
             return new CharacterTransferData
             {
                 Stats = this.Stats,
-                Inventory = this.inventory.TransferData
+                Inventory = this.inventory.TransferData,
+                RightHand = this.RightHandItem.TransferData
             };
         }
     }

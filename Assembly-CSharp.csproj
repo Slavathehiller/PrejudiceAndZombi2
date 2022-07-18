@@ -119,6 +119,7 @@
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
     <Compile Include="Assets\Scripts\Interchange\EquipmentItemTransferData.cs" />
+    <Compile Include="Assets\Scripts\ItemFactory.cs" />
     <Compile Include="Assets\Scripts\TextFittter.cs" />
     <Compile Include="Assets\Scripts\Interchange\ItemTransferData.cs" />
     <Compile Include="Assets\Scripts\Entity\FreshZombi.cs" />
@@ -181,7 +182,6 @@
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\ItemFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

@@ -17,6 +17,8 @@ public class Inventory : MonoBehaviour
     public GameObject pantsContainer;
     public GameObject beltContainer;
 
+    public RightHandCell rightHandCell;
+
     public Text ArmorText;
 
     public float HelmetArmor 
@@ -123,6 +125,11 @@ public class Inventory : MonoBehaviour
     //    }
     //    return null;
     //}
+
+    public void TakeItem(ItemReference item)
+    {
+        rightHandCell.PlaceItemToCell(item);
+    }
 
     public void EquipItem(EquipmentItem EqItem, SpecType defType = 0)
     {

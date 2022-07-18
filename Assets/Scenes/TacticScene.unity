@@ -11147,6 +11147,7 @@ MonoBehaviour:
   shirtContainer: {fileID: 1822471473}
   pantsContainer: {fileID: 1850808181}
   beltContainer: {fileID: 893428889}
+  rightHandCell: {fileID: 1572525538}
   ArmorText: {fileID: 433271056}
 --- !u!82 &1799481579
 AudioSource:

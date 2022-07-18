@@ -85,6 +85,11 @@ public class GameController : MonoBehaviour
     void Start()
     {
         RefreshSectorData();
+        foreach(var panel in Panels)
+        {
+            if (panel.activeSelf)
+                UIInact = true;
+        }
     }
 
     // Update is called once per frame

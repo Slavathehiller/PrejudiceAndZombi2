@@ -41,22 +41,14 @@ public class ItemCell : MonoBehaviour, IDropHandler
             itemIn = thing;
             item.character.RemoveFromNearObjects(item, false);
 
-            PlaceItemToCell(item);
             item.thing.GetComponent<Light>().enabled = false;
             var oldParentCell = item.oldParent.GetComponent<ItemCell>();
             if (oldParentCell is RightHandCell)
             {
                 item.RemoveFromRightHand();
             }
-            if (this is RightHandCell)
-            {
-                item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInHand;
-            }
-            else
-            {
-                item.thing.SetActive(false);
-                item.image.GetComponent<RectTransform>().sizeDelta = thing.sizeInInventory;
-            }
+
+            PlaceItemToCell(item);
 
             if (oldParentCell != null)
             {
@@ -67,6 +59,7 @@ public class ItemCell : MonoBehaviour, IDropHandler
             var _oldParent = item.oldParent.GetComponent<SectorSackCell>();
             if (_oldParent != null)
                 _oldParent.RemoveFromSector(item);
+
             return true;
         }
         else
@@ -79,7 +72,17 @@ public class ItemCell : MonoBehaviour, IDropHandler
     public virtual void PlaceItemToCell(ItemReference item)
     {
         item.transform.SetParent(gameObject.transform);        
-        item.image.GetComponent<RectTransform>().sizeDelta = item.thing.GetComponent<Item>().sizeInInventory;
+
+        if (this is RightHandCell)
+        {
+            item.image.GetComponent<RectTransform>().sizeDelta = item.thing.GetComponent<TacticalItem>().sizeInHand;
+        }
+        else
+        {
+            item.thing.SetActive(false);
+            item.image.GetComponent<RectTransform>().sizeDelta = item.thing.GetComponent<Item>().sizeInInventory;
+        }
+
         item.transform.localPosition = Vector3.zero;
         item.transform.localScale = new Vector3(1, 1, 1);
         item.background.enabled = false;

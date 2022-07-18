@@ -31,19 +31,36 @@ public class RightHandCell : ItemCell
                 magazine.Reload(thing as Ammo);
                 item.character.RemoveFromNearObjects(item, false);
             }
-        }        
+        }
 
-        if (TryToDrop(eventData))
+        TryToDrop(eventData);
+
+        //if (TryToDrop(eventData))
+        //{
+        //    //  item = eventData.pointerDrag.GetComponent<ItemReference>();
+        //    if (item != null)
+        //    {
+        //        item.character.PickUpItem(item);
+        //        var _thing = item.thing.GetComponent<RangedWeapon>();
+        //        if (_thing != null)
+        //        {
+        //            _thing.itemRef.ShowUnloadButton(true);
+        //        }
+        //    }
+        //}
+    }
+
+
+    public override void PlaceItemToCell(ItemReference item)
+    {
+        base.PlaceItemToCell(item);
+        if (item != null)
         {
-          //  item = eventData.pointerDrag.GetComponent<ItemReference>();
-            if (item != null)
+            item.character.PickUpItem(item);
+            var _thing = item.thing.GetComponent<RangedWeapon>();
+            if (_thing != null)
             {
-                item.character.PickUpItem(item);
-                var _thing = item.thing.GetComponent<RangedWeapon>();
-                if (_thing != null)
-                {
-                    _thing.itemRef.ShowUnloadButton(true);
-                }
+                _thing.itemRef.ShowUnloadButton(true);
             }
         }
     }
