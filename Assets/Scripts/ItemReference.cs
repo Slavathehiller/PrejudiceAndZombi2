@@ -43,6 +43,8 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
             //else
             //    count.text = "-";
         }
+        if (item is WeaponMagazine)
+            (item as WeaponMagazine).RefreshAmmo();
     }
     public void PickUp()
     {
@@ -75,10 +77,18 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
                 var ammo = ammoObject.GetComponent<TacticalItem>() as Ammo;
                 if (ammo != null)
                 {
-                    ammoObject.transform.SetParent(thing.transform);
-                    ammoObject.transform.localPosition = Vector3.zero;
+                    if ((item as RangedWeapon).magazine)
+                    {
+                        (character as CharacterS).gameController.AddItemToPlayerSack(ammo.itemRef);
+                        ammo.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        ammoObject.transform.SetParent(thing.transform);
+                        ammoObject.transform.localPosition = Vector3.zero;
+                        ammo.Drop();
+                    }
                     ammo.SetCount(weapon.magazine.CurrentAmmoCount);
-                    ammo.Drop();
                     weapon.magazine.CurrentAmmoCount = 0;
                     weapon.itemRef.ShowUnloadButton(false);
                 }

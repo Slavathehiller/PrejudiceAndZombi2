@@ -19,7 +19,7 @@ public class WeaponMagazine : TacticalItem
     public int capacity;
     public WeaponMagazineType type;
 
-    public new WeaponMagazineTransferData TransferData
+    public override ItemTransferData TransferData
     {
         get
         {
@@ -52,7 +52,7 @@ public class WeaponMagazine : TacticalItem
         ammo.Add(-loadCount);
     }
 
-    void RefreshAmmo()
+    public void RefreshAmmo()
     {
         if (itemRef != null)
             itemRef.count.text = CurrentAmmoCount.ToString();

@@ -21,6 +21,8 @@ public class SackCell : MonoBehaviour, IDropHandler
         var oldParentCell = item.oldParent.GetComponent<ItemCell>();
         if (oldParentCell != null)
         {
+            if (oldParentCell is RightHandCell)
+                item.character.RemoveFromRightHand(false);
             oldParentCell.itemIn = null;
             oldParentCell.ShowBackground(true);
         }

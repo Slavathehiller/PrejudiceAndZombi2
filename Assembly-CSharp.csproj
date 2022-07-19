@@ -60,7 +60,7 @@
     <Compile Include="Assets\Scripts\Interchange\IItemTransfer.cs" />
     <Compile Include="Assets\Scripts\Srategic\CharacterS.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\Gravity.cs" />
-    <Compile Include="Assets\Scripts\Weapon\HMPistolMagazine.cs" />
+    <Compile Include="Assets\Scripts\SMO\Ammo\HMPistolMagazine.cs" />
     <Compile Include="Assets\ExplosiveLLC\Demo Elements\Code\GUIControls.cs" />
     <Compile Include="Assets\Scripts\Control\PointerController.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerMachineDebug.cs" />

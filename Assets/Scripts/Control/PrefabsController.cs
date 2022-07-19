@@ -13,6 +13,7 @@ public class PrefabsController : MonoBehaviour
     public GameObject homemade_SMG;
     public GameObject homemade_SMG_magazine;
     public GameObject homemade_pistol;
+    public GameObject homemade_pistol_magazine;
     public GameObject metalScrap;
     public GameObject wood;
     public GameObject ductTape;

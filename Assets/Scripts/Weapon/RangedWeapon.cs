@@ -1,3 +1,4 @@
+using Assets.Scripts.Entity;
 using Assets.Scripts.Interchange;
 using Assets.Scripts.Weapon;
 using System.Collections;
@@ -23,7 +24,7 @@ public class RangedWeapon : BaseWeapon
             return new RangedWeaponTransferData
             {
                 Prefab = this.prefab,
-                Magazine = this.magazine is null ? null : this.magazine.TransferData
+                Magazine = this.magazine is null ? null : this.magazine.TransferData as WeaponMagazineTransferData
             };
         }
     }
@@ -76,7 +77,8 @@ public class RangedWeapon : BaseWeapon
 
         if (itemRef != null && magazine != null)
             itemRef.count.text = magazine.CurrentAmmoCount.ToString();
-        magazineModel.SetActive(magazine != null);
+        if (magazineModel != null)
+            magazineModel.SetActive(magazine != null);
         if (itemRef != null)
         {
             if (magazine is null)
@@ -90,7 +92,10 @@ public class RangedWeapon : BaseWeapon
     {
         if(magazine != null)
         {
-            magazine.Drop();
+            if (itemRef.character is CharacterS)
+                (itemRef.character as CharacterS).gameController.AddItemToPlayerSack(magazine.itemRef);
+            else
+                magazine.Drop();
             magazine = null;
             itemRef.ShowUnloadButton(false);
         }

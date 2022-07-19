@@ -51,6 +51,7 @@ MonoBehaviour:
   homemade_SMG: {fileID: 792621576135446561, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
   homemade_SMG_magazine: {fileID: 4771003902370829215, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}
   homemade_pistol: {fileID: 6370759519570145756, guid: 32eea54338ce60940a0cbea16cd81e26, type: 3}
+  homemade_pistol_magazine: {fileID: 7377246721328312320, guid: 8a7738f8ce9c2a24d95bcea30593ee6c, type: 3}
   metalScrap: {fileID: 7874359993123634725, guid: e54fedd71198def409966c2390e7693f, type: 3}
   wood: {fileID: 7874359993123634725, guid: 4e23f5989e8270541b425b1508b88e36, type: 3}
   ductTape: {fileID: 7874359993123634725, guid: 7e0b5cd1c438cbf46bb8cebc7de0dc8c, type: 3}

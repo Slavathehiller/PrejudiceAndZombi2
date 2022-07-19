@@ -86,24 +86,36 @@ namespace Assets.Scripts.Entity
                     var _data = data as RangedWeaponTransferData;
                     if (_data.Magazine is null)
                     {
-                        (item as RangedWeapon).magazine.gameObject.SetActive(false);
+                        Destroy((item as RangedWeapon).magazine.gameObject);
                         (item as RangedWeapon).magazine = null;
                     }
                     else
                     {
-                        var magazine = Instantiate(_data.Magazine.Prefab).GetComponent<WeaponMagazine>();
-                        magazine.CurrentAmmoCount = _data.Magazine.CurrentAmmoCount;
-                        magazine.CurrentAmmoData = _data.Magazine.CurrentAmmoData;
-                        (item as RangedWeapon).magazine = magazine;
-                        magazine.gameObject.SetActive(false);
+                        (item as RangedWeapon).magazine = CheckAndInstMag(_data.Magazine);                       
                     }
+                    item.itemRef.ShowUnloadButton(true);
                     
+                }
+
+                if (data is WeaponMagazineTransferData)
+                {
+                    (item as WeaponMagazine).CurrentAmmoCount = (data as WeaponMagazineTransferData).CurrentAmmoCount;
+                    (item as WeaponMagazine).CurrentAmmoData = (data as WeaponMagazineTransferData).CurrentAmmoData;
                 }
                 
                 item.itemRef.character = this;
                 item.itemRef.gameObject.SetActive(true);
                 item.gameObject.SetActive(false);
                 return item;
+            }
+
+            WeaponMagazine CheckAndInstMag(WeaponMagazineTransferData data)
+            {
+                var magazine = Instantiate(data.Prefab).GetComponent<WeaponMagazine>();
+                magazine.CurrentAmmoCount = data.CurrentAmmoCount;
+                magazine.CurrentAmmoData = data.CurrentAmmoData;
+                magazine.gameObject.SetActive(false);
+                return magazine;
             }
 
             EquipmentItem CheckAndInstEq(EquipmentItemTransferData data)
