@@ -19,6 +19,9 @@ public class Inventory : MonoBehaviour
 
     public RightHandCell rightHandCell;
 
+    public ItemCell rightShoulderCell;
+    public ItemCell leftShoulderCell;
+
     public Text ArmorText;
 
     public float HelmetArmor 
@@ -82,7 +85,9 @@ public class Inventory : MonoBehaviour
                 helmet = this.helmet is null ? null : (this.helmet as ArmorItem).TransferData,
                 chestArmor = this.chestArmor is null ? null : (this.chestArmor as ArmorItem).TransferData,
                 gloves = this.gloves is null ? null : (this.gloves as ArmorItem).TransferData,
-                boots = this.boots is null ? null : (this.boots as ArmorItem).TransferData
+                boots = this.boots is null ? null : (this.boots as ArmorItem).TransferData,
+                rightShoulder = this.rightShoulderCell.itemIn is null ? null : this.rightShoulderCell.itemIn.TransferData,
+                leftShoulder = this.leftShoulderCell.itemIn is null ? null : this.leftShoulderCell.itemIn.TransferData
             };
         }
     }
@@ -103,9 +108,12 @@ public class Inventory : MonoBehaviour
     {
         if (item is TacticalItem)
         {
-            (shirt as InventoryEquipmentItem).TryRemoveItem(item);
-            (pants as InventoryEquipmentItem).TryRemoveItem(item);
-            (belt as InventoryEquipmentItem).TryRemoveItem(item);
+            if (shirt != null)
+                (shirt as InventoryEquipmentItem).TryRemoveItem(item);
+            if (pants != null)
+                (pants as InventoryEquipmentItem).TryRemoveItem(item);
+            if (belt != null)
+                (belt as InventoryEquipmentItem).TryRemoveItem(item);
         }
     }
 
@@ -129,6 +137,16 @@ public class Inventory : MonoBehaviour
     public void TakeItem(ItemReference item)
     {
         rightHandCell.PlaceItemToCell(item);
+    }
+
+    public void TossOverItem(ItemReference item, bool left = false)
+    {
+        if (left)
+        {
+            leftShoulderCell.PlaceItemToCell(item);
+        }
+        else
+            rightShoulderCell.PlaceItemToCell(item);
     }
 
     public void EquipItem(EquipmentItem EqItem, SpecType defType = 0)
@@ -190,35 +208,35 @@ public class Inventory : MonoBehaviour
         ArmorText.text = "Броня " + Armor.ToString() + " %";
     }
 
-    public void UnEquipItem(SpecType specType)
-    {
-        switch (specType)
-        {
-            case SpecType.EqShirt:
-                shirt = null;
-                break;
-            case SpecType.EqBelt:
-                belt = null;
-                break;
-            case SpecType.EqPants:
-                pants = null;
-                break;
-            case SpecType.Helmet:
-                helmet = null;
-                break;
-            case SpecType.ChestArmor:
-                chestArmor = null;
-                break;
-            case SpecType.Boots:
-                boots = null;
-                break;
-            case SpecType.Gloves:
-                gloves = null;
-                break;
-            default:
-                throw new Exception("Неверный тип");
-        }
-    }
+    //public void UnEquipItem(SpecType specType)
+    //{
+    //    switch (specType)
+    //    {
+    //        case SpecType.EqShirt:
+    //            shirt = null;
+    //            break;
+    //        case SpecType.EqBelt:
+    //            belt = null;
+    //            break;
+    //        case SpecType.EqPants:
+    //            pants = null;
+    //            break;
+    //        case SpecType.Helmet:
+    //            helmet = null;
+    //            break;
+    //        case SpecType.ChestArmor:
+    //            chestArmor = null;
+    //            break;
+    //        case SpecType.Boots:
+    //            boots = null;
+    //            break;
+    //        case SpecType.Gloves:
+    //            gloves = null;
+    //            break;
+    //        default:
+    //            throw new Exception("Неверный тип");
+    //    }
+    //}
 
     public EquipmentItem getEquipmentItem(SpecType specType)
     {

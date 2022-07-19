@@ -17,5 +17,7 @@ namespace Assets.Scripts.Interchange
         public ItemTransferData gloves;
         public ItemTransferData boots;
 
+        public ItemTransferData rightShoulder { get; set; }
+        public ItemTransferData leftShoulder { get; set; }
     }
 }

@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public bool cameraMoving = false;
     public GameObject[] Panels;
     public GameObject GroundPanel;
+    public GameObject BagagePanel;
     public Slider findSlider;
     public List<ItemReference> SectorItems = new List<ItemReference>();
     public MessageWindowS messageWindowS;
@@ -59,6 +60,19 @@ public class GameController : MonoBehaviour
         {
             itemRef.gameObject.SetActive(_currentSector.sectorObject.sack.Contains(itemRef));
         }
+    }
+    
+    public void AddItemToPlayerSack(ItemReference item)
+    {
+        character.sack.AddItem(item);
+        item.transform.SetParent(BagagePanel.transform);
+        item.transform.localScale = new Vector3(1, 1, 1);
+        item.oldParent = null;
+        item.canvasGroup.blocksRaycasts = true;
+        item.background.enabled = true;
+        item.character = character;
+        item.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
+        item.gameObject.SetActive(true);
     }
 
     public void AddItemToSector(Sector sector, ItemReference item)

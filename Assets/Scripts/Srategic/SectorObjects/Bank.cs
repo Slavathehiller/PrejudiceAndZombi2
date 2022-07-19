@@ -4,11 +4,13 @@ public class Bank : SectorObject
 {
     private void Awake()
     {
-        mandatoryLoot = new GameObject[3]
+        mandatoryLoot = new GameObject[5]
         {
             prefabsController.Bullet_9x18,
             prefabsController.simpleBelt,
-            prefabsController.homemade_pistol
+            prefabsController.homemade_pistol,
+            prefabsController.homemade_SMG,
+            prefabsController.homemade_SMG_magazine
         };
     }
     // Start is called before the first frame update

@@ -15,5 +15,16 @@ namespace Assets.Scripts.Weapon
             ShootCost = 4;
             prefab = prefabsController.homemade_SMG;
         }
+
+        private void Start()
+        {
+            magazine?.gameObject.SetActive(false);
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+        }
+
     }
 }

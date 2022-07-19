@@ -58,7 +58,7 @@ public class CharacterS : BaseEntityS, ICharacter
             {
                 Stats = this.Stats,
                 Inventory = this.inventory.TransferData,
-                RightHand = this.RightHandItem.TransferData
+                RightHand = this.RightHandItem is null ? null : this.RightHandItem.TransferData,
             };
         }
     }

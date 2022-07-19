@@ -36,11 +36,12 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
             item = thing.GetComponent<Item>();
         if (item is RangedWeapon)
         {
-            var magazine = (item as RangedWeapon).magazine;
-            if (magazine != null)
-                count.text = magazine.CurrentAmmoCount.ToString();
-            else
-                count.text = "-";
+            (item as RangedWeapon).RefreshAmmo();
+            //var magazine = (item as RangedWeapon).magazine;
+            //if (magazine != null)
+            //    count.text = magazine.CurrentAmmoCount.ToString();
+            //else
+            //    count.text = "-";
         }
     }
     public void PickUp()
@@ -60,7 +61,14 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if(weapon != null && weapon.magazine != null)
         {
             if (weapon.magazine.extractable)
+            {
+                if (character is CharacterS)
+                {
+                    (character as CharacterS).gameController.AddItemToPlayerSack(weapon.magazine.itemRef);
+                    weapon.magazine.gameObject.SetActive(false);
+                }
                 weapon.UnloadMagazine();
+            }
             else
             {
                 var ammoObject = Ammo.MakeObject(weapon.magazine.CurrentAmmoData);

@@ -67,7 +67,7 @@ public class RangedWeapon : BaseWeapon
         return magazine?.CurrentAmmoCount > 0;
     }
 
-    void RefreshAmmo()
+    public void RefreshAmmo()
     {
         if (magazine is null)
         {

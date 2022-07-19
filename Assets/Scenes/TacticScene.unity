@@ -4194,7 +4194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6176404626027940608, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
@@ -4295,6 +4295,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d1c32d6343fa0243a068a64358073f2, type: 3}
+--- !u!114 &599475746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6422793336283176921, guid: 5d1c32d6343fa0243a068a64358073f2, type: 3}
+  m_PrefabInstance: {fileID: 599475745}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a1d2a49ea144d4f8924782405a12e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &608522080
 GameObject:
   m_ObjectHideFlags: 0
@@ -5046,6 +5057,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d1c32d6343fa0243a068a64358073f2, type: 3}
+--- !u!114 &712260807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6422793336283176921, guid: 5d1c32d6343fa0243a068a64358073f2, type: 3}
+  m_PrefabInstance: {fileID: 712260806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a1d2a49ea144d4f8924782405a12e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &761285144
 GameObject:
   m_ObjectHideFlags: 0
@@ -11148,6 +11170,8 @@ MonoBehaviour:
   pantsContainer: {fileID: 1850808181}
   beltContainer: {fileID: 893428889}
   rightHandCell: {fileID: 1572525538}
+  rightShoulderCell: {fileID: 712260807}
+  leftShoulderCell: {fileID: 599475746}
   ArmorText: {fileID: 433271056}
 --- !u!82 &1799481579
 AudioSource:

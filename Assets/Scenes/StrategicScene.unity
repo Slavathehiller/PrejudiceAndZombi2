@@ -2431,6 +2431,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364911209}
   m_CullTransparentMesh: 1
+--- !u!114 &381288926 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6422793336283176921, guid: 5d1c32d6343fa0243a068a64358073f2, type: 3}
+  m_PrefabInstance: {fileID: 987466094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a1d2a49ea144d4f8924782405a12e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &384247224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3475,6 +3486,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4146121518490698, guid: a48e7d2fc673f7e4ea6df4cffad97a56, type: 3}
   m_PrefabInstance: {fileID: 995471040}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &513557140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6422793336283176921, guid: 5d1c32d6343fa0243a068a64358073f2, type: 3}
+  m_PrefabInstance: {fileID: 853426501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a1d2a49ea144d4f8924782405a12e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &514378635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8000,6 +8022,8 @@ MonoBehaviour:
   pantsContainer: {fileID: 1992617994}
   beltContainer: {fileID: 1595345675}
   rightHandCell: {fileID: 1482863587}
+  rightShoulderCell: {fileID: 513557140}
+  leftShoulderCell: {fileID: 381288926}
   ArmorText: {fileID: 1056628371}
 --- !u!1 &1004683086
 GameObject:
@@ -9270,6 +9294,7 @@ MonoBehaviour:
   - {fileID: 1707501931}
   - {fileID: 988630999}
   GroundPanel: {fileID: 1494607519}
+  BagagePanel: {fileID: 439168628}
   findSlider: {fileID: 269265379}
   SectorItems: []
   messageWindowS: {fileID: 1943319506}

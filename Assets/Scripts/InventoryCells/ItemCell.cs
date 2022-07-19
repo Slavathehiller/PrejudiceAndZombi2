@@ -55,7 +55,7 @@ public class ItemCell : MonoBehaviour, IDropHandler
                 oldParentCell.itemIn = null;
                 oldParentCell.ShowBackground(true);
             }
-            ShowBackground(false);
+            //ShowBackground(false);
             var _oldParent = item.oldParent.GetComponent<SectorSackCell>();
             if (_oldParent != null)
                 _oldParent.RemoveFromSector(item);
@@ -86,6 +86,8 @@ public class ItemCell : MonoBehaviour, IDropHandler
         item.transform.localPosition = Vector3.zero;
         item.transform.localScale = new Vector3(1, 1, 1);
         item.background.enabled = false;
+        ShowBackground(false);
+
     }
 
     public void ShowBackground(bool on)
