@@ -84,14 +84,16 @@ namespace Assets.Scripts.Entity
                 if (data is RangedWeaponTransferData)
                 {
                     var _data = data as RangedWeaponTransferData;
+                    Destroy((item as RangedWeapon).magazine.gameObject); 
                     if (_data.Magazine is null)
-                    {
-                        Destroy((item as RangedWeapon).magazine.gameObject);
+                    {                        
                         (item as RangedWeapon).magazine = null;
                     }
                     else
                     {
-                        (item as RangedWeapon).magazine = CheckAndInstMag(_data.Magazine);                       
+                        (item as RangedWeapon).magazine = CheckAndInstMag(_data.Magazine);
+                        (item as RangedWeapon).magazine.transform.SetParent((item as RangedWeapon).magazinePoint.transform);
+                        (item as RangedWeapon).magazine.transform.localPosition = Vector3.zero;
                     }
                     item.itemRef.ShowUnloadButton(true);
                     
