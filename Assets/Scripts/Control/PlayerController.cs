@@ -8,14 +8,14 @@ using UnityEngine.EventSystems;
 public class PlayerController : EntityController
 {
     public Camera cam;
-    public Character character;
+    public CharacterT character;
     public IInteractable selectedObject;
     public NearObjects nearObjects; 
 
     protected override void Start()
     {
         base.Start();
-        character = GetComponent<Character>();
+        character = GetComponent<CharacterT>();
         nearObjects = GetComponent<NearObjects>();
     }
 

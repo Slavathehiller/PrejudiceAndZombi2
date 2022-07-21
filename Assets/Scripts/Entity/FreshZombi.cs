@@ -104,7 +104,7 @@ namespace Assets.Scripts.Entity
                 inStrength = 4,
                 inDexterity = 4,
                 inAgility = 4,
-                inConstitution = 5,
+                inConstitution = 1,
                 inIntellect = 3,
                 inConcentration = 7,
                 inPerception = 4
@@ -112,6 +112,7 @@ namespace Assets.Scripts.Entity
             base.Start();
             Name = "Свежий зомби";
             Type = EntityType.Zombie;
+            Side = -1;
         }
 
         // Update is called once per frame

@@ -1,14 +1,24 @@
 ﻿using Assets.Scripts.Entity;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
     public class LifeController : MonoBehaviour
     {
-
         public List<BaseEntity> Entities;
         private BaseEntity currentObject;
+
+        public void RemoveEntity(BaseEntity entity)
+        {
+            Entities.Remove(entity);
+        }
+
+        public bool AllEnemiesAreDead()
+        {
+            return Entities.Where(x => x.Side < 0).Count() == 0; ;
+        }
 
         private BaseEntity GetFastestEntity()
         {
@@ -46,7 +56,7 @@ namespace Assets.Scripts
             currentObject = GetFastestEntity();
            if (!(currentObject is null))
             {
-                if (currentObject is Character)
+                if (currentObject is CharacterT)
                 {
 
                 }

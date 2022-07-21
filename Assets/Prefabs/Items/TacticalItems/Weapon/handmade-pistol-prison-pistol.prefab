@@ -64,6 +64,7 @@ Transform:
   m_Children:
   - {fileID: 2650132573683479706}
   - {fileID: 231735229883720748}
+  - {fileID: 192987207808252865}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -202,11 +203,41 @@ MonoBehaviour:
   ShootCost: 4
   bulletSpawner: {fileID: 561939792616835827}
   magazine: {fileID: 4937225501724425201}
-  magazinePoint: {fileID: 0}
+  magazinePoint: {fileID: 192987207808252865}
   imageWithoutMagazine: {fileID: 21300000, guid: d85cacbf16bfb2e4a9586f26cb680227, type: 3}
   imageWithMagazine: {fileID: 21300000, guid: d85cacbf16bfb2e4a9586f26cb680227, type: 3}
   magazineModel: {fileID: 0}
   compatibleCartridgeTypes: 
+--- !u!1 &8425915204798072703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 192987207808252865}
+  m_Layer: 0
+  m_Name: MagazinePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &192987207808252865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425915204798072703}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5990540305262898022}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2543848749036540785
 PrefabInstance:
   m_ObjectHideFlags: 0

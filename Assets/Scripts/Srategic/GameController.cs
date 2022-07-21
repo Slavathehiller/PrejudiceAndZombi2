@@ -98,6 +98,10 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Global.needToLoad)
+        {
+            Global.ReloadCharacter(character);
+        }
         RefreshSectorData();
         foreach(var panel in Panels)
         {

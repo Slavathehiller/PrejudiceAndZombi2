@@ -160,7 +160,7 @@
     <Compile Include="Assets\Scripts\Control\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Weapon\HomemadeSMG.cs" />
     <Compile Include="Assets\Scripts\SMO\DuctTape.cs" />
-    <Compile Include="Assets\Scripts\Entity\Character.cs" />
+    <Compile Include="Assets\Scripts\Entity\CharacterT.cs" />
     <Compile Include="Assets\Scripts\SMO\ShortTube.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\InventoryItemCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterWeaponController.cs" />
@@ -182,6 +182,7 @@
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
+    <Compile Include="Assets\Scripts\EndBattleInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

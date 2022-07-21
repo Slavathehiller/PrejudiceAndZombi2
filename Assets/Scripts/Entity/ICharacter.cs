@@ -5,6 +5,7 @@ using UnityEngine;
 
 public interface ICharacter
 {
+    EntityStats Stats { get; set; }
     public Inventory inventory { get; }
     public void RemoveFromNearObjects(ItemReference item, bool hideGameObject = false);
     public TacticalItem RightHandItem { get; }

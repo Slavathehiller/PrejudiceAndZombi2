@@ -111,11 +111,17 @@ public class EntityController : MonoBehaviour
     // Update is called once per frame
     virtual protected void Update()
     {
-        //if (Vector3.Distance(agent.transform.position, agent.pathEndPosition) == 0 )
         animator.SetBool("IsWalking", agent.hasPath);
         pathDrawer.enabled = agent.hasPath;
         if (entity.CurrentHealth <= 0)
+        {
+            entity.lcontroller.RemoveEntity(entity);
+            if (entity.lcontroller.AllEnemiesAreDead())
+            {
+                icontroller.DoWinBattle();
+            }
             animator.SetTrigger("Die");
+        }
     }
 
     private void DrawPath(NavMeshPath path)

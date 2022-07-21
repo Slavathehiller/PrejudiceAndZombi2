@@ -8021,6 +8021,13 @@ MonoBehaviour:
   shirtContainer: {fileID: 358732286}
   pantsContainer: {fileID: 1992617994}
   beltContainer: {fileID: 1595345675}
+  shirtCell: {fileID: 58442730}
+  pantsCell: {fileID: 1306143507}
+  beltCell: {fileID: 863054956}
+  helmetCell: {fileID: 1716648249}
+  chestArmorCell: {fileID: 1050170664}
+  glovesCell: {fileID: 705143377}
+  bootsCell: {fileID: 967035785}
   rightHandCell: {fileID: 1482863587}
   rightShoulderCell: {fileID: 513557140}
   leftShoulderCell: {fileID: 381288926}

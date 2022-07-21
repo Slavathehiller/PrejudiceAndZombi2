@@ -17,6 +17,15 @@ public class Inventory : MonoBehaviour
     public GameObject pantsContainer;
     public GameObject beltContainer;
 
+    public EquipmentCell shirtCell;
+    public EquipmentCell pantsCell;
+    public EquipmentCell beltCell;
+
+    public ArmorCell helmetCell;
+    public ArmorCell chestArmorCell;
+    public ArmorCell glovesCell;
+    public ArmorCell bootsCell;
+
     public RightHandCell rightHandCell;
 
     public ItemCell rightShoulderCell;
@@ -117,23 +126,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    //public bool IsCellEmpty(ItemCell cell)
-    //{
-    //    return ItemInCell(cell) == null;
-    //}
-
-    //public TacticalItem ItemInCell(ItemCell cell)
-    //{
-    //    foreach (var item in tacticalItems)
-    //    {
-    //        if (item.itemRef.gameObject.transform.parent == cell.gameObject.transform)
-    //        {
-    //            return item;
-    //        }
-    //    }
-    //    return null;
-    //}
-
     public void TakeItem(ItemReference item)
     {
         rightHandCell.PlaceItemToCell(item);
@@ -162,30 +154,44 @@ public class Inventory : MonoBehaviour
             case SpecType.EqShirt:
                 shirt = EqItem;
                 SetCellSchema(shirt, shirtContainer);
+                if (shirtCell != null)
+                    shirtCell.PlaceItemToCell(shirt.itemRef);
                 break;
             case SpecType.EqBelt:
                 belt = EqItem;
                 SetCellSchema(belt, beltContainer);
+                if (beltCell != null)
+                    beltCell.PlaceItemToCell(belt.itemRef);
                 break;
             case SpecType.EqPants:
                 pants = EqItem;
                 SetCellSchema(pants, pantsContainer);
+                if (pantsCell != null)
+                    pantsCell.PlaceItemToCell(pants.itemRef);
                 break;
             case SpecType.Helmet:
                 helmet = EqItem;
                 SetArmorText();
+                if (helmetCell != null)
+                    helmetCell.PlaceItemToCell(helmet.itemRef);
                 break;
             case SpecType.ChestArmor:
                 chestArmor = EqItem;
                 SetArmorText();
+                if (chestArmorCell != null)
+                    chestArmorCell.PlaceItemToCell(chestArmor.itemRef);
                 break;
             case SpecType.Boots:
                 boots = EqItem;
                 SetArmorText();
+                if (bootsCell != null)
+                    bootsCell.PlaceItemToCell(boots.itemRef);
                 break;
             case SpecType.Gloves:
                 gloves = EqItem;
                 SetArmorText();
+                if (glovesCell != null)
+                    glovesCell.PlaceItemToCell(gloves.itemRef);
                 break;
             default:
                 throw new Exception("Неверный тип");

@@ -63,6 +63,8 @@ public class CharacterS : BaseEntityS, ICharacter
         }
     }
 
+    EntityStats ICharacter.Stats { get => Stats; set => Stats = value; }
+
     // Update is called once per frame
     void Update()
     {

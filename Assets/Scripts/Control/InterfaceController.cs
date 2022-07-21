@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InterfaceController : MonoBehaviour
 {
-
     public PointerController movePointer;
     public PlayerController playerController;
     public GameObject inventoryPanel;
@@ -32,6 +32,10 @@ public class InterfaceController : MonoBehaviour
 
     [HideInInspector]
     public bool UIInact = false;
+
+    [SerializeField]
+    private EndBattleInfo _endBattleInfo;
+    public EndBattleInfo EndBattleInfo => _endBattleInfo;
 
     // Start is called before the first frame update
     void Start()
@@ -114,19 +118,23 @@ public class InterfaceController : MonoBehaviour
     {
         actionPanel.SetActive(true);
         targetName.text = obj.GetName();
-
-        //for(var i = 0; i < commandButtons.Length; i++)
-        //{
-        //    if(obj.getCommands().GetValue(i) != null)
-        //    {
-        //        commandButtons[i].SetActive(true);
-        //    }
-        //}
     }
 
     public void HideActionPanel()
     {
         actionPanel.SetActive(false);
+    }
+
+    public void DoWinBattle()
+    {
+        EndBattleInfo.gameObject.SetActive(true);
+    }
+
+    public void GoToStrategy()
+    {
+        Global.character = playerController.character.TransferData;
+        Global.needToLoad = true;
+        SceneManager.LoadScene("StrategicScene");
     }
 
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Entity
 {
-    public class Character : BaseEntity, ICharacter
+    public class CharacterT : BaseEntity, ICharacter
     {
         public PlayerController pcontroller;
       //  public PrefabsController pfcontroller;
@@ -41,6 +41,21 @@ namespace Assets.Scripts.Entity
             }
         }
 
+        EntityStats ICharacter.Stats { get => Stats; set => Stats = value; }
+
+        public CharacterTransferData TransferData
+        {
+            get
+            {
+                return new CharacterTransferData
+                {
+                    Stats = this.Stats,
+                    Inventory = this.inventory.TransferData,
+                    RightHand = this.RightHandItem is null ? null : this.RightHandItem.TransferData,
+                };
+            }
+        }
+
         public override void StartTurn()
         {
             base.StartTurn();
@@ -51,8 +66,8 @@ namespace Assets.Scripts.Entity
         protected override void Start()
         {
             Stats = new EntityStats() { 
-                inStrength = 4, 
-                inDexterity = 6, 
+                inStrength = 8, 
+                inDexterity = 8, 
                 inAgility = 8, 
                 inConstitution = 5, 
                 inIntellect = 8, 
@@ -66,122 +81,12 @@ namespace Assets.Scripts.Entity
 
             if (Global.needToLoad)
             {
-                LoadFromGlobal();
-                Global.needToLoad = true;
+                Global.ReloadCharacter(this);
+                Global.needToLoad = false;
             }
         }
 
-        private void LoadFromGlobal()
-        {
 
-            Item CheckAndInst(ItemTransferData data)
-            {
-                if (data is null)
-                    return null;
-                var item = Instantiate(data.Prefab).GetComponent<TacticalItem>();
-                item.SetCount(data.Count);
-
-                if (data is RangedWeaponTransferData)
-                {
-                    var _data = data as RangedWeaponTransferData;
-                    Destroy((item as RangedWeapon).magazine.gameObject); 
-                    if (_data.Magazine is null)
-                    {                        
-                        (item as RangedWeapon).magazine = null;
-                    }
-                    else
-                    {
-                        (item as RangedWeapon).magazine = CheckAndInstMag(_data.Magazine);
-                        (item as RangedWeapon).magazine.transform.SetParent((item as RangedWeapon).magazinePoint.transform);
-                        (item as RangedWeapon).magazine.transform.localPosition = Vector3.zero;
-                    }
-                    item.itemRef.ShowUnloadButton(true);
-                    
-                }
-
-                if (data is WeaponMagazineTransferData)
-                {
-                    (item as WeaponMagazine).CurrentAmmoCount = (data as WeaponMagazineTransferData).CurrentAmmoCount;
-                    (item as WeaponMagazine).CurrentAmmoData = (data as WeaponMagazineTransferData).CurrentAmmoData;
-                }
-                
-                item.itemRef.character = this;
-                item.itemRef.gameObject.SetActive(true);
-                item.gameObject.SetActive(false);
-                return item;
-            }
-
-            WeaponMagazine CheckAndInstMag(WeaponMagazineTransferData data)
-            {
-                var magazine = Instantiate(data.Prefab).GetComponent<WeaponMagazine>();
-                magazine.CurrentAmmoCount = data.CurrentAmmoCount;
-                magazine.CurrentAmmoData = data.CurrentAmmoData;
-                magazine.gameObject.SetActive(false);
-                return magazine;
-            }
-
-            EquipmentItem CheckAndInstEq(EquipmentItemTransferData data)
-            {
-                if (data is null)
-                    return null;
-                else
-                {
-                    var item = Instantiate(data.Prefab).GetComponent<EquipmentItem>();
-                    item.itemRef.character = this;
-                    var invItem = item as InventoryEquipmentItem;
-                    if (invItem != null)
-                    {
-                        var i = 0;
-                        foreach (var itemdata in data.ItemList)
-                        {
-                            if (itemdata != null)
-                            {                               
-                                invItem.cellList[i].PlaceItemToCell(CheckAndInst(itemdata).itemRef);
-                            }
-                            i++;
-                        }
-                        return invItem;
-                    }
-                    
-
-                    return item;
-                }                    
-            }
-
-            EquipmentItem CheckAndInstAr(ItemTransferData data)
-            {
-                if (data is null)
-                    return null;
-                else
-                {
-                    var item = Instantiate(data.Prefab).GetComponent<EquipmentItem>();
-                    item.itemRef.character = this;
-                    return item;
-                }
-            }
-
-            Stats = Global.character.Stats;
-            inventory.EquipItem(CheckAndInstEq(Global.character.Inventory.shirt), SpecType.EqShirt);
-            inventory.EquipItem(CheckAndInstEq(Global.character.Inventory.belt), SpecType.EqBelt);
-            inventory.EquipItem(CheckAndInstEq(Global.character.Inventory.pants), SpecType.EqPants);
-            inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.helmet), SpecType.Helmet);
-            inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.chestArmor), SpecType.ChestArmor);
-            inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.gloves), SpecType.Gloves);
-            inventory.EquipItem(CheckAndInstAr(Global.character.Inventory.boots), SpecType.Boots);
-
-            var RHItem = CheckAndInst(Global.character.RightHand);
-            if (RHItem != null)
-                inventory.TakeItem(RHItem.itemRef);
-
-            var RSItem = CheckAndInst(Global.character.Inventory.rightShoulder);
-            if (RSItem != null)
-                inventory.TossOverItem(RSItem.itemRef);
-
-            var LSItem = CheckAndInst(Global.character.Inventory.leftShoulder);
-            if (LSItem != null)
-                inventory.TossOverItem(LSItem.itemRef, true);
-
-        }
 
         public override void TakeAttack(MeleeAttackResult attackResult)
         {
