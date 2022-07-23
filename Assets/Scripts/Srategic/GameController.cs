@@ -102,6 +102,17 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void RemoveFromCurrentSector(ItemReference item)
+    {
+        RemoveFromSector(CurrentSector, item);
+    }
+
+    public void RemoveFromSector(Sector sector, ItemReference item)
+    {
+        sector.sectorObject.RemoveItem(item);
+        SectorItems.Remove(item);
+    }
+
     public void FindProcess()
     {
         RefreshSectorData();
@@ -176,6 +187,8 @@ public class GameController : MonoBehaviour
 
     public void Engage()
     {
+        if (isLocked())
+            return;
         Global.character = character.TransferData;
         Global.needToLoad = true;
         SceneManager.LoadScene("TacticScene");

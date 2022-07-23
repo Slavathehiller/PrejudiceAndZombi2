@@ -46,6 +46,15 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if (item is WeaponMagazine)
             (item as WeaponMagazine).RefreshAmmo();
     }
+
+    private void OnDestroy()
+    {
+        if (character is CharacterS)
+        {
+            (character as CharacterS).gameController.RemoveFromCurrentSector(this);
+        }
+    }
+
     public void PickUp()
     {
         character.PickUpItem(this);

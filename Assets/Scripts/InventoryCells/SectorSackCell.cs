@@ -17,7 +17,7 @@ public class SectorSackCell : SackCell
 
     public void RemoveFromSector(ItemReference item)
     {
-        gameController.SectorItems.Remove(item);
+        gameController.RemoveFromCurrentSector(item);
     }
 
     // Update is called once per frame

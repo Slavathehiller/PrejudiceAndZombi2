@@ -34,8 +34,7 @@ public static class Global
                     (item as RangedWeapon).magazine.transform.SetParent((item as RangedWeapon).magazinePoint.transform);
                     (item as RangedWeapon).magazine.transform.localPosition = Vector3.zero;
                 }
-                item.itemRef.ShowUnloadButton(true);
-
+                item.itemRef.ShowUnloadButton(false);
             }
 
             if (data is WeaponMagazineTransferData)
@@ -75,8 +74,11 @@ public static class Global
                     {
                         if (itemdata != null)
                         {
-                            invItem.cellList[i].PlaceItemToCell(CheckAndInst(itemdata).itemRef);
-                        }
+                            var tac_item = CheckAndInst(itemdata);
+                            invItem.cellList[i].PlaceItemToCell(tac_item.itemRef);
+                            if (tac_item is RangedWeapon)
+                                tac_item.itemRef.ShowUnloadButton(false);
+                         }
                         i++;
                     }
                     item.itemRef.gameObject.SetActive(character is CharacterS);
