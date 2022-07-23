@@ -101,6 +101,11 @@ public class RangedWeapon : BaseWeapon
         }
     }
 
+    private void Start()
+    {
+        magazine?.gameObject.SetActive(false);
+    }
+
     protected override void Update()
     {
         RefreshAmmo();

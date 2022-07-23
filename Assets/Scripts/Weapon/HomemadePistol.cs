@@ -18,6 +18,7 @@ namespace Assets.Scripts.Weapon {
         {
             base.Update();
         }
+          
 
     }
 }

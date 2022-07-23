@@ -32,8 +32,8 @@ public class CharacterS : BaseEntityS, ICharacter
         Stats = new EntityStats()
         {
             inStrength = 4,
-            inDexterity = 5,
-            inAgility = 5,
+            inDexterity = 10,
+            inAgility = 10,
             inConstitution = 5,
             inIntellect = 8,
             inConcentration = 11,
@@ -77,7 +77,7 @@ public class CharacterS : BaseEntityS, ICharacter
 
     public void DoSearch()
     {
-        if(gameController._currentSector.sectorObject.findChance <= 0)
+        if(gameController.CurrentSector.sectorObject.findChance <= 0)
         {
             gameController.ShowMessage("Сектор полностью разграблен");
             return;
@@ -95,7 +95,7 @@ public class CharacterS : BaseEntityS, ICharacter
             var item = obj.GetComponent<Item>();
             var itemRef = item.itemRef;
 
-            gameController.AddItemToSector(gameController._currentSector, itemRef);
+            gameController.AddItemToSector(gameController.CurrentSector, itemRef);
 
             gameController.ShowMessage("Вы нашли: " + item.Name, itemRef.image);
         }
@@ -104,22 +104,22 @@ public class CharacterS : BaseEntityS, ICharacter
             gameController.ShowMessage("Вы ничего не нашли");
         }
         var findChanceDecrease = Mathf.Max(20 - Observation, 1);
-        gameController._currentSector.sectorObject.findChance -= Mathf.Round(Mathf.Clamp(findChanceDecrease, findChanceDecrease, gameController._currentSector.sectorObject.findChance));
+        gameController.CurrentSector.sectorObject.findChance -= Mathf.Round(Mathf.Clamp(findChanceDecrease, findChanceDecrease, gameController.CurrentSector.sectorObject.findChance));
         gameController.RefreshSectorData();
     }
     public GameObject Find()
     {
         float Find = Random.Range(0, 100);
-        if (Find <= gameController.currentSector.sectorObject.findChance)
+        if (Find <= gameController.CurrentSector.sectorObject.findChance)
         {
-            Find = Random.Range(0, gameController.currentSector.sectorObject.loot.Sum((x)=>x.chance));
+            Find = Random.Range(0, gameController.CurrentSector.sectorObject.loot.Sum((x)=>x.chance));
             var f = 0f;
-            for (var i = 0; i < gameController.currentSector.sectorObject.loot.Length; i++)
+            for (var i = 0; i < gameController.CurrentSector.sectorObject.loot.Length; i++)
             {
-                f += gameController.currentSector.sectorObject.loot[i].chance;
+                f += gameController.CurrentSector.sectorObject.loot[i].chance;
                 if (f >= Find)
                 {
-                    return gameController.currentSector.sectorObject.loot[i].prefab;
+                    return gameController.CurrentSector.sectorObject.loot[i].prefab;
                 }
             }
         }

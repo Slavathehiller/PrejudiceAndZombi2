@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using Assets.Scripts.Interchange;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -37,8 +38,9 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public bool UIInact = false;
 
-    public Sector _currentSector;
-    public Sector currentSector
+    [SerializeField]
+    private Sector _currentSector;
+    public Sector CurrentSector
     {
         get
         {
@@ -51,14 +53,17 @@ public class GameController : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private LootInfo _lootInfoWindow;
+
     public void RefreshSectorData()
     {
-        sectorFindChance.text = _currentSector.sectorObject.findChance.ToString() + " %";
-        SectorObjectName.text = _currentSector.sectorObject.Name;
+        sectorFindChance.text = CurrentSector.sectorObject.findChance.ToString() + " %";
+        SectorObjectName.text = CurrentSector.sectorObject.Name;
         findSlider.value = 0;
         foreach(var itemRef in SectorItems)
         {
-            itemRef.gameObject.SetActive(_currentSector.sectorObject.sack.Contains(itemRef));
+            itemRef.gameObject.SetActive(CurrentSector.sectorObject.sack.Contains(itemRef));
         }
     }
     
@@ -81,11 +86,20 @@ public class GameController : MonoBehaviour
         SectorItems.Add(item);
     }
 
-    public void AddItemToSector(Sector sector, GameObject prefab)
+    public void AddItemToSector(Sector sector, GameObject prefab, int count = 1)
     {
         var obj = ItemFactory.CreateItem(prefab, GroundPanel, character);
         var item = obj.GetComponent<Item>();
+        item.SetCount(count);
         AddItemToSector(sector, item.itemRef);        
+    }
+
+    public void AddItemsToSector(Sector sector, IEnumerable<ItemTransferData> data)
+    {
+        foreach ( var itemData in data)
+        {
+            AddItemToSector(sector, itemData.Prefab, itemData.Count);
+        }
     }
 
     public void FindProcess()
@@ -101,6 +115,9 @@ public class GameController : MonoBehaviour
         if (Global.needToLoad)
         {
             Global.ReloadCharacter(character);
+            _lootInfoWindow.ShowLoot(Global.Loot);
+            AddItemsToSector(CurrentSector, Global.Loot);
+            Global.needToLoad = false;
         }
         RefreshSectorData();
         foreach(var panel in Panels)

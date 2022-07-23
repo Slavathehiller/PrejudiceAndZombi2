@@ -101,18 +101,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void TryRemoveItem(Item item)
     {
         if (item is TacticalItem)
@@ -155,43 +143,43 @@ public class Inventory : MonoBehaviour
                 shirt = EqItem;
                 SetCellSchema(shirt, shirtContainer);
                 if (shirtCell != null)
-                    shirtCell.PlaceItemToCell(shirt.itemRef);
+                    shirtCell.PlaceItemToCell(shirt);
                 break;
             case SpecType.EqBelt:
                 belt = EqItem;
                 SetCellSchema(belt, beltContainer);
                 if (beltCell != null)
-                    beltCell.PlaceItemToCell(belt.itemRef);
+                    beltCell.PlaceItemToCell(belt);
                 break;
             case SpecType.EqPants:
                 pants = EqItem;
                 SetCellSchema(pants, pantsContainer);
                 if (pantsCell != null)
-                    pantsCell.PlaceItemToCell(pants.itemRef);
+                    pantsCell.PlaceItemToCell(pants);
                 break;
             case SpecType.Helmet:
                 helmet = EqItem;
                 SetArmorText();
                 if (helmetCell != null)
-                    helmetCell.PlaceItemToCell(helmet.itemRef);
+                    helmetCell.PlaceItemToCell(helmet);
                 break;
             case SpecType.ChestArmor:
                 chestArmor = EqItem;
                 SetArmorText();
                 if (chestArmorCell != null)
-                    chestArmorCell.PlaceItemToCell(chestArmor.itemRef);
+                    chestArmorCell.PlaceItemToCell(chestArmor);
                 break;
             case SpecType.Boots:
                 boots = EqItem;
                 SetArmorText();
                 if (bootsCell != null)
-                    bootsCell.PlaceItemToCell(boots.itemRef);
+                    bootsCell.PlaceItemToCell(boots);
                 break;
             case SpecType.Gloves:
                 gloves = EqItem;
                 SetArmorText();
                 if (glovesCell != null)
-                    glovesCell.PlaceItemToCell(gloves.itemRef);
+                    glovesCell.PlaceItemToCell(gloves);
                 break;
             default:
                 throw new Exception("Неверный тип");

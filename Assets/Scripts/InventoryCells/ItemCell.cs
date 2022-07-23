@@ -67,9 +67,15 @@ public class ItemCell : MonoBehaviour, IDropHandler
        
     }
 
+    public void PlaceItemToCell(Item item)
+    {
+        if (item != null)
+            PlaceItemToCell(item.itemRef);
+    }
+
     public virtual void PlaceItemToCell(ItemReference item)
     {
-        item.transform.SetParent(gameObject.transform);
+        item.transform.SetParent(gameObject.transform); 
         var thing = item.thing.GetComponent<Item>();
         itemIn = thing as TacticalItem; 
 

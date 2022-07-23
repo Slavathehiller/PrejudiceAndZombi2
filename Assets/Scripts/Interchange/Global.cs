@@ -7,6 +7,7 @@ public static class Global
 {
     public static bool needToLoad = false;
     public static CharacterTransferData character;
+    public static List<ItemTransferData> Loot;
 
 
     public static void ReloadCharacter(ICharacter character)

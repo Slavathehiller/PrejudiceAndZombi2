@@ -27,7 +27,7 @@ public abstract class EquipmentCell : ItemCell
             item.character.inventory.EquipItem(thing);
             PlaceItemToCell(item);
             ((CharacterS)item.character).sack.RemoveItem(item);
-            gameController._currentSector.sectorObject.RemoveItem(item);
+            gameController.CurrentSector.sectorObject.RemoveItem(item);
             gameController.SectorItems.Remove(item);
         }
     }

@@ -36,7 +36,7 @@ public class Sector : MonoBehaviour
         selector.transform.SetParent(gameObject.transform);
         selector.transform.localPosition = Vector3.zero;
         StartCoroutine(MoveCamera(gameObject.transform.position));
-        gameController.currentSector = this;
+        gameController.CurrentSector = this;
     }
 
     IEnumerator MoveCamera(Vector3 point)

@@ -1,8 +1,3 @@
-using Assets.Scripts.Weapon;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace Assets.Scripts.Weapon
 {
     public class HomemadeSMG : RangedWeapon
@@ -14,11 +9,6 @@ namespace Assets.Scripts.Weapon
             type = WeaponType.SMG;
             ShootCost = 4;
             prefab = prefabsController.homemade_SMG;
-        }
-
-        private void Start()
-        {
-            magazine?.gameObject.SetActive(false);
         }
 
         protected override void Update()

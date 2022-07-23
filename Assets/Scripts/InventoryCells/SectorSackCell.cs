@@ -11,7 +11,7 @@ public class SectorSackCell : SackCell
         var item = eventData.pointerDrag.GetComponent<ItemReference>();
 
         ((CharacterS)item.character).sack.RemoveItem(item);
-        gameController._currentSector.sectorObject.AddItem(item);
+        gameController.CurrentSector.sectorObject.AddItem(item);
         gameController.SectorItems.Add(item);
     }
 

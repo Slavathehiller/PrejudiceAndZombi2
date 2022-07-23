@@ -1,4 +1,8 @@
 Assets/AutoSave/**
-Logs/*
-Temp/**
-obj/Debug/**
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+.vs/

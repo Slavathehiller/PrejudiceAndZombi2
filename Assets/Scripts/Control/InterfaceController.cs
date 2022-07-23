@@ -1,6 +1,8 @@
+using Assets.Scripts.Interchange;
 using Assets.Scripts.Weapon;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -133,6 +135,7 @@ public class InterfaceController : MonoBehaviour
     public void GoToStrategy()
     {
         Global.character = playerController.character.TransferData;
+        Global.Loot = new List<ItemTransferData>(FindObjectsOfType<TacticalItem>().Where(x => x != playerController.character.RightHandItem).Select(x => x.TransferData));
         Global.needToLoad = true;
         SceneManager.LoadScene("StrategicScene");
     }
