@@ -12,7 +12,7 @@ namespace Assets.Scripts
     {
         public static GameObject CreateItem(GameObject prefab, GameObject parent = null, ICharacter character = null)
         {
-            var obj = GameObject.Instantiate(prefab, null);
+            var obj = UnityEngine.Object.Instantiate(prefab, null);
             var item = obj.GetComponent<Item>();
             if (item.isSMO)
                 item.SetCount(Random.Range(1, item.MaxAmount));

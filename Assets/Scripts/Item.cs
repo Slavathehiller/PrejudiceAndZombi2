@@ -42,6 +42,11 @@ public abstract class Item : MonoBehaviour
         }
     }
 
+    public static Item RestoreFromDTO(ItemTransferData data, ICharacter character)
+    {
+        return data is null ? null : data.Restore(character);
+    }
+
     protected virtual void Awake()
     {
         prefabsController = GameObject.Find("PrefabsController").GetComponent<PrefabsController>();

@@ -92,6 +92,7 @@ public class ItemCell : MonoBehaviour, IDropHandler
         item.transform.localPosition = Vector3.zero;
         item.transform.localScale = new Vector3(1, 1, 1);
         item.background.enabled = false;
+        item.gameObject.SetActive(true);
         ShowBackground(false);
 
     }

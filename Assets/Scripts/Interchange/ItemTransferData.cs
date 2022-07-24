@@ -12,5 +12,14 @@ namespace Assets.Scripts.Interchange
         public GameObject Prefab { get; set; }
 
         public int Count { get; set; }
+
+        public virtual Item Restore(ICharacter character)
+        {
+            var obj = UnityEngine.Object.Instantiate(Prefab);
+            var item = obj.GetComponent<Item>();
+            item.SetCount(Count);
+            item.itemRef.character = character;
+            return item;
+        }
     }
 }
