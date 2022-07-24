@@ -188,7 +188,7 @@ public class GameController : MonoBehaviour
     public void Engage()
     {
         if (isLocked())
-            return;
+            return; 
         Global.character = character.TransferData;
         Global.needToLoad = true;
         SceneManager.LoadScene("TacticScene");
