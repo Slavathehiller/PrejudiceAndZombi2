@@ -13,8 +13,7 @@ public class LootInfo : MonoBehaviour
     {
         foreach(var item in loot)
         {
-            var lootItem = ItemFactory.CreateItem(item.Prefab, _lootPanel).GetComponent<Item>();
-            lootItem.SetCount(item.Count);
+            var lootItem = Item.RestoreFromDTO(item, _lootPanel, null);
             _loot.Add(lootItem);
         }
         gameObject.SetActive(true);

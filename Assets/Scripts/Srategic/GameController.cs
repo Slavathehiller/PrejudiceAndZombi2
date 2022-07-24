@@ -98,7 +98,7 @@ public class GameController : MonoBehaviour
     {
         foreach ( var itemData in data)
         {
-            AddItemToSector(sector, itemData.Prefab, itemData.Count);
+            AddItemToSector(sector, itemData.Restore(GroundPanel, character).itemRef);
         }
     }
 

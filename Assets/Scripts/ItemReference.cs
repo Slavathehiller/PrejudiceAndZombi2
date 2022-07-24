@@ -86,10 +86,11 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
                 var ammo = ammoObject.GetComponent<TacticalItem>() as Ammo;
                 if (ammo != null)
                 {
-                    if ((item as RangedWeapon).magazine)
+                    if (character is CharacterS)
                     {
                         (character as CharacterS).gameController.AddItemToPlayerSack(ammo.itemRef);
                         ammo.gameObject.SetActive(false);
+
                     }
                     else
                     {

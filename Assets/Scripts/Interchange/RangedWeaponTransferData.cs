@@ -11,14 +11,12 @@ namespace Assets.Scripts.Interchange
     {
         public WeaponMagazineTransferData Magazine { get; set; }
 
-        public override Item Restore(ICharacter character)
+        public override Item Restore(GameObject parent, ICharacter character)
         {
-            var obj = base.Restore(character);
+            var obj = base.Restore(parent, character);
             var item = obj.GetComponent<RangedWeapon>();
             item.magazine.CurrentAmmoCount = Magazine.CurrentAmmoCount;
             item.magazine.CurrentAmmoData = Magazine.CurrentAmmoData;
-         //   item.magazine.gameObject.SetActive(false);
-
 
             return item;
         }

@@ -15,7 +15,7 @@ public static class Global
 
         Item CheckAndInst(ItemTransferData data)
         {
-            var item = Item.RestoreFromDTO(data, character);
+            var item = Item.RestoreFromDTO(data, null, character);
             if (item != null)
             {
                 item.itemRef.gameObject.SetActive(true);

@@ -13,9 +13,9 @@ namespace Assets.Scripts.Interchange
 
         public int Count { get; set; }
 
-        public virtual Item Restore(ICharacter character)
+        public virtual Item Restore(GameObject parent = null, ICharacter character = null)
         {
-            var obj = UnityEngine.Object.Instantiate(Prefab);
+            var obj = ItemFactory.CreateItem(Prefab, parent, character);
             var item = obj.GetComponent<Item>();
             item.SetCount(Count);
             item.itemRef.character = character;

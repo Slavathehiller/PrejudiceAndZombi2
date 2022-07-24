@@ -7,9 +7,9 @@ namespace Assets.Scripts.Interchange
     {
         public List<ItemTransferData> ItemList { get; set; }
 
-        public override Item Restore(ICharacter character)
+        public override Item Restore(GameObject parent, ICharacter character)
         {
-            var obj = base.Restore(character);
+            var obj = base.Restore(parent, character);
             var item = obj.GetComponent<InventoryEquipmentItem>();
 
             var i = 0;
@@ -17,7 +17,7 @@ namespace Assets.Scripts.Interchange
             {
                 if (itemdata != null)
                 {
-                    var tac_item = itemdata.Restore(character);
+                    var tac_item = itemdata.Restore(parent, character);
                     item.cellList[i].PlaceItemToCell(tac_item);
                     if (tac_item is RangedWeapon)
                         tac_item.itemRef.ShowUnloadButton(false);

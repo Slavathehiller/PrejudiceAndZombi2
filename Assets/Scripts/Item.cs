@@ -42,9 +42,9 @@ public abstract class Item : MonoBehaviour
         }
     }
 
-    public static Item RestoreFromDTO(ItemTransferData data, ICharacter character)
+    public static Item RestoreFromDTO(ItemTransferData data, GameObject parent, ICharacter character)
     {
-        return data is null ? null : data.Restore(character);
+        return data is null ? null : data.Restore(parent, character);
     }
 
     protected virtual void Awake()

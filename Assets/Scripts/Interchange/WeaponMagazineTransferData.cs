@@ -7,9 +7,9 @@ namespace Assets.Scripts.Interchange
         public AmmoData CurrentAmmoData { get; set; }
         public int CurrentAmmoCount { get; set; }
 
-        public override Item Restore(ICharacter character)
+        public override Item Restore(GameObject parent, ICharacter character)
         {
-            var obj = base.Restore(character);
+            var obj = base.Restore(parent, character);
             var item = obj.GetComponent<WeaponMagazine>();
             item.CurrentAmmoData = CurrentAmmoData;
             item.CurrentAmmoCount = CurrentAmmoCount;
