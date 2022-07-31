@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public GameObject thing;
-    public Item item;
+    public Item _item;
     public Image image;
     public ICharacter character;
     [HideInInspector]
@@ -21,7 +21,17 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     private bool backgroundState;
     public Image background;
 
-
+    public Item Item
+    {
+        get
+        {
+            if (_item is null)
+            {
+                _item = thing.GetComponent<Item>();
+            }
+            return _item;
+        }
+    }
 
     private void Awake()
     {
@@ -29,22 +39,13 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         canvasGroup = GetComponent<CanvasGroup>();
         background = GetComponent<Image>();
     }
-    // Update is called once per frame
+
     void Update()
     {        
-        if (thing != null && item is null)
-            item = thing.GetComponent<Item>();
-        if (item is RangedWeapon)
-        {
-            (item as RangedWeapon).RefreshAmmo();
-            //var magazine = (item as RangedWeapon).magazine;
-            //if (magazine != null)
-            //    count.text = magazine.CurrentAmmoCount.ToString();
-            //else
-            //    count.text = "-";
-        }
-        if (item is WeaponMagazine)
-            (item as WeaponMagazine).RefreshAmmo();
+        if (Item is RangedWeapon)
+            (Item as RangedWeapon).RefreshAmmo();
+        if (Item is WeaponMagazine)
+            (Item as WeaponMagazine).RefreshAmmo();
     }
 
     private void OnDestroy()
@@ -52,6 +53,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if (character is CharacterS)
         {
             (character as CharacterS).gameController.RemoveFromCurrentSector(this);
+            (character as CharacterS).gameController.RemoveFromPlayerSack(this);
         }
     }
 
@@ -90,7 +92,6 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
                     {
                         (character as CharacterS).gameController.AddItemToPlayerSack(ammo.itemRef);
                         ammo.gameObject.SetActive(false);
-
                     }
                     else
                     {

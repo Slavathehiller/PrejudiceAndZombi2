@@ -7,5 +7,5 @@ public class EndBattleInfo : MonoBehaviour
 {
     [SerializeField]
     private Text _caption;
-    public Text Caption => _caption;
+    public Text Caption => _caption ;
 }

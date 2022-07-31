@@ -26,6 +26,10 @@ public class PrefabsController : MonoBehaviour
     public GameObject leatherJacket;
     public GameObject armWindings;
     public GameObject sneakers;
+    public GameObject sector;
+    public GameObject bank;
+    public GameObject highOffice;
+
     // Start is called before the first frame update
     void Start()
     {

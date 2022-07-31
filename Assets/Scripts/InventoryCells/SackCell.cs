@@ -6,10 +6,12 @@ using UnityEngine.EventSystems;
 public class SackCell : MonoBehaviour, IDropHandler
 {
     public GameController gameController;
-
     public virtual void OnDrop(PointerEventData eventData)
-    {
+    {        
         var item = eventData.pointerDrag.GetComponent<ItemReference>();
+        var oldParentCell = item.oldParent.GetComponent<ItemCell>();
+        if (oldParentCell == this)
+            return;
         item.transform.SetParent(gameObject.transform);
         item.transform.localPosition = Vector3.zero;
         item.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
@@ -17,12 +19,14 @@ public class SackCell : MonoBehaviour, IDropHandler
         if (!(thing is null))
         {
             thing.PlaceItemToSack(gameObject);
+            item.character.inventory.UnEquipItem(thing.specType);
         }
-        var oldParentCell = item.oldParent.GetComponent<ItemCell>();
+        
         if (oldParentCell != null)
         {
             if (oldParentCell is RightHandCell)
                 item.character.RemoveFromRightHand(false);
+            item.character.inventory.TryRemoveItem(thing);
             oldParentCell.itemIn = null;
             oldParentCell.ShowBackground(true);
         }

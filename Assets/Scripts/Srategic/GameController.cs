@@ -1,14 +1,15 @@
 using Assets.Scripts;
 using Assets.Scripts.Interchange;
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] private string _templateName;
+    [SerializeField] private GameObject _ground;
     public CharacterS character;
     public GameObject selector;
     public GameObject cameraContainer;
@@ -67,17 +68,44 @@ public class GameController : MonoBehaviour
         }
     }
     
+    public LocationTransferData TransferData
+    {
+        get
+        {
+            return new LocationTransferData()
+            {
+                SceneName = _templateName,
+                sectors = new List<SectorTransferData>(FindObjectsOfType<Sector>().Select(x => x.TransferData)),
+                currentSectorPosition = CurrentSector.transform.position
+            };
+        }
+    }
+
     public void AddItemToPlayerSack(ItemReference item)
     {
         character.sack.AddItem(item);
         item.transform.SetParent(BagagePanel.transform);
-        item.transform.localScale = new Vector3(1, 1, 1);
+        item.transform.localScale = Vector3.one;
         item.oldParent = null;
         item.canvasGroup.blocksRaycasts = true;
         item.background.enabled = true;
         item.character = character;
         item.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize;
         item.gameObject.SetActive(true);
+        item.thing.gameObject.SetActive(false);
+    }
+
+    public void AddItemsToPlayerSack(IEnumerable<ItemTransferData> items)
+    {
+        foreach(var item in items)
+        {
+            AddItemToPlayerSack(item.Restore(BagagePanel, character).itemRef);
+        }
+    }
+
+    public void RemoveFromPlayerSack(ItemReference item)
+    {
+        character.sack.RemoveItem(item);
     }
 
     public void AddItemToSector(Sector sector, ItemReference item)
@@ -104,7 +132,8 @@ public class GameController : MonoBehaviour
 
     public void RemoveFromCurrentSector(ItemReference item)
     {
-        RemoveFromSector(CurrentSector, item);
+        if (CurrentSector != null)
+            RemoveFromSector(CurrentSector, item);
     }
 
     public void RemoveFromSector(Sector sector, ItemReference item)
@@ -120,15 +149,30 @@ public class GameController : MonoBehaviour
         isFinding = true;
     }
 
-    // Start is called before the first frame update
+
+    private void LoadSectors()
+    {
+        foreach(var sector in Global.locationTransferData.sectors)
+        {
+            var sec = sector.Restore(this);
+            if (sector.position == Global.locationTransferData.currentSectorPosition)
+                sec.BecameCurrentInstant();
+        }
+    }
     void Start()
     {
-        if (Global.needToLoad)
+        if (Global.lastStateOnLoad == StateOnLoad.LoadFroomTactic)
         {
             Global.ReloadCharacter(character);
-            _lootInfoWindow.ShowLoot(Global.Loot);
-            AddItemsToSector(CurrentSector, Global.Loot);
-            Global.needToLoad = false;
+            LoadSectors();
+            AddItemsToPlayerSack(Global.character.Sack);
+
+            if (Global.Loot != null)
+            {
+                _lootInfoWindow.ShowLoot(Global.Loot);
+                AddItemsToSector(CurrentSector, Global.Loot);
+                Global.Loot = null;
+            }
         }
         RefreshSectorData();
         foreach(var panel in Panels)
@@ -138,7 +182,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isFinding)
@@ -188,9 +231,10 @@ public class GameController : MonoBehaviour
     public void Engage()
     {
         if (isLocked())
-            return; 
+            return;
+        Global.locationTransferData = TransferData;
         Global.character = character.TransferData;
-        Global.needToLoad = true;
+        Global.lastStateOnLoad = StateOnLoad.LoadFromStrategy;
         SceneManager.LoadScene("TacticScene");
     }
 

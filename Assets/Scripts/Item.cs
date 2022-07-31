@@ -60,6 +60,12 @@ public abstract class Item : MonoBehaviour
         itemRef.gameObject.SetActive(false);
     }
 
+    private void OnDestroy()
+    {
+        if (itemRef != null)
+            Destroy(itemRef.gameObject);
+    }
+
     [SerializeField]
     ItemReference _itemRef;
     public ItemReference itemRef

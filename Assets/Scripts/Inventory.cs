@@ -129,6 +129,11 @@ public class Inventory : MonoBehaviour
             rightShoulderCell.PlaceItemToCell(item);
     }
 
+    public void UnEquipItem(SpecType specType)
+    {
+        EquipItem(null, specType);
+    }
+
     public void EquipItem(EquipmentItem EqItem, SpecType defType = 0)
     {
         SpecType _specType;

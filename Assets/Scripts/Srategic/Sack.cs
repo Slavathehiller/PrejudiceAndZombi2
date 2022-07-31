@@ -1,5 +1,7 @@
+using Assets.Scripts.Interchange;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Sack : MonoBehaviour
@@ -8,7 +10,8 @@ public class Sack : MonoBehaviour
 
     public void AddItem(ItemReference item)
     {
-        items.Add(item);
+        if(!Contains(item))
+            items.Add(item);
     }
 
     public void RemoveItem(ItemReference item)
@@ -21,15 +24,11 @@ public class Sack : MonoBehaviour
         return items.Contains(item);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public List<ItemTransferData> TransferData
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        get
+        {
+            return items.Select(x => x.Item.TransferData).ToList();
+        }
     }
 }

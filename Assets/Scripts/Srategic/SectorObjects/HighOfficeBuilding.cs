@@ -7,6 +7,7 @@ public class HighOfficeBuilding : SectorObject
     // Start is called before the first frame update
     void Start()
     {
+        prefab = prefabsController.highOffice;
         loot = new Loot[10]
         {   
             new Loot()

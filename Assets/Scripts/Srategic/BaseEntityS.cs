@@ -5,9 +5,6 @@ using UnityEngine;
 public class BaseEntityS : MonoBehaviour
 {
     protected EntityStats Stats;
-
-
-
     public float Stealth
     {
         get
@@ -18,7 +15,6 @@ public class BaseEntityS : MonoBehaviour
 
     public float Observation
     {
-
         get
         {
             return Stats.Perceprion + Stats.Intellect / 3;

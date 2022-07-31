@@ -1,20 +1,21 @@
 ﻿using Assets.Scripts.Interchange;
 using Assets.Scripts.Weapon;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Entity
 {
     public class CharacterT : BaseEntity, ICharacter
     {
-        public PlayerController pcontroller;
-      //  public PrefabsController pfcontroller;
+        [SerializeField] private PlayerController _pcontroller;
         int PunchCost = 3;
-        int KickCost = 5;        
+        int KickCost = 5;
 
+        public PlayerController Pcontroller => _pcontroller;
         public override EntityController econtroller
         {
-            get { return pcontroller; }
+            get { return _pcontroller; }
         }
 
         Inventory ICharacter.inventory
@@ -29,7 +30,7 @@ namespace Assets.Scripts.Entity
         {
             get
             {
-                return pcontroller.prefabsController;
+                return _pcontroller.prefabsController;
             }
         }
 
@@ -52,6 +53,7 @@ namespace Assets.Scripts.Entity
                     Stats = this.Stats,
                     Inventory = this.inventory.TransferData,
                     RightHand = this.RightHandItem is null ? null : this.RightHandItem.TransferData,
+                    Sack = Global.character.Sack is null ? new List<ItemTransferData>() : Global.character.Sack
                 };
             }
         }
@@ -59,7 +61,7 @@ namespace Assets.Scripts.Entity
         public override void StartTurn()
         {
             base.StartTurn();
-            pcontroller.Ancoring(false);
+            _pcontroller.Ancoring(false);
         }
 
         // Start is called before the first frame update
@@ -74,19 +76,16 @@ namespace Assets.Scripts.Entity
                 inConcentration = 3, 
                 inPerception = 6 };
             base.Start();
-            pcontroller = GetComponent<PlayerController>();
+            _pcontroller = GetComponent<PlayerController>();
             Name = "Выживший";
             Type = EntityType.Human;
             Side = 0;
 
-            if (Global.needToLoad)
+            if (Global.lastStateOnLoad == StateOnLoad.LoadFromStrategy)
             {
-                Global.ReloadCharacter(this);
-                Global.needToLoad = false;
+                Global.ReloadCharacter(this);                
             }
         }
-
-
 
         public override void TakeAttack(MeleeAttackResult attackResult)
         {
@@ -96,11 +95,11 @@ namespace Assets.Scripts.Entity
             gameObject.transform.LookAt(attackResult.AttackPoint);
             if (attackResult.Success)
             {
-                pcontroller.animator.SetTrigger("MeleeHit");
+                _pcontroller.animator.SetTrigger("MeleeHit");
             }
             else
             {
-                pcontroller.animator.SetTrigger("MeleeDodge");
+                _pcontroller.animator.SetTrigger("MeleeDodge");
             }
 
         }
@@ -114,10 +113,10 @@ namespace Assets.Scripts.Entity
         IEnumerator Moving(Vector3 targetPoint)
         {
             isActing = true;
-            if (pcontroller.MoveIfPossible(targetPoint))
+            if (_pcontroller.MoveIfPossible(targetPoint))
             {
                 currentActionPoint -= Vector3.Distance(gameObject.transform.position, targetPoint) * MovePerAP();
-                while (pcontroller.agent.hasPath)
+                while (_pcontroller.agent.hasPath)
                 {
                     yield return null;
                 }
@@ -139,7 +138,7 @@ namespace Assets.Scripts.Entity
                 isActing = false;
                 isActive = false;
                 isMyTurn = false;
-                pcontroller.Ancoring(true);
+                _pcontroller.Ancoring(true);
             }
         }        
 
@@ -154,10 +153,10 @@ namespace Assets.Scripts.Entity
         {
             isActing = true;
             currentActionPoint -= PunchCost;
-            gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
-            pcontroller.animator.SetTrigger("Punch");
+            gameObject.transform.LookAt(_pcontroller.selectedObject.GetPosition());
+            _pcontroller.animator.SetTrigger("Punch");
             yield return new WaitForSeconds(0.9f);            
-            ProceedMeleeAttack(pcontroller.SelectedEnemy);
+            ProceedMeleeAttack(_pcontroller.SelectedEnemy);
             yield return new WaitForSeconds(1.1f);
             isActing = false;
 
@@ -175,13 +174,13 @@ namespace Assets.Scripts.Entity
         {
             isActing = true;
             currentActionPoint -= PunchCost;
-            gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
-            pcontroller.animator.SetTrigger("Stab");
+            gameObject.transform.LookAt(_pcontroller.selectedObject.GetPosition());
+            _pcontroller.animator.SetTrigger("Stab");
             yield return new WaitForSeconds(0.2f);
             if (RightHandItem is BaseWeapon)
-                ProceedMeleeAttack(pcontroller.SelectedEnemy, ((BaseWeapon)RightHandItem).MeleeAttackModifier);
+                ProceedMeleeAttack(_pcontroller.SelectedEnemy, ((BaseWeapon)RightHandItem).MeleeAttackModifier);
             else
-                ProceedMeleeAttack(pcontroller.SelectedEnemy);
+                ProceedMeleeAttack(_pcontroller.SelectedEnemy);
             yield return new WaitForSeconds(1.84f);
             isActing = false;
         }
@@ -198,12 +197,12 @@ namespace Assets.Scripts.Entity
         {
             isActing = true;
             currentActionPoint -= KickCost;
-            gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
-            pcontroller.animator.SetTrigger("Kick");
+            gameObject.transform.LookAt(_pcontroller.selectedObject.GetPosition());
+            _pcontroller.animator.SetTrigger("Kick");
             yield return new WaitForSeconds(0.3f);
             var modifier = new MeleeAttackModifier();
             modifier.damage = PureMeleeDamage / 2;
-            ProceedMeleeAttack(pcontroller.SelectedEnemy, modifier);
+            ProceedMeleeAttack(_pcontroller.SelectedEnemy, modifier);
             yield return new WaitForSeconds(1.183f);
             isActing = false;
         }
@@ -227,10 +226,10 @@ namespace Assets.Scripts.Entity
             if (weapon.CanFire())
             {
                 currentActionPoint -= weapon.ShootCost;
-                gameObject.transform.LookAt(pcontroller.selectedObject.GetPosition());
-                pcontroller.animator.SetTrigger("Shot");
+                gameObject.transform.LookAt(_pcontroller.selectedObject.GetPosition());
+                _pcontroller.animator.SetTrigger("Shot");
                 yield return new WaitForSeconds(0.05f);
-                ProceedRangedAttack(pcontroller.SelectedEnemy, weapon.rangedAttackModifier, weapon.magazine.CurrentAmmoData);
+                ProceedRangedAttack(_pcontroller.SelectedEnemy, weapon.rangedAttackModifier, weapon.magazine.CurrentAmmoData);
                 yield return new WaitForSeconds(0.28f);
             }
             else
@@ -252,7 +251,7 @@ namespace Assets.Scripts.Entity
 
         public void PickUpItem(ItemReference item)
         {
-            pcontroller.PickUpItem(item);
+            _pcontroller.PickUpItem(item);
         }
     }
 }

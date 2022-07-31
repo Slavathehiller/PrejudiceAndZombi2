@@ -54,9 +54,15 @@ public class ItemCell : MonoBehaviour, IDropHandler
                 oldParentCell.ShowBackground(true);
             }
 
-            var _oldParent = item.oldParent.GetComponent<SectorSackCell>();
+            var _oldParent = item.oldParent.GetComponent<SackCell>();
             if (_oldParent != null)
-                _oldParent.RemoveFromSector(item);
+            {
+                if (_oldParent is SectorSackCell)
+                    (_oldParent as SectorSackCell).RemoveFromSector(item);
+                if (_oldParent is PlayerSackCell)
+                    (_oldParent as PlayerSackCell).RemoveFromPlayerSack(item);
+
+            }
 
             return true;
         }

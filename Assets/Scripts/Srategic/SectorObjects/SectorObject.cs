@@ -1,5 +1,7 @@
+using Assets.Scripts.Interchange;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public struct Loot
@@ -14,29 +16,33 @@ public abstract class SectorObject : MonoBehaviour
     public GameObject[] mandatoryLoot;
     public List<ItemReference> sack = new List<ItemReference>();
     public string Name;
+    public GameObject prefab;
 
     public float findChance = 100f;
 
     public PrefabsController prefabsController;
 
+    public SectorObjectTransferData TransferData
+    {
+        get
+        {
+            return new SectorObjectTransferData
+            {
+                findChance = this.findChance,
+                prefab = this.prefab,
+                sack = new List<ItemTransferData>(this.sack.Select(x => x.Item.TransferData))
+            };
+        }
+    }
+
     public void AddItem(ItemReference itemRef)
     {
-        sack.Add(itemRef);
+        if(!sack.Contains(itemRef))
+            sack.Add(itemRef);
     }
 
     public void RemoveItem(ItemReference itemRef)
     {
         sack.Remove(itemRef);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -18,7 +18,6 @@ namespace Assets.Scripts.Interchange
             var obj = ItemFactory.CreateItem(Prefab, parent, character);
             var item = obj.GetComponent<Item>();
             item.SetCount(Count);
-            item.itemRef.character = character;
             return item;
         }
     }

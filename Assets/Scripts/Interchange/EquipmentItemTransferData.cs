@@ -7,7 +7,7 @@ namespace Assets.Scripts.Interchange
     {
         public List<ItemTransferData> ItemList { get; set; }
 
-        public override Item Restore(GameObject parent, ICharacter character)
+        public override Item Restore(GameObject parent = null, ICharacter character = null)
         {
             var obj = base.Restore(parent, character);
             var item = obj.GetComponent<InventoryEquipmentItem>();

@@ -8,7 +8,6 @@ namespace Assets.Scripts.Weapon
 {
     public class KitchenKnife : BaseWeapon
     {
-
         protected override void Awake()
         {
             base.Awake();

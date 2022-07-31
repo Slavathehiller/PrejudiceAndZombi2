@@ -42,7 +42,7 @@ public abstract class TacticalItem : Item
         if (other.gameObject.tag == "Player")
         {
             var character = other.gameObject.GetComponent<CharacterT>();
-            var nearObjects = character.pcontroller.nearObjects;
+            var nearObjects = character.Pcontroller.nearObjects;
             nearObjects.AddItem(this, character);
             _light.enabled = true;
         }
@@ -51,7 +51,7 @@ public abstract class TacticalItem : Item
     {
         if (other.gameObject.tag == "Player")
         {
-            var nearObjects = other.gameObject.GetComponent<CharacterT>().pcontroller.nearObjects;
+            var nearObjects = other.gameObject.GetComponent<CharacterT>().Pcontroller.nearObjects;
             nearObjects.DeleteThing(itemRef, true);
             _light.enabled = false;
         }

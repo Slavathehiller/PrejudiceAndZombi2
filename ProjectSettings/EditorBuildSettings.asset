@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StrategicScene.unity
     guid: 62027c7dd24520246884b5afecd0ed00
+  - enabled: 1
+    path: Assets/Scenes/StrategicScene TownTemplate.unity
+    guid: f01cc1e1d9fa7be44a1317521934436c
   m_configObjects: {}

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class SectorSackCell : SackCell
@@ -9,10 +6,14 @@ public class SectorSackCell : SackCell
     {
         base.OnDrop(eventData);
         var item = eventData.pointerDrag.GetComponent<ItemReference>();
+        var oldParentCell = item.oldParent.GetComponent<ItemCell>();
+        if (oldParentCell == this)
+            return;
 
         ((CharacterS)item.character).sack.RemoveItem(item);
         gameController.CurrentSector.sectorObject.AddItem(item);
-        gameController.SectorItems.Add(item);
+        if(!gameController.SectorItems.Contains(item))
+            gameController.SectorItems.Add(item);
     }
 
     public void RemoveFromSector(ItemReference item)

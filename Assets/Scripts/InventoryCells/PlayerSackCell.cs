@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerSackCell : SackCell
@@ -9,10 +6,17 @@ public class PlayerSackCell : SackCell
     {
         base.OnDrop(eventData);
         var item = eventData.pointerDrag.GetComponent<ItemReference>();
-
+        var oldParentCell = item.oldParent.GetComponent<ItemCell>();
+        if (oldParentCell == this)
+            return;
         ((CharacterS)item.character).sack.AddItem(item);
         gameController.CurrentSector.sectorObject.RemoveItem(item);
-        gameController.SectorItems.Remove(item);        
+        gameController.SectorItems.Remove(item);
+    }
+
+    public void RemoveFromPlayerSack(ItemReference item)
+    {
+        ((CharacterS)item.character).sack.RemoveItem(item);
     }
 
     // Update is called once per frame

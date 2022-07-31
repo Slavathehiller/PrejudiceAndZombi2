@@ -47,13 +47,18 @@ public class RangedWeapon : BaseWeapon
 
     public void Reload(WeaponMagazine weaponMagazine)
     {
+        var character = weaponMagazine.itemRef.character;
+        if (character is CharacterS)
+        {
+            (character as CharacterS).gameController.RemoveFromCurrentSector(weaponMagazine.itemRef);
+            (character as CharacterS).gameController.RemoveFromPlayerSack(weaponMagazine.itemRef);
+        }
         UnloadMagazine();
         magazine = weaponMagazine;
         magazine.itemRef.gameObject.SetActive(false);
         magazine.gameObject.SetActive(false);
         magazine.transform.SetParent(magazinePoint);
         magazine.transform.localPosition = Vector3.zero;
-        //itemRef.character.inventory.TryRemoveItem(magazine.itemRef.thing.GetComponent<TacticalItem>());
         itemRef.ShowUnloadButton(true);
     }
 

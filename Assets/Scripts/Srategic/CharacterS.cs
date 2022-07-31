@@ -1,20 +1,18 @@
 using Assets.Scripts;
 using Assets.Scripts.Interchange;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class CharacterS : BaseEntityS, ICharacter 
-{
-    
+{    
     public Inventory inventory;
     public Sack sack;
     public GameController gameController;
     public PrefabsController _prefabsController;
-    public TacticalItem rightHandItem;
+    private TacticalItem _rightHandItem;
 
-    public TacticalItem RightHandItem => rightHandItem;
+    public TacticalItem RightHandItem => _rightHandItem;
 
     public PrefabsController prefabsController => _prefabsController;
 
@@ -33,7 +31,7 @@ public class CharacterS : BaseEntityS, ICharacter
         {
             inStrength = 4,
             inDexterity = 10,
-            inAgility = 10,
+            inAgility = 20,
             inConstitution = 5,
             inIntellect = 8,
             inConcentration = 11,
@@ -59,6 +57,7 @@ public class CharacterS : BaseEntityS, ICharacter
                 Stats = this.Stats,
                 Inventory = this.inventory.TransferData,
                 RightHand = this.RightHandItem is null ? null : this.RightHandItem.TransferData,
+                Sack = this.sack.TransferData
             };
         }
     }
@@ -130,11 +129,11 @@ public class CharacterS : BaseEntityS, ICharacter
 
     public void PickUpItem(ItemReference item)
     {
-        rightHandItem = item.thing.GetComponent<TacticalItem>();
+        _rightHandItem = item.thing.GetComponent<TacticalItem>();
     }
 
     public void RemoveFromRightHand(bool drop)
     {
-        rightHandItem = null;
+        _rightHandItem = null;
     }
 }

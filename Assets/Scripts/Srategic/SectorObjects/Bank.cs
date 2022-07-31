@@ -26,6 +26,7 @@ public class Bank : SectorObject
     // Start is called before the first frame update
     void Start()
     {
+        prefab = prefabsController.bank;
         loot = new Loot[12]
         {
             new Loot()

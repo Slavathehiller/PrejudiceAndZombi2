@@ -1,14 +1,18 @@
 using Assets.Scripts.Interchange;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
+public enum StateOnLoad
+{
+    StartGame  = 0,
+    LoadFromStrategy = 1,
+    LoadFroomTactic = 2
+}
 public static class Global
 {
-    public static bool needToLoad = false;
+    public static StateOnLoad lastStateOnLoad = StateOnLoad.StartGame;
     public static CharacterTransferData character;
     public static List<ItemTransferData> Loot;
-
+    public static LocationTransferData locationTransferData;
 
     public static void ReloadCharacter(ICharacter character)
     {

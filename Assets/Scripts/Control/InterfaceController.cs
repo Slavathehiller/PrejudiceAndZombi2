@@ -136,8 +136,8 @@ public class InterfaceController : MonoBehaviour
     {
         Global.character = playerController.character.TransferData;
         Global.Loot = new List<ItemTransferData>(FindObjectsOfType<TacticalItem>().Where(x => x != playerController.character.RightHandItem).Select(x => x.TransferData));
-        Global.needToLoad = true;
-        SceneManager.LoadScene("StrategicScene");
-    }
+        Global.lastStateOnLoad = StateOnLoad.LoadFroomTactic ;
 
+       SceneManager.LoadScene(Global.locationTransferData.SceneName);
+    }
 }

@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\Control\LifeController.cs" />
     <Compile Include="Assets\Scripts\InterfaceItem.cs" />
     <Compile Include="Assets\Scripts\LootInfo.cs" />
+    <Compile Include="Assets\Scripts\Interchange\SectorObjectTransferData.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\IKHands.cs" />
     <Compile Include="Assets\Scripts\Control\CameraController.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerMachine.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Assets\Scripts\Weapon\RangedWeapon.cs" />
     <Compile Include="Assets\ExplosiveLLC\Demo Elements\Code\HighJumpTrampoline.cs" />
     <Compile Include="Assets\Scripts\Supply\MedicalBandage.cs" />
+    <Compile Include="Assets\Scripts\Interchange\LocationTransferData.cs" />
     <Compile Include="Assets\Scripts\NearObjects.cs" />
     <Compile Include="Assets\Scripts\Interchange\InventoryTransferData.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollisionType.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Jump.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Weapon\SwitchWeapon.cs" />
     <Compile Include="Assets\Scripts\TacticalItem.cs" />
+    <Compile Include="Assets\Scripts\Interchange\SectorTransferData.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\EquipmentCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
