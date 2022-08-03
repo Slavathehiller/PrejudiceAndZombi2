@@ -8,7 +8,7 @@ public class LongTube : Item
     {
         base.Awake();
         Name = "Длинная труба";
-        prefab = prefabsController.ductTape;
+        prefab = prefabsController.longTube;
     }
 }
 

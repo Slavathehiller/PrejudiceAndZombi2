@@ -66,4 +66,7 @@ MonoBehaviour:
   sneakers: {fileID: 374621034142412917, guid: 9a02f52828e02f141925e64ceb40c620, type: 3}
   sector: {fileID: 5056800140518977106, guid: dceb9ecd2e1bf8c4abbb2fa4358e822f, type: 3}
   bank: {fileID: 2318310303190794821, guid: 469d60c8c9d8c9e4c9ed05a9f1be3b7c, type: 3}
+  gasStation: {fileID: 5618748492921600525, guid: af15cd352e8de7e4f9fb5102103ac38f, type: 3}
+  lowRiseBuilding: {fileID: 1091869977876617901, guid: ebd29afd3c6234449829a2063c70d543, type: 3}
+  carRepair: {fileID: 3256143876195137830, guid: 6f0f4ac9156c9164589bf932afefbbc2, type: 3}
   highOffice: {fileID: 6043502910054152096, guid: ee7eeed9831e0144c847fe11130dff7c, type: 3}

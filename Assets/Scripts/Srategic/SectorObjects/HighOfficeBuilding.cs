@@ -8,41 +8,33 @@ public class HighOfficeBuilding : SectorObject
     void Start()
     {
         prefab = prefabsController.highOffice;
-        loot = new Loot[10]
+        loot = new Loot[8]
         {   
             new Loot()
             {
-                prefab = prefabsController.kitchenKnife,
-                chance = 3000f
+                prefab = prefabsController.ductTape,
+                chance = 15f
             },
             new Loot()
             {
-                prefab = prefabsController.homemade_pistol,
-                chance = 30f
+                prefab = prefabsController.kitchenKnife,
+                chance = 5f
             },
                 new Loot(){
-                prefab = prefabsController.ductTape,
-                chance = 30f
+                prefab = prefabsController.simpleShirt,
+                chance = 3f
             },
                 new Loot(){
                 prefab = prefabsController.shortTube,
-                chance = 20f
+                chance = 10
             },
             new Loot(){
                 prefab = prefabsController.sneakers,
-                chance = 30000f
+                chance = 3f
             },
             new Loot(){
                 prefab = prefabsController.leatherJacket,
-                chance = 30000f
-            },
-            new Loot(){
-                prefab = prefabsController.constructionHelmet,
-                chance = 30000f
-            },
-            new Loot(){
-                prefab = prefabsController.armWindings,
-                chance = 30000f
+                chance = 2f
             },
                 new Loot(){
                 prefab = prefabsController.metalScrap,

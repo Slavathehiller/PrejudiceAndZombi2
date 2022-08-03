@@ -28,6 +28,9 @@ public class PrefabsController : MonoBehaviour
     public GameObject sneakers;
     public GameObject sector;
     public GameObject bank;
+    public GameObject gasStation;
+    public GameObject lowRiseBuilding;
+    public GameObject carRepair;
     public GameObject highOffice;
 
     // Start is called before the first frame update

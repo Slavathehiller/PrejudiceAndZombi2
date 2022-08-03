@@ -27,48 +27,19 @@ public class Bank : SectorObject
     void Start()
     {
         prefab = prefabsController.bank;
-        loot = new Loot[12]
+        loot = new Loot[5]
         {
-            new Loot()
-            {
-                prefab = prefabsController.homemade_pistol,
-                chance = 30000f
-            },
             new Loot(){
                 prefab = prefabsController.Bullet_9x18,
-                chance = 30000f
-            },
-            new Loot(){
-                prefab = prefabsController.leatherJacket,
-                chance = 7f
+                chance = 2f
             },
             new Loot(){
                 prefab = prefabsController.ductTape,
-                chance = 30f
-            },
-            new Loot(){
-                prefab = prefabsController.shortTube,
-                chance = 30f
-            },
-            new Loot(){
-                prefab = prefabsController.longTube,
-                chance = 20f
-            },
-            new Loot(){
-                prefab = prefabsController.simpleJeans,
-                chance = 400f
-            },
-            new Loot(){
-                prefab = prefabsController.simpleBelt,
-                chance = 40000f
+                chance = 15f
             },
             new Loot(){
                 prefab = prefabsController.constructionHelmet,
-                chance = 3f
-            },
-            new Loot(){
-                prefab = prefabsController.simpleJeans,
-                chance = 400f
+                chance = 2f
             },
             new Loot(){
                 prefab = prefabsController.metalScrap,

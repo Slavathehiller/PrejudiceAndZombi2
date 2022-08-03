@@ -46,7 +46,7 @@ public class Sector : MonoBehaviour
     }
 
 
-    public  void BecameCurrent()
+    public void BecameCurrent()
     {
         selector.transform.SetParent(gameObject.transform);
         selector.transform.localPosition = Vector3.zero;
