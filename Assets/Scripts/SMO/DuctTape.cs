@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DuctTape : Item
+public sealed class DuctTape : Item
 {
     protected override void Awake()
     {

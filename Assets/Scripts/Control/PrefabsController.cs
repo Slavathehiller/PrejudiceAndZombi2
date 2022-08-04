@@ -14,6 +14,9 @@ public class PrefabsController : MonoBehaviour
     public GameObject homemade_SMG_magazine;
     public GameObject homemade_pistol;
     public GameObject homemade_pistol_magazine;
+    public GameObject hammer;
+    public GameObject pliers;
+    public GameObject file;
     public GameObject metalScrap;
     public GameObject wood;
     public GameObject ductTape;
@@ -31,6 +34,10 @@ public class PrefabsController : MonoBehaviour
     public GameObject gasStation;
     public GameObject lowRiseBuilding;
     public GameObject carRepair;
+    public GameObject hospital;
+    public GameObject policeStation;
+    public GameObject largeSpring;
+    public GameObject smallSpring;
     public GameObject highOffice;
 
     // Start is called before the first frame update

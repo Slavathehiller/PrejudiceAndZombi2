@@ -52,6 +52,9 @@ MonoBehaviour:
   homemade_SMG_magazine: {fileID: 4771003902370829215, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}
   homemade_pistol: {fileID: 6370759519570145756, guid: 32eea54338ce60940a0cbea16cd81e26, type: 3}
   homemade_pistol_magazine: {fileID: 7377246721328312320, guid: 8a7738f8ce9c2a24d95bcea30593ee6c, type: 3}
+  hammer: {fileID: 8726154997822580514, guid: fefd6d077af72cf439e3b23b7f1a92b2, type: 3}
+  pliers: {fileID: 3067738264850347001, guid: 344770fe98c524a45beff9e08abf41dc, type: 3}
+  file: {fileID: 7402192682680048215, guid: 9cbe11f8c98295847923a4e84bd9909e, type: 3}
   metalScrap: {fileID: 7874359993123634725, guid: e54fedd71198def409966c2390e7693f, type: 3}
   wood: {fileID: 7874359993123634725, guid: 4e23f5989e8270541b425b1508b88e36, type: 3}
   ductTape: {fileID: 7874359993123634725, guid: 7e0b5cd1c438cbf46bb8cebc7de0dc8c, type: 3}
@@ -69,4 +72,8 @@ MonoBehaviour:
   gasStation: {fileID: 5618748492921600525, guid: af15cd352e8de7e4f9fb5102103ac38f, type: 3}
   lowRiseBuilding: {fileID: 1091869977876617901, guid: ebd29afd3c6234449829a2063c70d543, type: 3}
   carRepair: {fileID: 3256143876195137830, guid: 6f0f4ac9156c9164589bf932afefbbc2, type: 3}
+  hospital: {fileID: 1940538326309293471, guid: 333515a8ff1df54419712491ddb01914, type: 3}
+  policeStation: {fileID: 1210793415741097959, guid: c53349949693e9f42bcf7d056b3da1e4, type: 3}
+  largeSpring: {fileID: 3448458377518782437, guid: d521d8ae5cab78b49938517f38c0dfe0, type: 3}
+  smallSpring: {fileID: 3142453316451613416, guid: 8445b75e1433bf64e97474b0202be122, type: 3}
   highOffice: {fileID: 6043502910054152096, guid: ee7eeed9831e0144c847fe11130dff7c, type: 3}

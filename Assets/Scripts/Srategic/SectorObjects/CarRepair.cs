@@ -13,7 +13,7 @@ public class CarRepair : SectorObject
     void Start()
     {
         prefab = prefabsController.carRepair;
-        loot = new Loot[7]
+        loot = new Loot[12]
         {
             new Loot()
             {
@@ -38,6 +38,26 @@ public class CarRepair : SectorObject
             },
                 new Loot(){
                 prefab = prefabsController.simpleJeans,
+                chance = 3f
+            },
+                new Loot(){
+                prefab = prefabsController.smallSpring,
+                chance = 10f
+            },
+                new Loot(){
+                prefab = prefabsController.largeSpring,
+                chance = 10f
+            },
+                new Loot(){
+                prefab = prefabsController.hammer,
+                chance = 3f
+            },
+                new Loot(){
+                prefab = prefabsController.pliers,
+                chance = 3f
+            },
+                new Loot(){
+                prefab = prefabsController.file,
                 chance = 3f
             },
             new Loot(){

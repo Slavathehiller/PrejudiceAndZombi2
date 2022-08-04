@@ -13,7 +13,7 @@ public class LowRiseBuilding : SectorObject
     void Start()
     {
         prefab = prefabsController.lowRiseBuilding;
-        loot = new Loot[8]
+        loot = new Loot[9]
         {
             new Loot()
             {
@@ -43,6 +43,10 @@ public class LowRiseBuilding : SectorObject
             new Loot(){
                 prefab = prefabsController.leatherJacket,
                 chance = 3f
+            },
+            new Loot(){
+                prefab = prefabsController.hammer,
+                chance = 2f
             },
                 new Loot(){
                 prefab = prefabsController.ductTape,
