@@ -6,5 +6,5 @@ Assets/AutoSave/**
 /[Uu]ser[Ss]ettings/
 
 .vs/
-Library/**
-Logs/**
+/Library/**
+/Logs/**

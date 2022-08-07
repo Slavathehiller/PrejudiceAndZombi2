@@ -20,6 +20,14 @@ public class BaseEntityS : MonoBehaviour
             return Stats.Perceprion + Stats.Intellect / 3;
         }
     }
+
+    public float HealthRestoreRatio
+    {
+        get
+        {
+            return Stats.Constitution / 50;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

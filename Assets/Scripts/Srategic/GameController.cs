@@ -180,6 +180,11 @@ public class GameController : MonoBehaviour
             if (panel.activeSelf)
                 UIInact = true;
         }
+        var ticker = GetComponent<Ticker>();
+        var indicator = GetComponent<CharacterStateIndicator>();
+        indicator.RefreshIndicators();
+        ticker.Tick += character.RefreshConditions;
+        ticker.Tick += indicator.RefreshIndicators;        
     }
 
     void Update()

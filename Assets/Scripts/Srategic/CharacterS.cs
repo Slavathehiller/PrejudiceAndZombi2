@@ -16,6 +16,25 @@ public class CharacterS : BaseEntityS, ICharacter
 
     public PrefabsController prefabsController => _prefabsController;
 
+    public float MaxHealth
+    {
+        get
+        {
+            return Stats.MaxHealth;
+        }
+    }
+
+    public float CurrentHealth
+    {
+        get
+        {
+            return Stats.CurrentHealth;
+        }
+        set
+        {
+            Stats.CurrentHealth = Mathf.Clamp(value, 0, MaxHealth);
+        }
+    }
     Inventory ICharacter.inventory
     {
         get
@@ -31,7 +50,7 @@ public class CharacterS : BaseEntityS, ICharacter
         {
             inStrength = 4,
             inDexterity = 10,
-            inAgility = 20,
+            inAgility = 10,
             inConstitution = 5,
             inIntellect = 8,
             inConcentration = 11,
@@ -123,6 +142,12 @@ public class CharacterS : BaseEntityS, ICharacter
             }
         }
         return null;
+    }
+
+    public void RefreshConditions()
+    {
+        if(CurrentHealth < MaxHealth)
+            CurrentHealth += HealthRestoreRatio;
     }
 
     public void RemoveFromNearObjects(ItemReference item, bool hideGameObject = false){}

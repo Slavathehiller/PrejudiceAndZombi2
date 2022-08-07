@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.36f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="D:\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Weapon\WeaponMagazine.cs" />
@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Interchange\RangedWeaponTransferData.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterInputController.cs" />
     <Compile Include="Assets\Scripts\Equipment\InventoryEquipmentItem.cs" />
+    <Compile Include="Assets\Scripts\SMO\LargeSpring.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\Attack.cs" />
     <Compile Include="Assets\Scripts\Equipment\Sneakers.cs" />
     <Compile Include="Assets\Scripts\ItemReference.cs" />
@@ -107,15 +108,19 @@
     <Compile Include="Assets\ExplosiveLLC\Demo Elements\Code\HighJumpTrampoline.cs" />
     <Compile Include="Assets\Scripts\Supply\MedicalBandage.cs" />
     <Compile Include="Assets\Scripts\Interchange\LocationTransferData.cs" />
+    <Compile Include="Assets\Scripts\Srategic\SectorObjects\Hospital.cs" />
     <Compile Include="Assets\Scripts\NearObjects.cs" />
     <Compile Include="Assets\Scripts\Interchange\InventoryTransferData.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollisionType.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Math3d.cs" />
+    <Compile Include="Assets\Scripts\Srategic\SectorObjects\PoliceStation.cs" />
     <Compile Include="Assets\Scripts\SMO\Ammo\HM_smg_magazine.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\AnimationData.cs" />
+    <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\Scripts\Srategic\SectorObjects\CarRepair.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterNavigationController.cs" />
     <Compile Include="Assets\Scripts\Srategic\SectorObjects\Bank.cs" />
+    <Compile Include="Assets\Scripts\SMO\SmallSpring.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Jump.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Weapon\SwitchWeapon.cs" />
     <Compile Include="Assets\Scripts\TacticalItem.cs" />
@@ -146,6 +151,7 @@
     <Compile Include="Assets\Scripts\Interchange\WeaponMagazineTransferData.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerInputController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\MovementActionHandler.cs" />
+    <Compile Include="Assets\Scripts\Tools\Pliers.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Move.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerCamera.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityStates.cs" />
@@ -161,6 +167,7 @@
     <Compile Include="Assets\Scripts\Weapon\HomemadePistol.cs" />
     <Compile Include="Assets\Scripts\ShowEntityInfo.cs" />
     <Compile Include="Assets\Scripts\SMO\Wood.cs" />
+    <Compile Include="Assets\Scripts\Tools\File.cs" />
     <Compile Include="Assets\Scripts\Srategic\SectorObjects\HighOfficeBuilding.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\SackCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\GetHit.cs" />
@@ -189,15 +196,10 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
-    <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Srategic\SectorObjects\Hospital.cs" />
-    <Compile Include="Assets\Scripts\Srategic\SectorObjects\PoliceStation.cs" />
-    <Compile Include="Assets\Scripts\SMO\LargeSpring.cs" />
-    <Compile Include="Assets\Scripts\SMO\SmallSpring.cs" />
-    <Compile Include="Assets\Scripts\Tools\Tool.cs" />
     <Compile Include="Assets\Scripts\Tools\Hammer.cs" />
-    <Compile Include="Assets\Scripts\Tools\Pliers.cs" />
-    <Compile Include="Assets\Scripts\Tools\File.cs" />
+    <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
+    <Compile Include="Assets\Scripts\Srategic\CharacterStateIndicator.cs" />
+    <Compile Include="Assets\Scripts\Srategic\Ticker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />
