@@ -1,5 +1,6 @@
 using Assets.Scripts;
 using Assets.Scripts.Interchange;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -28,6 +29,11 @@ public class GameController : MonoBehaviour
     public GameObject sectorPanel;
     public GameObject inventoryContainer;
     public GameObject sectorContainer;
+
+    private Ticker _ticker;
+
+    public Text dateIndicator;
+    private DateTime _currentDateTime;
 
     public Text armorText;
     public Text SectorObjectName;
@@ -159,9 +165,23 @@ public class GameController : MonoBehaviour
                 sec.BecameCurrentInstant();
         }
     }
+
+    public void RefreshDateTime()
+    {
+        _currentDateTime = _currentDateTime.AddMinutes(1);
+        dateIndicator.text = _currentDateTime.ToString("dd.MM.yyyy HH:mm");
+    }
+
     void Start()
     {
-        if (Global.lastStateOnLoad == StateOnLoad.LoadFroomTactic)
+        if (Global.lastStateOnLoad == StateOnLoad.StartGame)
+        {
+            DateTime dateTime = new DateTime();
+            dateTime = dateTime.AddYears(2047);
+            dateTime = dateTime.AddMonths(3);
+            _currentDateTime = dateTime;
+        }
+        if (Global.lastStateOnLoad == StateOnLoad.LoadFromTactic)
         {
             Global.ReloadCharacter(character);
             LoadSectors();
@@ -173,18 +193,19 @@ public class GameController : MonoBehaviour
                 AddItemsToSector(CurrentSector, Global.Loot);
                 Global.Loot = null;
             }
-        }
+        }       
         RefreshSectorData();
         foreach(var panel in Panels)
         {
             if (panel.activeSelf)
                 UIInact = true;
         }
-        var ticker = GetComponent<Ticker>();
+        _ticker = GetComponent<Ticker>();
         var indicator = GetComponent<CharacterStateIndicator>();
         indicator.RefreshIndicators();
-        ticker.Tick += character.RefreshConditions;
-        ticker.Tick += indicator.RefreshIndicators;        
+        _ticker.Tick += RefreshDateTime;
+        _ticker.Tick += character.RefreshConditions;
+        _ticker.Tick += indicator.RefreshIndicators;        
     }
 
     void Update()
@@ -241,6 +262,22 @@ public class GameController : MonoBehaviour
         Global.character = character.TransferData;
         Global.lastStateOnLoad = StateOnLoad.LoadFromStrategy;
         SceneManager.LoadScene("TacticScene");
+    }
+
+    public void SetPause(bool isChecked)
+    {
+        if(isChecked)
+            _ticker.SetTimeScale(TimeScale.Pause);
+    }
+    public void SetNormal(bool isChecked)
+    {
+        if (isChecked)
+            _ticker.SetTimeScale(TimeScale.Normal);
+    }
+    public void SetFast(bool isChecked)
+    {
+        if (isChecked)
+            _ticker.SetTimeScale(TimeScale.Fast);
     }
 
 }

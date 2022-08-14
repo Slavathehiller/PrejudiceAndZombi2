@@ -5,7 +5,7 @@ public enum StateOnLoad
 {
     StartGame  = 0,
     LoadFromStrategy = 1,
-    LoadFroomTactic = 2
+    LoadFromTactic = 2
 }
 public static class Global
 {

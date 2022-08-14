@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TimeScale
+{
+    Pause = 0,
+    Normal = 1,
+    Fast =  60
+} 
 public class Ticker : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
-    {
-        StartCoroutine(Ticking());
+    {   
+        SetTimeScale(TimeScale.Normal);
     }
 
     // Update is called once per frame
@@ -20,13 +26,22 @@ public class Ticker : MonoBehaviour
 
     public event TickEvent Tick;
 
-    IEnumerator Ticking()
+    private IEnumerator Ticking(TimeScale timing)
     {
         do
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1 / (float)timing);
             Tick?.Invoke();
         }
         while (true);
+    }
+
+    public void SetTimeScale(TimeScale timing)
+    {
+        StopAllCoroutines();
+        if (timing != TimeScale.Pause)
+        {  
+            StartCoroutine(Ticking(timing));
+        }
     }
 }

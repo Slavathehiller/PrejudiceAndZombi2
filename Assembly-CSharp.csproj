@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Interchange\RangedWeaponTransferData.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterInputController.cs" />
     <Compile Include="Assets\Scripts\Equipment\InventoryEquipmentItem.cs" />
+    <Compile Include="Assets\Scripts\Srategic\CharacterStateIndicator.cs" />
     <Compile Include="Assets\Scripts\SMO\LargeSpring.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\Attack.cs" />
     <Compile Include="Assets\Scripts\Equipment\Sneakers.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\SlowTime.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\ArmorCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Navigation.cs" />
+    <Compile Include="Assets\Scripts\Srategic\Ticker.cs" />
     <Compile Include="Assets\Scripts\EquipmentItem.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BruteForceMesh.cs" />
     <Compile Include="Assets\Scripts\Srategic\SectorObjects\GasStation.cs" />
@@ -198,8 +200,6 @@
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Tools\Hammer.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Srategic\CharacterStateIndicator.cs" />
-    <Compile Include="Assets\Scripts\Srategic\Ticker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />
