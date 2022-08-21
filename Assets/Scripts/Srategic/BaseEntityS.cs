@@ -28,6 +28,13 @@ public class BaseEntityS : MonoBehaviour
             return Stats.Constitution / 50;
         }
     }
+    public float EnergyRestoreRatio
+    {
+        get
+        {
+            return Stats.Constitution / 40;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

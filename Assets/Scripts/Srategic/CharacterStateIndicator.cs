@@ -9,6 +9,7 @@ public class CharacterStateIndicator : MonoBehaviour
 
     [SerializeField] private CharacterS _character;
     [SerializeField] private Image _health;
+    [SerializeField] private Image _energy;
     void Start()
     {
         
@@ -22,5 +23,6 @@ public class CharacterStateIndicator : MonoBehaviour
     public void RefreshIndicators()
     {
         _health.fillAmount = _character.CurrentHealth / _character.MaxHealth;
+        _energy.fillAmount = _character.CurrentEnergy / _character.MaxEnergy;
     }
 }

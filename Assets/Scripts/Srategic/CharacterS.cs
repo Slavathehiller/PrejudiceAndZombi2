@@ -16,11 +16,35 @@ public class CharacterS : BaseEntityS, ICharacter
 
     public PrefabsController prefabsController => _prefabsController;
 
+    public float SearchEnergyCost
+    {
+        get
+        {
+            return 3f;
+        }
+    }
+
+    public float BattleEnergyCost
+    {
+        get
+        {
+            return 10f;
+        }
+    }
+
     public float MaxHealth
     {
         get
         {
             return Stats.MaxHealth;
+        }
+    }
+
+    public float MaxEnergy
+    {
+        get
+        {
+            return Stats.MaxEnergy;
         }
     }
 
@@ -33,6 +57,18 @@ public class CharacterS : BaseEntityS, ICharacter
         set
         {
             Stats.CurrentHealth = Mathf.Clamp(value, 0, MaxHealth);
+        }
+    }
+
+    public float CurrentEnergy
+    {
+        get
+        {
+            return Stats.CurrentEnergy;
+        }
+        set
+        {
+            Stats.CurrentEnergy = Mathf.Clamp(value, 0, MaxEnergy);
         }
     }
     Inventory ICharacter.inventory
@@ -48,15 +84,16 @@ public class CharacterS : BaseEntityS, ICharacter
     {
         Stats = new EntityStats()
         {
-            inStrength = 4,
+            inStrength = 3,
             inDexterity = 10,
             inAgility = 10,
-            inConstitution = 5,
+            inConstitution = 1,
             inIntellect = 8,
-            inConcentration = 11,
+            inConcentration = 10,
             inPerception = 6
         };
         Stats.CurrentHealth = Stats.MaxHealth;
+        Stats.CurrentEnergy = Stats.MaxEnergy;
     }
 
     public float armor
@@ -103,7 +140,7 @@ public class CharacterS : BaseEntityS, ICharacter
         if (!gameController.isLocked())        
             gameController.FindProcess();       
     }
-
+    
     private void findProcess()
     {
         var loot = Find();
@@ -121,6 +158,7 @@ public class CharacterS : BaseEntityS, ICharacter
         {
             gameController.ShowMessage("Вы ничего не нашли");
         }
+        CurrentEnergy -= SearchEnergyCost;
         var findChanceDecrease = Mathf.Max(20 - Observation, 1);
         gameController.CurrentSector.sectorObject.findChance -= Mathf.Round(Mathf.Clamp(findChanceDecrease, findChanceDecrease, gameController.CurrentSector.sectorObject.findChance));
         gameController.RefreshSectorData();
@@ -148,6 +186,8 @@ public class CharacterS : BaseEntityS, ICharacter
     {
         if(CurrentHealth < MaxHealth)
             CurrentHealth += HealthRestoreRatio;
+        if (CurrentEnergy < MaxEnergy)
+            CurrentEnergy += EnergyRestoreRatio;
     }
 
     public void RemoveFromNearObjects(ItemReference item, bool hideGameObject = false){}

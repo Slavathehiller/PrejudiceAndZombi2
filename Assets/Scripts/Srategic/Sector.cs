@@ -42,6 +42,7 @@ public class Sector : MonoBehaviour
     {
         if (gameController.UIInact)
             return;
+        gameController.SetTimeNormal();
         BecameCurrent();
     }
 

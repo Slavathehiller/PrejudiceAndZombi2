@@ -29,6 +29,9 @@ public class GameController : MonoBehaviour
     public GameObject sectorPanel;
     public GameObject inventoryContainer;
     public GameObject sectorContainer;
+    public Image sectorObjectImage;
+    [SerializeField]
+    private Toggle SetTimeNormalButton;
 
     private Ticker _ticker;
 
@@ -65,6 +68,7 @@ public class GameController : MonoBehaviour
 
     public void RefreshSectorData()
     {
+        sectorObjectImage.sprite = CurrentSector.sectorObject.image;
         sectorFindChance.text = CurrentSector.sectorObject.findChance.ToString() + " %";
         SectorObjectName.text = CurrentSector.sectorObject.Name;
         findSlider.value = 0;
@@ -149,7 +153,13 @@ public class GameController : MonoBehaviour
     }
 
     public void FindProcess()
-    {
+    {        
+        if (character.CurrentEnergy < character.SearchEnergyCost)
+        {
+            ShowMessage("Недостаточно энергии");
+            return;
+        }
+        SetTimeNormal();
         RefreshSectorData();
         findResult = false;
         isFinding = true;
@@ -184,6 +194,7 @@ public class GameController : MonoBehaviour
         if (Global.lastStateOnLoad == StateOnLoad.LoadFromTactic)
         {
             Global.ReloadCharacter(character);
+            character.CurrentEnergy -= character.BattleEnergyCost;
             LoadSectors();
             AddItemsToPlayerSack(Global.character.Sack);
 
@@ -264,20 +275,25 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("TacticScene");
     }
 
-    public void SetPause(bool isChecked)
+    public void SetTimePause(bool isChecked)
     {
         if(isChecked)
             _ticker.SetTimeScale(TimeScale.Pause);
     }
-    public void SetNormal(bool isChecked)
+    public void SetTimeNormal(bool isChecked)
     {
         if (isChecked)
             _ticker.SetTimeScale(TimeScale.Normal);
     }
-    public void SetFast(bool isChecked)
+    public void SetTimeFast(bool isChecked)
     {
         if (isChecked)
             _ticker.SetTimeScale(TimeScale.Fast);
+    }
+
+    public void SetTimeNormal()
+    {
+        SetTimeNormalButton.isOn = true;
     }
 
 }

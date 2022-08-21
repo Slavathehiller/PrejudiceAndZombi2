@@ -50,6 +50,7 @@ MonoBehaviour:
   sack: []
   Name: "\u0411\u0430\u043D\u043A"
   prefab: {fileID: 0}
+  image: {fileID: 21300000, guid: 57cb58e3bc188e94e996abceff2dd7bf, type: 3}
   findChance: 100
   prefabsController: {fileID: 196478850168635760, guid: 58c2b719a7cd10b4bb499d52f857a98c, type: 3}
 --- !u!1 &2318651991378704221

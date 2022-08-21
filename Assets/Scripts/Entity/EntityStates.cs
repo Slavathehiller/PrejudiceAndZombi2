@@ -22,7 +22,19 @@ public class EntityStats
         }
     }
 
+    public float MaxEnergy
+    {
+        get
+        {
+            var result = Strength * 3 + Constitution * 4;
+
+            return result;
+        }
+    }
+
     public float CurrentHealth { get; set; }
+
+    public float CurrentEnergy { get; set; }
 
     public float Strength
     {

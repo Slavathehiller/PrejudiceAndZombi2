@@ -17,6 +17,7 @@ public abstract class SectorObject : MonoBehaviour
     public List<ItemReference> sack = new List<ItemReference>();
     public string Name;
     public GameObject prefab;
+    public Sprite image;
 
     public float findChance = 100f;
 
