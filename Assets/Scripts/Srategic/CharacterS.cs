@@ -94,6 +94,8 @@ public class CharacterS : BaseEntityS, ICharacter
         };
         Stats.CurrentHealth = Stats.MaxHealth;
         Stats.CurrentEnergy = Stats.MaxEnergy;
+        Food = 100;
+        Water = 100;
     }
 
     public float armor
@@ -188,6 +190,8 @@ public class CharacterS : BaseEntityS, ICharacter
             CurrentHealth += HealthRestoreRatio;
         if (CurrentEnergy < MaxEnergy)
             CurrentEnergy += EnergyRestoreRatio;
+        Food -= HungerIncreaseRatio;
+        Water -= ThirstIncreaseRatio;
     }
 
     public void RemoveFromNearObjects(ItemReference item, bool hideGameObject = false){}

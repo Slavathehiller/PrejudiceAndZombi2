@@ -36,6 +36,10 @@ public class EntityStats
 
     public float CurrentEnergy { get; set; }
 
+    public float Food { get; set; }
+
+    public float Water { get; set; }
+
     public float Strength
     {
         get

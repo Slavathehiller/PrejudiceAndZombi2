@@ -4,16 +4,16 @@ public class LowRiseBuilding : SectorObject
 {
     private void Awake()
     {
-        mandatoryLoot = new GameObject[0]
+        mandatoryLoot = new GameObject[1]
         {
-
+            prefab = prefabsController.apple
         };
     }
     // Start is called before the first frame update
     void Start()
     {
         prefab = prefabsController.lowRiseBuilding;
-        loot = new Loot[9]
+        loot = new Loot[10]
         {
             new Loot()
             {
@@ -47,6 +47,10 @@ public class LowRiseBuilding : SectorObject
             new Loot(){
                 prefab = prefabsController.hammer,
                 chance = 2f
+            },
+            new Loot(){
+                prefab = prefabsController.apple,
+                chance = 5f
             },
                 new Loot(){
                 prefab = prefabsController.ductTape,
