@@ -78,3 +78,5 @@ MonoBehaviour:
   smallSpring: {fileID: 3142453316451613416, guid: 8445b75e1433bf64e97474b0202be122, type: 3}
   highOffice: {fileID: 6043502910054152096, guid: ee7eeed9831e0144c847fe11130dff7c, type: 3}
   apple: {fileID: 7874359993123634725, guid: 4e6d83c1cf334b94a970e9620a2df7ad, type: 3}
+  bottleOfWater: {fileID: 7874359993123634725, guid: 12c397b4b548ae6489a2083bfc957d7e, type: 3}
+  bottle: {fileID: 7874359993123634725, guid: 4faa88dc54da00f459d50231595a3833, type: 3}

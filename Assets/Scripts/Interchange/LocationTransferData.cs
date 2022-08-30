@@ -12,5 +12,6 @@ namespace Assets.Scripts.Interchange
         public string SceneName;
         public IEnumerable<SectorTransferData> sectors;
         public Vector3 currentSectorPosition;
+        public DateTime currentDateTime;
     }
 }

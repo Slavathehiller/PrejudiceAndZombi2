@@ -84,6 +84,7 @@ public class GameController : MonoBehaviour
         {
             return new LocationTransferData()
             {
+                currentDateTime = _currentDateTime,
                 SceneName = _templateName,
                 sectors = new List<SectorTransferData>(FindObjectsOfType<Sector>().Select(x => x.TransferData)),
                 currentSectorPosition = CurrentSector.transform.position
@@ -196,6 +197,8 @@ public class GameController : MonoBehaviour
             Global.ReloadCharacter(character);
             character.CurrentEnergy -= character.BattleEnergyCost;
             LoadSectors();
+            _currentDateTime = Global.locationTransferData.currentDateTime;
+
             AddItemsToPlayerSack(Global.character.Sack);
 
             if (Global.Loot != null)
@@ -204,15 +207,17 @@ public class GameController : MonoBehaviour
                 AddItemsToSector(CurrentSector, Global.Loot);
                 Global.Loot = null;
             }
-        }       
+        }
+        var indicator = GetComponent<CharacterStateIndicator>();
+        RefreshDateTime();
         RefreshSectorData();
-        foreach(var panel in Panels)
+        indicator.RefreshIndicators();
+        foreach (var panel in Panels)
         {
             if (panel.activeSelf)
                 UIInact = true;
         }
-        _ticker = GetComponent<Ticker>();
-        var indicator = GetComponent<CharacterStateIndicator>();
+        _ticker = GetComponent<Ticker>();       
         indicator.RefreshIndicators();
         _ticker.Tick += RefreshDateTime;
         _ticker.Tick += character.RefreshConditions;

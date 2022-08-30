@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Equipment\InventoryEquipmentItem.cs" />
     <Compile Include="Assets\Scripts\Srategic\CharacterStateIndicator.cs" />
     <Compile Include="Assets\Scripts\SMO\LargeSpring.cs" />
+    <Compile Include="Assets\Scripts\Consumable\Consumable.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\Attack.cs" />
     <Compile Include="Assets\Scripts\Equipment\Sneakers.cs" />
     <Compile Include="Assets\Scripts\ItemReference.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Assets\Scripts\Srategic\SectorObjects\LowRiseBuilding.cs" />
     <Compile Include="Assets\Scripts\Interchange\SectorTransferData.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\EquipmentCell.cs" />
+    <Compile Include="Assets\Scripts\Consumable\Food.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
     <Compile Include="Assets\Scripts\Interchange\EquipmentItemTransferData.cs" />
@@ -194,15 +196,16 @@
     <Compile Include="Assets\Scripts\Control\InterfaceController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\ActionHandler.cs" />
     <Compile Include="Assets\Scripts\SMO\MetalScrap.cs" />
+    <Compile Include="Assets\Scripts\Consumable\Apple.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\RPGCharacterController.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Tools\Hammer.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Consumable\Apple.cs" />
-    <Compile Include="Assets\Consumable\Consumable.cs" />
-    <Compile Include="Assets\Consumable\Food.cs" />
+    <Compile Include="Assets\Scripts\Consumable\Reservoir\Reservoir.cs" />
+    <Compile Include="Assets\Scripts\Consumable\Reservoir\Bottle.cs" />
+    <Compile Include="Assets\Scripts\Consumable\Reservoir\BottleOfWater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

@@ -40,6 +40,8 @@ public class PrefabsController : MonoBehaviour
     public GameObject smallSpring;
     public GameObject highOffice;
     public GameObject apple;
+    public GameObject bottleOfWater;
+    public GameObject bottle;
 
     // Start is called before the first frame update
     void Start()

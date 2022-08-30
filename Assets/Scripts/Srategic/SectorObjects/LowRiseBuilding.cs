@@ -4,9 +4,10 @@ public class LowRiseBuilding : SectorObject
 {
     private void Awake()
     {
-        mandatoryLoot = new GameObject[1]
+        mandatoryLoot = new GameObject[2]
         {
-            prefab = prefabsController.apple
+            prefab = prefabsController.apple,
+            prefab = prefabsController.bottleOfWater
         };
     }
     // Start is called before the first frame update
