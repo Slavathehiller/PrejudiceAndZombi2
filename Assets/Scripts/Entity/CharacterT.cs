@@ -162,7 +162,6 @@ namespace Assets.Scripts.Entity
 
         }
 
-
         public void Stab()
         {
             if (isActing || currentActionPoint < PunchCost)
@@ -184,7 +183,6 @@ namespace Assets.Scripts.Entity
             yield return new WaitForSeconds(1.84f);
             isActing = false;
         }
-
 
         public void Kick()
         {
@@ -252,6 +250,11 @@ namespace Assets.Scripts.Entity
         public void PickUpItem(ItemReference item)
         {
             _pcontroller.PickUpItem(item);
+        }
+
+        public void DropItem()
+        {
+            DropRightItem();
         }
     }
 }

@@ -13,4 +13,5 @@ public interface ICharacter
     public void RemoveFromRightHand(bool drop);
     public PrefabsController prefabsController { get; }
     public float armor { get; }
+    public void DropItem();
 }

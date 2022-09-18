@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class PrefabsController : MonoBehaviour
 {
+    public Image thingRef;
+    public GameObject popup;
+    public GameObject menuPoint;
     public GameObject kitchenKnife;
     public GameObject medicalBandage;
     public GameObject simpleBullet;
-    public Image thingRef;
     public GameObject Bullet_9x18;
     public GameObject homemade_SMG;
     public GameObject homemade_SMG_magazine;

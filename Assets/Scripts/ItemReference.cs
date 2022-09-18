@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
-public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public GameObject thing;
-    public Item _item;
+    public Item item;
     public Image image;
     public ICharacter character;
     [HideInInspector]
@@ -22,15 +23,17 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     private bool backgroundState;
     public Image background;
 
+    private GameObject popup;
+
     public Item Item
     {
         get
         {
-            if (_item is null)
+            if (item is null)
             {
-                _item = thing.GetComponent<Item>();
+                item = thing.GetComponent<Item>();
             }
-            return _item;
+            return item;
         }
     }
 
@@ -38,7 +41,40 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     {
         rootPanel = GameObject.Find("InventoryPanel");
         canvasGroup = GetComponent<CanvasGroup>();
-        background = GetComponent<Image>();
+        background = GetComponent<Image>();        
+    }
+
+    private void Start()
+    {
+        popup = Instantiate(Item.prefabsController.popup, transform);
+        popup.GetComponent<PopupController>().Init(this, menuCommands);
+    }
+
+    protected virtual MenuPointData[] menuCommands
+    {
+        get
+        {
+            return new MenuPointData[1] {PopupController.CreateMenuPointData("Бросить", Drop, DropEnable) };
+        }
+    }
+
+    private void Drop()
+    {
+        character.DropItem();
+    }
+
+    private bool DropEnable(ItemReference itemRef)
+    {
+        return character.RightHandItem == itemRef.item;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            popup.GetComponent<PopupController>().Popup(rootPanel);
+            eventData.Reset();
+        }
     }
 
     void Update()
@@ -149,6 +185,5 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if (gameObject.transform.parent.GetComponent<PlayerSackCell>() != null || gameObject.transform.parent.GetComponent<SectorSackCell>() != null)
             background.enabled = true;
     }
-
 
 }

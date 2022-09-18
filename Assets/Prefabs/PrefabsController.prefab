@@ -43,10 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c8b236d9b957b4aab83692a57a4794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thingRef: {fileID: 3554941172269810315, guid: 2bc4eb1536d36a84da979ab5ab7cc8db, type: 3}
+  popup: {fileID: 574061962336209986, guid: 551c794b5cb512e46984391de8210ed3, type: 3}
+  menuPoint: {fileID: 7687271173273918927, guid: cbffb9fa479fb4f4d801378a5313943b, type: 3}
   kitchenKnife: {fileID: 5684517173361243158, guid: 0be098424ce737a4a96ea15389f6f0c9, type: 3}
   medicalBandage: {fileID: 4989300813340659701, guid: d4dc6599b098ff5419e6d035764edc64, type: 3}
   simpleBullet: {fileID: 1580074302825496377, guid: b197a25668cd68543aff5f37880d4999, type: 3}
-  thingRef: {fileID: 3554941172269810315, guid: 2bc4eb1536d36a84da979ab5ab7cc8db, type: 3}
   Bullet_9x18: {fileID: 3915313919349057074, guid: d96f87d4da83385418f04cd992b22dd0, type: 3}
   homemade_SMG: {fileID: 792621576135446561, guid: 8fa9847adc66a554ca0872e58d23c08d, type: 3}
   homemade_SMG_magazine: {fileID: 4771003902370829215, guid: ad9613cdba460b540b43aa3e9f242f37, type: 3}

@@ -33,7 +33,7 @@ public class InterfaceController : MonoBehaviour
     public Material RestrictMoveMaterial;
 
     [HideInInspector]
-    public bool UIInact = false;
+    public bool UIInact { get; set; } = false;
 
     [SerializeField]
     private EndBattleInfo _endBattleInfo;

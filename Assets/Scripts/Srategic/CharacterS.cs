@@ -205,4 +205,9 @@ public class CharacterS : BaseEntityS, ICharacter
     {
         _rightHandItem = null;
     }
+
+    public void DropItem()
+    {
+        throw new System.NotImplementedException();
+    }
 }

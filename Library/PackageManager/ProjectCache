@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637935694741076810
-    m_Hash: 3256437927
+      ticks: 637990049662122519
+    m_Hash: 266775017
   m_LockFileStatus:
     m_FilePath: E:/Unity Projects/PrejudiceAndZombi2/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637935694993492391
-    m_Hash: 866948242
+      ticks: 637990049989023898
+    m_Hash: 1252545957
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -179,6 +179,7 @@ m_PackageAssets:
         - 2.6.11
         - 2.6.14
         - 2.6.15
+        - 2.6.17
         - 2.7.1
         - 2.7.2
         - 2.7.3
@@ -195,8 +196,10 @@ m_PackageAssets:
         - 2.8.3
         - 2.8.4
         - 2.8.6
+        - 2.8.9
         - 2.9.0-pre.1
         - 2.9.0-pre.6
+        - 2.9.1
         compatible:
         - 2.5.0
         - 2.6.0-preview.2
@@ -217,6 +220,7 @@ m_PackageAssets:
         - 2.6.11
         - 2.6.14
         - 2.6.15
+        - 2.6.17
         - 2.7.1
         - 2.7.2
         - 2.7.3
@@ -233,9 +237,11 @@ m_PackageAssets:
         - 2.8.3
         - 2.8.4
         - 2.8.6
+        - 2.8.9
         - 2.9.0-pre.1
         - 2.9.0-pre.6
-        verified: 2.6.15
+        - 2.9.1
+        verified: 2.6.17
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -281,12 +287,12 @@ m_PackageAssets:
         url: https://github.com/Unity-Technologies/com.unity.cinemachine.git
         revision: 0eef4802dbe9ea60fc58767471ce4c5ea86632de
         path: 
-    - packageId: com.unity.collab-proxy@1.15.18
+    - packageId: com.unity.collab-proxy@1.17.2
       testable: 0
       isDirectDependency: 1
-      version: 1.15.18
+      version: 1.17.2
       source: 1
-      resolvedPath: E:\Unity Projects\PrejudiceAndZombi2\Library\PackageCache\com.unity.collab-proxy@1.15.18
+      resolvedPath: E:\Unity Projects\PrejudiceAndZombi2\Library\PackageCache\com.unity.collab-proxy@1.17.2
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Version Control
@@ -365,9 +371,6 @@ m_PackageAssets:
         - 2.1.0-preview.5
         - 2.1.0-preview.6
         compatible:
-        - 1.15.18
-        - 1.17.0
-        - 1.17.1
         - 1.17.2
         - 2.0.0-preview.6
         - 2.0.0-preview.8
@@ -379,7 +382,7 @@ m_PackageAssets:
         - 2.1.0-preview.3
         - 2.1.0-preview.5
         - 2.1.0-preview.6
-        verified: 1.15.18
+        verified: 1.17.2
       dependencies:
       - name: com.unity.services.core
         version: 1.0.1
@@ -414,20 +417,20 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637888962690000000
+      datePublishedTicks: 637937432480000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.cloud.collaborate.git
-        revision: 611215dcd30048fa921b4be160048bad4022d65f
+        revision: 14d129dcc778f8ea2fdf9d0240b47924e4f0dbb1
         path: 
-    - packageId: com.unity.ide.rider@2.0.7
+    - packageId: com.unity.ide.rider@3.0.15
       testable: 0
       isDirectDependency: 1
-      version: 2.0.7
+      version: 3.0.15
       source: 1
-      resolvedPath: E:\Unity Projects\PrejudiceAndZombi2\Library\PackageCache\com.unity.ide.rider@2.0.7
+      resolvedPath: E:\Unity Projects\PrejudiceAndZombi2\Library\PackageCache\com.unity.ide.rider@3.0.15
       assetPath: Packages/com.unity.ide.rider
       name: com.unity.ide.rider
       displayName: JetBrains Rider Editor
@@ -507,19 +510,13 @@ m_PackageAssets:
         - 3.0.13
         - 3.0.14
         - 3.0.15
-        verified: 2.0.7
+        verified: 3.0.15
       dependencies:
-      - name: com.unity.test-framework
-        version: 1.1.1
-      resolvedDependencies:
-      - name: com.unity.test-framework
-        version: 1.1.31
       - name: com.unity.ext.nunit
         version: 1.0.6
-      - name: com.unity.modules.imgui
-        version: 1.0.0
-      - name: com.unity.modules.jsonserialize
-        version: 1.0.0
+      resolvedDependencies:
+      - name: com.unity.ext.nunit
+        version: 1.0.6
       keywords: []
       registry:
         id: main
@@ -533,20 +530,20 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637334461080000000
+      datePublishedTicks: 637914298700000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.rider.git
-        revision: abb44f053e9a41d2e00e149e32a19bcec76e98b4
+        revision: b61ff0378932fdf03b5891e09c91728337de674c
         path: 
-    - packageId: com.unity.ide.visualstudio@2.0.15
+    - packageId: com.unity.ide.visualstudio@2.0.16
       testable: 0
       isDirectDependency: 1
-      version: 2.0.15
+      version: 2.0.16
       source: 1
-      resolvedPath: E:\Unity Projects\PrejudiceAndZombi2\Library\PackageCache\com.unity.ide.visualstudio@2.0.15
+      resolvedPath: E:\Unity Projects\PrejudiceAndZombi2\Library\PackageCache\com.unity.ide.visualstudio@2.0.16
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -628,13 +625,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637841884840000000
+      datePublishedTicks: 637914298680000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
-        revision: ca1ece42f5a2c5484ba15a15bb975ccc1f6a1a3c
+        revision: c01855ef6461b821ab0226135e96a4ee86de96be
         path: 
     - packageId: com.unity.ide.vscode@1.2.5
       testable: 0
@@ -3432,4 +3429,4 @@ m_PackageAssets:
   m_LocalPackages:
     m_LocalFileStatus: []
 m_ProjectPath: E:/Unity Projects/PrejudiceAndZombi2/Packages
-m_EditorVersion: 2020.3.36f1 (71f96b79b9f0)
+m_EditorVersion: 2020.3.39f1 (fd6670bb8be9)
