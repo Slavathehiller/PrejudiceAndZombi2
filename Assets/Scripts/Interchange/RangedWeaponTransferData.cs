@@ -19,7 +19,7 @@ namespace Assets.Scripts.Interchange
                 if (newMagazine.extractable)
                 {
                     item.Reload(newMagazine);
-                    item.itemRef.ShowUnloadButton(false);
+                    //item.itemRef.ShowUnloadButton(false);
                 }
                 else
                     item.magazine = newMagazine;

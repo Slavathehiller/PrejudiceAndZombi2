@@ -97,6 +97,7 @@
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\SimpleStateMachine.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Idle.cs" />
     <Compile Include="Assets\Scripts\MeleeAttackResult.cs" />
+    <Compile Include="Assets\Scripts\Control\MenuPoint.cs" />
     <Compile Include="Assets\Scripts\Weapon\KitchenKnife.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Knockback.cs" />
     <Compile Include="Assets\Scripts\Control\LifeController.cs" />
@@ -178,7 +179,7 @@
     <Compile Include="Assets\Scripts\Srategic\SectorObjects\HighOfficeBuilding.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\SackCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\GetHit.cs" />
-    <Compile Include="Assets\Scripts\Consumable\Reservoir\BottleOfWater.cs" />
+    <Compile Include="Assets\Scripts\Consumable\BottleOfWater.cs" />
     <Compile Include="Assets\Scripts\SMO\LongTube.cs" />
     <Compile Include="Assets\Scripts\Control\IInteractable.cs" />
     <Compile Include="Assets\Scripts\Weapon\HomemadeSMG.cs" />
@@ -207,7 +208,6 @@
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Tools\Hammer.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Control\MenuPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

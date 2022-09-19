@@ -19,8 +19,8 @@ namespace Assets.Scripts.Interchange
                 {
                     var tac_item = itemdata.Restore(parent, character);
                     item.cellList[i].PlaceItemToCell(tac_item);
-                    if (tac_item is RangedWeapon)
-                        tac_item.itemRef.ShowUnloadButton(false);
+                    //if (tac_item is RangedWeapon)
+                    //    tac_item.itemRef.ShowUnloadButton(false);
                 }
                 i++;
             }

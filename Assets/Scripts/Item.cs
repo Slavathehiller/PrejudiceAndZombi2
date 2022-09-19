@@ -1,4 +1,6 @@
+using Assets.Scripts.Entity;
 using Assets.Scripts.Interchange;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum SpecType
@@ -28,6 +30,24 @@ public abstract class Item : MonoBehaviour
     static Item()
     {
         defaultSize = new Vector2(30, 30);
+    }
+
+    public virtual List<MenuPointData> menuCommands
+    {
+        get
+        {
+            return new List<MenuPointData>() { PopupController.CreateMenuPointData("Бросить", Drop, DropEnable) };
+        }
+    }
+
+    private void Drop()
+    {
+        itemRef.character.DropItem();
+    }
+
+    private bool DropEnable(Item item)
+    {
+        return item.itemRef.character is CharacterT && item.itemRef.character.RightHandItem == item;
     }
 
     public virtual ItemTransferData TransferData

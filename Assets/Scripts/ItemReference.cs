@@ -1,10 +1,6 @@
-using Assets.Scripts.Entity;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEngine.Events;
 
 public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
@@ -16,7 +12,6 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public GameObject rootPanel;
     public CanvasGroup canvasGroup;
     public GameObject oldParent;
-    public Button unloadButton;
     public Button consumeButton;
     public Text count;
 
@@ -47,25 +42,7 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     private void Start()
     {
         popup = Instantiate(Item.prefabsController.popup, transform);
-        popup.GetComponent<PopupController>().Init(this, menuCommands);
-    }
-
-    protected virtual MenuPointData[] menuCommands
-    {
-        get
-        {
-            return new MenuPointData[1] {PopupController.CreateMenuPointData("Бросить", Drop, DropEnable) };
-        }
-    }
-
-    private void Drop()
-    {
-        character.DropItem();
-    }
-
-    private bool DropEnable(ItemReference itemRef)
-    {
-        return character.RightHandItem == itemRef.item;
+        popup.GetComponent<PopupController>().Init(this, item.menuCommands);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -102,60 +79,6 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public void RemoveFromRightHand()
     {
         character.RemoveFromRightHand(false);
-        ShowUnloadButton(false);
-    }
-
-    public void Unload()
-    {
-        var weapon = thing.GetComponent<TacticalItem>() as RangedWeapon;
-        if(weapon != null && weapon.magazine != null)
-        {
-            if (weapon.magazine.extractable)
-            {
-                if (character is CharacterS)
-                {
-                    (character as CharacterS).gameController.AddItemToPlayerSack(weapon.magazine.itemRef);
-                    weapon.magazine.gameObject.SetActive(false);
-                }
-                weapon.UnloadMagazine();
-            }
-            else
-            {
-                var ammoObject = Ammo.MakeObject(weapon.magazine.CurrentAmmoData);
-                var ammo = ammoObject.GetComponent<TacticalItem>() as Ammo;
-                if (ammo != null)
-                {
-                    if (character is CharacterS)
-                    {
-                        (character as CharacterS).gameController.AddItemToPlayerSack(ammo.itemRef);
-                        ammo.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        ammoObject.transform.SetParent(thing.transform);
-                        ammoObject.transform.localPosition = Vector3.zero;
-                        ammo.Drop();
-                    }
-                    ammo.SetCount(weapon.magazine.CurrentAmmoCount);
-                    weapon.magazine.CurrentAmmoCount = 0;
-                    weapon.itemRef.ShowUnloadButton(false);
-                }
-
-            }
-        }
-    }
-
-    public void ShowUnloadButton(bool on)
-    {
-        if (on)
-        {
-            var weapon = thing.GetComponent<TacticalItem>() as RangedWeapon;
-            unloadButton.gameObject.SetActive(weapon != null && weapon.magazine != null && (weapon.magazine.extractable || weapon.magazine.CurrentAmmoCount > 0));
-        }
-        else
-        {
-            unloadButton.gameObject.SetActive(false);
-        }
     }
 
     public void OnDrag(PointerEventData eventData)

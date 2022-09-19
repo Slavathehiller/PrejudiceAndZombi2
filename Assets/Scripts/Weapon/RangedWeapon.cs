@@ -15,7 +15,7 @@ public class RangedWeapon : BaseWeapon
     public Sprite imageWithoutMagazine;
     public Sprite imageWithMagazine;
     public GameObject magazineModel;
-    public List<WeaponMagazineType> compatibleCartridgeTypes = new List<WeaponMagazineType>();
+    public List<WeaponMagazineType> compatibleMagazineTypes = new List<WeaponMagazineType>();
 
     public override ItemTransferData TransferData
     {
@@ -29,6 +29,58 @@ public class RangedWeapon : BaseWeapon
         }
     }
 
+    public override List<MenuPointData> menuCommands
+    {
+        get
+        {
+            var result = base.menuCommands;
+            result.Add(new MenuPointData() { Caption = "Разрядить", Command = Unload, IsEnabled = UnloadEnabled });
+            return result;
+        }
+    }
+
+    private void Unload()
+    {
+        if (magazine != null)
+        {
+            if (magazine.extractable)
+            {
+                if (itemRef.character is CharacterS)
+                {
+                    (itemRef.character as CharacterS).gameController.AddItemToPlayerSack(magazine.itemRef);
+                    magazine.gameObject.SetActive(false);
+                }
+                UnloadMagazine();
+            }
+            else
+            {
+                var ammoObject = Ammo.MakeObject(magazine.CurrentAmmoData);
+                var ammo = ammoObject.GetComponent<TacticalItem>() as Ammo;
+                if (ammo != null)
+                {
+                    if (itemRef.character is CharacterS)
+                    {
+                        (itemRef.character as CharacterS).gameController.AddItemToPlayerSack(ammo.itemRef);
+                        ammo.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        ammoObject.transform.SetParent(transform);
+                        ammoObject.transform.localPosition = Vector3.zero;
+                        ammo.Drop();
+                    }
+                    ammo.SetCount(magazine.CurrentAmmoCount);
+                    magazine.CurrentAmmoCount = 0;
+                }
+            }
+        }
+    }
+
+    private bool UnloadEnabled(Item item)
+    {        
+        return (itemRef.character is CharacterS || itemRef.character.RightHandItem == item) && magazine != null && (magazine.extractable || magazine.CurrentAmmoCount > 0);
+    }
+
     public bool CanLoad(Ammo ammo)
     {
         return !magazine.extractable && magazine.AcceptableType(ammo.data.type);
@@ -37,12 +89,11 @@ public class RangedWeapon : BaseWeapon
     public void Reload(Ammo ammo)
     {
         magazine.Reload(ammo);
-        itemRef.ShowUnloadButton(true);
     }
 
     public bool CanLoad(WeaponMagazine weaponMagazine)
     {
-        return (magazine == null || magazine.extractable) && compatibleCartridgeTypes.Contains(weaponMagazine.type);
+        return (magazine == null || magazine.extractable) && compatibleMagazineTypes.Contains(weaponMagazine.type);
     }
 
     public void Reload(WeaponMagazine weaponMagazine)
@@ -59,13 +110,11 @@ public class RangedWeapon : BaseWeapon
         magazine.gameObject.SetActive(false);
         magazine.transform.SetParent(magazinePoint);
         magazine.transform.localPosition = Vector3.zero;
-        itemRef.ShowUnloadButton(true);
     }
 
     public void ConsumeAmmo(int num = 1)
     {
         magazine.ConsumeAmmo(num);
-        itemRef.ShowUnloadButton(true);
     }
 
     public bool CanFire()
@@ -102,7 +151,6 @@ public class RangedWeapon : BaseWeapon
             else
                 magazine.Drop();
             magazine = null;
-            itemRef.ShowUnloadButton(false);
         }
     }
 

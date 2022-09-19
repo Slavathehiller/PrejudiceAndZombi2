@@ -14,13 +14,11 @@ public class BottleOfWater : Food
 
     public override void Consume()
     {
-
         if (itemRef.character is CharacterS)
         {   
             var bottle = ItemFactory.CreateItem(prefabsController.bottle).GetComponent<Bottle>();
             (itemRef.character as CharacterS).gameController.AddItemToPlayerSack(bottle.itemRef);
         }
         base.Consume();
-
     }
 }

@@ -30,7 +30,7 @@ public class SackCell : MonoBehaviour, IDropHandler
             oldParentCell.itemIn = null;
             oldParentCell.ShowBackground(true);
         }
-        item.ShowUnloadButton(false);
+        //item.ShowUnloadButton(false);
     }
 
     // Start is called before the first frame update

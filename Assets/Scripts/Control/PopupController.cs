@@ -10,7 +10,7 @@ public struct MenuPointData
 {
     public string Caption { get; set; }
     public UnityAction Command { get; set; }
-    public Predicate<ItemReference> IsEnabled { get; set; }
+    public Predicate<Item> IsEnabled { get; set; }
 }
 
 public class PopupController : MonoBehaviour, IPointerExitHandler
@@ -23,7 +23,7 @@ public class PopupController : MonoBehaviour, IPointerExitHandler
     }
     
     public event Action OnPopup;
-    public static MenuPointData CreateMenuPointData(string caption, UnityAction command, Predicate<ItemReference> isEnabled = null)
+    public static MenuPointData CreateMenuPointData(string caption, UnityAction command, Predicate<Item> isEnabled = null)
     {
         return new MenuPointData { Caption = caption, Command = command, IsEnabled = isEnabled };
     }
@@ -35,19 +35,19 @@ public class PopupController : MonoBehaviour, IPointerExitHandler
         OnPopup?.Invoke();
     }
 
-    public void Init(ItemReference parentItem, MenuPointData[] menuCommands)
+    public void Init(ItemReference parentItem, List<MenuPointData> menuCommands)
     {
         
         ParentItem = parentItem.gameObject;
         transform.localPosition = new Vector3(0, -10, 0);
         foreach(MenuPointData data in menuCommands)
         {
-            AddMenuPoint(data, parentItem);
+            AddMenuPoint(data, parentItem.item);
         }
         gameObject.SetActive(false);
     }
 
-    public void AddMenuPoint(MenuPointData data, ItemReference owner)
+    public void AddMenuPoint(MenuPointData data, Item owner)
     {
         var prefabsController = GameObject.Find("PrefabsController").GetComponent<PrefabsController>();
         var menuPointObj = Instantiate(prefabsController.menuPoint, gameObject.transform);
@@ -56,7 +56,7 @@ public class PopupController : MonoBehaviour, IPointerExitHandler
         button.onClick.AddListener(() => Hide());
         var menuPoint = menuPointObj.GetComponent<MenuPoint>();
         menuPoint.Caption.text = data.Caption;
-        menuPoint.ItemRef = owner;
+        menuPoint.Item = owner;
         if (data.IsEnabled is null)
             menuPoint.CheckIfEnable = (x) => true;
         else

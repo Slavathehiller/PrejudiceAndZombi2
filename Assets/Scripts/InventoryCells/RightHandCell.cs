@@ -57,11 +57,11 @@ public class RightHandCell : ItemCell
         if (item != null)
         {
             item.character.PickUpItem(item);
-            var _thing = item.thing.GetComponent<RangedWeapon>();
-            if (_thing != null)
-            {
-                _thing.itemRef.ShowUnloadButton(true);
-            }
+            //var _thing = item.thing.GetComponent<RangedWeapon>();
+            //if (_thing != null)
+            //{
+            //    _thing.itemRef.ShowUnloadButton(true);
+            //}
         }
     }
 }

@@ -9,24 +9,24 @@ public class MenuPoint : MonoBehaviour
     [SerializeField]private Text caption;
     public Text Caption => caption;
     
-    private ItemReference itemRef;
-    public ItemReference ItemRef 
+    private Item item;
+    public Item Item 
     { 
         get 
         { 
-            return itemRef; 
+            return item; 
         } 
         set
         {
-            itemRef = value;
+            item = value;
         }
     }
 
-    public Predicate<ItemReference> CheckIfEnable;
+    public Predicate<Item> CheckIfEnable;
     public void SetEnable()
     {
         gameObject.SetActive(false);
-        GetComponent<Button>().interactable = CheckIfEnable(itemRef);
+        GetComponent<Button>().interactable = CheckIfEnable(item);
         gameObject.SetActive(true);
     }
 }

@@ -30,7 +30,7 @@ public class NearObjects : MonoBehaviour
         refItem.background.enabled = true;       
         refItem.image.GetComponent<RectTransform>().sizeDelta = Item.defaultSize * 0.7f;
         refItem.canvasGroup.blocksRaycasts = true;
-        refItem.ShowUnloadButton(false);
+        //refItem.ShowUnloadButton(false);
         if (!list.Contains(refItem))
             list.Add(refItem);
     }
