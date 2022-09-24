@@ -78,12 +78,6 @@ public abstract class Item : MonoBehaviour
         itemRef = refItem;
         itemRef.canvasGroup.blocksRaycasts = true;
         itemRef.gameObject.SetActive(false);
-        var consumable = this as Consumable;
-        if (consumable != null)
-        {
-            consumable.itemRef.consumeButton.gameObject.SetActive(true);
-            consumable.itemRef.consumeButton.onClick.AddListener(consumable.Consume);
-        }
     }
 
     private void OnDestroy()

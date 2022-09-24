@@ -12,7 +12,6 @@ public class ItemReference : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public GameObject rootPanel;
     public CanvasGroup canvasGroup;
     public GameObject oldParent;
-    public Button consumeButton;
     public Text count;
 
     private bool backgroundState;

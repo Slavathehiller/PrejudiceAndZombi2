@@ -34,7 +34,7 @@ public class RangedWeapon : BaseWeapon
         get
         {
             var result = base.menuCommands;
-            result.Add(new MenuPointData() { Caption = "Разрядить", Command = Unload, IsEnabled = UnloadEnabled });
+            result.Add(PopupController.CreateMenuPointData("Разрядить", Unload, UnloadEnabled));
             return result;
         }
     }

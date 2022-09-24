@@ -40,7 +40,7 @@ public class Sector : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameController.UIInact)
+        if (gameController.UIInact || gameController.isLocked())
             return;
         gameController.SetTimeNormal();
         BecameCurrent();

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.Scripts;
-public class BottleOfWater : Food
+
+public class BottleOfWater : Liquid
 {
+    public override GameObject Container => prefabsController.bottle;
+
     protected override void Awake()
     {
         base.Awake();
@@ -12,13 +14,5 @@ public class BottleOfWater : Food
         waterRestore = 50f;
     }
 
-    public override void Consume()
-    {
-        if (itemRef.character is CharacterS)
-        {   
-            var bottle = ItemFactory.CreateItem(prefabsController.bottle).GetComponent<Bottle>();
-            (itemRef.character as CharacterS).gameController.AddItemToPlayerSack(bottle.itemRef);
-        }
-        base.Consume();
-    }
+    
 }

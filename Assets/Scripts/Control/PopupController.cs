@@ -31,6 +31,7 @@ public class PopupController : MonoBehaviour, IPointerExitHandler
     public void Popup(GameObject parent)
     {
         transform.SetParent(parent.transform);
+        transform.position = Input.mousePosition + new Vector3(-10, 0, 0);
         gameObject.SetActive(true);
         OnPopup?.Invoke();
     }
