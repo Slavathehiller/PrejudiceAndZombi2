@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedWeapon : BaseWeapon
+public abstract class RangedWeapon : BaseWeapon
 {
     public RangedAttackModifier rangedAttackModifier = new RangedAttackModifier();
     public float ShootCost;
@@ -16,6 +16,8 @@ public class RangedWeapon : BaseWeapon
     public Sprite imageWithMagazine;
     public GameObject magazineModel;
     public List<WeaponMagazineType> compatibleMagazineTypes = new List<WeaponMagazineType>();
+
+    public abstract string Caliber { get; }
 
     public override ItemTransferData TransferData
     {

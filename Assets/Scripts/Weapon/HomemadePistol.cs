@@ -5,6 +5,8 @@ using UnityEngine;
 namespace Assets.Scripts.Weapon {
     public class HomemadePistol : RangedWeapon
     {
+        public override string Caliber => "9x18 мм";
+
         protected override void Awake()
         {
             base.Awake();
@@ -12,6 +14,7 @@ namespace Assets.Scripts.Weapon {
             type = WeaponType.Pistol;
             ShootCost = 4;
             prefab = prefabsController.homemade_pistol;
+            Description = "Пистолет, сделаный из подручных материалов";
         }
 
         protected override void Update()

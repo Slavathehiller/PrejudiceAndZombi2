@@ -20,12 +20,13 @@ public enum SpecType
 public abstract class Item : MonoBehaviour
 {
     public virtual string Name {get;set;}
-    public string Description;
+    public string Description = "Нет описания.";
     public Sprite image;
     public Vector2 sizeInInventory;
     public readonly static Vector2 defaultSize;
     public PrefabsController prefabsController;
     public GameObject prefab;
+    public ItemInfo itemInfo;
 
     static Item()
     {
@@ -36,8 +37,14 @@ public abstract class Item : MonoBehaviour
     {
         get
         {
-            return new List<MenuPointData>() { PopupController.CreateMenuPointData("Бросить", Drop, DropEnable) };
+            return new List<MenuPointData>() { PopupController.CreateMenuPointData("Бросить", Drop, DropEnable), 
+                                                PopupController.CreateMenuPointData("Инфо", ShowInfo) };
         }
+    }
+
+    private void ShowInfo()
+    {
+        itemInfo.ShowItemInfo(this);
     }
 
     private void Drop()
@@ -78,6 +85,8 @@ public abstract class Item : MonoBehaviour
         itemRef = refItem;
         itemRef.canvasGroup.blocksRaycasts = true;
         itemRef.gameObject.SetActive(false);
+        var itemInfoPanel = GameObject.Find("ItemInfoPanel");
+        itemInfo = itemInfoPanel.GetComponent<ItemInfo>();
     }
 
     private void OnDestroy()

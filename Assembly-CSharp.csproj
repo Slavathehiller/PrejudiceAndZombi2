@@ -163,6 +163,7 @@
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerCamera.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityStats.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
+    <Compile Include="Assets\Scripts\Control\ItemInfo.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Character\SlowTime.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\ArmorCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\Navigation.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Assets\Scripts\Weapon\HomemadePistol.cs" />
     <Compile Include="Assets\Scripts\ShowEntityInfo.cs" />
     <Compile Include="Assets\Scripts\SMO\Wood.cs" />
+    <Compile Include="Assets\Scripts\Consumable\Liquid.cs" />
     <Compile Include="Assets\Scripts\Tools\File.cs" />
     <Compile Include="Assets\Scripts\Srategic\SectorObjects\HighOfficeBuilding.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\SackCell.cs" />
@@ -208,7 +210,6 @@
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Tools\Hammer.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Consumable\Liquid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Player\Format.txt" />

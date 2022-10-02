@@ -7,7 +7,6 @@ public enum WeaponMagazineType
 {
     HomemadePistolMagazine = 0,
     HomemadeSMGMagazine = 1
-
 }
 
 public class WeaponMagazine : TacticalItem
