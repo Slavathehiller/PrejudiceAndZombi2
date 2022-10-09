@@ -46,15 +46,7 @@ public class ItemInfo : MonoBehaviour
         Image.sprite = item.image;
         Name.text = item.Name;
         Description.text = item.Description;
-        Stats.text = "";
-        if(item is RangedWeapon)
-        {
-            Stats.text = $"Калибр: {(item as RangedWeapon).Caliber}\nОдиночный выстрел {(item as RangedWeapon).ShootCost} ОД";
-        }
-        if (item is ArmorItem)
-        {
-            Stats.text = $"Защита: {(item as ArmorItem).armor}";
-        }
+        Stats.text = item.StatsInfo;
         BasePanel.SetActive(true);
     }
 

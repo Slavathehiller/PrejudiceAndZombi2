@@ -4,6 +4,7 @@ using Assets.Scripts.Weapon;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
 
 public abstract class RangedWeapon : BaseWeapon
 {
@@ -15,9 +16,20 @@ public abstract class RangedWeapon : BaseWeapon
     public Sprite imageWithoutMagazine;
     public Sprite imageWithMagazine;
     public GameObject magazineModel;
-    public List<WeaponMagazineType> compatibleMagazineTypes = new List<WeaponMagazineType>();
+    public List<WeaponMagazineType> compatibleMagazineTypes = new List<WeaponMagazineType>(); 
 
-    public abstract string Caliber { get; }
+    public override string StatsInfo 
+    {
+        get
+        {
+            string caliber = "нет магазина";
+            if(magazine != null)
+            {
+                caliber = magazine.Caliber;
+            }
+            return $"Калибр: {caliber}\nОдиночный выстрел {ShootCost} ОД";
+        } 
+    }
 
     public override ItemTransferData TransferData
     {

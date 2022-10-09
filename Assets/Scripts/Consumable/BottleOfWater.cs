@@ -12,6 +12,7 @@ public class BottleOfWater : Liquid
         Name = "Бутылка воды";
         prefab = prefabsController.bottleOfWater;
         waterRestore = 50f;
+        Description = "Бутылка чистой воды.";
     }
 
     

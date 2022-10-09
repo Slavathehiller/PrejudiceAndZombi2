@@ -14,5 +14,6 @@ public class Bullet_9x18 : Ammo
         data.attackModifier = new RangedAttackModifier();
         data.prefab = prefabsController.Bullet_9x18;
         prefab = prefabsController.Bullet_9x18;
+        Description = "Подходят для большинства пистолетов и ПП советского и российского производства.";
     }
 }

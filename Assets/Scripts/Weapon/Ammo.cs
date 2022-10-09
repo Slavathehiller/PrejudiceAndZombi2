@@ -21,6 +21,19 @@ public abstract class Ammo : TacticalItem
 {
     public AudioClip shotSound;
     public AmmoData data = new AmmoData();
+    public override string StatsInfo
+    {
+        get
+        {
+            string result = $"Урон: {data.BaseDamage}\n";
+            if (data.attackModifier.ToHitModifier > 0)
+                result += $"+ {data.attackModifier.ToHitModifier} к точности\n";
+            if (data.attackModifier.CritModifier > 0)
+                result += $"+ {data.attackModifier.CritModifier} к шансу критического урона\n";
+            return result;
+        }
+    }
+
     protected override void Awake()
     {
         base.Awake();

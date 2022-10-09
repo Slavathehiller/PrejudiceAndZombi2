@@ -115,10 +115,14 @@ namespace Assets.Scripts.Entity
             isActing = true;
             if (_pcontroller.MoveIfPossible(targetPoint))
             {
-                currentActionPoint -= Vector3.Distance(gameObject.transform.position, targetPoint) * MovePerAP();
-                while (_pcontroller.agent.hasPath)
+                var distance = Vector3.Distance(gameObject.transform.position, targetPoint);
+                if (distance >= 1)
                 {
-                    yield return null;
+                    currentActionPoint -= distance * MovePerAP();
+                    while (_pcontroller.agent.hasPath)
+                    {
+                        yield return null;
+                    }
                 }
             }
             isActing = false;

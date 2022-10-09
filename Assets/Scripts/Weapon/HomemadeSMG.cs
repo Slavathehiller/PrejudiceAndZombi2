@@ -2,8 +2,6 @@ namespace Assets.Scripts.Weapon
 {
     public class HomemadeSMG : RangedWeapon
     {
-        public override string Caliber => "9x18 мм";
-
         protected override void Awake()
         {
             base.Awake();
@@ -11,6 +9,7 @@ namespace Assets.Scripts.Weapon
             type = WeaponType.SMG;
             ShootCost = 4;
             prefab = prefabsController.homemade_SMG;
+            Description = "Пистолет-пулемет, сделаный из подручных материалов. Меткость и убойная сила оставляет желать лучшего.";
         }
 
         protected override void Update()

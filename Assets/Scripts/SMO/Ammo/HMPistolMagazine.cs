@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HMPistolMagazine : WeaponMagazine
 {
+    public override string Caliber => "9x18 μμ";
+
     protected override void Awake()
     {
         base.Awake();

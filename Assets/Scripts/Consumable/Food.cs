@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Food : Consumable
 {
-    public override string CosumeCaption => "ׁתוסעü";
+    public override string ConsumeCaption => "ׁתוסעü";
 
 }

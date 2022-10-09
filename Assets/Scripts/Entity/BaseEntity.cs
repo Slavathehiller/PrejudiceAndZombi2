@@ -37,7 +37,7 @@ namespace Assets.Scripts.Entity
         public bool isActive = true;
         public bool isActing = false;
         public bool isMyTurn = false;
-        public float currentActionPoint;
+        public float currentActionPoint { set; get; }
         public string Name = "";
         public Sprite portrait;
         [HideInInspector]

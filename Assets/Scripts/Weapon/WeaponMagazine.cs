@@ -9,7 +9,7 @@ public enum WeaponMagazineType
     HomemadeSMGMagazine = 1
 }
 
-public class WeaponMagazine : TacticalItem
+public abstract class WeaponMagazine : TacticalItem
 {
     public AmmoData CurrentAmmoData;
     public int CurrentAmmoCount;
@@ -17,6 +17,10 @@ public class WeaponMagazine : TacticalItem
     public bool extractable;
     public int capacity;
     public WeaponMagazineType type;
+
+    public abstract string Caliber { get; }
+
+    public override string StatsInfo { get => $"Калибр: {Caliber}\nЕмкость: {capacity}"; }
 
     public override ItemTransferData TransferData
     {

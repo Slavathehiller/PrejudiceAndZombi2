@@ -8,6 +8,9 @@ namespace Assets.Scripts.Weapon
 {
     public class KitchenKnife : BaseWeapon
     {
+
+
+
         protected override void Awake()
         {
             base.Awake();
@@ -15,6 +18,7 @@ namespace Assets.Scripts.Weapon
             MeleeAttackModifier.damage = 10;
             type = WeaponType.Knife;
             prefab = prefabsController.kitchenKnife;
+            Description = "Обычный кухонный нож. Лучше чем ничего, но не намного.";
         }
     }
 }

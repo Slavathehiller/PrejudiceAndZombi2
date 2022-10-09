@@ -11,5 +11,6 @@ public class Apple : Food
         prefab = prefabsController.apple;
         foodRestore = 5f;
         waterRestore = 3f;
+        Description = "Свежее яблоко. Немного утоляет жажду и голод.";
     }
 }

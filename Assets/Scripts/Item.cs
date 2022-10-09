@@ -28,6 +28,8 @@ public abstract class Item : MonoBehaviour
     public GameObject prefab;
     public ItemInfo itemInfo;
 
+    public virtual string StatsInfo { get => ""; }
+
     static Item()
     {
         defaultSize = new Vector2(30, 30);

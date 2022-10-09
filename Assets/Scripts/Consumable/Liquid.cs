@@ -7,7 +7,7 @@ public abstract class Liquid : Consumable
 {
     public abstract GameObject Container { get; }
 
-    public override string CosumeCaption => "Выпить";
+    public override string ConsumeCaption => "Выпить";
 
     public override void Consume()
     {
