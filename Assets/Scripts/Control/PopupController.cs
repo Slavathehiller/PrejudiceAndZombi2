@@ -10,6 +10,7 @@ public struct MenuPointData
 {
     public string Caption { get; set; }
     public UnityAction Command { get; set; }
+    public Predicate<Item> IsVisible { get; set; }
     public Predicate<Item> IsEnabled { get; set; }
 }
 
@@ -23,9 +24,9 @@ public class PopupController : MonoBehaviour, IPointerExitHandler
     }
     
     public event Action OnPopup;
-    public static MenuPointData CreateMenuPointData(string caption, UnityAction command, Predicate<Item> isEnabled = null)
+    public static MenuPointData CreateMenuPointData(string caption, UnityAction command, Predicate<Item> isEnabled = null, Predicate<Item> isVisible = null)
     {
-        return new MenuPointData { Caption = caption, Command = command, IsEnabled = isEnabled };
+        return new MenuPointData { Caption = caption, Command = command, IsEnabled = isEnabled, IsVisible = isVisible };
     }
 
     public void Popup(GameObject parent)
@@ -62,7 +63,11 @@ public class PopupController : MonoBehaviour, IPointerExitHandler
             menuPoint.CheckIfEnable = (x) => true;
         else
             menuPoint.CheckIfEnable = data.IsEnabled;
-        OnPopup += menuPoint.SetEnable;
+        if (data.IsVisible is null)
+            menuPoint.CheckIfVisible = (x) => true;
+        else
+            menuPoint.CheckIfVisible = data.IsVisible;
+        OnPopup += menuPoint.SetStatus;
     }
 
     private void Hide()

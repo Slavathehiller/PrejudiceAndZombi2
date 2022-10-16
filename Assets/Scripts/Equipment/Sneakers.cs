@@ -9,5 +9,6 @@ public class Sneakers : ArmorItem
         base.Awake();
         Name = "Кеды";
         prefab = prefabsController.sneakers;
+        Description = "Обычные дешевые кеды. Могут защитить от стеклянных осколков и укуса чихуахуа.";
     }
 }

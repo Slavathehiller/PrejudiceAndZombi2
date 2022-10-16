@@ -27,7 +27,7 @@ public abstract class RangedWeapon : BaseWeapon
             {
                 caliber = magazine.Caliber;
             }
-            return $"Калибр: {caliber}\nОдиночный выстрел {ShootCost} ОД";
+            return $"Калибр: {caliber}\nОдиночный выстрел: {ShootCost} ОД";
         } 
     }
 

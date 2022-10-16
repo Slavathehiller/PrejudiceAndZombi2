@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemInfo : MonoBehaviour
+public class ItemInfo : InterfaceItem
 {
     [SerializeField] private Image _image;
     public Image Image
@@ -55,15 +55,4 @@ public class ItemInfo : MonoBehaviour
         BasePanel.SetActive(false);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

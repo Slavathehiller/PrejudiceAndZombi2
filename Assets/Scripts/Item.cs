@@ -39,7 +39,7 @@ public abstract class Item : MonoBehaviour
     {
         get
         {
-            return new List<MenuPointData>() { PopupController.CreateMenuPointData("Бросить", Drop, DropEnable), 
+            return new List<MenuPointData>() { PopupController.CreateMenuPointData("Бросить", Drop, DropEnable, DropVisible), 
                                                 PopupController.CreateMenuPointData("Инфо", ShowInfo) };
         }
     }
@@ -52,6 +52,11 @@ public abstract class Item : MonoBehaviour
     private void Drop()
     {
         itemRef.character.DropItem();
+    }
+
+    private bool DropVisible(Item item)
+    {
+        return item.itemRef.character is CharacterT;
     }
 
     private bool DropEnable(Item item)

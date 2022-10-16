@@ -9,5 +9,6 @@ public class ArmWindings : ArmorItem
         base.Awake();
         Name = "Обмотки рук";
         prefab = prefabsController.armWindings;
+        Description = "Защищают от укусов и царапин...так себе защищают, если честно.";
     }
 }

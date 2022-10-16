@@ -9,5 +9,6 @@ public class ConstructionHelmet : ArmorItem
         base.Awake();
         Name = "Строительная каска";
         prefab = prefabsController.constructionHelmet;
+        Description = "Пластиковая строительная каска. Не лучшее чем можно защитить голову, но иногда выбирать не приходится, правда?";
     }
 }

@@ -23,10 +23,14 @@ public class MenuPoint : MonoBehaviour
     }
 
     public Predicate<Item> CheckIfEnable;
-    public void SetEnable()
+    public Predicate<Item> CheckIfVisible;
+    public void SetStatus()
     {
         gameObject.SetActive(false);
-        GetComponent<Button>().interactable = CheckIfEnable(item);
-        gameObject.SetActive(true);
+        if (CheckIfVisible(Item))
+        {
+            GetComponent<Button>().interactable = CheckIfEnable(item);
+            gameObject.SetActive(true);
+        }
     }
 }

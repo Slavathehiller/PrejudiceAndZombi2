@@ -5,16 +5,22 @@ using UnityEngine.EventSystems;
 
 public class InterfaceItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-
     public InterfaceController icontroller;
+
+    private void Start()
+    {
+        icontroller = FindObjectOfType<InterfaceController>();
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        icontroller.UIInact = true;
+        if(icontroller != null)
+            icontroller.UIInact = true;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        icontroller.UIInact = false;
+        if (icontroller != null)
+            icontroller.UIInact = false;
     }
 }
