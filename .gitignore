@@ -10,4 +10,4 @@ Assets/AutoSave/**
 Logs/**
 Library/StateCache/**
 Library/Artifacts/**
-
+Library/Artifacts/*
