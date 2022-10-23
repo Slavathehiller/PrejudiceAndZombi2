@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseEntityS : MonoBehaviour
 {
     protected EntityStats Stats;
+    public bool isSleeping = false;
     public float Stealth
     {
         get
@@ -25,14 +26,15 @@ public class BaseEntityS : MonoBehaviour
     {
         get
         {
-            return Stats.Constitution / 50 * (Food / 100);
+            return Stats.Constitution / 50 * (Food / 100) * (isSleeping ? 2 : 1);
         }
     }
     public float EnergyRestoreRatio
     {
         get
         {
-            return Stats.Constitution / 40 * (Water / 100);
+            
+            return Stats.Constitution / 80 * (Water / 100) * (isSleeping ? 4 : 1);
         }
     }
 
@@ -40,7 +42,7 @@ public class BaseEntityS : MonoBehaviour
     {
         get
         {
-            return Stats.Constitution / 60;
+            return Stats.Constitution / 60 * (isSleeping ? 0.5f : 1);
         }
     }
 
@@ -48,7 +50,7 @@ public class BaseEntityS : MonoBehaviour
     {
         get
         {
-            return Stats.Constitution / 20;
+            return Stats.Constitution / 20 * (isSleeping ? 0.7f : 1);
         }
     }
 

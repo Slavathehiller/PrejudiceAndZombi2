@@ -30,13 +30,16 @@ public class GameController : MonoBehaviour
     public GameObject inventoryContainer;
     public GameObject sectorContainer;
     public Image sectorObjectImage;
+
     [SerializeField]
     private Toggle SetTimeNormalButton;
+    [SerializeField]
+    private Toggle SetTimeFastButton;
 
     private Ticker _ticker;
 
     public Text dateIndicator;
-    private DateTime _currentDateTime;
+    public DateTime CurrentDateTime;
 
     public Text armorText;
     public Text SectorObjectName;
@@ -84,7 +87,7 @@ public class GameController : MonoBehaviour
         {
             return new LocationTransferData()
             {
-                currentDateTime = _currentDateTime,
+                currentDateTime = CurrentDateTime,
                 SceneName = _templateName,
                 sectors = new List<SectorTransferData>(FindObjectsOfType<Sector>().Select(x => x.TransferData)),
                 currentSectorPosition = CurrentSector.transform.position
@@ -179,8 +182,8 @@ public class GameController : MonoBehaviour
 
     public void RefreshDateTime()
     {
-        _currentDateTime = _currentDateTime.AddMinutes(1);
-        dateIndicator.text = _currentDateTime.ToString("dd.MM.yyyy HH:mm");
+        CurrentDateTime = CurrentDateTime.AddMinutes(1);
+        dateIndicator.text = CurrentDateTime.ToString("dd.MM.yyyy HH:mm");
     }
 
     void Start()
@@ -190,14 +193,14 @@ public class GameController : MonoBehaviour
             DateTime dateTime = new DateTime();
             dateTime = dateTime.AddYears(2047);
             dateTime = dateTime.AddMonths(3);
-            _currentDateTime = dateTime;
+            CurrentDateTime = dateTime;
         }
         if (Global.lastStateOnLoad == StateOnLoad.LoadFromTactic)
         {
             Global.ReloadCharacter(character);
             character.CurrentEnergy -= character.BattleEnergyCost;
             LoadSectors();
-            _currentDateTime = Global.locationTransferData.currentDateTime;
+            CurrentDateTime = Global.locationTransferData.currentDateTime;
 
             AddItemsToPlayerSack(Global.character.Sack);
 
@@ -299,6 +302,11 @@ public class GameController : MonoBehaviour
     public void SetTimeNormal()
     {
         SetTimeNormalButton.isOn = true;
+    }
+
+    public void SetTimeFast()
+    {
+        SetTimeFastButton.isOn = true;
     }
 
 }

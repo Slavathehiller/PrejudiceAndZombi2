@@ -11,6 +11,7 @@ public class CharacterS : BaseEntityS, ICharacter
     public GameController gameController;
     public PrefabsController _prefabsController;
     private TacticalItem _rightHandItem;
+    
 
     public TacticalItem RightHandItem => _rightHandItem;
 
@@ -84,10 +85,10 @@ public class CharacterS : BaseEntityS, ICharacter
     {
         Stats = new EntityStats()
         {
-            inStrength = 3,
+            inStrength = 4,
             inDexterity = 10,
             inAgility = 10,
-            inConstitution = 1,
+            inConstitution = 5,
             inIntellect = 8,
             inConcentration = 10,
             inPerception = 6
