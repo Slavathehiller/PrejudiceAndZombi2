@@ -19,11 +19,11 @@ public class CameraController : MonoBehaviour
         
         if (Input.GetKey(KeyCode.E))
         {
-            ang.eulerAngles = new Vector3(ang.eulerAngles.x, transform.eulerAngles.y + cameraRotateSpeed * Time.deltaTime, ang.eulerAngles.z);
+            ang.eulerAngles = new Vector3(ang.eulerAngles.x, gameCamera.transform.eulerAngles.y + cameraRotateSpeed * Time.deltaTime, ang.eulerAngles.z);
         }
         if (Input.GetKey(KeyCode.Q))
         {
-            ang.eulerAngles = new Vector3(ang.eulerAngles.x, transform.eulerAngles.y - cameraRotateSpeed * Time.deltaTime, ang.eulerAngles.z);
+            ang.eulerAngles = new Vector3(ang.eulerAngles.x, gameCamera.transform.eulerAngles.y - cameraRotateSpeed * Time.deltaTime, ang.eulerAngles.z);
         }
 
         gameCamera.transform.rotation = ang;

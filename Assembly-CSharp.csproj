@@ -146,6 +146,7 @@
     <Compile Include="Assets\Scripts\Srategic\MessageWindowS.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\DiveRoll.cs" />
     <Compile Include="Assets\Scripts\Srategic\Sack.cs" />
+    <Compile Include="Assets\Scripts\Control\SleepControl.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
     <Compile Include="Assets\Scripts\EndBattleInfo.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleJeans.cs" />
@@ -210,9 +211,9 @@
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Tools\Hammer.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Control\SleepControl.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Models\Zombi\CommonAnimation\Format.txt" />
     <None Include="Assets\Models\Player\Format.txt" />
     <None Include="Assets\POLYGON city pack\Read_me.txt" />
     <None Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\README.txt" />
