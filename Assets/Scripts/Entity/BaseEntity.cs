@@ -15,7 +15,7 @@ namespace Assets.Scripts.Entity
     }
 
 
-    public abstract class BaseEntity : MonoBehaviour, IInteractableEntity
+    public abstract class BaseEntity : MonoBehaviour, IInteractableEntity, ISpeakable
     {
         public EntityStats Stats;
 
@@ -380,6 +380,11 @@ namespace Assets.Scripts.Entity
         public string GetName()
         {
             return Name;
+        }
+
+        public Sprite GetPortrait()
+        {
+            return portrait;
         }
     }
 }
