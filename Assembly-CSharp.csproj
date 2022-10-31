@@ -107,6 +107,8 @@
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\IKHands.cs" />
     <Compile Include="Assets\Scripts\Control\CameraController.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\Code\PlayerMachine.cs" />
+    <Compile Include="Assets\Scripts\Control\Scenario\BaseScenarioController.cs" />
+    <Compile Include="Assets\Scripts\Control\Dialog.cs" />
     <Compile Include="Assets\Scripts\Srategic\Sector.cs" />
     <Compile Include="Assets\Scripts\Consumable\Reservoir\Reservoir.cs" />
     <Compile Include="Assets\Scripts\Weapon\RangedWeapon.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="Assets\Scripts\InventoryCells\EquipmentCell.cs" />
     <Compile Include="Assets\Scripts\Consumable\Food.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
+    <Compile Include="Assets\Scripts\Entity\ISpeakable.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
     <Compile Include="Assets\Scripts\Interchange\EquipmentItemTransferData.cs" />
     <Compile Include="Assets\Scripts\ItemFactory.cs" />
@@ -194,6 +197,7 @@
     <Compile Include="Assets\Scripts\Weapon\BaseWeapon.cs" />
     <Compile Include="Assets\Scripts\Srategic\BaseEntityS.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\RightHandCell.cs" />
+    <Compile Include="Assets\Scripts\Control\Scenario\OpeningScenarioController.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\SimpleActionHandler.cs" />
     <Compile Include="Assets\Scripts\EntityHitBox.cs" />
     <Compile Include="Assets\Scripts\Equipment\ArmWindings.cs" />
@@ -211,10 +215,7 @@
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Tools\Hammer.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\Control\Dialog.cs" />
-    <Compile Include="Assets\Scripts\Entity\ISpeakable.cs" />
-    <Compile Include="Assets\Scripts\Control\Scenario\OpeningScenarioController.cs" />
-    <Compile Include="Assets\Scripts\Control\Scenario\BaseScenarioController.cs" />
+    <Compile Include="Assets\Scripts\ToolTip.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Zombi\CommonAnimation\Format.txt" />

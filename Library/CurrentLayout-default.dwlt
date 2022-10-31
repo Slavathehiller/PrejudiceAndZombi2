@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1357
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 75
+  controlID: 65
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 76
+  controlID: 66
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 77
+  controlID: 67
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 18178
+  m_LastSelectedObjectID: 17780
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -522,9 +522,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a8680000
-      m_LastClickedID: 0
-      m_ExpandedIDs: beadffff0ee6fffff2f2ffff6afbffff14450000409e0000a89e0000
+      m_SelectedIDs: 10b9ffff
+      m_LastClickedID: -18160
+      m_ExpandedIDs: 76c4ffff64fbffffca4600000a470000fc9e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -584,9 +584,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -10.440589, y: -11.631874, z: 4.4146895}
+    m_Target: {x: 699.9177, y: 804.1572, z: 293.32935}
     speed: 2
-    m_Value: {x: -10.440589, y: -11.631874, z: 4.4146895}
+    m_Value: {x: 699.9177, y: 804.1572, z: 293.32935}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -633,13 +633,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.36133635, y: -0.5264801, z: 0.2633791, w: 0.7232612}
+    m_Target: {x: 0.028509675, y: 0.0111543955, z: -0.000022449663, w: 0.99964666}
     speed: 2
-    m_Value: {x: 0.3609011, y: -0.52750623, z: 0.26389173, w: 0.722391}
+    m_Value: {x: 0.028506389, y: 0.01115311, z: -0.000022447075, w: 0.99953145}
   m_Size:
-    m_Target: 11.566449
+    m_Target: 779.3034
     speed: 2
-    m_Value: 11.566449
+    m_Value: 779.3034
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -702,22 +702,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Prefabs/ControlComponents
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Prefabs/ControlComponents
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Unity Projects\PrejudiceAndZombi2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 460}
-    m_SelectedIDs: ce580000
-    m_LastClickedID: 22734
-    m_ExpandedIDs: 000000003458000036580000385800003a5800003c5800003e58000040580000425800004458000046580000485800004a5800004c5800004e58000050580000cc58000000ca9a3b
+    m_SelectedIDs: ae960000
+    m_LastClickedID: 38574
+    m_ExpandedIDs: 0000000030530000325300003453000036530000385300003a5300003c5300003e53000040530000425300004453000046530000485300004a5300004c5300008a53000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -745,7 +745,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003458000036580000385800003a5800003c5800003e58000040580000425800004458000046580000485800004a5800004c5800004e58000050580000
+    m_ExpandedIDs: 0000000030530000325300003453000036530000385300003a5300003c5300003e53000040530000425300004453000046530000485300004a5300004c530000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

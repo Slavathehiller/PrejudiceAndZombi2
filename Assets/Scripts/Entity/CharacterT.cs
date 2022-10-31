@@ -77,14 +77,18 @@ namespace Assets.Scripts.Entity
                 inPerception = 6 };
             base.Start();
             _pcontroller = GetComponent<PlayerController>();
-            Name = "Выживший";
-            Type = EntityType.Human;
-            Side = 0;
 
             if (Global.lastStateOnLoad == StateOnLoad.LoadFromStrategy)
             {
                 Global.ReloadCharacter(this);                
             }
+        }
+
+        private void Awake()
+        {
+            Name = "Выживший";
+            Type = EntityType.Human;
+            Side = 0;
         }
 
         public override void TakeAttack(MeleeAttackResult attackResult)

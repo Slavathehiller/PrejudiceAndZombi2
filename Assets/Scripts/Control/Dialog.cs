@@ -27,6 +27,7 @@ public class Dialog : MonoBehaviour
             return;
         }
         _portrait.sprite = _speaches[_currentSpeach].actor.GetPortrait();
+        _name.text = _speaches[_currentSpeach].actor.GetName();
         _speach.text = _speaches[_currentSpeach].phrase;
         _currentSpeach++;
         if (_currentSpeach >= _speaches.Count - 1)
