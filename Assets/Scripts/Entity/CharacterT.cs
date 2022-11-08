@@ -50,6 +50,8 @@ namespace Assets.Scripts.Entity
             {
                 return new CharacterTransferData
                 {
+                    Name = this.Name,
+                    Portrait = this.Portrait,
                     Stats = this.Stats,
                     Inventory = this.inventory.TransferData,
                     RightHand = this.RightHandItem is null ? null : this.RightHandItem.TransferData,

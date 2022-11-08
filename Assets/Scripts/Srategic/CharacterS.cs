@@ -11,7 +11,6 @@ public class CharacterS : BaseEntityS, ICharacter
     public GameController gameController;
     public PrefabsController _prefabsController;
     private TacticalItem _rightHandItem;
-    
 
     public TacticalItem RightHandItem => _rightHandItem;
 
@@ -93,6 +92,7 @@ public class CharacterS : BaseEntityS, ICharacter
             inConcentration = 10,
             inPerception = 6
         };
+        Name = "Выживший";        
         Stats.CurrentHealth = Stats.MaxHealth;
         Stats.CurrentEnergy = Stats.MaxEnergy;
         Food = 100;
@@ -113,6 +113,8 @@ public class CharacterS : BaseEntityS, ICharacter
         {
             return new CharacterTransferData
             {
+                Name = this.Name,
+                Portrait = this.Portrait,
                 Stats = this.Stats,
                 Inventory = this.inventory.TransferData,
                 RightHand = this.RightHandItem is null ? null : this.RightHandItem.TransferData,

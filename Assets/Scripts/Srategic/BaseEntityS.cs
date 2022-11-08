@@ -6,6 +6,14 @@ public class BaseEntityS : MonoBehaviour
 {
     protected EntityStats Stats;
     public bool isSleeping = false;
+    public string Name { get; set; } = "";
+
+    [SerializeField] private Sprite portrait;
+    public Sprite Portrait
+    {
+        get => portrait;
+        set => portrait = value;
+    }
     public float Stealth
     {
         get

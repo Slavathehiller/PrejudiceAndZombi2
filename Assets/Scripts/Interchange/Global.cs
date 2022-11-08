@@ -29,6 +29,8 @@ public static class Global
         }
 
         character.Stats = Global.character.Stats;
+        character.Name = Global.character.Name;
+        character.Portrait = Global.character.Portrait;
         var inventory = character.inventory;
         inventory.EquipItem(CheckAndInst(Global.character.Inventory.shirt) as EquipmentItem, SpecType.EqShirt);
         inventory.EquipItem(CheckAndInst(Global.character.Inventory.belt) as EquipmentItem, SpecType.EqBelt);

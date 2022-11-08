@@ -5,6 +5,8 @@ using UnityEngine;
 
 public interface ICharacter
 {
+    string Name { get; set; }
+    Sprite Portrait { get; set; }
     EntityStats Stats { get; set; }
     public Inventory inventory { get; }
     public void RemoveFromNearObjects(ItemReference item, bool hideGameObject = false);

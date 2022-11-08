@@ -38,8 +38,14 @@ namespace Assets.Scripts.Entity
         public bool isActing = false;
         public bool isMyTurn = false;
         public float currentActionPoint { set; get; }
-        public string Name = "";
-        public Sprite portrait;
+        public string Name { get; set; } = "";
+
+        [SerializeField] private Sprite portrait;
+        public Sprite Portrait 
+        { 
+            get => portrait; 
+            set => portrait = value; 
+        }
         [HideInInspector]
         public EntityType Type;
         public int Side;

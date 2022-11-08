@@ -54,7 +54,7 @@ public class InterfaceController : MonoBehaviour
         HealthBarImage.fillAmount = playerController.character.CurrentHealth / playerController.character.MaxHealth;
         Name.text = playerController.character.Name;
         //ArmorText.text = "Броня " + playerController.character.armor.ToString() + " %";
-        Portrait.sprite = playerController.character.portrait;
+        Portrait.sprite = playerController.character.Portrait;
         UpdateActionPanel();
         rightHandDropButton.gameObject.SetActive(playerController.character.RightHandItem != null);
         leftHandDropButton.gameObject.SetActive(false);

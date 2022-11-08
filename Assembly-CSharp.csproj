@@ -138,6 +138,7 @@
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
     <Compile Include="Assets\Scripts\Entity\ISpeakable.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
+    <Compile Include="Assets\Scripts\Control\CharacterInfoPanel.cs" />
     <Compile Include="Assets\Scripts\Interchange\EquipmentItemTransferData.cs" />
     <Compile Include="Assets\Scripts\ItemFactory.cs" />
     <Compile Include="Assets\Scripts\TextFittter.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Assets\Scripts\Srategic\Sack.cs" />
     <Compile Include="Assets\Scripts\Control\SleepControl.cs" />
     <Compile Include="Assets\ExplosiveLLC\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
+    <Compile Include="Assets\Scripts\Control\ShowDescription.cs" />
     <Compile Include="Assets\Scripts\EndBattleInfo.cs" />
     <Compile Include="Assets\Scripts\Equipment\SimpleJeans.cs" />
     <Compile Include="Assets\Scripts\Control\PlayerController.cs" />
@@ -183,6 +185,7 @@
     <Compile Include="Assets\Scripts\Consumable\Liquid.cs" />
     <Compile Include="Assets\Scripts\Tools\File.cs" />
     <Compile Include="Assets\Scripts\Srategic\SectorObjects\HighOfficeBuilding.cs" />
+    <Compile Include="Assets\Scripts\ToolTip.cs" />
     <Compile Include="Assets\Scripts\InventoryCells\SackCell.cs" />
     <Compile Include="Assets\ExplosiveLLC\RPG Character Mecanim Animation Pack FREE\Code\Actions\Movement\GetHit.cs" />
     <Compile Include="Assets\Scripts\Consumable\BottleOfWater.cs" />
@@ -215,7 +218,6 @@
     <Compile Include="Assets\Scripts\Equipment\SimpleShirt.cs" />
     <Compile Include="Assets\Scripts\Tools\Hammer.cs" />
     <Compile Include="Assets\Scripts\Weapon\MissleProperty.cs" />
-    <Compile Include="Assets\Scripts\ToolTip.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Zombi\CommonAnimation\Format.txt" />
