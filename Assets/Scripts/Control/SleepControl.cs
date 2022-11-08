@@ -15,9 +15,19 @@ public class SleepControl : MonoBehaviour
     public Toggle EightHourToggle;
 
 
+    private GameController GameController
+    {
+        get
+        {
+            if (gameController is null)
+                gameController = GameObject.Find("GameController").GetComponent<GameController>();
+            return gameController;
+        }
+    }
+
     private void Start()
     {
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        
     }
     public void OnChoose(int value) 
     {
@@ -27,8 +37,8 @@ public class SleepControl : MonoBehaviour
     IEnumerator sleepProcess()
     {
         var finalDateTime = gameController.CurrentDateTime.AddHours(hoursAmount);
-        gameController.character.isSleeping = true;
-        gameController.SetTimeFast();
+        GameController.character.isSleeping = true;
+        GameController.SetTimeFast();
         sleepButton.interactable = false;
         cancelButton.interactable = false;
         OneHourToggle.interactable = false;
@@ -50,8 +60,9 @@ public class SleepControl : MonoBehaviour
             TwoHoursToggle.interactable = true;
             FourHourToggle.interactable = true;
             EightHourToggle.interactable = true;
-            gameController.SetTimeNormal();
-            gameController.character.isSleeping = false;
+            GameController.SetTimeNormal();
+            GameController.character.isSleeping = false;
+            GameController.UIInact = true;
         }  
     }
 
@@ -62,11 +73,13 @@ public class SleepControl : MonoBehaviour
 
     public void Cancel()
     {
+        GameController.UIInact = true;
         gameObject.SetActive(false);
     }
 
     public void Show()
     {
+        GameController.UIInact = true;
         gameObject.SetActive(true);
     }
 }
