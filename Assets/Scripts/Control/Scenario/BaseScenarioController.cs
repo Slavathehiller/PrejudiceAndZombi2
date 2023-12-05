@@ -1,3 +1,5 @@
+using Assets.Scripts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +7,21 @@ using UnityEngine;
 public class BaseScenarioController : MonoBehaviour
 {
     [SerializeField] protected Dialog _dialog;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] protected LifeController _lifeController;
+    [SerializeField] protected InterfaceController _interfaceController;
+    [SerializeField] protected PrefabsController prefabsController;
+    [SerializeField] protected GameObject _cameraContainer;
+
+
+
+    protected void WaitAndGo(float delay, Action action = null)
     {
-        
+        StartCoroutine(waitAndGo(delay, action));
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator waitAndGo(float delay, Action action)
     {
-        
+        yield return new WaitForSeconds(delay);
+        action?.Invoke();
     }
 }

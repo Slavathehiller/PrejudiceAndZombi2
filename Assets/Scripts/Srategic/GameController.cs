@@ -260,7 +260,6 @@ public class GameController : MonoBehaviour
             playerSack.transform.SetParent(sectorContainer.transform);
             sectorSack.transform.SetParent(sectorContainer.transform);
         }
-
     }
 
     public bool isLocked() 

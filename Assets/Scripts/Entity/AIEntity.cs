@@ -28,6 +28,7 @@ public abstract class AIEntity : BaseEntity
     // Update is called once per frame
     protected override void Update()
     {
+        base.Update();
         if (!isMyTurn || isActing)
             return;
 

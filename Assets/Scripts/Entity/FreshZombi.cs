@@ -102,8 +102,8 @@ namespace Assets.Scripts.Entity
             Stats = new EntityStats()
             {
                 inStrength = 4,
-                inDexterity = 10,
-                inAgility = 10,
+                inDexterity = 5,
+                inAgility = 5,
                 inConstitution = 1,
                 inIntellect = 3,
                 inConcentration = 7,

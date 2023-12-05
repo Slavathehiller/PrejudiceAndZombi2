@@ -1,5 +1,6 @@
 using Assets.Scripts.Entity;
 using Assets.Scripts.Weapon;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class EntityController : MonoBehaviour
     public GameObject rightHandHandler;
     public PrefabsController prefabsController;
     public GameObject Hitbox;
+    public event Action OnEndMoving;
+    private bool isMoving;
 
     public void PlaceToRightHand(GameObject thing)
     {
@@ -111,14 +114,20 @@ public class EntityController : MonoBehaviour
     // Update is called once per frame
     virtual protected void Update()
     {
-        animator.SetBool("IsWalking", agent.hasPath);
-        pathDrawer.enabled = agent.hasPath;
+        if (!entity.lcontroller.Entities.Contains(entity))
+            return;
+        if (isMoving && !agent.hasPath)
+            OnEndMoving?.Invoke();
+        isMoving = agent.hasPath;
+        animator.SetBool("IsWalking", isMoving);
+        pathDrawer.enabled = isMoving;
         if (entity.CurrentHealth <= 0)
         {
             entity.lcontroller.RemoveEntity(entity);
+            entity.econtroller.Ancoring(false);
             if (entity.lcontroller.AllEnemiesAreDead())
             {
-                icontroller.DoWinBattle();
+                icontroller.OnAllEnemyDead();
             }
             animator.SetTrigger("Die");
         }
@@ -170,12 +179,13 @@ public class EntityController : MonoBehaviour
         return result;
     }
 
-
     public void Ancoring(bool f)
     {
         agent.enabled = false;
         meshModifier.enabled = false;
         Hitbox.SetActive(false);
+        var movePointerActive = icontroller.movePointer.gameObject.activeSelf;
+        icontroller.movePointer.gameObject.SetActive(false);
         if (f)
         {
             meshModifier.enabled = true;
@@ -187,7 +197,8 @@ public class EntityController : MonoBehaviour
             meshSurface.BuildNavMesh();
             agent.enabled = true;
             Hitbox.SetActive(true);
-        }                
+        }
+        icontroller.movePointer.gameObject.SetActive(movePointerActive);
     }
 
     public bool MoveIfPossibleLimited(Vector3 targetPoint, float maxDistance, out Vector3 realPoint)
@@ -244,11 +255,11 @@ public class EntityController : MonoBehaviour
         return false;
     }
 
-    public bool MoveIfPossible(Vector3 targetPoint)
+    public bool MoveIfPossible(Vector3 targetPoint, bool checkReachable = true)
     { 
         var correctedPoint = allignetPointMid(targetPoint);
         NavMeshPath path = new NavMeshPath();
-        if (CalculateCompletePath(correctedPoint, path) && PathReachable(path))
+        if (CalculateCompletePath(correctedPoint, path) && (PathReachable(path) || !checkReachable))
          {
             agent.SetPath(path);
             EndPathPoint = agent.pathEndPosition;
@@ -272,7 +283,7 @@ public class EntityController : MonoBehaviour
 
     void OnMouseEnter()
     {        
-        if (icontroller.UIInact || icontroller.playerController.character.isActing)
+        if (icontroller.UIInact || !entity.lcontroller.isActiveAndEnabled || icontroller.playerController.character.isActing)
         {
             return;
         }

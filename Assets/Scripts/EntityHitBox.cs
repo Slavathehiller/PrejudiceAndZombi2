@@ -7,6 +7,11 @@ public class EntityHitBox : MonoBehaviour
 {
     public BaseEntity entity;
 
+    private void Start()
+    {
+        entity.OnDie += OnEntityDie;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Missle")
@@ -14,7 +19,7 @@ public class EntityHitBox : MonoBehaviour
             var bullet = other.gameObject.GetComponent<Bullet>();
             var damage = bullet.property.ammo.BaseDamage;
             var critChance = bullet.property.ammo.attackModifier.CritModifier;
-            if (bullet.property.target is BaseEntity && entity == (BaseEntity)bullet.property.target)  //≈сли попали куда целились, добавл€ем к шансу криртикала модификатор от оружи€
+            if (bullet.property.target is BaseEntity && entity == (BaseEntity)bullet.property.target)  //≈сли попали куда целились, добавл€ем к шансу критикала модификатор от оружи€
                 critChance += bullet.property.weaponModifier.CritModifier;
             if(Random.Range(0f, 100f) <= critChance)
             {
@@ -26,5 +31,10 @@ public class EntityHitBox : MonoBehaviour
             entity.econtroller.animator.SetTrigger("Hit");
             Destroy(other.gameObject, 1);
         }
+    }
+
+    private void OnEntityDie(BaseEntity entity)
+    {
+        GetComponent<CapsuleCollider>().enabled = false;
     }
 }

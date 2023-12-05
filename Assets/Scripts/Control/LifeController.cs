@@ -12,7 +12,7 @@ namespace Assets.Scripts
 
         public void RemoveEntity(BaseEntity entity)
         {
-            Entities.Remove(entity);
+            Entities.Remove(entity);            
         }
 
         public bool AllEnemiesAreDead()

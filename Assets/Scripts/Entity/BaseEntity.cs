@@ -19,6 +19,8 @@ namespace Assets.Scripts.Entity
     {
         public EntityStats Stats;
 
+        public event Action<BaseEntity> OnDie;
+
         public RightHandCell rightHandCell
         {
             get
@@ -58,6 +60,7 @@ namespace Assets.Scripts.Entity
         public AudioClip punchSound;
         public AudioClip missedPunchSound;
 
+        //public CapsuleCollider hitBox;
 
         public abstract EntityController econtroller { get; }
 
@@ -174,9 +177,9 @@ namespace Assets.Scripts.Entity
                 rightHandItem = value;
             }
         }
-        public void DropRightItem()
+        public void DropRightItem(bool forceDrop = false)
         {
-            if (!isActing)
+            if (!isActing || forceDrop)
             {
                // inventory.TryRemoveItem(RightHandItem);
                 RemoveFromRightHand(true);
@@ -269,7 +272,7 @@ namespace Assets.Scripts.Entity
         }
 
 
-            public void ProceedMeleeAttack(BaseEntity enemy)
+        public void ProceedMeleeAttack(BaseEntity enemy)
         {
             ProceedMeleeAttack(enemy, new MeleeAttackModifier());
         }
@@ -365,6 +368,9 @@ namespace Assets.Scripts.Entity
             if (CurrentHealth <= 0)
             {
                 isActive = false;
+                Collider.isTrigger = true;
+                econtroller.agent.enabled = false;
+                OnDie?.Invoke(this);
             }
         }
 

@@ -1,4 +1,5 @@
 using Assets.Scripts.Entity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,35 +19,38 @@ public class Dialog : MonoBehaviour
 
     private List<Speach> _speaches;
     private int _currentSpeach = -1;
+    private Action _callback;
     public void SayNext()
     {
         if (_currentSpeach < 0)
         {
             gameObject.SetActive(false);
             Time.timeScale = 1;
+            _callback?.Invoke();
             return;
         }
         _portrait.sprite = _speaches[_currentSpeach].actor.GetPortrait();
         _name.text = _speaches[_currentSpeach].actor.GetName();
         _speach.text = _speaches[_currentSpeach].phrase;
         _currentSpeach++;
-        if (_currentSpeach >= _speaches.Count - 1)
+        if (_currentSpeach >= _speaches.Count)
         {        
             _currentSpeach = -1 ;
         }
     }
 
-    public void Say(Speach speach)
+    public void Say(Speach speach, Action callback)
     {
-        Say(new List<Speach>() { speach });
+        Say(new List<Speach>() { speach }, callback);
     }
 
-    public void Say(List<Speach> speaches)
+    public void Say(List<Speach> speaches, Action callback)
     {
         gameObject.SetActive(true);
         Time.timeScale = 0;
         _speaches = speaches;
         _currentSpeach = 0;
+        _callback = callback;
         SayNext();
     }
 

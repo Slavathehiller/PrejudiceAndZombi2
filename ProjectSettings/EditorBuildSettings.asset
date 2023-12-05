@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/OpeningTacticScene.unity
+    guid: 7bab66679fb34fe4c9f58816e14d45c9
+  - enabled: 1
     path: Assets/Scenes/TacticScene.unity
     guid: 9d694abc4f4495a46973d3f7b4e0e193
   - enabled: 1
     path: Assets/Scenes/StrategicScene.unity
     guid: 62027c7dd24520246884b5afecd0ed00
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/StrategicScene TownTemplate.unity
-    guid: f01cc1e1d9fa7be44a1317521934436c
+    guid: fe29668e5c446f24c9497be5b4149925
   m_configObjects: {}

@@ -66,6 +66,15 @@ namespace Assets.Scripts.Entity
             _pcontroller.Ancoring(false);
         }
 
+
+        private void Awake()
+        {
+            Name = "Выживший";
+            Type = EntityType.Human;
+            Side = 0;
+            _pcontroller = GetComponent<PlayerController>();
+        }
+
         // Start is called before the first frame update
         protected override void Start()
         {
@@ -77,8 +86,7 @@ namespace Assets.Scripts.Entity
                 inIntellect = 8, 
                 inConcentration = 3, 
                 inPerception = 6 };
-            base.Start();
-            _pcontroller = GetComponent<PlayerController>();
+            base.Start();           
 
             if (Global.lastStateOnLoad == StateOnLoad.LoadFromStrategy)
             {
@@ -86,12 +94,6 @@ namespace Assets.Scripts.Entity
             }
         }
 
-        private void Awake()
-        {
-            Name = "Выживший";
-            Type = EntityType.Human;
-            Side = 0;
-        }
 
         public override void TakeAttack(MeleeAttackResult attackResult)
         {
@@ -137,8 +139,9 @@ namespace Assets.Scripts.Entity
         // Update is called once per frame
         protected override void Update()
         {
-            if (!isActing)
-                return;
+            base.Update();
+            //if (!isActing)
+            //    return;
         }
 
         public void SkipTurn()
@@ -174,7 +177,7 @@ namespace Assets.Scripts.Entity
 
         public void Stab()
         {
-            if (isActing || currentActionPoint < PunchCost)
+            if (isActing || currentActionPoint < PunchCost || !isMyTurn)
                 return;
             StartCoroutine(stab());
         }
@@ -196,7 +199,7 @@ namespace Assets.Scripts.Entity
 
         public void Kick()
         {
-            if (isActing || currentActionPoint < KickCost)
+            if (isActing || currentActionPoint < KickCost || !isMyTurn)
                 return;
             StartCoroutine(kick());
         }
@@ -217,7 +220,7 @@ namespace Assets.Scripts.Entity
 
         public void Shoot()
         {
-            if (isActing)
+            if (isActing || !isMyTurn)
                 return;
             if (currentActionPoint < ((RangedWeapon)RightHandItem).ShootCost)
             {

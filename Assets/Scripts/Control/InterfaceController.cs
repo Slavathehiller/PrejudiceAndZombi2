@@ -1,5 +1,6 @@
 using Assets.Scripts.Interchange;
 using Assets.Scripts.Weapon;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ using UnityEngine.UI;
 
 public class InterfaceController : MonoBehaviour
 {
+    [SerializeField]private bool IsScripting;
     public PointerController movePointer;
     public PlayerController playerController;
     public GameObject inventoryPanel;
@@ -31,9 +33,12 @@ public class InterfaceController : MonoBehaviour
 
     public Material AccessMoveMaterial;
     public Material RestrictMoveMaterial;
+    public event Action AllEnemyDead;
 
     [HideInInspector]
     public bool UIInact { get; set; } = false;
+    [HideInInspector]
+    public bool UIBlockedByScenario { get; set; } = false;
 
     [SerializeField]
     private EndBattleInfo _endBattleInfo;
@@ -87,7 +92,7 @@ public class InterfaceController : MonoBehaviour
         Physics.Raycast(ray, out hit);
         var pointerPosition = hit.point;
         var movePosition = playerController.allignetPointMid(pointerPosition);
-        movePointer.SetActive(playerController.PlayerCanMove && !UIInact);
+        movePointer.SetActive(playerController.PlayerCanMove && !UIInact && !UIBlockedByScenario);
         if (movePointer.activeSelf && movePointer.position != movePosition)
         {
             movePointer.position = movePosition;
@@ -125,6 +130,13 @@ public class InterfaceController : MonoBehaviour
     public void HideActionPanel()
     {
         actionPanel.SetActive(false);
+    }
+
+    public void OnAllEnemyDead()
+    {
+        AllEnemyDead?.Invoke();
+        if (!IsScripting)
+            DoWinBattle();
     }
 
     public void DoWinBattle()
