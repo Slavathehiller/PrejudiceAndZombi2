@@ -11,3 +11,5 @@ Logs/**
 Library/StateCache/**
 Library/Artifacts/**
 Library/Artifacts/*
+Logs/*
+obj/**

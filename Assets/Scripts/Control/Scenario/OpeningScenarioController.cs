@@ -48,7 +48,8 @@ public class OpeningScenarioController : BaseScenarioController
     private void Phase3()
     {
         _zombiGirl.econtroller.OnEndMoving -= Phase3;
-        _character.transform.LookAt(_zombiGirl.transform);
+        //_character.transform.LookAt(_zombiGirl.transform);
+        _character.econtroller.TurnToObject( _zombiGirl );
         _dialog.Say(new List<Speach>(){
             new Speach() { actor = _character, phrase = "Что за..." },
             new Speach() { actor = _zombiGirl, phrase = "[Издает нечленораздельные звуки]" }
@@ -96,7 +97,7 @@ public class OpeningScenarioController : BaseScenarioController
         _cameraContainer.transform.SetParent(null);
         WaitAndGo
         (1,
-        () => _character.transform.LookAt(_mirror)
-        );
+        () => _character.econtroller.TurnToObject(_mirror) //_character.econtroller.TurnLeft()//_character.transform.LookAt(_mirror)
+        ) ;
     }
 }

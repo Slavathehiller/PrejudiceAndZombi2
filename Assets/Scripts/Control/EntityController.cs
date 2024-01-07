@@ -318,4 +318,60 @@ public class EntityController : MonoBehaviour
         icontroller.playerController.SelectObject(entity);
     }
 
+    public void TurnFor(float angle)
+    {
+        StartCoroutine(Turn(angle));
+    }
+
+    public void TurnLeft()
+    {
+        TurnFor(-90);
+    }
+
+    public void TurnRight()
+    {
+        TurnFor(90);
+    }
+
+    public void TurnAround()
+    {
+        TurnFor(180);
+    }
+
+    public void TurnToObject(GameObject obj)
+    {
+        var targetDir = obj.transform.position - transform.position;
+        var angle = Vector3.Angle(transform.forward, targetDir);
+        var cross = Vector3.Cross(transform.forward, targetDir);
+        if (cross.y < 0) // Проверяем знак y координаты векторного произведения
+        {
+            angle = -angle; // Если знак отрицательный, инвертируем угол
+        }
+        TurnFor(angle);
+    }
+
+
+    public void TurnToObject(MonoBehaviour mono)
+    {
+        TurnToObject(mono.gameObject);
+    }
+
+    public void TurnToObject(Transform trans)
+    {
+        TurnToObject(trans.gameObject);
+    }
+
+    private IEnumerator Turn(float angle)
+    {
+        var angleTurned = 0;
+        var turnSpeed = 8;
+        if (angle < 0)
+            turnSpeed *= -1;
+        do
+        {
+            yield return new WaitForSeconds(0.1f);
+            gameObject.transform.Rotate(new Vector3(0, turnSpeed, 0));
+            angleTurned += turnSpeed;
+        } while (Math.Abs(angleTurned) < Math.Abs(angle));
+    }
 }
